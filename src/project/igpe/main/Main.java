@@ -14,7 +14,7 @@ public class Main extends Application{
 		AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
 		Scene scene = new Scene(root, 1024,720); 
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("Test Name Prova");
+		primaryStage.setTitle("Titolo di Prova");
 		primaryStage.setMinHeight(800);;
 		primaryStage.setMinWidth(800);
 		primaryStage.show();
