@@ -1,10 +1,5 @@
 package project.igpe.classes;
 
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
 import javafx.scene.image.Image;
 
 public class Hero {
@@ -21,36 +16,17 @@ public class Hero {
 	public final static int MOVE_LEFT = 1;
 	public final static int MOVE_UP = 2;
 	public final static int MOVE_DOWN = 3;
+
+
 	
-	private Image[] images = new Image[4];
 	public Hero() {
 		x=0;
 		y=0;
 		size=50;
+		
 	}
 	
-	public void move(int direction) {
-		switch (direction) {
-			case MOVE_RIGHT:
-				x += speed;
-				img = images[direction];
-				break;
-			case MOVE_LEFT:
-				x -= speed;
-				img = images[direction];
-				break;
-			case MOVE_UP:
-				y -= speed;
-				img = images[direction];
-				break;
-			case MOVE_DOWN:
-				y += speed;
-				img = images[direction];
-				break;
-			default:
-				break;
-		}		
-	}
+	
 
 	public String getName() {
 		return name;
@@ -116,14 +92,6 @@ public class Hero {
 		this.y = y;
 	}
 
-	public Image[] getImages() {
-		return images;
-	}
-
-	public void setImages(Image[] images) {
-		this.images = images;
-	}
-	
 	
 	
 	
