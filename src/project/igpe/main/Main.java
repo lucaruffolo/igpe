@@ -29,6 +29,7 @@ public class Main extends Application{
 //		primaryStage.setMinHeight(800);;
 //		primaryStage.setMinWidth(800);
 		primaryStage.show();
+		game.draw();
 	}
 	
 

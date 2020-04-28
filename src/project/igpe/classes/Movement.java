@@ -16,28 +16,53 @@ public class Movement {
 		int newPosX=posHeroX;
 		int newPosY=posHeroY;
 		
-		if(direction == MOVE_RIGHT)
+		if(direction == MOVE_RIGHT) {
 			newPosX=pg.getX()+1;
+		}
 		else if(direction == MOVE_LEFT)
 			newPosX=pg.getX()-1;
 		else if(direction == MOVE_UP)
-			newPosX=pg.getY()-1;
+			newPosY=pg.getY()-1;
 		else if(direction == MOVE_DOWN)
-			newPosX=pg.getY()+1;
+			newPosY=pg.getY()+1;
+		
+		GraphicHero.setImgDir(direction);
 		
 		if(!collision(newPosX, newPosY)) {
 			posHeroX=newPosX;
 			posHeroY=newPosY;
 		}
+		pg.setX(posHeroX);
+		pg.setY(posHeroY);
 	}
 
 	public boolean collision(int newX, int newY) {
-		return firstmap.getCellType(newX, newY) == Cell.WALL || (newX<0 || newX>Settings.cellSize-1) || (newY<0 || newY>Settings.cellSize-1) ;
+		if((newX<0 || newX>Settings.cellSize-1) || (newY<0 || newY>Settings.cellSize-1))
+			return true;
+		else
+			return firstmap.getCellType(newX, newY) == Cell.WALL;
 	}
 	
 	
+	public Maps getFirstmap() {
+		return firstmap;
+	}
+
+	public void setFirstmap(Maps firstmap) {
+		this.firstmap = firstmap;
+	}
+
+	public Hero getPg() {
+		return pg;
+	}
+
+	public void setPg(Hero pg) {
+		this.pg = pg;
+	}
+
 	public Movement(Hero pg, Maps map ) {
 		this.pg = pg;
 		this.firstmap = map;
+		this.firstmap.getCella()[0][0].setType(1);
 	}
 }
