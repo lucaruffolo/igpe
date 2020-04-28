@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+prova 1 1 
+=======
 //////////////// CHANGELOG:
 
 - 28/04/2020 - Fix Interfaccia ora PARTE! :D
-ciao guys sono pierpy
+<<<<<<< HEAD
+ciao guys sono pierpyvuvv
+>>>>>>> branch 'master' of https://github.com/cyberzje/igpe.git
+=======
+ciao guys sono pierpy e sara è scema
+>>>>>>> branch 'master' of https://github.com/cyberzje/igpe.git
