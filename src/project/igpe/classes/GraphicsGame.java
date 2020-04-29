@@ -35,7 +35,11 @@ public class GraphicsGame extends StackPane{
 //						break;
 					case Cell.WALL:
 						canvas.getGraphicsContext2D().setFill(Color.BLUE);
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/4, y, Settings.block*0.5, Settings.block*0.9);						
+						canvas.getGraphicsContext2D().fillRect(x+Settings.block/4, y, Settings.block*1, Settings.block*1);						
+						break;
+					case Cell.OBSTACLE:
+						canvas.getGraphicsContext2D().setFill(Color.RED);
+						canvas.getGraphicsContext2D().fillRect(x+Settings.block/4, y, Settings.block*1, Settings.block*1);						
 						break;
 					default:
 						break;

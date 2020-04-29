@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 public class SceneHandler {
+	
     private static HashMap<String, Pane> allWindows = new HashMap<String,Pane>();
     
     private static Scene main;

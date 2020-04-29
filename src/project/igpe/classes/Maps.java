@@ -13,6 +13,17 @@ public class Maps {
 			}
 		}
 		
+		for(int i = 0; i < cella.length; i++) {
+			for(int j = 0; j < cella[i].length; j++) {
+				if ((j == 0 || j == cella.length-1) || (i == 0 || i == cella.length-1) || (i == 0 && j == 0))  {
+					cella[i][j] = new Cell(Cell.WALL);
+				}
+			}
+			
+		}
+		
+		cella[7][5] = new Cell(Cell.OBSTACLE);
+		
 	}	
 		/* DA modificare per aggiugere ostacoli
 		count = 0;
@@ -25,12 +36,6 @@ public class Maps {
 			}
 			count++;	
 		}*/
-		
-		
-		/*
-		// Aggiungere MURO 
-	
-		*/
 	
 	
 	

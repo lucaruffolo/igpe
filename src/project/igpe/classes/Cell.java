@@ -8,6 +8,7 @@ public class Cell {
 	public static final int WALL = 3;
 	public static final int ENEMY = 4;
 	public static final int DOOR = 5;
+	public static final int OBSTACLE = 6;
 	
 	private int type;
 	

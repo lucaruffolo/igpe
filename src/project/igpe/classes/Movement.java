@@ -40,7 +40,7 @@ public class Movement {
 		if((newX<0 || newX>Settings.cellSize-1) || (newY<0 || newY>Settings.cellSize-1))
 			return true;
 		else
-			return firstmap.getCellType(newX, newY) == Cell.WALL;
+			return firstmap.getCellType(newX, newY) == Cell.WALL || firstmap.getCellType(newX, newY) == Cell.OBSTACLE ;
 	}
 	
 	
