@@ -1,6 +1,26 @@
 /////// LISTA COSE DA FARE
+- Buttons Menu:
 
+		Menu PAUSA mentre si GIOCA con  bottoni riprendi o opzioni* o torna al menu o esci dal gioco
+	
+LUCA	Gioca = nuovo pannello scelta personaggio dx femmina sx maschio + Nome al centro 
+	
+PIERPY	Opzioni* = crea label impostazioni audio -  crea label (fullscreen?) 
+	
+SARA	Crediti = pannello con un bottone indietro che torna al menu iniziale EXTRA Aggiungere video text
+	
+PIERPY	Esci = funzione quit
+
+	
 
 ////// PROPOSTE
  
+ Tutorial:
+	X Stanza Tutorial 
+	X una Prima immagine dove si spiegano i tasti
+	X un video breve dove si spiegano i tasti
+	
+	
 
+	
+	
