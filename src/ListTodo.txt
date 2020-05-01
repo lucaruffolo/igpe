@@ -19,8 +19,3 @@ PIERPY	Esci = funzione quit
 	X Stanza Tutorial 
 	X una Prima immagine dove si spiegano i tasti
 	X un video breve dove si spiegano i tasti
-	
-	
-
-	
-	
