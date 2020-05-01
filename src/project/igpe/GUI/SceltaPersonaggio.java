@@ -15,7 +15,10 @@ import project.igpe.classes.Movement;
 import project.igpe.main.Main;
 
 public class SceltaPersonaggio {
-
+	
+	
+	
+	private Boolean sesso=false;
     @FXML
     private Label lblsdPersonaggio;
 
@@ -48,18 +51,26 @@ public class SceltaPersonaggio {
 
     @FXML
     void selectSEXMale(ActionEvent event) {
-
+    	
+    	sesso = false;
     }
 
     @FXML
     void selectSEXFemale(ActionEvent event) {
-
+    	
+    	sesso = true;
     }
 
     @FXML
-    void clickGame(ActionEvent event) {
-    	//Genera il GAME quando si clicca sul bottone e switcha da menu -> game
-		GraphicsGame game = new GraphicsGame(new Movement(new Hero(), new Maps()));
+    void clickGame(ActionEvent event) {    	
+    	
+    	//Creo eroe ed imposto nome e sesso presi da utente
+    	Hero eroe = new Hero();
+    	eroe.setName(textName.getText());
+    	eroe.setSex(sesso);
+    	
+    	//Disegno GIOCO    	
+		GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
 		Scene scenegame = new Scene(game, 1280,960);
 		Main.window.setScene(scenegame);
 		game.draw();

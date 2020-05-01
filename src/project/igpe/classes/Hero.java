@@ -4,8 +4,8 @@ import javafx.scene.image.Image;
 
 public class Hero {
 	private String name;
-	private Boolean sex=false; //falso=maschio   true=femmina
-	private int life;
+	private Boolean sex; //falso=maschio   true=femmina
+	private int life=100;
 	private int speed=1;
 	private int size;
 	private Image img;
@@ -20,6 +20,8 @@ public class Hero {
 
 	
 	public Hero() {
+		name = "nome";
+		sex = false;
 		x=2;
 		y=2;
 		size=50;
@@ -28,20 +30,20 @@ public class Hero {
 	
 	
 
-	public String getName() {
+	public  String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String nome) {
+		this.name = nome;
 	}
 
-	public Boolean getSex() {
+	public  Boolean getSex() {
 		return sex;
 	}
 
-	public void setSex(Boolean sex) {
-		this.sex = sex;
+	public void setSex(Boolean sesso) {
+		this.sex = sesso;
 	}
 
 	public int getLife() {
