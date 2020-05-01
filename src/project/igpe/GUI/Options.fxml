@@ -30,7 +30,7 @@
          </font>
       </Label>
       <Slider fx:id="sliderMusic" layoutX="391.0" layoutY="378.0" onDragDetected="#DragMusic" prefHeight="100.0" prefWidth="300.0" />
-      <Label alignment="CENTER" layoutX="362.0" layoutY="493.0" prefHeight="50.0" prefWidth="300.0" text="Label">
+      <Label alignment="CENTER" layoutX="362.0" layoutY="493.0" prefHeight="50.0" prefWidth="300.0" text="Video">
          <font>
             <Font name="Brussels Regular" size="28.0" />
          </font>
