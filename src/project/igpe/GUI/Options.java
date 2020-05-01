@@ -54,7 +54,7 @@ public class Options {
 
     @FXML
     void ClickBack(ActionEvent event) throws Exception {
-    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("MenuIniziale.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
+    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("Opzioni.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
 		AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
 		Scene menuIniziale = new Scene(root, 1024,720); 
 		Main.window.setScene(menuIniziale);
