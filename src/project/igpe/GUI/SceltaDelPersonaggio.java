@@ -14,7 +14,7 @@ import project.igpe.classes.Maps;
 import project.igpe.classes.Movement;
 import project.igpe.main.Main;
 
-public class SceltaPersonaggio {
+public class SceltaDelPersonaggio {
 	
 	
 	

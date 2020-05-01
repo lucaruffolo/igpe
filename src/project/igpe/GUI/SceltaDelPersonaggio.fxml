@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.SceltaPersonaggio">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.SceltaDelPersonaggio">
    <children>
       <Label fx:id="lblsdPersonaggio" alignment="CENTER" contentDisplay="CENTER" layoutY="17.0" prefHeight="126.0" prefWidth="1024.0" text="Scelta del Personaggio">
          <font>
