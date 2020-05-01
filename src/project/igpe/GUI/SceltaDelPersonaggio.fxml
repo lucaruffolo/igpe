@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.SceltaPersonaggio">
+   <children>
+      <Label fx:id="lblsdPersonaggio" alignment="CENTER" contentDisplay="CENTER" layoutY="17.0" prefHeight="126.0" prefWidth="1024.0" text="Scelta del Personaggio">
+         <font>
+            <Font name="Monotype Corsiva" size="83.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textName" layoutX="410.0" layoutY="288.0" prefHeight="34.0" prefWidth="205.0" />
+      <Label fx:id="lblname" layoutX="442.0" layoutY="254.0" prefHeight="34.0" prefWidth="141.0" text="Inserisci il nome">
+         <font>
+            <Font name="Monotype Corsiva" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="bttBack" layoutX="14.0" layoutY="681.0" mnemonicParsing="false" onAction="#clickBack" prefHeight="25.0" prefWidth="109.0" text="Torna Indietro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="901.0" AnchorPane.topAnchor="681.0" />
+      <Button fx:id="bttMale" layoutX="112.0" layoutY="544.0" mnemonicParsing="false" onAction="#selectSEXMale" prefHeight="34.0" prefWidth="176.0" text="Maschio" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="736.0" />
+      <Button fx:id="bttFemale" layoutX="803.0" layoutY="544.0" mnemonicParsing="false" onAction="#selectSEXFemale" prefHeight="34.0" prefWidth="176.0" text="Femmina" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="736.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="544.0" />
+      <Button fx:id="bttGame" layoutX="394.0" layoutY="604.0" mnemonicParsing="false" onAction="#clickGame" prefHeight="43.0" prefWidth="238.0" text="GIOCA">
+         <font>
+            <Font name="System Bold Italic" size="38.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
