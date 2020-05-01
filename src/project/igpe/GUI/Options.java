@@ -1,6 +1,7 @@
 package project.igpe.GUI;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,6 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.main.Main;
 
@@ -38,12 +42,12 @@ public class Options {
     private Button bttBack;
 
     @FXML
-    void DragEffects(ActionEvent event) {
-
+    void DragEffects(MouseEvent event) {
+    	System.out.println(sliderEffects.getValue());
     }
 
     @FXML
-    void DragMusic(ActionEvent event) {
+    void DragMusic(DragEvent event) {
 
     }
 
