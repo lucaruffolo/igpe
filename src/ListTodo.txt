@@ -5,7 +5,7 @@
 	
 LUCA	Gioca = nuovo pannello scelta personaggio dx femmina sx maschio + Nome al centro 
 	
-PIERPY	Opzioni* = crea label impostazioni audio -  crea label (fullscreen?) 
+PIERPY	Opzioni* = crea label impostazioni audio -  crea label (fullscreen?) = effetti-musica
 	
 SARA	Crediti = pannello con un bottone indietro che torna al menu iniziale EXTRA Aggiungere video text
 	
