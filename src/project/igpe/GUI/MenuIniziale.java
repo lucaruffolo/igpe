@@ -55,7 +55,7 @@ public class MenuIniziale {
 	    @FXML
 	    void ClickCredits(ActionEvent event) throws Exception {
 	    	
-	    	FXMLLoader loader = new FXMLLoader(Credits.class.getResource("crediti.fxml")); 
+	    	FXMLLoader loader = new FXMLLoader(Credits.class.getResource("Credits.fxml")); 
 			AnchorPane root = (AnchorPane) loader.load(); 
 			Scene crediti = new Scene(root, 1024,720); 
 			Main.window.setScene(crediti);
