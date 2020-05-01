@@ -1,5 +1,6 @@
 package project.igpe.GUI;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,8 +34,22 @@ public class MenuIniziale {
 	    	FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("SceltaDelPersonaggio.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
 			AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
 			Scene menuSceltaPersonaggio = new Scene(root, 1024,720); 
-			Main.window.setScene(menuSceltaPersonaggio);
-			
+			Main.window.setScene(menuSceltaPersonaggio);	
+	    }
+	    
+	    @FXML
+	    void ClickOptions(ActionEvent event) throws Exception {
+	    	
+	    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("MenuImpostazioni.fxml")); 
+			AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
+			Scene menuImpostazioni = new Scene(root, 1024,720); 
+			Main.window.setScene(menuImpostazioni);
+	    }
+	    
+	    @FXML
+	    void ClickExit(ActionEvent event) throws Exception {
+	    	
+	    	Platform.exit();
 	    }
 
 	

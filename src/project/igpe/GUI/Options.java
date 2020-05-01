@@ -2,11 +2,14 @@ package project.igpe.GUI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
+import project.igpe.main.Main;
 
 public class Options {
 
@@ -50,8 +53,11 @@ public class Options {
     }
 
     @FXML
-    void ClickBack(ActionEvent event) {
-
+    void ClickBack(ActionEvent event) throws Exception {
+    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("MenuIniziale.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
+		AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
+		Scene menuIniziale = new Scene(root, 1024,720); 
+		Main.window.setScene(menuIniziale);
     }
 
     @FXML
