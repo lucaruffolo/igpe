@@ -40,7 +40,7 @@ public class MenuIniziale {
 	    @FXML
 	    void ClickOptions(ActionEvent event) throws Exception {
 	    	
-	    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("Opzioni.fxml")); 
+	    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("Options.fxml")); 
 			AnchorPane root = (AnchorPane) loader.load(); 
 			Scene menuImpostazioni = new Scene(root, 1024,720); 
 			Main.window.setScene(menuImpostazioni);
