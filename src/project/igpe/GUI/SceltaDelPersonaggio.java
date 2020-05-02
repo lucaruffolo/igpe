@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import project.igpe.classes.GraphicHero;
 import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Hero;
 import project.igpe.classes.Maps;
@@ -16,9 +18,7 @@ import project.igpe.main.Main;
 
 public class SceltaDelPersonaggio {
 	
-	
-	
-	private Boolean sesso=false;
+	private static Boolean sesso=false;
     @FXML
     private Label lblsdPersonaggio;
 
@@ -39,7 +39,14 @@ public class SceltaDelPersonaggio {
 
     @FXML
     private Button bttBack;
+    
+    @FXML
+    private ImageView imgFemmina;
+    
+    @FXML
+    private ImageView imgMaschio;
 
+    
     @FXML
     void clickBack(ActionEvent event) throws Exception {
     	FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("MenuIniziale.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
@@ -52,12 +59,16 @@ public class SceltaDelPersonaggio {
     @FXML
     void selectSEXMale(ActionEvent event) {
     	
+    	imgFemmina.setOpacity(0.20);
+    	imgMaschio.setOpacity(1);
     	sesso = false;
     }
 
     @FXML
     void selectSEXFemale(ActionEvent event) {
-    	
+
+    	imgMaschio.setOpacity(0.20);
+    	imgFemmina.setOpacity(1);
     	sesso = true;
     }
 
@@ -68,7 +79,7 @@ public class SceltaDelPersonaggio {
     	Hero eroe = new Hero();
     	eroe.setName(textName.getText());
     	eroe.setSex(sesso);
-    	
+    	GraphicHero.selectSex(eroe.getSex());
     	//Disegno GIOCO    	
 		GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
 		Scene scenegame = new Scene(game, 1280,960);

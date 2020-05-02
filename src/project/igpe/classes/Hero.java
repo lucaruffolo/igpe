@@ -17,7 +17,6 @@ public class Hero {
 	public final static int MOVE_UP = 2;
 	public final static int MOVE_DOWN = 3;
 
-
 	
 	public Hero() {
 		name = "nome";
