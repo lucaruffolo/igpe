@@ -15,38 +15,37 @@ public class GraphicHero {
 			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschiosx.png"))
 			
 		};
-			
-		/*
-		private static Image[] imagesMale = new Image[] {		
-			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png")),
-			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png")),
-			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png")),
-			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png"))
-			
-		};
-		
-		private static Image[] imagesFemale = new Image[] {		
-			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
-			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
-			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
-			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png"))
-				
-		};
-		*/
-		
-		
-		//private static Image[] images;
-		
-		
+		private static Image img = images[0];	
 
 		public static void selectSex(boolean sex) {
-			if (sex)
-				System.out.println("Femmina");
-			else
+			if (sex==false) {
 				System.out.println("maschio");
+
+				images = new Image[] {		
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png")),
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png")),
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png")),
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png"))
+						
+					};
+				img = images[0];
+			}
+			else {
+				System.out.println("Femmina");
+				images = new Image[] {		
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png"))
+							
+					};
+				img = images[0];
+				
+			}
+			
 		}
 		
-		private static Image img = images[0];	
+		
 
 		public static Image getImg() {
 			return img;
