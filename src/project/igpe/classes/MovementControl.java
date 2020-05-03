@@ -1,8 +1,15 @@
 package project.igpe.classes;
 
+import java.io.IOException;
+
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import project.igpe.GUI.MenuIniziale;
+import project.igpe.main.Main;
 
 
 public class MovementControl implements EventHandler<KeyEvent> {
@@ -41,14 +48,25 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			}
 			break;
 		case P:
-			Stage stage = (Stage) graphics.getScene().getWindow();
-		
+	//		Stage stage = (Stage) graphics.getScene().getWindow();
 			System.out.println("Wait in corso");
-			stage.showAndWait();
-		
+	//		stage.showAndWait();
+			
+			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
+			AnchorPane root = null;
+			try {
+				root = (AnchorPane) loader.load();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} //carica l'AnchorPane principale
+			Scene menuIniziale = new Scene(root, 1024,720); 
+			Main.window.setScene(menuIniziale);
+			
+			
+			
+			
 			break;
-			
-			
 		default:
 			break;
 		}
