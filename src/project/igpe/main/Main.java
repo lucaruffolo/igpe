@@ -10,6 +10,7 @@ public class Main extends Application{
 
 	public static Stage window; //Schermate
 	
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	

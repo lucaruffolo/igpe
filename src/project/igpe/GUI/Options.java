@@ -78,7 +78,6 @@ public class Options {
 
     @FXML
     void ClickFullscreen(ActionEvent event) {
-
     }
 
     @FXML
