@@ -19,7 +19,7 @@ public class GraphicHero {
 
 		public static void selectSex(boolean sex) {
 			if (sex==false) {
-				System.out.println("maschio");
+				//System.out.println("maschio");
 
 				images = new Image[] {		
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png")),
@@ -31,7 +31,7 @@ public class GraphicHero {
 				img = images[0];
 			}
 			else {
-				System.out.println("Femmina");
+				//System.out.println("Femmina");
 				images = new Image[] {		
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),

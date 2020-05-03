@@ -11,14 +11,23 @@
    <children>
       <AnchorPane layoutX="-141.0" layoutY="-225.0" prefHeight="720.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="Title" layoutX="387.0" layoutY="150.0" prefHeight="56.0" prefWidth="249.0" text="Titolo Project" textFill="#dd0c0c">
+            <Label fx:id="Title" layoutX="283.0" layoutY="110.0" prefHeight="101.0" prefWidth="459.0" text="Titolo Project" textFill="#dd0c0c">
                <font>
-                  <Font size="39.0" />
+                  <Font name="Monotype Corsiva" size="93.0" />
                </font>
             </Label>
-            <Button fx:id="Start" layoutX="406.0" layoutY="324.0" mnemonicParsing="false" onAction="#ClickStart" onMouseClicked="#ClickStart" prefHeight="73.0" prefWidth="220.0" text="GIOCA" textFill="#141414" />
-            <Button fx:id="Option" layoutX="429.0" layoutY="430.0" mnemonicParsing="false" onAction="#ClickOptions" prefHeight="56.0" prefWidth="176.0" text="OPZIONI" />
-            <Button fx:id="Exit" layoutX="448.0" layoutY="527.0" mnemonicParsing="false" onAction="#ClickExit" prefHeight="49.0" prefWidth="139.0" text="ESCI" />
+            <Button fx:id="Start" layoutX="406.0" layoutY="324.0" mnemonicParsing="false" onAction="#ClickStart" onMouseClicked="#ClickStart" prefHeight="73.0" prefWidth="220.0" text="GIOCA" textFill="#141414">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font></Button>
+            <Button fx:id="Option" layoutX="429.0" layoutY="430.0" mnemonicParsing="false" onAction="#ClickOptions" prefHeight="56.0" prefWidth="176.0" text="IMPOSTAZIONI">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="Exit" layoutX="448.0" layoutY="527.0" mnemonicParsing="false" onAction="#ClickExit" prefHeight="49.0" prefWidth="139.0" text="ESCI">
+               <font>
+                  <Font size="19.0" />
+               </font></Button>
             <Button fx:id="Credits" layoutX="856.0" layoutY="633.0" mnemonicParsing="false" onAction="#ClickCredits" prefHeight="56.0" prefWidth="139.0" text="CREDITI" />
          </children>
       </AnchorPane>
