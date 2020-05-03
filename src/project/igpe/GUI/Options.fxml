@@ -18,7 +18,7 @@
             <Font name="Brussels Regular" size="28.0" />
          </font>
       </Label>
-      <Slider fx:id="sliderEffects" layoutX="391.0" layoutY="280.0" onMouseClicked="#ClickEffects" onMouseDragged="#DragEffects" prefHeight="0.0" prefWidth="300.0" />
+      <Slider fx:id="sliderEffects" layoutX="391.0" layoutY="287.0" onMouseClicked="#ClickEffects" onMouseDragged="#DragEffects" prefHeight="0.0" prefWidth="300.0" />
       <Label fx:id="lblEffects" alignment="CENTER" layoutX="69.0" layoutY="254.0" prefHeight="65.0" prefWidth="322.0" text="Effetti">
          <font>
             <Font name="Monotype Corsiva" size="30.0" />
@@ -29,7 +29,7 @@
             <Font name="Monotype Corsiva" size="30.0" />
          </font>
       </Label>
-      <Slider fx:id="sliderMusic" layoutX="391.0" layoutY="421.0" onMouseClicked="#ClickMusic" onMouseDragReleased="#DragMusic" onMouseDragged="#DragMusic" prefHeight="0.0" prefWidth="300.0" />
+      <Slider fx:id="sliderMusic" layoutX="391.0" layoutY="428.0" onMouseClicked="#ClickMusic" onMouseDragReleased="#DragMusic" onMouseDragged="#DragMusic" prefHeight="0.0" prefWidth="300.0" />
       <Label alignment="CENTER" layoutX="362.0" layoutY="493.0" prefHeight="50.0" prefWidth="300.0" text="Video">
          <font>
             <Font name="Brussels Regular" size="28.0" />
@@ -42,5 +42,14 @@
       </CheckBox>
       <Button fx:id="bttBack" layoutX="14.0" layoutY="681.0" mnemonicParsing="false" onAction="#ClickBack" prefHeight="25.0" prefWidth="109.0" text="Torna Indietro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="901.0" AnchorPane.topAnchor="681.0" />
       <Button fx:id="bttApply" layoutX="901.0" layoutY="681.0" mnemonicParsing="false" onAction="#ClickApply" prefWidth="109.0" text="Applica" />
+      <Label fx:id="numberEffects" layoutX="710.0" layoutY="279.0" prefHeight="31.0" prefWidth="42.0" text="0">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font></Label>
+      <Label fx:id="numberMusic" layoutX="710.0" layoutY="420.0" prefHeight="31.0" prefWidth="42.0" text="0">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

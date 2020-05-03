@@ -13,8 +13,14 @@ import javafx.scene.layout.AnchorPane;
 import project.igpe.main.Main;
 
 public class Options {
+	
+	@FXML
+    private Label numberEffects;
+	
+	@FXML
+    private Label numberMusic;
 
-    @FXML
+	@FXML
     private Slider sliderMusic;
 
     @FXML
@@ -40,22 +46,34 @@ public class Options {
 
     @FXML
     void DragEffects(MouseEvent event) {
-    	System.out.println(sliderEffects.getValue());
+    	Double valore = sliderEffects.getValue();
+    	int valoreprecon = valore.intValue();
+    	String valoreconvertito = String.valueOf(valoreprecon);
+    	numberEffects.setText(valoreconvertito);
     }
     
     @FXML
     void ClickEffects(MouseEvent event) {
-    	System.out.println(sliderEffects.getValue());
+    	Double valore = sliderEffects.getValue();
+    	int valoreprecon = valore.intValue();
+    	String valoreconvertito = String.valueOf(valoreprecon);
+    	numberEffects.setText(valoreconvertito);
     }
 
     @FXML
     void DragMusic(MouseEvent event) {
-    	System.out.println(sliderMusic.getValue());
+    	Double valore = sliderMusic.getValue();
+    	int valoreprecon = valore.intValue();
+    	String valoreconvertito = String.valueOf(valoreprecon);
+    	numberMusic.setText(valoreconvertito);
     }
     
     @FXML
     void ClickMusic(MouseEvent event) {
-    	System.out.println(sliderMusic.getValue());
+    	Double valore = sliderMusic.getValue();
+    	int valoreprecon = valore.intValue();
+    	String valoreconvertito = String.valueOf(valoreprecon);
+    	numberMusic.setText(valoreconvertito);
     }
 
     @FXML
