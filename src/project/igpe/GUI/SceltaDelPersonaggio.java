@@ -1,5 +1,7 @@
 package project.igpe.GUI;
 
+import java.io.File;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.classes.GraphicHero;
@@ -17,6 +20,11 @@ import project.igpe.classes.Movement;
 import project.igpe.main.Main;
 
 public class SceltaDelPersonaggio {
+	
+	private Image imageM = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschio.png"));
+	private Image imageF = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png"));
+	private ImageView imageViewM = new ImageView(imageM);
+	private ImageView imageViewF = new ImageView(imageF);
 	
 	private static Boolean sesso=false;
     @FXML
@@ -41,10 +49,10 @@ public class SceltaDelPersonaggio {
     private Button bttBack;
     
     @FXML
-    private ImageView imgFemmina;
+    private ImageView imgFemmina = new ImageView(imageF);
     
     @FXML
-    private ImageView imgMaschio;
+    private ImageView imgMaschio = new ImageView(imageM);
 
     
     @FXML
