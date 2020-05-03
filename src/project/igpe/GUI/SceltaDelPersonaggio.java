@@ -84,6 +84,7 @@ public class SceltaDelPersonaggio {
 		GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
 		Scene scenegame = new Scene(game, 1280,960);
 		Main.window.setScene(scenegame);
+		Main.window.centerOnScreen();
 		game.draw();
     }
 

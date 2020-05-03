@@ -2,7 +2,7 @@ package project.igpe.classes;
 
 public class Maps {
 	
-	private Cell[][] cella = new Cell[Settings.cellSize][Settings.cellSize];
+	private Cell[][] cella = new Cell[Settings.x][Settings.y];
 
 	
 	public Maps() {
