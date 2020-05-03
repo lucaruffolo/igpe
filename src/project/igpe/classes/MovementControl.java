@@ -39,6 +39,16 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				Stage stage = (Stage) graphics.getScene().getWindow();
 				stage.close();
 			}
+			break;
+		case P:
+			Stage stage = (Stage) graphics.getScene().getWindow();
+		
+			System.out.println("Wait in corso");
+			stage.showAndWait();
+		
+			break;
+			
+			
 		default:
 			break;
 		}
