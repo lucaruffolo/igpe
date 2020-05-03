@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.main.Main;
@@ -43,10 +42,20 @@ public class Options {
     void DragEffects(MouseEvent event) {
     	System.out.println(sliderEffects.getValue());
     }
+    
+    @FXML
+    void ClickEffects(MouseEvent event) {
+    	System.out.println(sliderEffects.getValue());
+    }
 
     @FXML
-    void DragMusic(DragEvent event) {
-
+    void DragMusic(MouseEvent event) {
+    	System.out.println(sliderMusic.getValue());
+    }
+    
+    @FXML
+    void ClickMusic(MouseEvent event) {
+    	System.out.println(sliderMusic.getValue());
     }
 
     @FXML
