@@ -29,12 +29,12 @@
       </Button>
       <ImageView fx:id="imgMaschio" fitHeight="212.0" fitWidth="238.0" layoutX="94.0" layoutY="216.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/Project/maschio.png" />
+            <Image url="@../images/maschio.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imgFemmina" fitHeight="212.0" fitWidth="227.0" layoutX="718.0" layoutY="216.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/Project/fermmina.png" />
+            <Image url="@../images/femmina.png" />
          </image>
       </ImageView>
    </children>
