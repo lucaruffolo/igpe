@@ -15,5 +15,6 @@
             <Font name="Monotype Corsiva" size="55.0" />
          </font>
       </Label>
+      <MediaView fx:id="media" fitHeight="500.0" fitWidth="500.0" layoutX="262.0" layoutY="110.0" />
    </children>
 </AnchorPane>
