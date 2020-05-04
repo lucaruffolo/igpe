@@ -1,15 +1,23 @@
 package project.igpe.main;
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import project.igpe.GUI.MenuIniziale;
 
 public class Main extends Application{
 
 	public static Stage window; //Schermate
-	
+	//suono
+	private Media gamesound;
+	public MediaPlayer mediaPlayer;
+	//fine suono
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -22,6 +30,14 @@ public class Main extends Application{
 //		primaryStage.setResizable(false);
 //		primaryStage.initStyle(StageStyle.UNDECORATED);		
 		primaryStage.show();
+		
+		//prova suono
+		String musicFile = "src/project/igpe/main/CABRIOLET.mp3";
+		gamesound = new Media(new File(musicFile).toURI().toString());
+		mediaPlayer = new MediaPlayer(gamesound);
+		mediaPlayer.setVolume(0.02);
+		mediaPlayer.play();
+		//fine suono
 	
 	}
 	
