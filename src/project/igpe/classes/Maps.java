@@ -7,25 +7,27 @@ public class Maps {
 	
 	public Maps() {
 		
+
 		for(int i = 0; i < cella.length; i++) {
 			for(int j = 0; j < cella[i].length; j++) {
 				cella[i][j] = new Cell(Cell.EMPTY);
 			}
 		}
 		
+			
 		for(int i = 0; i < cella.length; i++) {
 			for(int j = 0; j < cella[i].length; j++) {
-				if ((j == 0 || j == cella.length-1) || (i == 0 || i == cella.length-1) || (i == 0 && j == 0))  {
+				if (j == 0 || i == 0 || j == cella[i].length-1 || i == cella.length-1 )  {
 					cella[i][j] = new Cell(Cell.WALL);
 				}
 			}
-			
 		}
+		
 		
 		cella[7][5] = new Cell(Cell.OBSTACLE);
 		
 	}	
-		/* DA modificare per aggiugere ostacoli
+		/* DA modificare per aggiugere ostacoli random
 		count = 0;
 		while(count < 4) {
 			int randX = r.nextInt(Settings.cellSize-1)+1;

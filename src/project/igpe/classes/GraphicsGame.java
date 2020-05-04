@@ -30,16 +30,18 @@ public class GraphicsGame extends StackPane{
 			for(int j = 0; j < movimento.getFirstmap().getCella()[i].length; j++) {
 				int y = j * Settings.block;
 				switch(movimento.getFirstmap().getCella()[i][j].getType()) {
-//					case Cell.HERO:
-//						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);
-//						break;
+					case Cell.HERO:
+						//canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);
+						canvas.getGraphicsContext2D().setFill(Color.BLUE);
+						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);		
+						break;
 					case Cell.WALL:
 						canvas.getGraphicsContext2D().setFill(Color.BLUE);
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/4, y, Settings.block*1, Settings.block*1);						
+						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
 						break;
 					case Cell.OBSTACLE:
 						canvas.getGraphicsContext2D().setFill(Color.RED);
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/4, y, Settings.block*1, Settings.block*1);						
+						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
 						break;
 					default:
 						break;

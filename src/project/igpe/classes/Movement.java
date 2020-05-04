@@ -37,7 +37,7 @@ public class Movement {
 	}
 
 	public boolean collision(int newX, int newY) {
-		if((newX<0 || newX>Settings.cellSize-1) || (newY<0 || newY>Settings.cellSize-1))
+		if((newX<0 || newX>Settings.x-1) || (newY<0 || newY>Settings.y-1))
 			return true;
 		else
 			return firstmap.getCellType(newX, newY) == Cell.WALL || firstmap.getCellType(newX, newY) == Cell.OBSTACLE ;
