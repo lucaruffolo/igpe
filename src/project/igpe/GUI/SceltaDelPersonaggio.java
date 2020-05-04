@@ -45,6 +45,7 @@ public class SceltaDelPersonaggio {
     
     @FXML
     private ImageView imgMaschio;
+    
 
     
     @FXML
@@ -74,7 +75,8 @@ public class SceltaDelPersonaggio {
 
     @FXML
     void clickGame(ActionEvent event) {    	
-    	
+    	//stoppo la musica del menu
+    	Sound.musicStop();
     	//Creo eroe ed imposto nome e sesso presi da utente
     	Hero eroe = new Hero();
     	eroe.setName(textName.getText());
