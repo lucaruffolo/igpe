@@ -32,7 +32,7 @@ public class Main extends Application{
 		primaryStage.show();
 		
 		//prova suono
-		String musicFile = "src/project/igpe/main/CABRIOLET.mp3";
+		String musicFile = "src/project/igpe/sounds/CABRIOLET.mp3";
 		gamesound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(gamesound);
 		mediaPlayer.setVolume(0.02);
