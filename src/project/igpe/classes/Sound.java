@@ -1,4 +1,4 @@
-package project.igpe.GUI;
+package project.igpe.classes;
 
 import java.io.File;
 

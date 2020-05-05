@@ -14,6 +14,7 @@ import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Hero;
 import project.igpe.classes.Maps;
 import project.igpe.classes.Movement;
+import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
 public class SceltaDelPersonaggio {

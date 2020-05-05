@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import project.igpe.GUI.MenuIniziale;
-import project.igpe.GUI.Sound;
+import project.igpe.classes.Sound;
 
 public class Main extends Application{
 
