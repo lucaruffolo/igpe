@@ -1,8 +1,15 @@
 package project.igpe.classes;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import javafx.scene.canvas.Canvas;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
@@ -12,27 +19,36 @@ public class GraphicsGame extends StackPane{
 	
 	private Movement movimento;
 	
+	
 	public GraphicsGame(Movement movimento) {
 		this.movimento = movimento;
 		canvas = new Canvas();
 		canvas.setFocusTraversable(true);
 		canvas.setOnKeyPressed(new MovementControl(movimento, this));
 		getChildren().add(canvas);
-		  /*   
-		Image sfondo = new Image ("src/project/igpe/images/femmina.png");
-		BackgroundImage backgroundimage = new BackgroundImage(sfondo,  
+		 
+	//	Carica e disegna lo sfondo!
+		Image caricaSfondo = null;
+		try {
+			caricaSfondo = new Image (new FileInputStream("src/project/igpe/images/sfondo.jpg"));
+		} catch (FileNotFoundException e) {
+			System.out.println("JPG - Sfondo non trovato");
+			e.printStackTrace();
+		}
+	
+	
+		BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo,  
                 BackgroundRepeat.NO_REPEAT,  
                 BackgroundRepeat.NO_REPEAT,  
                 BackgroundPosition.DEFAULT,  
                    BackgroundSize.DEFAULT); 
-		Background zorro = new Background(backgroundimage);
-		this.setBackground(zorro); 
-		*/
-		this.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
-
-        canvas.widthProperty().bind(this.widthProperty());
+		Background sfondo = new Background(backgroundimage);
+		this.setBackground(sfondo); 
+	
+	    canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());        
 	}
+	
 	
 	public void draw() {
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -49,13 +65,11 @@ public class GraphicsGame extends StackPane{
 						//canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);		
 						break;
-				*/	
-					
 					case Cell.WALL:
 						canvas.getGraphicsContext2D().setFill(Color.BLUE);
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
 						break;
-						
+				*/		
 					case Cell.OBSTACLE:
 						canvas.getGraphicsContext2D().setFill(Color.RED);
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
@@ -68,4 +82,6 @@ public class GraphicsGame extends StackPane{
 			}			
 		}
 	}
+	
+	
 }
