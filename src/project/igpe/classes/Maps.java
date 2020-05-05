@@ -7,14 +7,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import javafx.scene.image.Image;
-
 public class Maps {
 	
 	private static Cell[][] cella = new Cell[Settings.x][Settings.y];
 
 	private static ArrayList<File> contenitoreTxt = new ArrayList<File>();
-	private static ArrayList<Image> contenitoreImg = new ArrayList<Image>();
+	private static ArrayList<String> contenitoreImg = new ArrayList<String>();
 	
 	public Maps() {
 		
@@ -24,6 +22,8 @@ public class Maps {
 				cella[i][j] = new Cell(Cell.EMPTY);
 			}
 		}
+		
+		loadcontenitoreMappe();
 				
 		try {
 			loadMap(); //int random come paramentro
@@ -32,16 +32,15 @@ public class Maps {
 			e.printStackTrace();
 		}
 		
-		//loadcontenitoreMappe();
+		
 		cella[7][5] = new Cell(Cell.OBSTACLE);
 		 
 	}	
 
 	public static void loadcontenitoreMappe() {
 		File txt1 = new File("src/project/igpe/maps/TemplateMAP.txt");
-		Image img1 = new Image ("src/project/igpe/images/femmina.png");
-		
 		contenitoreTxt.add(txt1);
+		String img1 = new String("src/project/igpe/images/femmina.png");
 		contenitoreImg.add(img1);
 	}
 	
@@ -51,7 +50,7 @@ public class Maps {
 		int riga = 0;
 		int colonne = 0;
 		 try {
-				BufferedReader b = new BufferedReader(new FileReader("src/project/igpe/maps/TemplateMAP.txt"));
+				BufferedReader b = new BufferedReader(new FileReader(contenitoreTxt.get(0)));
 				while (b.ready()) {				
 					String costruzioneRiga;
 					String line = b.readLine();
@@ -87,7 +86,7 @@ public class Maps {
 		return cella[x][y].getType();
 	}
 
-	public static ArrayList<Image> getContenitoreImg() {
+	public static ArrayList<String> getContenitoreImg() {
 		return contenitoreImg;
 	}
 
