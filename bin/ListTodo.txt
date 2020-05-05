@@ -1,6 +1,7 @@
 /////// LISTA COSE DA FARE
 
-SceltaDelPersonaggio sistemare se non scegli tra maschio o femmina non ti fa andare avanti
+-SceltaDelPersonaggio sistemare se non scegli tra maschio o femmina non ti fa andare avanti
+-primo cambio mappa:txt già caricato(img vecchia),creare la classe cambio stanza
 
 	
 
@@ -10,8 +11,6 @@ SceltaDelPersonaggio sistemare se non scegli tra maschio o femmina non ti fa and
 	X Stanza Tutorial 
 	X una Prima immagine dove si spiegano i tasti
 	X un video breve dove si spiegano i tasti
-	
-	x
 	
 	
 	

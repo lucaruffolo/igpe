@@ -13,6 +13,7 @@ public class Maps {
 
 	private static ArrayList<File> contenitoreTxt = new ArrayList<File>();
 	private static ArrayList<String> contenitoreImg = new ArrayList<String>();
+	private int indiceMappe=0;
 	
 	public Maps() {
 		
@@ -26,13 +27,13 @@ public class Maps {
 		loadcontenitoreMappe();
 				
 		try {
-			loadMap(); //int random come paramentro
+			loadMap(indiceMappe); //int random come paramentro
 		} catch (Exception e) {
 			System.out.println("non carica metodo LoadMap");
 			e.printStackTrace();
 		}
 		
-		
+		indiceMappe++;
 		cella[7][5] = new Cell(Cell.OBSTACLE);
 		 
 	}	
@@ -42,15 +43,18 @@ public class Maps {
 		contenitoreTxt.add(txt1);
 		String img1 = new String("src/project/igpe/images/sfondo.jpg");
 		contenitoreImg.add(img1);
+		
+		File txt2 = new File("src/project/igpe/maps/TemplateMAP2.txt");
+		contenitoreTxt.add(txt2);
 	}
 	
 	
 	
-	public void loadMap() throws Exception { //int random come paramentro
+	public void loadMap(int indiceMappe) throws Exception { //int random come paramentro
 		int riga = 0;
 		int colonne = 0;
 		 try {
-				BufferedReader b = new BufferedReader(new FileReader(contenitoreTxt.get(0)));
+				BufferedReader b = new BufferedReader(new FileReader(contenitoreTxt.get(indiceMappe)));
 				while (b.ready()) {				
 					String costruzioneRiga;
 					String line = b.readLine();
