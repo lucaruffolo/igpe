@@ -32,7 +32,7 @@ public class Maps {
 			e.printStackTrace();
 		}
 		
-		loadcontenitoreMappe();
+		//loadcontenitoreMappe();
 		cella[7][5] = new Cell(Cell.OBSTACLE);
 		 
 	}	
