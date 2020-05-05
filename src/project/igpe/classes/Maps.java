@@ -40,7 +40,11 @@ public class Maps {
 	public static void loadcontenitoreMappe() {
 		File txt1 = new File("src/project/igpe/maps/TemplateMAP.txt");
 		contenitoreTxt.add(txt1);
+<<<<<<< HEAD
 		String img1 = new String("src/project/igpe/images/sfondo.jpg");
+=======
+		String img1 = new String("src/project/igpe/images/femmina.png");
+>>>>>>> branch 'master' of https://github.com/cyberzje/igpe.git
 		contenitoreImg.add(img1);
 	}
 	
@@ -86,8 +90,13 @@ public class Maps {
 		return cella[x][y].getType();
 	}
 
+<<<<<<< HEAD
 	public static String getContenitoreImg(int index) {
 		return contenitoreImg.get(index);
+=======
+	public static ArrayList<String> getContenitoreImg() {
+		return contenitoreImg;
+>>>>>>> branch 'master' of https://github.com/cyberzje/igpe.git
 	}
 
 
