@@ -18,7 +18,7 @@ public class Movement {
 		
 		if(direction == MOVE_RIGHT) {
 			newPosX=pg.getX()+1;
-		}
+			}
 		else if(direction == MOVE_LEFT)
 			newPosX=pg.getX()-1;
 		else if(direction == MOVE_UP)
@@ -63,6 +63,5 @@ public class Movement {
 	public Movement(Hero pg, Maps map ) {
 		this.pg = pg;
 		this.firstmap = map;
-		this.firstmap.getCella()[0][0].setType(1);
 	}
 }
