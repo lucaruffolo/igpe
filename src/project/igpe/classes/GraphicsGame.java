@@ -18,7 +18,18 @@ public class GraphicsGame extends StackPane{
 		canvas.setFocusTraversable(true);
 		canvas.setOnKeyPressed(new MovementControl(movimento, this));
 		getChildren().add(canvas);
+		  /*   
+		Image sfondo = new Image ("src/project/igpe/images/femmina.png");
+		BackgroundImage backgroundimage = new BackgroundImage(sfondo,  
+                BackgroundRepeat.NO_REPEAT,  
+                BackgroundRepeat.NO_REPEAT,  
+                BackgroundPosition.DEFAULT,  
+                   BackgroundSize.DEFAULT); 
+		Background zorro = new Background(backgroundimage);
+		this.setBackground(zorro); 
+		*/
 		this.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
+
         canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());        
 	}

@@ -1,14 +1,20 @@
 package project.igpe.classes;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
+
+import javafx.scene.image.Image;
 
 public class Maps {
 	
 	private static Cell[][] cella = new Cell[Settings.x][Settings.y];
 
+	private static ArrayList<File> contenitoreTxt = new ArrayList<File>();
+	private static ArrayList<Image> contenitoreImg = new ArrayList<Image>();
 	
 	public Maps() {
 		
@@ -18,52 +24,30 @@ public class Maps {
 				cella[i][j] = new Cell(Cell.EMPTY);
 			}
 		}
-		
-		/*
-		for(int i = 0; i < cella.length; i++) {
-			for(int j = 0; j < cella[i].length; j++) {
-				if (i == 1 || j == 1|| j == 0 || i == 0 || j == cella[i].length-1 || i == cella.length-1 || j == cella[i].length-2 || i == cella.length-2 )  {
-					cella[i][j] = new Cell(Cell.WALL);
-				}
-			}
-		}
-		
-		*/
-		
-		
+				
 		try {
-			loadMap();
+			loadMap(); //int random come paramentro
 		} catch (Exception e) {
-			System.out.println("non funziona un ca");
-			// TODO Auto-generated catch block
+			System.out.println("non carica metodo LoadMap");
 			e.printStackTrace();
 		}
 		
-		
-		/*
-		for(int i = 0; i < cella.length; i++) {
-			for(int j = 0; j < cella[i].length; j++) {
-				System.out.print(cella[i][j].getType()+" ");
-			}
-			System.out.println();
-		}
-		*/
+		loadcontenitoreMappe();
 		cella[7][5] = new Cell(Cell.OBSTACLE);
 		 
 	}	
-		/* DA modificare per aggiugere ostacoli random
-		count = 0;
-		while(count < 4) {
-			int randX = r.nextInt(Settings.cellSize-1)+1;
-			for(int j = 0; j < blocks[randX].length/2; j++) {
-				if(blocks[randX][j].getType()==Block.EMPTY) {
-					blocks[randX][j].setType(Block.WALL);
-				}
-			}
-			count++;	
-		}*/
+
+	public static void loadcontenitoreMappe() {
+		File txt1 = new File("src/project/igpe/maps/TemplateMAP.txt");
+		Image img1 = new Image ("src/project/igpe/images/femmina.png");
+		
+		contenitoreTxt.add(txt1);
+		contenitoreImg.add(img1);
+	}
 	
-	public void loadMap() throws Exception {
+	
+	
+	public void loadMap() throws Exception { //int random come paramentro
 		int riga = 0;
 		int colonne = 0;
 		 try {
@@ -74,13 +58,11 @@ public class Maps {
 					StringTokenizer tok = new StringTokenizer(line, " ");					
 						while (tok.hasMoreTokens()) {
 							costruzioneRiga = tok.nextToken();
-							//System.out.print(costruzioneRiga + " - ");
 							if (costruzioneRiga.equals("3")) {
 								cella[riga][colonne++] = new Cell(Cell.WALL);
 							} else
 								cella[riga][colonne++] = new Cell(Cell.EMPTY);		
 						} 
-					//System.out.println();
 					riga++;
 					colonne=0;
 				}
@@ -93,6 +75,9 @@ public class Maps {
 		      
 	}
 	
+	
+	
+	
 
 	public Cell[][] getCella() {
 		return cella;
@@ -101,10 +86,29 @@ public class Maps {
 	public int getCellType(int x, int y) {
 		return cella[x][y].getType();
 	}
-	
+
+	public static ArrayList<Image> getContenitoreImg() {
+		return contenitoreImg;
+	}
+
+
+
 
 	/*
 	public void setCella(Cell[][] cella) {
 		this.cella = cella;
+	}*/
+	
+
+	/* DA modificare per aggiugere ostacoli random
+	count = 0;
+	while(count < 4) {
+		int randX = r.nextInt(Settings.cellSize-1)+1;
+		for(int j = 0; j < blocks[randX].length/2; j++) {
+			if(blocks[randX][j].getType()==Block.EMPTY) {
+				blocks[randX][j].setType(Block.WALL);
+			}
+		}
+		count++;	
 	}*/
 }
