@@ -20,6 +20,8 @@ import project.igpe.main.Main;
 public class SceltaDelPersonaggio {
 	
 	private static Boolean sesso=false;
+	private static Boolean notChoose=false;
+	
     @FXML
     private Label lblsdPersonaggio;
 
@@ -47,20 +49,26 @@ public class SceltaDelPersonaggio {
     @FXML
     private ImageView imgMaschio;
     
+    @FXML
+    private Label lblNotChoose;
+    
 
     
     @FXML
     void clickBack(ActionEvent event) throws Exception {
+    	
+		notChoose=false;
     	FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("MenuIniziale.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
 		AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
 		Scene menuIniziale = new Scene(root, 1024,720); 
-		Main.window.setScene(menuIniziale);
-		
+		Main.window.setScene(menuIniziale);		
     }
 
     @FXML
     void selectSEXMale(ActionEvent event) {
     	
+    	lblNotChoose.setOpacity(0);
+    	notChoose=true;
     	imgFemmina.setOpacity(0.20);
     	imgMaschio.setOpacity(1);
     	sesso = false;
@@ -68,7 +76,9 @@ public class SceltaDelPersonaggio {
 
     @FXML
     void selectSEXFemale(ActionEvent event) {
-
+    	
+    	lblNotChoose.setOpacity(0);
+    	notChoose=true;
     	imgMaschio.setOpacity(0.20);
     	imgFemmina.setOpacity(1);
     	sesso = true;
@@ -76,19 +86,25 @@ public class SceltaDelPersonaggio {
 
     @FXML
     void clickGame(ActionEvent event) {    	
-    	//stoppo la musica del menu
-    	Sound.musicStop();
-    	//Creo eroe ed imposto nome e sesso presi da utente
-    	Hero eroe = new Hero();
-    	eroe.setName(textName.getText());
-    	eroe.setSex(sesso);
-    	GraphicHero.selectSex(eroe.getSex());
-    	//Disegno GIOCO
-		GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
-		Scene scenegame = new Scene(game, 1270,900);
-		Main.window.setScene(scenegame);
-		Main.window.centerOnScreen();
-		game.draw();
+    	
+    	if (notChoose) {
+    		notChoose=false;
+			//stoppo la musica del menu
+			Sound.musicStop();
+			//Creo eroe ed imposto nome e sesso presi da utente
+			Hero eroe = new Hero();
+			eroe.setName(textName.getText());
+			eroe.setSex(sesso);
+			GraphicHero.selectSex(eroe.getSex());
+			//Disegno GIOCO
+			GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
+			Scene scenegame = new Scene(game, 1270, 900);
+			Main.window.setScene(scenegame);
+			Main.window.centerOnScreen();
+			game.draw();
+		}
+    	else
+    		lblNotChoose.setOpacity(1);    	
     }
 
 }

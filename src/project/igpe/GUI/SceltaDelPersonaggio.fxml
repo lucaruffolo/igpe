@@ -37,5 +37,10 @@
             <Image url="@../images/femmina.png" />
          </image>
       </ImageView>
+      <Label fx:id="lblNotChoose" layoutX="406.0" layoutY="546.0" opacity="0.0" prefHeight="30.0" prefWidth="212.0" text="Scegli un personaggio !" textAlignment="CENTER" textFill="#510101">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

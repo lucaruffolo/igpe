@@ -39,13 +39,16 @@ public class Maps {
 	}	
 
 	public static void loadcontenitoreMappe() {
-		File txt1 = new File("src/project/igpe/maps/TemplateMAP.txt");
-		contenitoreTxt.add(txt1);
-		String img1 = new String("src/project/igpe/images/sfondo.jpg");
-		contenitoreImg.add(img1);
 		
+		File txt1 = new File("src/project/igpe/maps/TemplateMAP.txt");
 		File txt2 = new File("src/project/igpe/maps/TemplateMAP2.txt");
+				
+		String img1 = new String("src/project/igpe/images/sfondo.jpg");
+		
+		contenitoreTxt.add(txt1);
 		contenitoreTxt.add(txt2);
+		
+		contenitoreImg.add(img1);
 	}
 	
 	
@@ -70,9 +73,9 @@ public class Maps {
 					colonne=0;
 				}
 				b.close();
-				System.out.println("TemplateMAP Caricato");	
+			//	System.out.println("TemplateMAP Caricato");	
 			} catch (FileNotFoundException e) {
-				System.out.println("TemplateMAP Non trovato");
+			//	System.out.println("TemplateMAP Non trovato");
 				e.printStackTrace();
 			}
 		      

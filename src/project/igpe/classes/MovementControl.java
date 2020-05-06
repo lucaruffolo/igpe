@@ -42,27 +42,34 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			graphics.draw();
 			break;
 		case ESCAPE:
+			
 			if (graphics.getScene().getWindow() instanceof Stage) {
-				Stage stage = (Stage) graphics.getScene().getWindow();
-				stage.close();
+			//	Stage stage = (Stage) graphics.getScene().getWindow();// close game
+			//	stage.close();
+				
+			// Switcho sul menu di PAUSA
+			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
+			AnchorPane root = null;
+			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			
+			Scene menuPausa = new Scene(root, 1024,720); 
+			Main.window.setScene(menuPausa);
+			Main.window.centerOnScreen();
 			}
 			break;
 		case P:
+			
 	//		Stage stage = (Stage) graphics.getScene().getWindow();
 			System.out.println("Wait in corso");
 	//		stage.showAndWait();
 			
+			// Switcho sul menu di PAUSA
 			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
 			AnchorPane root = null;
-			try {
-				root = (AnchorPane) loader.load();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} //carica l'AnchorPane principale
-			Scene menuIniziale = new Scene(root, 1024,720); 
-			Main.window.setScene(menuIniziale);
-			
+			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			
+			Scene menuPausa = new Scene(root, 1024,720); 
+			Main.window.setScene(menuPausa);
+			Main.window.centerOnScreen();
+
 			
 			
 			
