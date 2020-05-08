@@ -1,16 +1,61 @@
 /////// LISTA COSE DA FARE
 
--SceltaDelPersonaggio sistemare se non scegli tra maschio o femmina non ti fa andare avanti
--primo cambio mappa:txt già caricato(img vecchia),creare la classe cambio stanza
 
+
+Reparto codice manca:
+
+	- Sleep cambio mappa
+	- primo cambio mappa [txt già caricato(img vecchia),creare la classe cambio stanza]
+	- Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 )
+	- Creazione mappe statiche 5 stanza chiave - 6 stanza boss 
+	- spawn chiave random in una stanza stabilita 
+	- pierpy+sara- mappe di gioco codice-layout insieme all'img delle mappe
+	- Aggiungere menu online
+	
+	
+Reparto musica manca pierpy:
+	
+	musica = mp3
+	effetti/suoni = waw
+	
+	- musica menu
+	- musica nel gioco
+	- effetti danno
+	- effetti sparo
+	- effetti mappa
+	- suono camminata
+	- suono raccogli chiave
+	- musica boss
+	- musica vittoria
+	- musica sconfitta 
+	- suono cambio stanza
+	
+
+Reparto grafico manca:
+
+	#pierpy+sara- mappe di gioco grafico (MURO - OSTACOLO - TERRENO - PORTE)
+	
+	sara- i 2 personaggi masc e femm = 4 movimenti (con arma)  + 3 quando subisci danno (con arma) 
+	
+	sara- schermata inziale + tutti i menu 
+	sara- possibile nemico
+	sara- possibile BOSS
+	sara- chiave
+	sara- video credits
+	
+	cibbo- grafica dei bottoni ? 
+	cibbo- HUD vita del pg
+	 
+	pierpycibbo- Schermata caricamento (Tutorial tasti how2play) barra di caricamento tipo trackmania?
+	
+	(dopo threads)
+	- proiettile
+	- movimenti pg nemici boss
+	- porta che si apre con sfondo scale
 	
 
 ////// PROPOSTE
  
- Tutorial:
-	X Stanza Tutorial 
-	X una Prima immagine dove si spiegano i tasti
-	X un video breve dove si spiegano i tasti
 	
 	
 	
