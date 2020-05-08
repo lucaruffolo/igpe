@@ -18,17 +18,20 @@ Reparto musica manca pierpy:
 	musica = mp3
 	effetti/suoni = waw
 	
-	- musica menu
+	- musica menu---ok
 	- musica nel gioco
-	- effetti danno
+	- effetti danno m---ok
+	- effetti danno f----ok
 	- effetti sparo
-	- effetti mappa
-	- suono camminata
+	- effetti mappa(ruscello e cose cosi)
+	- suono camminata---ok
 	- suono raccogli chiave
-	- musica boss
-	- musica vittoria
-	- musica sconfitta 
-	- suono cambio stanza
+	- musica boss----ok
+	- suono vittoria---ok
+	- musica vittoria?????
+	- musica sconfitta---ok
+	- suono cambio stanza---ok
+	- suono apertura porta---ok
 	
 
 Reparto grafico manca:
