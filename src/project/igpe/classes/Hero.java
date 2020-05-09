@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 public class Hero {
 	private String name;
 	private Boolean sex; //falso=maschio   true=femmina
-	private int life=100;
+	private static int life=100;
 	private int speed=1;
 	private int size;
 	private Image img;
@@ -45,12 +45,12 @@ public class Hero {
 		this.sex = sesso;
 	}
 
-	public int getLife() {
+	public static int getLife() {
 		return life;
 	}
 
-	public void setLife(int life) {
-		this.life = life;
+	public static void setLife(int lifex) {
+		life = lifex;
 	}
 
 	public int getSpeed() {

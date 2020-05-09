@@ -64,10 +64,21 @@ public class Maps {
 					StringTokenizer tok = new StringTokenizer(line, " ");					
 						while (tok.hasMoreTokens()) {
 							costruzioneRiga = tok.nextToken();
+							if (costruzioneRiga.equals("0")) {
+								cella[riga][colonne++] = new Cell(Cell.EMPTY);
+							} 
+							
 							if (costruzioneRiga.equals("3")) {
 								cella[riga][colonne++] = new Cell(Cell.WALL);
-							} else
-								cella[riga][colonne++] = new Cell(Cell.EMPTY);		
+							} 
+							if (costruzioneRiga.equals("6")) {
+								cella[riga][colonne++] = new Cell(Cell.OBSTACLE);
+							}
+							if (costruzioneRiga.equals("7")) {
+								cella[riga][colonne++] = new Cell(Cell.HEAL);
+							}
+							
+							
 						} 
 					riga++;
 					colonne=0;

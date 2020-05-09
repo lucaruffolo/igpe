@@ -46,8 +46,8 @@ Reparto grafico manca:
 	sara- chiave
 	sara- video credits
 	
-	cibbo- grafica dei bottoni ? 
-	cibbo- HUD vita del pg
+	cibbo- grafica dei bottoni ? Ok da SCENE BUILDER da fare insieme alla grafica dei menu
+	cibbo- HUD vita del pg Threads
 	 
 	pierpycibbo- Schermata caricamento (Tutorial tasti how2play) barra di caricamento tipo trackmania?
 	

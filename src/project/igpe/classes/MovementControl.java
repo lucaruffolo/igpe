@@ -41,6 +41,10 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			movimento.move(Movement.MOVE_DOWN);
 			graphics.draw();
 			break;
+		case L:
+			Hero.setLife(Hero.getLife()-10);
+			break;
+			
 		case ESCAPE:
 			
 			if (graphics.getScene().getWindow() instanceof Stage) {

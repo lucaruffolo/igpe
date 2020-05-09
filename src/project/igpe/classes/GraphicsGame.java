@@ -51,7 +51,7 @@ public class GraphicsGame extends StackPane{
         canvas.heightProperty().bind(this.heightProperty());        
 	}
 	
-	
+	//
 	public void draw() {
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		
@@ -72,6 +72,11 @@ public class GraphicsGame extends StackPane{
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
 						break;
 				*/		
+					case Cell.HEAL:
+						canvas.getGraphicsContext2D().setFill(Color.RED);						
+						canvas.getGraphicsContext2D().fillText("Vita: "+ Hero.getLife() +"%", 50, 50);		
+						break;
+					
 					case Cell.OBSTACLE:
 						canvas.getGraphicsContext2D().setFill(Color.RED);
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
