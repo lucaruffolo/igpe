@@ -98,6 +98,7 @@ public class SceltaDelPersonaggio {
 			GraphicHero.selectSex(eroe.getSex());
 			//Disegno GIOCO
 			GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
+			Hero.setLife(100);
 			Scene scenegame = new Scene(game, 1270, 900);
 			Main.window.setScene(scenegame);
 			Main.window.centerOnScreen();

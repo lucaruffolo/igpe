@@ -12,6 +12,7 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class GraphicsGame extends StackPane{
 	
@@ -19,6 +20,7 @@ public class GraphicsGame extends StackPane{
 	
 	private Movement movimento;
 	
+
 	
 	public GraphicsGame(Movement movimento) {
 		this.movimento = movimento;
@@ -73,7 +75,9 @@ public class GraphicsGame extends StackPane{
 						break;
 				*/		
 					case Cell.HEAL:
-						canvas.getGraphicsContext2D().setFill(Color.RED);						
+						canvas.getGraphicsContext2D().setFill(Color.RED);
+						Font font = new Font("Verdana", 20);
+						canvas.getGraphicsContext2D().setFont(font);
 						canvas.getGraphicsContext2D().fillText("Vita: "+ Hero.getLife() +"%", 50, 50);		
 						break;
 					
@@ -85,9 +89,11 @@ public class GraphicsGame extends StackPane{
 						break;
 				}
 				if(movimento.getPg().getX()==i && movimento.getPg().getY()==j)
-					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);
+					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);				
+					
 			}			
 		}
+		
 	}
 	
 	

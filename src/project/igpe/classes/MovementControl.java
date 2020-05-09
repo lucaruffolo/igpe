@@ -42,7 +42,9 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			graphics.draw();
 			break;
 		case L:
-			Hero.setLife(Hero.getLife()-10);
+			if (Hero.getLife()>0)
+				Hero.setLife(Hero.getLife()-10);			
+			graphics.draw();
 			break;
 			
 		case ESCAPE:
