@@ -11,7 +11,7 @@ Reparto codice manca:
 	- spawn chiave random in una stanza stabilita 
 	- pierpy+sara- mappe di gioco codice-layout insieme all'img delle mappe
 	- Aggiungere menu online
-	
+	- Threads per VITA personaggio (futuro)
 	
 Reparto musica manca pierpy:
 	
@@ -46,9 +46,8 @@ Reparto grafico manca:
 	sara- chiave
 	sara- video credits
 	
-	cibbo- grafica dei bottoni ? Ok da SCENE BUILDER da fare insieme alla grafica dei menu
-	cibbo- HUD vita del pg Threads
-	 
+	cibbo- grafica dei bottoni ? = Da SCENE BUILDER BOTTONE PER BOTTONE da fare insieme alla grafica dei menu
+	
 	pierpycibbo- Schermata caricamento (Tutorial tasti how2play) barra di caricamento tipo trackmania?
 	
 	(dopo threads)

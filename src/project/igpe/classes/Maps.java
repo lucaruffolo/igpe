@@ -34,7 +34,6 @@ public class Maps {
 		}
 		
 		indiceMappe++;
-		cella[7][5] = new Cell(Cell.OBSTACLE);
 		 
 	}	
 
