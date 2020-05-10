@@ -23,9 +23,10 @@ public class Main extends Application{
 //		primaryStage.setResizable(false);
 //		primaryStage.initStyle(StageStyle.UNDECORATED);		
 		primaryStage.show();
-		String musicFile = "src/project/igpe/sounds/CABRIOLET.mp3";
+		String musicFile = "src/project/igpe/sounds/menu.mp3";
 		Sound.setMusic(musicFile);
 		Sound.modifyVolume(0.02);
+		Sound.musicLoop();
 		Sound.musicStart();
 	}
 	

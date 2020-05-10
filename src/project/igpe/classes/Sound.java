@@ -28,7 +28,9 @@ public class Sound {
 		mediaPlayer.stop();
 	}
 
-	
+	public static void musicLoop() {
+		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+	}
 	
 	
 }
