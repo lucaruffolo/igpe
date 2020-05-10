@@ -33,7 +33,7 @@ public class GraphicsGame extends StackPane{
 		Image caricaSfondo = null;
 		try {
 			caricaSfondo = new Image (new FileInputStream(Maps.getContenitoreImg(Maps.getIndiceMappe())));
-
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("JPG - Sfondo non trovato");
 			e.printStackTrace();
