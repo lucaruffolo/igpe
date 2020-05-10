@@ -57,13 +57,13 @@ public class GraphicsGame extends StackPane{
 	public void draw() {
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		
-		for(int i = 0; i < movimento.getFirstmap().getCella().length; i++) {
+		for(int i = 0; i < movimento.getRoom().getCella().length; i++) {
 			int x = i * Settings.block;
-			for(int j = 0; j < movimento.getFirstmap().getCella()[i].length; j++) {
+			for(int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
 				int y = j * Settings.block;
 				
 				
-				switch(movimento.getFirstmap().getCella()[i][j].getType()) {
+				switch(movimento.getRoom().getCella()[i][j].getType()) {
 				/*	
 					case Cell.HERO:						
 						//canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);

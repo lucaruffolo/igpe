@@ -7,7 +7,7 @@ public class Movement {
 	public final static int MOVE_UP = 2;
 	public final static int MOVE_DOWN = 3;
 	
-	private Maps firstmap;
+	private Maps room;
 	private Hero pg;
 	
 	public void move(int direction) {
@@ -54,16 +54,16 @@ public class Movement {
 		if((newX<0 || newX>Settings.x-2) || (newY<0 || newY>Settings.y-2))
 			return true;
 		else
-			return firstmap.getCellType(newX, newY) == Cell.WALL || firstmap.getCellType(newX, newY) == Cell.OBSTACLE ;
+			return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
 	}
 	
 	
-	public Maps getFirstmap() {
-		return firstmap;
+	public Maps getRoom() {
+		return room;
 	}
 
-	public void setFirstmap(Maps firstmap) {
-		this.firstmap = firstmap;
+	public void setRoom(Maps room) {
+		this.room = room;
 	}
 
 	public Hero getPg() {
@@ -76,6 +76,6 @@ public class Movement {
 
 	public Movement(Hero pg, Maps map ) {
 		this.pg = pg;
-		this.firstmap = map;
+		this.room = map;
 	}
 }
