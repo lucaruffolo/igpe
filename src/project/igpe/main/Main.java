@@ -25,7 +25,7 @@ public class Main extends Application{
 		primaryStage.show();
 		String musicFile = "src/project/igpe/sounds/menu.mp3";
 		Sound.setMusic(musicFile);
-		Sound.modifyVolume(0.02);
+		Sound.modifyVolume(0.04);
 		Sound.musicLoop();
 		Sound.musicStart();
 	}

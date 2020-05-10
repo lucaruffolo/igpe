@@ -91,6 +91,11 @@ public class SceltaDelPersonaggio {
     		notChoose=false;
 			//stoppo la musica del menu
 			Sound.musicStop();
+			String musicFile = "src/project/igpe/sounds/dead_song.mp3";
+			Sound.setMusic(musicFile);
+			Sound.modifyVolume(0.04);
+			Sound.musicLoop();
+			Sound.musicStart();
 			//Creo eroe ed imposto nome e sesso presi da utente
 			Hero eroe = new Hero();
 			eroe.setName(textName.getText());
