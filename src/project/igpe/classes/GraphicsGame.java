@@ -40,7 +40,7 @@ public class GraphicsGame extends StackPane{
 			System.out.println("JPG - Sfondo non trovato");
 			e.printStackTrace();
 		}
-		
+		//
 		System.out.println("sono in graphicsgames");
 	
 		BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo,  
