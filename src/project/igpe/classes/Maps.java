@@ -11,19 +11,14 @@ public class Maps {
 	
 	private static Cell[][] cella = new Cell[Settings.x][Settings.y];
 
-	private static ArrayList<File> contenitoreTxt = new ArrayList<File>();
-	private static ArrayList<String> contenitoreImg = new ArrayList<String>();
-	private int indiceMappe=0;
+	private static ArrayList<File> contenitoreImg = new ArrayList<File>();
+	private static ArrayList<String> contenitoreTxt = new ArrayList<String>();
+	private static int indiceMappe=0;
 	
-	public Maps() {
-		
 
-		for(int i = 0; i < cella.length; i++) {
-			for(int j = 0; j < cella[i].length; j++) {
-				cella[i][j] = new Cell(Cell.EMPTY);
-			}
-		}
-		
+
+	public Maps() {
+			
 		loadcontenitoreMappe();
 				
 		try {
@@ -33,21 +28,24 @@ public class Maps {
 			e.printStackTrace();
 		}
 		
-		indiceMappe++;
+		//indiceMappe++;
 		 
 	}	
 
 	public static void loadcontenitoreMappe() {
 		
-		File txt1 = new File("src/project/igpe/maps/TemplateMAP.txt");
-		File txt2 = new File("src/project/igpe/maps/TemplateMAP2.txt");
+		File img1 = new File("src/project/igpe/images/sfondo.jpg");
+		File img2 = new File("src/project/igpe/images/femmina.png");
 				
-		String img1 = new String("src/project/igpe/images/sfondo.jpg");
+		String txt1 = new String("src/project/igpe/maps/TemplateMAP.txt");
+		String txt2 = new String("src/project/igpe/maps/TemplateMAP2.txt");
+
+		contenitoreImg.add(img1);
+		contenitoreImg.add(img2);
 		
 		contenitoreTxt.add(txt1);
 		contenitoreTxt.add(txt2);
-		
-		contenitoreImg.add(img1);
+
 	}
 	
 	
@@ -63,8 +61,11 @@ public class Maps {
 					StringTokenizer tok = new StringTokenizer(line, " ");					
 						while (tok.hasMoreTokens()) {
 							costruzioneRiga = tok.nextToken();
-							if (costruzioneRiga.equals("0") || costruzioneRiga.equals("5")) {
+							if (costruzioneRiga.equals("0")) {
 								cella[riga][colonne++] = new Cell(Cell.EMPTY);
+							} 
+							if (costruzioneRiga.equals("5")) {
+								cella[riga][colonne++] = new Cell(Cell.DOOR);
 							} 
 							
 							if (costruzioneRiga.equals("3")) {
@@ -92,8 +93,6 @@ public class Maps {
 	}
 	
 	
-	
-	
 
 	public Cell[][] getCella() {
 		return cella;
@@ -104,12 +103,18 @@ public class Maps {
 	}
 
 
-	public static String getContenitoreImg(int index) {
+	public static File getContenitoreImg(int index) {
 		return contenitoreImg.get(index);
 	}
 
+	public static int getIndiceMappe() {
+		return indiceMappe;
+	}
 
 
+	public static void setIndiceMappe(int indiceMappe) {
+		Maps.indiceMappe = indiceMappe;
+	}
 	/*
 	public void setCella(Cell[][] cella) {
 		this.cella = cella;

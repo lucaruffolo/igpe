@@ -29,7 +29,11 @@ public class Movement {
 		GraphicHero.setImgDir(direction);
 		
 		//chiamare il cambio stanza qui
-		
+		if (door(newPosX,newPosY)) {
+			Maps.setIndiceMappe(Maps.getIndiceMappe()+1);
+			new Maps();
+			System.out.println("porta");
+		}
 		
 		if(!collision(newPosX, newPosY)) {
 			posHeroX=newPosX;
@@ -39,16 +43,19 @@ public class Movement {
 		pg.setY(posHeroY);
 	}
 	
-	/*verifica se c'è una porta nella prossima casella
+	//verifica se c'è una porta nella prossima casella
 
 	public boolean door (int newX, int newY) {
-		if(firstmap.getCellType(newX, newY) == Cell.DOOR) {
+		if(room.getCellType(newX, newY) == Cell.DOOR) {
+			//sleep
+			new Maps();
+			
 			return true;
 		}
 		else
 			return false;
 	}
-	*/
+	
 
 	public boolean collision(int newX, int newY) {
 		if((newX<0 || newX>Settings.x-2) || (newY<0 || newY>Settings.y-2))

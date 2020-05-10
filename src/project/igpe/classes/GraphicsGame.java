@@ -32,7 +32,7 @@ public class GraphicsGame extends StackPane{
 	//	Carica e disegna lo sfondo!
 		Image caricaSfondo = null;
 		try {
-			caricaSfondo = new Image (new FileInputStream(Maps.getContenitoreImg(0)));
+			caricaSfondo = new Image (new FileInputStream(Maps.getContenitoreImg(Maps.getIndiceMappe())));
 			//caricaSfondo = new Image (new FileInputStream("src/project/igpe/images/sfondo.jpg"));
 
 		} catch (FileNotFoundException e) {
