@@ -12,6 +12,11 @@ public class Movement {
 	private Maps room;
 	private Hero pg;
 	
+	private static boolean doorDx = false;
+	private static boolean doorUp = false;
+	private static boolean doorDown = false;
+	private static boolean doorLx = false;
+	
 	public void move(int direction) {
 		int posHeroX=pg.getX();
 		int posHeroY=pg.getY();
@@ -37,6 +42,27 @@ public class Movement {
 		//	new Maps();
 			new GraphicsGame(new Movement(SceltaDelPersonaggio.eroe, new Maps()));
 			System.out.println("porta");
+			
+			if(doorDown) {
+				newPosX=10;
+				newPosY=2;
+				doorDown=false;
+			}
+			if(doorLx) {
+				newPosX=18;
+				newPosY=7;
+				doorLx=false;
+			}
+			if(doorUp) {
+				newPosX=10;
+				newPosY=12;
+				doorUp=false;
+			}
+			if(doorDx) {
+				newPosX=2;
+				newPosY=7;
+				doorDx=false;
+			}
 		}
 		
 		if(!collision(newPosX, newPosY)) {
@@ -50,6 +76,20 @@ public class Movement {
 	//verifica se c'è una porta nella prossima casella
 
 	public boolean door (int newX, int newY) {
+		
+		if(newX==1 && newY==7) {
+			doorLx=true;
+		}
+		else if(newX==10 && newY==12) {
+			doorDown=true;
+		}
+		else if(newX==19 && newY==7) {
+			doorDx=true;
+		}
+		else if(newX==10 && newY==1) {
+			doorUp=true;
+		}
+		
 		if(room.getCellType(newX, newY) == Cell.DOOR) {
 			//sleep
 			return true;
