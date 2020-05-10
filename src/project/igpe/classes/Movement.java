@@ -12,6 +12,8 @@ public class Movement {
 	private Maps room;
 	private Hero pg;
 	
+	private GraphicsGame graphicGame;
+	
 	public void move(int direction) {
 		int posHeroX=pg.getX();
 		int posHeroY=pg.getY();
@@ -32,10 +34,12 @@ public class Movement {
 		
 		//chiamare il cambio stanza qui
 		if (door(newPosX,newPosY)) {
-			Maps.setIndiceMappe(Maps.getIndiceMappe()+1);
-		//	System.out.println(Maps.getIndiceMappe());
-		//	new Maps();
-			new GraphicsGame(new Movement(SceltaDelPersonaggio.eroe, new Maps()));
+			try {
+				graphicGame.setBg((Maps.getIndiceMappe()+1)%Maps.getNumMappe());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println("porta");
 		}
 		
@@ -86,5 +90,13 @@ public class Movement {
 	public Movement(Hero pg, Maps map ) {
 		this.pg = pg;
 		this.room = map;
+	}
+
+	public GraphicsGame getGraphicGame() {
+		return graphicGame;
+	}
+
+	public void setGraphicGame(GraphicsGame graphicGame) {
+		this.graphicGame = graphicGame;
 	}
 }

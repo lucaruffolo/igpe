@@ -53,7 +53,7 @@ public class Maps {
 	
 	
 	
-	public void loadMap(int indiceMappe) throws Exception { //int random come paramentro
+	public static void loadMap(int indiceMappe) throws Exception { //int random come paramentro
 		int riga = 0;
 		int colonne = 0;
 		 try {
@@ -115,6 +115,10 @@ public class Maps {
 
 	public static void setIndiceMappe(int indiceMappe) {
 		Maps.indiceMappe = indiceMappe;
+	}
+	
+	public static int getNumMappe() {
+		return contenitoreImg.size();
 	}
 	/*
 	public void setCella(Cell[][] cella) {

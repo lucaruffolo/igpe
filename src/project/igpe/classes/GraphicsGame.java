@@ -1,6 +1,5 @@
 package project.igpe.classes;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -21,7 +20,7 @@ public class GraphicsGame extends StackPane{
 	
 	private Movement movimento;
 	
-
+	
 	
 	public GraphicsGame(Movement movimento) {
 		this.movimento = movimento;
@@ -29,31 +28,48 @@ public class GraphicsGame extends StackPane{
 		canvas.setFocusTraversable(true);
 		canvas.setOnKeyPressed(new MovementControl(movimento, this));
 		getChildren().add(canvas);
-		 
-	//	Carica e disegna lo sfondo!
-
-		Image caricaSfondo = null;
+		movimento.setGraphicGame(this);
+	
+		
+//		Carica e disegna lo sfondo!	
 		try {
-			caricaSfondo = new Image (new FileInputStream(Maps.getContenitoreImg(Maps.getIndiceMappe())));
-			System.out.println(Maps.getIndiceMappe());
-		} catch (FileNotFoundException e) {
-			System.out.println("JPG - Sfondo non trovato");
+			setBg(0);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//
-		System.out.println("sono in graphicsgames");
+
+		
 	
-		BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo,  
-                BackgroundRepeat.NO_REPEAT,  
-                BackgroundRepeat.NO_REPEAT,  
-                BackgroundPosition.DEFAULT,  
-                   BackgroundSize.DEFAULT); 
-		Background sfondo = new Background(backgroundimage);
-		this.setBackground(sfondo); 
 		canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());        
 	}
 	
+	public void setBg(int index) throws Exception {
+		Maps.setIndiceMappe(index);
+		Maps.loadMap(index);
+		Image caricaSfondo = null;
+		try {
+			
+			caricaSfondo = new Image (new FileInputStream(Maps.getContenitoreImg(Maps.getIndiceMappe())));
+			BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo,  
+	                BackgroundRepeat.NO_REPEAT,  
+	                BackgroundRepeat.NO_REPEAT,  
+	                BackgroundPosition.DEFAULT,  
+	                   BackgroundSize.DEFAULT); 
+			
+			Background sfondo = new Background(backgroundimage);
+			
+			this.setBackground(sfondo);
+			
+			System.out.println("Cambio sfondo mappa" + Maps.getContenitoreImg(Maps.getIndiceMappe()));
+		} catch (FileNotFoundException e) {
+			System.out.println("JPG - Sfondo non trovato");
+			e.printStackTrace();
+		}
+
+	}
+
 	//
 	public void draw() {
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -97,5 +113,6 @@ public class GraphicsGame extends StackPane{
 		
 	}
 	
+
 	
 }
