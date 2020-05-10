@@ -1,5 +1,7 @@
 package project.igpe.classes;
 
+import project.igpe.GUI.SceltaDelPersonaggio;
+
 public class Movement {
 
     public final static int MOVE_RIGHT = 0;
@@ -31,8 +33,9 @@ public class Movement {
 		//chiamare il cambio stanza qui
 		if (door(newPosX,newPosY)) {
 			Maps.setIndiceMappe(Maps.getIndiceMappe()+1);
-			new Maps();
-			//new GraphicsGame(new Movement(eroe, new Maps()));
+		//	System.out.println(Maps.getIndiceMappe());
+		//	new Maps();
+			new GraphicsGame(new Movement(SceltaDelPersonaggio.eroe, new Maps()));
 			System.out.println("porta");
 		}
 		
@@ -49,8 +52,6 @@ public class Movement {
 	public boolean door (int newX, int newY) {
 		if(room.getCellType(newX, newY) == Cell.DOOR) {
 			//sleep
-			new Maps();
-			
 			return true;
 		}
 		else

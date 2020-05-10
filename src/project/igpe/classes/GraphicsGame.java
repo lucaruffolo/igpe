@@ -1,5 +1,6 @@
 package project.igpe.classes;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -30,15 +31,17 @@ public class GraphicsGame extends StackPane{
 		getChildren().add(canvas);
 		 
 	//	Carica e disegna lo sfondo!
+
 		Image caricaSfondo = null;
 		try {
 			caricaSfondo = new Image (new FileInputStream(Maps.getContenitoreImg(Maps.getIndiceMappe())));
-			
+			System.out.println(Maps.getIndiceMappe());
 		} catch (FileNotFoundException e) {
 			System.out.println("JPG - Sfondo non trovato");
 			e.printStackTrace();
 		}
-	
+		
+		System.out.println("sono in graphicsgames");
 	
 		BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo,  
                 BackgroundRepeat.NO_REPEAT,  
@@ -47,8 +50,7 @@ public class GraphicsGame extends StackPane{
                    BackgroundSize.DEFAULT); 
 		Background sfondo = new Background(backgroundimage);
 		this.setBackground(sfondo); 
-	
-	    canvas.widthProperty().bind(this.widthProperty());
+		canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());        
 	}
 	

@@ -21,6 +21,7 @@ public class SceltaDelPersonaggio {
 	
 	private static Boolean sesso=false;
 	private static Boolean notChoose=false;
+	public static Hero eroe = new Hero();
 	
     @FXML
     private Label lblsdPersonaggio;
@@ -97,7 +98,7 @@ public class SceltaDelPersonaggio {
 			Sound.musicLoop();
 			Sound.musicStart();
 			//Creo eroe ed imposto nome e sesso presi da utente
-			Hero eroe = new Hero();
+//			Hero eroe = new Hero();
 			eroe.setName(textName.getText());
 			eroe.setSex(sesso);
 			GraphicHero.selectSex(eroe.getSex());
