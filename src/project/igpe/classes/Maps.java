@@ -63,7 +63,7 @@ public class Maps {
 					StringTokenizer tok = new StringTokenizer(line, " ");					
 						while (tok.hasMoreTokens()) {
 							costruzioneRiga = tok.nextToken();
-							if (costruzioneRiga.equals("0")) {
+							if (costruzioneRiga.equals("0") || costruzioneRiga.equals("5")) {
 								cella[riga][colonne++] = new Cell(Cell.EMPTY);
 							} 
 							
