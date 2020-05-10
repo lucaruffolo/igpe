@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
 public class MenuIniziale {
@@ -54,7 +55,7 @@ public class MenuIniziale {
 
 	    @FXML
 	    void ClickCredits(ActionEvent event) throws Exception {
-	    	
+	    	Sound.musicStop();
 	    	FXMLLoader loader = new FXMLLoader(Credits.class.getResource("Credits.fxml")); 
 			AnchorPane root = (AnchorPane) loader.load(); 
 			Scene crediti = new Scene(root, 1024,720); 
