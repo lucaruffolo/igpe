@@ -65,11 +65,9 @@ public class Options {
     void DragMusic(MouseEvent event) {
     	Double valore = sliderMusic.getValue();
     	int valoreprecon = valore.intValue();
-    	System.out.println(valoreprecon);
     	String valoreconvertito = String.valueOf(valoreprecon);
     	numberMusic.setText(valoreconvertito);
-    	double valoreVolume = valore/100;
-    	System.out.println(valoreVolume);
+    	double valoreVolume = valore/1000;
     	Sound.modifyVolume(valoreVolume);
     }
     
@@ -79,6 +77,8 @@ public class Options {
     	int valoreprecon = valore.intValue();
     	String valoreconvertito = String.valueOf(valoreprecon);
     	numberMusic.setText(valoreconvertito);
+    	double valoreVolume = valore/1000;
+    	Sound.modifyVolume(valoreVolume);
     }
 
     @FXML
