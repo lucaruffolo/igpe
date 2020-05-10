@@ -31,8 +31,8 @@ public class Movement {
 		//chiamare il cambio stanza qui
 		if (door(newPosX,newPosY)) {
 			Maps.setIndiceMappe(Maps.getIndiceMappe()+1);
-			//new GraphicsGame();
 			new Maps();
+			//new GraphicsGame(new Movement(eroe, new Maps()));
 			System.out.println("porta");
 		}
 		
