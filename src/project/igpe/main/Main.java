@@ -21,7 +21,7 @@ public class Main extends Application{
 		Scene menuIniziale = new Scene(root, 1024,720); 
 		primaryStage.setScene(menuIniziale);
 //		primaryStage.setResizable(false);
-//		primaryStage.initStyle(StageStyle.UNDECORATED);		
+//		primaryStage.initStyle(StageStyle.UNDECORATED);
 		primaryStage.show();
 		String musicFile = "src/project/igpe/sounds/menu.mp3";
 		Sound.setMusic(musicFile);

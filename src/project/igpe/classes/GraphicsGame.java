@@ -39,7 +39,7 @@ public class GraphicsGame extends StackPane{
 			e.printStackTrace();
 		}
 
-		
+		System.out.println("sono in graphicsgames");
 	
 		canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());        
