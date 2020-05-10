@@ -67,14 +67,19 @@ public class Movement {
 			}
 		}
 		
+		
 		if(!collision(newPosX, newPosY)) {
 			posHeroX=newPosX;
 			posHeroY=newPosY;
 		}
+		
+		collisionDamage(newPosX, newPosY);
+		
+		
 		pg.setX(posHeroX);
 		pg.setY(posHeroY);
 	}
-	
+		
 	//verifica se c'è una porta nella prossima casella
 
 	public boolean door (int newX, int newY) {
@@ -108,6 +113,12 @@ public class Movement {
 			return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
 	}
 	
+	public void collisionDamage(int newX, int newY) {	
+			if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE)
+				Hero.setLife(Hero.getLife()-10);
+			if (room.getCellType(newX, newY) == Cell.FALLINGDOWN)
+				Hero.setLife(0);	
+	}
 	
 	public Maps getRoom() {
 		return room;
