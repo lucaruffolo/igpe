@@ -34,8 +34,8 @@ public class Maps {
 
 	public static void loadcontenitoreMappe() {
 		
-		File img1 = new File("src/project/igpe/images/sfondo.jpg");
-		File img2 = new File("src/project/igpe/images/femmina.png");
+		File img1 = new File("src/project/igpe/images/sfondo1.jpg");
+		File img2 = new File("src/project/igpe/images/sfondo2.png");
 				
 		String txt1 = new String("src/project/igpe/maps/TemplateMAP.txt");
 		String txt2 = new String("src/project/igpe/maps/TemplateMAP2.txt");
