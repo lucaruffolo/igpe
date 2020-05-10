@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
 public class Options {
@@ -64,8 +65,12 @@ public class Options {
     void DragMusic(MouseEvent event) {
     	Double valore = sliderMusic.getValue();
     	int valoreprecon = valore.intValue();
+    	System.out.println(valoreprecon);
     	String valoreconvertito = String.valueOf(valoreprecon);
     	numberMusic.setText(valoreconvertito);
+    	double valoreVolume = valore/100;
+    	System.out.println(valoreVolume);
+    	Sound.modifyVolume(valoreVolume);
     }
     
     @FXML

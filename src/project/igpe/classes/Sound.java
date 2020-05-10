@@ -10,14 +10,16 @@ public class Sound {
 	
 	private static Media gamesound;
 	private static MediaPlayer mediaPlayer;
+	private static double valoreMusica;
+	
 	
 	public static void setMusic(String musicFile) {
 		gamesound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(gamesound);
 	}
 	
-	public static void modifyVolume(double x) {
-		mediaPlayer.setVolume(x);
+	public static void modifyVolume(double valoreMusica) {
+		mediaPlayer.setVolume(valoreMusica);
 	}
 	
 	public static void musicStart() {
@@ -32,5 +34,14 @@ public class Sound {
 		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 	}
 	
+	
+	public static double getValoreMusica() {
+		return valoreMusica;
+	}
+
+	public static void setValoreMusica(double valoreMusica) {
+		Sound.valoreMusica = valoreMusica;
+	}
+
 	
 }
