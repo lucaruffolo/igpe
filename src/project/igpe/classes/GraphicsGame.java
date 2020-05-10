@@ -79,13 +79,8 @@ public class GraphicsGame extends StackPane{
 			for(int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
 				int y = j * Settings.block;
 				
-				
 				switch(movimento.getRoom().getCella()[i][j].getType()) {
 				/*	
-					case Cell.HERO:						
-						//canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);		
-						break;
 					case Cell.WALL:
 						canvas.getGraphicsContext2D().setFill(Color.BLUE);
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
@@ -100,6 +95,15 @@ public class GraphicsGame extends StackPane{
 					
 					case Cell.OBSTACLE:
 						canvas.getGraphicsContext2D().setFill(Color.RED);
+					//	canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);				
+						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
+						break;
+					case Cell.OBSTACLEDAMAGE:
+						canvas.getGraphicsContext2D().setFill(Color.GRAY);				
+						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
+						break;
+					case Cell.FALLINGDOWN:
+						canvas.getGraphicsContext2D().setFill(Color.BLACK);				
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
 						break;
 					default:

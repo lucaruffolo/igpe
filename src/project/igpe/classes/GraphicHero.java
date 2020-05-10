@@ -32,6 +32,7 @@ public class GraphicHero {
 			}
 			else {
 				//System.out.println("Femmina");
+				
 				images = new Image[] {		
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "femmina.png")),
