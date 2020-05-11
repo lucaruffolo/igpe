@@ -44,7 +44,7 @@ public class Movement {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("porta");
+			
 			
 			if(doorDown) {
 				newPosX=10;

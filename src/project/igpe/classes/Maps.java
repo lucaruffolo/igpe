@@ -125,10 +125,6 @@ public class Maps {
 	public static int getNumMappe() {
 		return contenitoreImg.size();
 	}
-	/*
-	public void setCella(Cell[][] cella) {
-		this.cella = cella;
-	}*/
 	
 
 	/* DA modificare per aggiugere ostacoli random
@@ -141,5 +137,6 @@ public class Maps {
 			}
 		}
 		count++;	
-	}*/
+	}
+	*/
 }

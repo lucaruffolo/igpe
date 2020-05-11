@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.classes.Maps;
+import project.igpe.classes.MovementControl;
 import project.igpe.main.Main;
 
 public class Pausa {
@@ -31,6 +32,8 @@ public class Pausa {
 
     @FXML
     void ClickBackToGame(ActionEvent event) {
+		Main.window.setScene(MovementControl.getSceneGame());
+		Main.window.centerOnScreen();
 
     	//Da fare
     }
@@ -42,6 +45,7 @@ public class Pausa {
 		AnchorPane root = (AnchorPane) loader.load(); 
 		Scene menuImpostazioni = new Scene(root, 1024,720); 
 		Main.window.setScene(menuImpostazioni);
+		Main.window.centerOnScreen();
     }
 
     @FXML
@@ -51,6 +55,7 @@ public class Pausa {
 		AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
 		Scene menuIniziale = new Scene(root, 1024,720); 
 		Main.window.setScene(menuIniziale);
+		Main.window.centerOnScreen();
     }
 
     @FXML

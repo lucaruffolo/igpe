@@ -39,7 +39,7 @@ public class GraphicsGame extends StackPane{
 			e.printStackTrace();
 		}
 
-		System.out.println("sono in graphicsgames");
+		
 	
 		canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());        
@@ -62,7 +62,8 @@ public class GraphicsGame extends StackPane{
 			
 			this.setBackground(sfondo);
 			
-			System.out.println("Cambio sfondo mappa" + Maps.getContenitoreImg(Maps.getIndiceMappe()));
+		//	System.out.println("Cambio sfondo mappa" + Maps.getContenitoreImg(Maps.getIndiceMappe()));
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("JPG - Sfondo non trovato");
 			e.printStackTrace();

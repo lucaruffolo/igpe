@@ -20,7 +20,9 @@ import project.igpe.main.Main;
 public class SceltaDelPersonaggio {
 	
 	private static Boolean sesso=false;
-	private static Boolean notChoose=false;
+	private static Boolean notChooseSex=false;
+	private static Boolean notChooseNickname=false;
+
 	public static Hero eroe = new Hero();
 	
     @FXML
@@ -51,14 +53,17 @@ public class SceltaDelPersonaggio {
     private ImageView imgMaschio;
     
     @FXML
-    private Label lblNotChoose;
+    private Label lblNotChooseSex;
+    
+    @FXML
+    private Label lblNotChooseNickname;
     
 
     
     @FXML
     void clickBack(ActionEvent event) throws Exception {
     	
-		notChoose=false;
+		notChooseSex=false;
     	FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("MenuIniziale.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
 		AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
 		Scene menuIniziale = new Scene(root, 1024,720); 
@@ -68,8 +73,8 @@ public class SceltaDelPersonaggio {
     @FXML
     void selectSEXMale(ActionEvent event) {
     	
-    	lblNotChoose.setOpacity(0);
-    	notChoose=true;
+    	lblNotChooseSex.setOpacity(0);
+    	notChooseSex=true;
     	imgFemmina.setOpacity(0.20);
     	imgMaschio.setOpacity(1);
     	sesso = false;
@@ -78,8 +83,8 @@ public class SceltaDelPersonaggio {
     @FXML
     void selectSEXFemale(ActionEvent event) {
     	
-    	lblNotChoose.setOpacity(0);
-    	notChoose=true;
+    	lblNotChooseSex.setOpacity(0);
+    	notChooseSex=true;
     	imgMaschio.setOpacity(0.20);
     	imgFemmina.setOpacity(1);
     	sesso = true;
@@ -88,8 +93,19 @@ public class SceltaDelPersonaggio {
     @FXML
     void clickGame(ActionEvent event) {    	
     	
-    	if (notChoose) {
-    		notChoose=false;
+    	if (notChooseSex) 
+    		lblNotChooseSex.setOpacity(0);    	
+    	else
+    		lblNotChooseSex.setOpacity(1); 
+    	
+    	if (!textName.getText().isEmpty()) {
+    		notChooseNickname=true;
+    		lblNotChooseNickname.setOpacity(0);
+
+    	}
+    	else
+    		lblNotChooseNickname.setOpacity(1);
+		
 			//stoppo la musica del menu
 			Sound.musicStop();
 			String musicFile = "src/project/igpe/sounds/dead_song.mp3";
@@ -98,20 +114,25 @@ public class SceltaDelPersonaggio {
 			Sound.musicLoop();
 			Sound.musicStart();
 			//Creo eroe ed imposto nome e sesso presi da utente
-//			Hero eroe = new Hero();
-			eroe.setName(textName.getText());
-			eroe.setSex(sesso);
-			GraphicHero.selectSex(eroe.getSex());
-			//Disegno GIOCO
-			GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
-			Hero.setLife(100);
-			Scene scenegame = new Scene(game, 1270, 900);
-			Main.window.setScene(scenegame);
-			Main.window.centerOnScreen();
-			game.draw();
-		}
-    	else
-    		lblNotChoose.setOpacity(1);    	
+			
+			
+			if (notChooseSex && notChooseNickname)	{
+				lblNotChooseNickname.setOpacity(0);
+				eroe.setName(textName.getText());
+				eroe.setSex(sesso);
+				GraphicHero.selectSex(eroe.getSex());
+				//Disegno GIOCO
+				GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
+				Hero.setLife(100);
+				Scene scenegame = new Scene(game, 1270, 900);
+				Main.window.setScene(scenegame);
+				Main.window.centerOnScreen();
+				game.draw();
+				
+				notChooseSex=false;
+				notChooseNickname=false;
+			}
+		
     }
 
 }
