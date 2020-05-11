@@ -32,6 +32,8 @@ Reparto musica manca pierpy:
 	- musica sconfitta---ok
 	- suono cambio stanza---ok
 	- suono apertura porta---ok
+	-suono morte nemico
+	-suono morte hero
 	
 
 Reparto grafico manca:
