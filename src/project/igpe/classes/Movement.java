@@ -114,10 +114,18 @@ public class Movement {
 	}
 	
 	public void collisionDamage(int newX, int newY) {	
-			if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE)
-				Hero.setLife(Hero.getLife()-10);
-			if (room.getCellType(newX, newY) == Cell.FALLINGDOWN)
-				Hero.setLife(0);	
+			if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE) {
+				if (Hero.getLife() > 0)
+					Hero.setLife(Hero.getLife()-10);
+				if (Hero.getLife() == 0) {
+					//schermata morte
+				}
+			}
+				
+			if (room.getCellType(newX, newY) == Cell.FALLINGDOWN) {
+				Hero.setLife(0);
+				//inserire schermata morte
+			}
 	}
 	
 	public Maps getRoom() {
