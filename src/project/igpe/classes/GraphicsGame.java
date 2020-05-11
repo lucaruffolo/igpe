@@ -20,7 +20,7 @@ public class GraphicsGame extends StackPane{
 	
 	private Movement movimento;
 	
-	
+	private boolean isBlack = false;
 	
 	public GraphicsGame(Movement movimento) {
 		this.movimento = movimento;
@@ -70,52 +70,94 @@ public class GraphicsGame extends StackPane{
 
 	}
 
-	//
+	
 	public void draw() {
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		
-		for(int i = 0; i < movimento.getRoom().getCella().length; i++) {
-			int x = i * Settings.block;
-			for(int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
-				int y = j * Settings.block;
-				
-				switch(movimento.getRoom().getCella()[i][j].getType()) {
-				/*	
-					case Cell.WALL:
-						canvas.getGraphicsContext2D().setFill(Color.BLUE);
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
-						break;
-				*/		
+		if (!isBlack) {
+			for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
+				int x = i * Settings.block;
+				for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
+					int y = j * Settings.block;
+
+					switch (movimento.getRoom().getCella()[i][j].getType()) {
+					/*	
+						case Cell.WALL:
+							canvas.getGraphicsContext2D().setFill(Color.BLUE);
+							canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
+							break;
+					*/
 					case Cell.HEAL:
 						canvas.getGraphicsContext2D().setFill(Color.RED);
 						Font font = new Font("Verdana", 20);
 						canvas.getGraphicsContext2D().setFont(font);
-						canvas.getGraphicsContext2D().fillText("Vita: "+ Hero.getLife() +"%", 50, 50);		
+						canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 50, 50);
 						break;
-					
+
 					case Cell.OBSTACLE:
 						canvas.getGraphicsContext2D().setFill(Color.RED);
-					//	canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);				
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
+						//	canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);				
+						canvas.getGraphicsContext2D().fillRect(x + Settings.block / 15, y, Settings.block * 1,
+								Settings.block * 1);
 						break;
 					case Cell.OBSTACLEDAMAGE:
-						canvas.getGraphicsContext2D().setFill(Color.GRAY);				
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
+						canvas.getGraphicsContext2D().setFill(Color.GRAY);
+						canvas.getGraphicsContext2D().fillRect(x + Settings.block / 15, y, Settings.block * 1,
+								Settings.block * 1);
 						break;
 					case Cell.FALLINGDOWN:
-						canvas.getGraphicsContext2D().setFill(Color.BLACK);				
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
+						canvas.getGraphicsContext2D().setFill(Color.BLACK);
+						canvas.getGraphicsContext2D().fillRect(x + Settings.block / 15, y, Settings.block * 1,
+								Settings.block * 1);
 						break;
 					default:
 						break;
+					}
+					if (movimento.getPg().getX() == i && movimento.getPg().getY() == j)
+						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,
+								Settings.block);
+
 				}
-				if(movimento.getPg().getX()==i && movimento.getPg().getY()==j)
-					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);				
-					
-			}			
+			} 
 		}
 		
 	}
+	
+	public void switchRoom () {
+		
+		Image caricaSfondo = new Image ("project/igpe/images/blackscreen.jpg");
+		BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo,  
+		        BackgroundRepeat.NO_REPEAT,  
+		        BackgroundRepeat.NO_REPEAT,  
+		        BackgroundPosition.DEFAULT,  
+		           BackgroundSize.DEFAULT); 
+		
+		Background sfondo = new Background(backgroundimage);
+		
+		this.setBackground(sfondo);
+		
+		isBlack=true;
+		
+		Sound.musicPause();
+		String LadderEffect = "src/project/igpe/sounds/apertura_porta.wav";
+		Effects.setEffects(LadderEffect);
+		Effects.modifyVolumeEffetcs(0.05);
+		Effects.EffectsStart();
+		while(Effects.audioclip.isPlaying()) {
+		}
+		isBlack=false;
+		Sound.musicStart();
+	}
+
+	public boolean isBlack() {
+		return isBlack;
+	}
+
+	public void setBlack(boolean isBlack) {
+		this.isBlack = isBlack;
+	}
+	
+	
 	
 
 	

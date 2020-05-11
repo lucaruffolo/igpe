@@ -43,7 +43,7 @@ public class MenuIniziale {
 	    	
 	    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("Options.fxml")); 
 			AnchorPane root = (AnchorPane) loader.load(); 
-			Scene menuImpostazioni = new Scene(root, 1024,720); 
+			Scene menuImpostazioni = new Scene(root, 1024,720);
 			Main.window.setScene(menuImpostazioni);
 	    }
 	    

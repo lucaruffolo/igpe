@@ -37,20 +37,39 @@ public class Options {
     private AnchorPane MenuOptions;
 
     @FXML
-    private Button bttApply;
-
-    @FXML
     private Label lblMusic;
 
     @FXML
     private Button bttBack;
-
+    
+    
+    @FXML
+    public void initialize() {
+    	//save per gli effects
+    	sliderEffects.setValue(Config.AudioEffects);
+    	Double valore = sliderEffects.getValue();
+    	int valoreprecon = valore.intValue();
+    	String valoreconvertito = String.valueOf(valoreprecon);
+    	numberEffects.setText(valoreconvertito);
+    	
+    	//save per la music
+    	sliderMusic.setValue(Config.AudioMusic);
+    	Double valore2 = sliderMusic.getValue();
+    	int valoreprecon2 = valore2.intValue();
+    	String valoreconvertito2 = String.valueOf(valoreprecon2);
+    	numberMusic.setText(valoreconvertito2);
+    	double valoreVolume = valore2/1000;
+    	Sound.modifyVolume(valoreVolume);
+    	
+    }
+    
     @FXML
     void DragEffects(MouseEvent event) {
     	Double valore = sliderEffects.getValue();
     	int valoreprecon = valore.intValue();
     	String valoreconvertito = String.valueOf(valoreprecon);
     	numberEffects.setText(valoreconvertito);
+    	Config.AudioEffects = valore;
     }
     
     @FXML
@@ -59,6 +78,7 @@ public class Options {
     	int valoreprecon = valore.intValue();
     	String valoreconvertito = String.valueOf(valoreprecon);
     	numberEffects.setText(valoreconvertito);
+    	Config.AudioEffects = valore;
     }
 
     @FXML
@@ -69,6 +89,7 @@ public class Options {
     	numberMusic.setText(valoreconvertito);
     	double valoreVolume = valore/1000;
     	Sound.modifyVolume(valoreVolume);
+    	Config.AudioMusic = valore;
     }
     
     @FXML
@@ -79,6 +100,7 @@ public class Options {
     	numberMusic.setText(valoreconvertito);
     	double valoreVolume = valore/1000;
     	Sound.modifyVolume(valoreVolume);
+    	Config.AudioMusic = valore;
     }
 
     @FXML
@@ -91,11 +113,6 @@ public class Options {
 		AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
 		Scene menuIniziale = new Scene(root, 1024,720); 
 		Main.window.setScene(menuIniziale);
-    }
-
-    @FXML
-    void ClickApply(ActionEvent event) {
-
-    }
+    }    
 
 }

@@ -39,7 +39,7 @@ public class Maps {
 		String txt1 = new String("src/project/igpe/maps/TemplateMAP.txt");
 		String txt2 = new String("src/project/igpe/maps/TemplateMAP2.txt");
 		String txt3 = new String("src/project/igpe/maps/TemplateMAP3.txt");
-
+		
 		contenitoreImg.add(img1);
 		contenitoreImg.add(img2);
 		contenitoreImg.add(img3);
@@ -47,7 +47,6 @@ public class Maps {
 		contenitoreTxt.add(txt1);
 		contenitoreTxt.add(txt2);
 		contenitoreTxt.add(txt3);
-
 
 	}
 	

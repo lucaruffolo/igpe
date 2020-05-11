@@ -38,6 +38,7 @@ public class Movement {
 		//chiamare il cambio stanza qui
 		if (door(newPosX,newPosY)) {
 			try {
+				graphicGame.switchRoom();
 				graphicGame.setBg((Maps.getIndiceMappe()+1)%Maps.getNumMappe());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

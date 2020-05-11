@@ -34,6 +34,10 @@ public class Sound {
 		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 	}
 	
+	public static void musicPause() {
+		mediaPlayer.pause();
+	}
+	
 	
 	public static double getValoreMusica() {
 		return valoreMusica;
