@@ -87,7 +87,7 @@ public class Movement {
 		if(newX==1 && newY==7) {
 			doorLx=true;
 		}
-		else if(newX==10 && newY==12) {
+		else if(newX==10 && newY==13) {
 			doorDown=true;
 		}
 		else if(newX==19 && newY==7) {

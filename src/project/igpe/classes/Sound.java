@@ -23,7 +23,7 @@ public class Sound {
 	}
 	
 	public static void musicStart() {
-			mediaPlayer.play();
+		mediaPlayer.play();
 	}
 	
 	public static void musicStop() {
