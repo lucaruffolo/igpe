@@ -34,19 +34,19 @@ public class Maps {
 		
 		File img1 = new File("src/project/igpe/images/mappa2(SX-SU).png");
 		File img2 = new File("src/project/igpe/images/mappa2(SU-DX).png");
-		//File img3 = new File("src/project/igpe/images/sfondo2.jpg");
+		File img3 = new File("src/project/igpe/images/mappa2(DX-GIU).png");
 		
 		String txt1 = new String("src/project/igpe/maps/Template2door(SX-SU).txt");
 		String txt2 = new String("src/project/igpe/maps/Template2door(SU-DX).txt");
-		//String txt3 = new String("src/project/igpe/maps/TemplateMAP3.txt");
+		String txt3 = new String("src/project/igpe/maps/Template2door(DX-GIU).txt");
 		
 		contenitoreImg.add(img1);
 		contenitoreImg.add(img2);
-		//contenitoreImg.add(img3);
+		contenitoreImg.add(img3);
 
 		contenitoreTxt.add(txt1);
 		contenitoreTxt.add(txt2);
-		//contenitoreTxt.add(txt3);
+		contenitoreTxt.add(txt3);
 
 	}
 	
