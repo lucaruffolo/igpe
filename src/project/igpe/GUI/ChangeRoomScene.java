@@ -11,23 +11,16 @@ public class ChangeRoomScene {
     private AnchorPane AnchorPaneBlack;
 
     @FXML
-    private ImageView ImageId;
-    
-    private double opacity=0;
-    
+    private static ImageView ImageId;
     
     public void SwitchRoom() {
-    	AnchorPaneBlack.setOpacity(opacity);
+  //  	AnchorPaneBlack.setOpacity(opacity);
     }
     
-    
-	public double getOpacity() {
-		return opacity;
-	}
 
+	public static void setOpacity(double opacity) {
 
-	public void setOpacity(double opacity) {
-		this.opacity = opacity;
+		ImageId.setOpacity(opacity);
 	}
     
     

@@ -1,14 +1,14 @@
 package project.igpe.classes;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import project.igpe.GUI.ChangeRoomScene;
+import project.igpe.GUI.MenuIniziale;
+import project.igpe.GUI.SceneHandler;
 import project.igpe.main.Main;
 
 
@@ -52,34 +52,23 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			break;
 			
 		case ESCAPE:
+			// Switcho sul menu di PAUSA
+			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
+			AnchorPane root = null;
+			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			
+			Scene menuPausa = new Scene(root, 1270, 900); 
 			
-			//f (graphics.getScene().getWindow() instanceof Stage) {
+			try {
+				SceneHandler.SleepScene(Main.window.getScene(),menuPausa);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
-				sceneGame = Main.window.getScene();
+			System.out.println("wait");
+			
 				
-				FXMLLoader loaderSleep = new FXMLLoader(ChangeRoomScene.class.getResource("ChangeRoomScene.fxml"));
-				AnchorPane rootSleep = null;
-				try {rootSleep = (AnchorPane) loaderSleep.load();} catch (IOException e2) {e2.printStackTrace();	}
-				Scene menuSleep = new Scene(rootSleep, 1270, 900);	
-				Main.window.setScene(menuSleep);
-				Main.window.centerOnScreen();
-				try {	TimeUnit.SECONDS.sleep(1);	} catch (InterruptedException e2) {	e2.printStackTrace();	}
-
-				//try {	TimeUnit.MICROSECONDS.sleep(10);	} catch (InterruptedException e2) {	e2.printStackTrace();}
-				
-		
-				System.out.println("wait");
 			
-				/*
-				// Switcho sul menu di PAUSA
-				FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
-				AnchorPane root = null;
-				try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			
-				Scene menuPausa = new Scene(root, 1270, 900); 
-				try {	TimeUnit.SECONDS.sleep(1);	} catch (InterruptedException e2) {	e2.printStackTrace();	}
-				Main.window.setScene(menuPausa);
-				Main.window.centerOnScreen();
-				*/
 			
 			break;
 		case P:
