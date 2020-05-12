@@ -32,12 +32,12 @@ public class Maps {
 
 	public static void loadcontenitoreMappe() {
 		
-		File img1 = new File("src/project/igpe/images/mappa1.png");
-		//File img2 = new File("src/project/igpe/images/sfondo2.jpg");
+		File img1 = new File("src/project/igpe/images/mappa2(SX-SU).png");
+		File img2 = new File("src/project/igpe/images/mappa2(SU-DX).jpg");
 		//File img3 = new File("src/project/igpe/images/sfondo2.jpg");
 		
 		String txt1 = new String("src/project/igpe/maps/Template2door(SX-SU).txt");
-		//String txt2 = new String("src/project/igpe/maps/TemplateMAP.txt");
+		String txt2 = new String("src/project/igpe/maps/Template2door(SU-DX).txt");
 		//String txt3 = new String("src/project/igpe/maps/TemplateMAP3.txt");
 		
 		contenitoreImg.add(img1);

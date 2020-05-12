@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="AnchorPaneBlack" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.ChangeRoomScene">
+   <children>
+      <ImageView fx:id="ImageId" fitHeight="406.0" fitWidth="713.0" layoutX="-56.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-0.0625" AnchorPane.leftAnchor="-56.0" AnchorPane.rightAnchor="-57.0" AnchorPane.topAnchor="-1.0">
+         <image>
+            <Image url="@../../../../../../Desktop/unical/igpe/project%20igpe/blackscreen.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
