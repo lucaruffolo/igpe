@@ -32,21 +32,21 @@ public class Maps {
 
 	public static void loadcontenitoreMappe() {
 		
-		File img1 = new File("src/project/igpe/images/sfondo1.jpg");
-		File img2 = new File("src/project/igpe/images/sfondo2.jpg");
-		File img3 = new File("src/project/igpe/images/sfondo2.jpg");
+		File img1 = new File("src/project/igpe/images/mappa1.png");
+		//File img2 = new File("src/project/igpe/images/sfondo2.jpg");
+		//File img3 = new File("src/project/igpe/images/sfondo2.jpg");
 		
-		String txt1 = new String("src/project/igpe/maps/TemplateMAP.txt");
-		String txt2 = new String("src/project/igpe/maps/TemplateMAP2.txt");
-		String txt3 = new String("src/project/igpe/maps/TemplateMAP3.txt");
+		String txt1 = new String("src/project/igpe/maps/Template2door(SX-SU).txt");
+		//String txt2 = new String("src/project/igpe/maps/TemplateMAP.txt");
+		//String txt3 = new String("src/project/igpe/maps/TemplateMAP3.txt");
 		
 		contenitoreImg.add(img1);
-		contenitoreImg.add(img2);
-		contenitoreImg.add(img3);
+		//contenitoreImg.add(img2);
+		//contenitoreImg.add(img3);
 
 		contenitoreTxt.add(txt1);
-		contenitoreTxt.add(txt2);
-		contenitoreTxt.add(txt3);
+		//contenitoreTxt.add(txt2);
+		//contenitoreTxt.add(txt3);
 
 	}
 	
