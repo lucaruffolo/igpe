@@ -21,8 +21,8 @@ public class Hero {
 	public Hero() {
 		name = "nome";
 		sex = false;
-		x=2;
-		y=2;
+		x=4;
+		y=4;
 		size=50;
 		
 	}
