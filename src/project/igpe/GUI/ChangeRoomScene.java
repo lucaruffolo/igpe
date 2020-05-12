@@ -19,8 +19,6 @@ public class ChangeRoomScene {
     public void SwitchRoom() {
     	AnchorPaneBlack.setOpacity(opacity);
     }
-
-
     
     
 	public double getOpacity() {

@@ -4,11 +4,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="AnchorPaneBlack" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.ChangeRoomScene">
+<AnchorPane fx:id="AnchorPaneBlack" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.ChangeRoomScene">
    <children>
-      <ImageView fx:id="ImageId" fitHeight="406.0" fitWidth="713.0" layoutX="-56.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-0.0625" AnchorPane.leftAnchor="-56.0" AnchorPane.rightAnchor="-57.0" AnchorPane.topAnchor="-1.0">
+      <ImageView fx:id="ImageId" fitHeight="973.0" fitWidth="1704.0" layoutX="-110.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-73.0" AnchorPane.leftAnchor="-110.0" AnchorPane.rightAnchor="-324.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../../../Desktop/unical/igpe/project%20igpe/blackscreen.jpg" />
+            <Image url="@../images/blackscreen.jpg" />
          </image>
       </ImageView>
    </children>
