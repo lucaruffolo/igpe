@@ -9,8 +9,8 @@ public class Hero {
 	private int speed=1;
 	private int size;
 	private Image img;
-	private int x;
-	private int y;
+	private static int x;
+	private static int y;
 	
     public final static int MOVE_RIGHT = 0;
 	public final static int MOVE_LEFT = 1;
@@ -80,16 +80,16 @@ public class Hero {
 		return x;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public static void setX(int xx) {
+		x = xx;
 	}
 
 	public int getY() {
 		return y;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+	public static void setY(int yy) {
+		y = yy;
 	}
 
 	

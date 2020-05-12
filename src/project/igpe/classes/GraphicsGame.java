@@ -94,7 +94,7 @@ public class GraphicsGame extends StackPane{
 						canvas.getGraphicsContext2D().setFont(font);
 						canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 50, 50);
 						break;
-
+						/*
 					case Cell.OBSTACLE:
 						canvas.getGraphicsContext2D().setFill(Color.RED);
 						//	canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);				
@@ -111,6 +111,7 @@ public class GraphicsGame extends StackPane{
 						canvas.getGraphicsContext2D().fillRect(x + Settings.block / 15, y, Settings.block * 1,
 								Settings.block * 1);
 						break;
+						*/
 					default:
 						break;
 					}

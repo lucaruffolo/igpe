@@ -77,8 +77,8 @@ public class Movement {
 		collisionDamage(newPosX, newPosY);
 		
 		
-		pg.setX(posHeroX);
-		pg.setY(posHeroY);
+		Hero.setX(posHeroX);
+		Hero.setY(posHeroY);
 	}
 		
 	//verifica se c'è una porta nella prossima casella
