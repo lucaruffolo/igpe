@@ -124,8 +124,8 @@ public class SceltaDelPersonaggio {
 				//Disegno GIOCO
 				GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
 				Hero.setLife(100);
-				Hero.setX(2);
-				Hero.setY(2);
+				Hero.setX(4);
+				Hero.setY(4);
 				Scene scenegame = new Scene(game, 1270, 900);
 				Main.window.setScene(scenegame);
 				Main.window.centerOnScreen();
