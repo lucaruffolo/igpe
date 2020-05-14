@@ -52,20 +52,18 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			break;
 			
 		case ESCAPE:
+			
+			//creo animazione cerchio
+			
 			// Switcho sul menu di PAUSA
-			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
+			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
 			AnchorPane root = null;
 			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			
-			Scene menuPausa = new Scene(root, 1270, 900); 
-			
-			try {
-				SceneHandler.SleepScene(Main.window.getScene(),menuPausa);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			System.out.println("wait");
+			Scene menuPausa = new Scene(root, 1270, 900);	
+
+			try {	SceneHandler.SleepScene(menuPausa);	} catch (Exception e2) {e2.printStackTrace();	}
+
+			//Main.window.setScene(menuPausa);
 			
 				
 			
@@ -82,6 +80,6 @@ public class MovementControl implements EventHandler<KeyEvent> {
 	public static Scene getSceneGame() {
 		return sceneGame;
 	}
-
+	
 
 }
