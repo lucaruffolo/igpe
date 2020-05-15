@@ -158,6 +158,15 @@ public class GraphicsGame extends StackPane{
 	public void setBlack(boolean isBlack) {
 		this.isBlack = isBlack;
 	}
+
+	public Canvas getCanvas() {
+		return canvas;
+	}
+
+	public void setCanvas(Canvas canvas) {
+		this.canvas = canvas;
+	}
+	
 	
 	
 	

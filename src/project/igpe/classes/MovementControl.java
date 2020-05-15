@@ -9,7 +9,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.GUI.MenuIniziale;
 import project.igpe.GUI.SceneHandler;
-import project.igpe.main.Main;
 
 
 public class MovementControl implements EventHandler<KeyEvent> {
@@ -49,6 +48,10 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			if (Hero.getLife()>0)
 				Hero.setLife(Hero.getLife()-10);			
 			graphics.draw();
+			break;
+			
+		case SPACE:
+			Hero.shoot();
 			break;
 			
 		case ESCAPE:

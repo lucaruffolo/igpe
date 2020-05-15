@@ -55,7 +55,7 @@ public class SceneHandler implements Initializable{
          Main.window.setScene(zorro);
          fadeTransition.setOnFinished(null); 
          System.out.println(fadeTransition.getStatus());
-         if (fadeTransition.getDuration().equals(1000)) {
+         if (fadeTransition.getDuration().equals(999)) {
         	 System.out.println("arrivato");
              fadeTransition.stop(); 
 

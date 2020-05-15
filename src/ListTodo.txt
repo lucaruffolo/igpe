@@ -5,7 +5,6 @@
 Reparto codice manca:
 
 	- Sleep cambio mappa
-	- primo cambio mappa [txt già caricato(img vecchia),creare la classe cambio stanza]
 	- Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 )
 	- Creazione mappe statiche 5 stanza chiave - 6 stanza boss 
 	- spawn chiave random in una stanza stabilita 
@@ -59,10 +58,6 @@ Reparto grafico manca:
 	
 
 ////// PROPOSTE
- mappe
-	4(1)
-	3(4)
-	2(3)
 	
 	
 	

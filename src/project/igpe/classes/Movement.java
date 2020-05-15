@@ -9,6 +9,7 @@ public class Movement {
 	
 	private Maps room;
 	private Hero pg;
+	private static int dir;
 	
 	private GraphicsGame graphicGame;
 
@@ -25,14 +26,20 @@ public class Movement {
 		
 		if(direction == MOVE_RIGHT) {
 			newPosX=pg.getX()+1;
+			setDir(MOVE_RIGHT);
 			}
-		else if(direction == MOVE_LEFT)
+		else if(direction == MOVE_LEFT) {
 			newPosX=pg.getX()-1;
-		else if(direction == MOVE_UP)
+			setDir(MOVE_LEFT);
+		}
+		else if(direction == MOVE_UP) {
 			newPosY=pg.getY()-1;
-		else if(direction == MOVE_DOWN)
+			setDir(MOVE_UP);
+		}
+		else if(direction == MOVE_DOWN) {
 			newPosY=pg.getY()+1;
-		
+			setDir(MOVE_DOWN);
+		}
 		GraphicHero.setImgDir(direction);
 		
 		//chiamare il cambio stanza qui
@@ -129,6 +136,20 @@ public class Movement {
 			}
 	}
 	
+	
+	
+	
+	
+	
+	
+	public static int getDir() {
+		return dir;
+	}
+
+	public static void setDir(int direzione) {
+		dir = direzione;
+	}
+
 	public Maps getRoom() {
 		return room;
 	}

@@ -12,11 +12,8 @@ public class Hero {
 	private static int x;
 	private static int y;
 	
-    public final static int MOVE_RIGHT = 0;
-	public final static int MOVE_LEFT = 1;
-	public final static int MOVE_UP = 2;
-	public final static int MOVE_DOWN = 3;
-
+	
+	
 	
 	public Hero() {
 		name = "nome";
@@ -26,6 +23,13 @@ public class Hero {
 		size=50;
 		
 	}
+
+	public static void shoot() {
+		Bullet bullet =  new Bullet(x, y, Movement.getDir(), 10);
+		Thread t = new Thread(bullet);
+		t.start();
+	}
+
 	
 
 	public  String getName() {
