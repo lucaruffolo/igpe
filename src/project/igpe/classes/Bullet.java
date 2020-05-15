@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 
 public class Bullet implements Runnable{
 	
-	private Image imgBulletDX = new Image("src/project/igpe/images/bullet.jpg");
+	private Image imgBulletDX;
 	
 	int posX;
 	int posY;
@@ -54,6 +54,18 @@ public class Bullet implements Runnable{
 		
 
 		
+	}
+
+
+
+	public Image getImgBulletDX() {
+		return imgBulletDX;
+	}
+
+
+
+	public void setImgBulletDX(Image imgBulletDX) {
+		this.imgBulletDX = imgBulletDX;
 	} 
 	
 	

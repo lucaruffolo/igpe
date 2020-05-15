@@ -46,7 +46,6 @@ public class GraphicHero {
 			
 		}
 		
-		
 
 		public static Image getImg() {
 			return img;
