@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.FillTransition;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
