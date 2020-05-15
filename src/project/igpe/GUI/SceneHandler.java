@@ -48,7 +48,7 @@ public class SceneHandler implements Initializable{
          fadeTransition.setAutoReverse(false); 
          fadeTransition.setCycleCount(1);
          fadeTransition.play();
-
+         
          Group root = new Group(circle); 
          Scene zorro = new Scene(root,1270, 900);
          Main.window.setScene(zorro);
