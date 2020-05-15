@@ -9,6 +9,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.GUI.MenuIniziale;
 import project.igpe.GUI.SceneHandler;
+import project.igpe.GUI.SleepThread;
+import project.igpe.main.Main;
+
 
 
 public class MovementControl implements EventHandler<KeyEvent> {
@@ -51,14 +54,11 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			break;
 			
 		case SPACE:
-			Hero.shoot();
-			break;
+			Bullets.shoot();
+			break;	
 			
 		case ESCAPE:
-			
-			//creo animazione cerchio
-			
-			// Switcho sul menu di PAUSA
+		    
 			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
 			AnchorPane root = null;
 			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			
@@ -66,10 +66,14 @@ public class MovementControl implements EventHandler<KeyEvent> {
 
 			try {	SceneHandler.SleepScene(menuPausa);	} catch (Exception e2) {e2.printStackTrace();	}
 
-			//Main.window.setScene(menuPausa);
 			
+			/*
+			SleepThread t1 = new SleepThread();
+			Thread t = new Thread(t1);
+			t.start();
+			*/
 				
-			
+			//Main.window.setScene(menuPausa);
 			
 			break;
 		case P:
