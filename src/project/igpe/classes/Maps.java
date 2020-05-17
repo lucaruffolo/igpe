@@ -43,6 +43,7 @@ public class Maps {
 		File img9 = new File("src/project/igpe/images/mappa3(SU-SX-GIU).png");
 		File img10 = new File("src/project/igpe/images/mappa3(SX-GIU-DX).png");
 		File img11 = new File("src/project/igpe/images/mappa4.png");
+		File img12 = new File("src/project/igpe/images/mappaAcqua.png");
 		
 		String txt1 = new String("src/project/igpe/maps/Template2door(SX-SU).txt");
 		String txt2 = new String("src/project/igpe/maps/Template2door(SU-DX).txt");
@@ -55,6 +56,7 @@ public class Maps {
 		String txt9 = new String("src/project/igpe/maps/Template3door(SU-SX-GIU).txt");
 		String txt10 = new String("src/project/igpe/maps/Template3door(SX-GIU-DX).txt");
 		String txt11 = new String("src/project/igpe/maps/Template4door.txt");
+		String txt12 = new String("src/project/igpe/maps/Template4doorACQUA.txt");
 		
 		contenitoreImg.add(img1);
 		contenitoreImg.add(img2);
@@ -67,6 +69,7 @@ public class Maps {
 		contenitoreImg.add(img9);
 		contenitoreImg.add(img10);
 		contenitoreImg.add(img11);
+		contenitoreImg.add(img12);
 
 		contenitoreTxt.add(txt1);
 		contenitoreTxt.add(txt2);
@@ -79,6 +82,7 @@ public class Maps {
 		contenitoreTxt.add(txt9);
 		contenitoreTxt.add(txt10);
 		contenitoreTxt.add(txt11);
+		contenitoreTxt.add(txt12);
 
 	}
 	

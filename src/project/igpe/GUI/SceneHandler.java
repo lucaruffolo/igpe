@@ -1,25 +1,25 @@
 package project.igpe.GUI;
 
-import java.net.URL;
 import java.util.HashMap;
-import java.util.ResourceBundle;
 
-import javafx.animation.FadeTransition;
-import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.util.Duration;
-import project.igpe.main.Main;
+import project.igpe.classes.GraphicsGame;
 
-public class SceneHandler implements Initializable{
+public class SceneHandler /*implements Initializable*/{
 	
-    private static HashMap<String, Pane> allWindows = new HashMap<String,Pane>();
+    private static HashMap<String, Scene> allWindows = new HashMap<String, Scene>();
     
-    private static Scene main;
+    
+    public SceneHandler() {
+	}
 
+	/*
+    private static Scene main;
+    
     public static void init(Scene m) {
         main = m;        	
     }
@@ -31,15 +31,18 @@ public class SceneHandler implements Initializable{
     public static void setCurrent(String name){
     	main.setRoot(allWindows.get(name));
     }	
-    
+   */
     public static void SleepScene (Scene Scena) throws Exception {
 
     	 Circle circle = new Circle();
          circle.setCenterX(300.0f); 
          circle.setCenterY(135.0f);      
          circle.setRadius(5000.0f); 
-         circle.setFill(Color.BLACK); 
-        
+         circle.setFill(Color.BLACK);
+         
+         
+         
+         /*
          FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000)); 
          fadeTransition.setNode(circle); 
          fadeTransition.setFromValue(0); 
@@ -57,17 +60,25 @@ public class SceneHandler implements Initializable{
          if (fadeTransition.getDuration().equals(999)) {
         	 System.out.println("arrivato");
              fadeTransition.stop(); 
-
-         }
+		*/
        //  Main.window.setScene(Scena); test
-         
 
         System.out.println("ok");
 
-    }
-
+    } 
+	
+    /*
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {}
+	*/
+	
+	
+	public static Scene getAllWindows(String key) {
+		return allWindows.get(key);
+	}
 
-    
+	public static void setAllWindows(String key, Scene p) {
+		allWindows.put(key, p);
+	}
+
 }
