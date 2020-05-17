@@ -42,8 +42,9 @@ public class Movement {
 		}
 		GraphicHero.setImgDir(direction);
 		
-		//chiamare il cambio stanza qui
-		if (door(newPosX,newPosY)) {
+		
+		
+		if (door(newPosX,newPosY)) {  //controllo porta in nuova posizione
 			try {
 				graphicGame.switchRoom();
 				graphicGame.setBg((Maps.getIndiceMappe()+1)%Maps.getNumMappe());
@@ -106,8 +107,7 @@ public class Movement {
 		}
 		
 		if(room.getCellType(newX, newY) == Cell.DOOR) {
-			//sleep
-			return true;
+			return true;//porta trovata
 		}
 		else
 			return false;
@@ -126,13 +126,13 @@ public class Movement {
 				if (Hero.getLife() > 0)
 					Hero.setLife(Hero.getLife()-10);
 				if (Hero.getLife() == 0) {
-					//schermata morte
+					//aggiungere schermata morte
 				}
 			}
 				
 			if (room.getCellType(newX, newY) == Cell.FALLINGDOWN) {
 				Hero.setLife(0);
-				//inserire schermata morte
+				//aggiungere schermata morte
 			}
 	}
 	

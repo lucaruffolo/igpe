@@ -26,12 +26,11 @@ public class GraphicsGame extends StackPane{
 		this.movimento = movimento;
 		canvas = new Canvas();
 		canvas.setFocusTraversable(true);
-		canvas.setOnKeyPressed(new MovementControl(movimento, this));
+		canvas.setOnKeyPressed(new MovementControl(movimento));
 		getChildren().add(canvas);
 		movimento.setGraphicGame(this);
 	
 		
-//		Carica e disegna lo sfondo!	
 		try {
 			setBg(0);
 		} catch (Exception e) {
@@ -39,7 +38,6 @@ public class GraphicsGame extends StackPane{
 			e.printStackTrace();
 		}
 
-		
 	
 		canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());        
@@ -52,17 +50,10 @@ public class GraphicsGame extends StackPane{
 		try {
 			
 			caricaSfondo = new Image (new FileInputStream(Maps.getContenitoreImg(Maps.getIndiceMappe())));
-			BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo,  
-	                BackgroundRepeat.NO_REPEAT,  
-	                BackgroundRepeat.NO_REPEAT,  
-	                BackgroundPosition.DEFAULT,  
-	                   BackgroundSize.DEFAULT); 
-			
+			BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT); 
 			Background sfondo = new Background(backgroundimage);
 			
 			this.setBackground(sfondo);
-			
-		//	System.out.println("Cambio sfondo mappa" + Maps.getContenitoreImg(Maps.getIndiceMappe()));
 			
 		} catch (FileNotFoundException e) {
 			System.out.println("JPG - Sfondo non trovato");
@@ -83,10 +74,10 @@ public class GraphicsGame extends StackPane{
 
 					switch (movimento.getRoom().getCella()[i][j].getType()) {
 					/*	
-						case Cell.WALL:
-							canvas.getGraphicsContext2D().setFill(Color.BLUE);
-							canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
-							break;
+					case Cell.WALL:
+						canvas.getGraphicsContext2D().setFill(Color.BLUE);
+						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
+						break;
 					*/
 					case Cell.HEAL:
 						canvas.getGraphicsContext2D().setFill(Color.RED);
@@ -94,33 +85,19 @@ public class GraphicsGame extends StackPane{
 						canvas.getGraphicsContext2D().setFont(font);
 						canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 50, 50);
 						break;
-						/*
-					case Cell.OBSTACLE:
-						canvas.getGraphicsContext2D().setFill(Color.RED);
-						//	canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);				
-						canvas.getGraphicsContext2D().fillRect(x + Settings.block / 15, y, Settings.block * 1,
-								Settings.block * 1);
-						break;
-					case Cell.OBSTACLEDAMAGE:
-						canvas.getGraphicsContext2D().setFill(Color.GRAY);
-						canvas.getGraphicsContext2D().fillRect(x + Settings.block / 15, y, Settings.block * 1,
-								Settings.block * 1);
-						break;
-					case Cell.FALLINGDOWN:
-						canvas.getGraphicsContext2D().setFill(Color.BLACK);
-						canvas.getGraphicsContext2D().fillRect(x + Settings.block / 15, y, Settings.block * 1,
-								Settings.block * 1);
-						break;
-						*/
+						
 					default:
 						break;
 					}
 					if (movimento.getPg().getX() == i && movimento.getPg().getY() == j)
-						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,
-								Settings.block);
+						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);
+					
 
 				}
-			} 
+			}
+			for(Bullet b:Hero.getContenitoreBullets()) {
+				canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
+			}
 		}
 		
 	}

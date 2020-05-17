@@ -1,47 +1,46 @@
 package project.igpe.classes;
 
+import java.io.File;
+
 import javafx.scene.image.Image;
 
-public class Bullet implements Runnable{
+public class Bullet {
 	
-	private Image imgBulletDX;
+	private Image imgBulletDX = new Image(Bullet.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschiosu.png"));
 	
-	int posX;
-	int posY;
+	private int posX;
+	private int posY;
 	
-	int dir;
-	int speed=100;
-	int frequenzy;
+	private int dir;
+	private int speed=30;
+	private int frequenzy;
 	
 	boolean alive;
 	
 	
 	public Bullet(int posX, int posY, int dir, int frequenzy) {
 		super();
-		this.posX = posX;
-		this.posY = posY;
+		this.setPosX(posX);
+		this.setPosY(posY);
 		this.dir = dir;
 		this.frequenzy = frequenzy;
 		alive=true;
+		
 	}
 
 
-
-	@Override
-	public void run() {
-		while(alive) {
-			
+	public void moveBullet() {
 			if(Movement.MOVE_RIGHT==dir) {
-				posX+=speed;
+				setPosX(getPosX() + speed);
 			}
 			if(Movement.MOVE_DOWN==dir) {
-				posY-=speed;
+				setPosY(getPosY() - speed);
 			}
 			if(Movement.MOVE_LEFT==dir) {
-				posX-=speed;
+				setPosX(getPosX() - speed);
 			}
 			if(Movement.MOVE_UP==dir) {
-				posY+=speed;
+				setPosY(getPosY() + speed);
 			}
 			
 			try {
@@ -50,14 +49,14 @@ public class Bullet implements Runnable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		
-
-		
 	}
 
 
-
+	
+	
+	
+	
+	
 	public Image getImgBulletDX() {
 		return imgBulletDX;
 	}
@@ -66,8 +65,26 @@ public class Bullet implements Runnable{
 
 	public void setImgBulletDX(Image imgBulletDX) {
 		this.imgBulletDX = imgBulletDX;
+	}
+
+
+	public int getPosX() {
+		return posX;
+	}
+
+
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+
+
+	public int getPosY() {
+		return posY;
+	}
+
+
+	public void setPosY(int posY) {
+		this.posY = posY;
 	} 
-	
-	
 	
 }

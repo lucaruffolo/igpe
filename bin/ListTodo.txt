@@ -4,6 +4,8 @@
 
 Reparto codice manca:
 
+	- Sistema gameloop static
+	- proiettile
 	- Sleep cambio mappa
 	- Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 )
 	- Creazione mappe statiche 5 stanza chiave - 6 stanza boss 
@@ -12,7 +14,7 @@ Reparto codice manca:
 	- Aggiungere menu online
 	- Threads per VITA personaggio (futuro)
 	
-Reparto musica manca pierpy:
+Reparto musica pierpy:
 	
 	musica = mp3
 	effetti/suoni = waw
@@ -51,8 +53,7 @@ Reparto grafico manca:
 	
 	pierpycibbo- Schermata caricamento (Tutorial tasti how2play) barra di caricamento tipo trackmania?
 	
-	(dopo threads)
-	- proiettile
+	
 	- movimenti pg nemici boss
 	- porta che si apre con sfondo scale
 	

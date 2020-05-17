@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import project.igpe.classes.GameLoop;
 import project.igpe.classes.GraphicHero;
 import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Hero;
@@ -114,8 +115,6 @@ public class SceltaDelPersonaggio {
 			Sound.musicLoop();
 			Sound.musicStart();
 			//Creo eroe ed imposto nome e sesso presi da utente
-			
-			
 			if (notChooseSex && notChooseNickname)	{
 				lblNotChooseNickname.setOpacity(0);
 				eroe.setName(textName.getText());
@@ -123,6 +122,8 @@ public class SceltaDelPersonaggio {
 				GraphicHero.selectSex(eroe.getSex());
 				//Disegno GIOCO
 				GraphicsGame game = new GraphicsGame(new Movement(eroe, new Maps()));
+				GameLoop gl=new GameLoop(game);
+				gl.start();
 				Hero.setLife(100);
 				Hero.setX(4);
 				Hero.setY(4);

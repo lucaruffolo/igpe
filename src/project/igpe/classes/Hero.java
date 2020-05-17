@@ -1,37 +1,50 @@
 package project.igpe.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.image.Image;
 
 public class Hero {
 	private String name;
-	private Boolean sex; //falso=maschio   true=femmina
+	private Boolean sex;
 	private static int life=100;
 	private int speed=1;
 	private int size;
 	private Image img;
 	private static int x;
 	private static int y;
+	private static List<Bullet> contenitoreBullets;
 	
 	
-	
-	
+	public static List<Bullet> getContenitoreBullets() {
+		return contenitoreBullets;
+	}
+
+	public static void setContenitoreBullets(List<Bullet> bullets) {
+		Hero.contenitoreBullets = bullets;
+	}
+
 	public Hero() {
 		name = "nome";
 		sex = false;
 		x=6;
 		y=6;
 		size=50;
-		
+		contenitoreBullets=new ArrayList<Bullet>();
 	}
 
+	
 	public static void shoot() {
 		Bullet bullet =  new Bullet(x, y, Movement.getDir(), 10);
-		Thread t = new Thread(bullet);
-		t.start();
+		contenitoreBullets.add(bullet);
 	}
 
 	
 
+	
+	
+	
 	public  String getName() {
 		return name;
 	}
@@ -96,7 +109,5 @@ public class Hero {
 		y = yy;
 	}
 
-	
-	
 	
 }
