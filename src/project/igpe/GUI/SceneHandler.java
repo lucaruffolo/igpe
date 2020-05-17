@@ -59,7 +59,7 @@ public class SceneHandler implements Initializable{
              fadeTransition.stop(); 
 
          }
-       //  Main.window.setScene(Scena);
+       //  Main.window.setScene(Scena); test
          
 
         System.out.println("ok");
