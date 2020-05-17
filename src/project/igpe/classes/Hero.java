@@ -1,5 +1,8 @@
 package project.igpe.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.image.Image;
 
 public class Hero {
@@ -11,23 +14,30 @@ public class Hero {
 	private Image img;
 	private static int x;
 	private static int y;
+	private static List<Bullet> bullets;
 	
 	
 	
-	
+	public static List<Bullet> getBullets() {
+		return bullets;
+	}
+
+	public static void setBullets(List<Bullet> bullets) {
+		Hero.bullets = bullets;
+	}
+
 	public Hero() {
 		name = "nome";
 		sex = false;
 		x=6;
 		y=6;
 		size=50;
-		
+		bullets=new ArrayList<Bullet>();
 	}
 
 	public static void shoot() {
 		Bullet bullet =  new Bullet(x, y, Movement.getDir(), 10);
-		Thread t = new Thread(bullet);
-		t.start();
+		bullets.add(bullet);
 	}
 
 	

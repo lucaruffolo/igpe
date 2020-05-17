@@ -26,7 +26,7 @@ public class GraphicsGame extends StackPane{
 		this.movimento = movimento;
 		canvas = new Canvas();
 		canvas.setFocusTraversable(true);
-		canvas.setOnKeyPressed(new MovementControl(movimento, this));
+		canvas.setOnKeyPressed(new MovementControl(movimento));
 		getChildren().add(canvas);
 		movimento.setGraphicGame(this);
 	
@@ -116,11 +116,14 @@ public class GraphicsGame extends StackPane{
 						break;
 					}
 					if (movimento.getPg().getX() == i && movimento.getPg().getY() == j)
-						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,
-								Settings.block);
+						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);
+					
 
 				}
-			} 
+			}
+			for(Bullet b:Hero.getBullets()) {
+				canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
+			}
 		}
 		
 	}

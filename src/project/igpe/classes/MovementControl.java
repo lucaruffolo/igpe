@@ -14,12 +14,10 @@ import project.igpe.GUI.SceneHandler;
 public class MovementControl implements EventHandler<KeyEvent> {
 
 	private Movement movimento;
-	private GraphicsGame graphics;
 	private static Scene sceneGame;
 	
-	public MovementControl(Movement movimento, GraphicsGame graphics) {
+	public MovementControl(Movement movimento) {
 		this.movimento = movimento;
-		this.graphics = graphics;
 	}
 
 	@Override
@@ -27,27 +25,21 @@ public class MovementControl implements EventHandler<KeyEvent> {
 		switch (e.getCode()) {
 		case LEFT:
 			movimento.move(Movement.MOVE_LEFT);
-			graphics.draw();
 			break;
 		case RIGHT:
 			movimento.move(Movement.MOVE_RIGHT);
-			graphics.draw();
 			break;
 		case UP:
 			movimento.move(Movement.MOVE_UP);
-			graphics.draw();
 			break;
 		case DOWN:
 			movimento.move(Movement.MOVE_DOWN);
-			graphics.draw();
 			break;
 		case X:
 			Hero.setLife(100);			
-			graphics.draw();
 		case L:
 			if (Hero.getLife()>0)
 				Hero.setLife(Hero.getLife()-10);			
-			graphics.draw();
 			break;
 			
 		case SPACE:
