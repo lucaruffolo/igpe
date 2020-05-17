@@ -29,7 +29,6 @@ public class Main extends Application{
 		Sound.musicLoop();
 		Sound.musicStart();
 	}
-	
 
 	public static void main(String[] args) {
 		launch(args);	
