@@ -9,12 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import project.igpe.classes.GameLoop;
 import project.igpe.classes.GraphicHero;
-import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Hero;
-import project.igpe.classes.Maps;
-import project.igpe.classes.Movement;
 import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
@@ -107,14 +103,13 @@ public class SceltaDelPersonaggio {
     	else
     		lblNotChooseNickname.setOpacity(1);
 		
-			//stoppo la musica del menu
 			Sound.musicStop();
 			String musicFile = "src/project/igpe/sounds/dead_song.mp3";
 			Sound.setMusic(musicFile);
 			Sound.modifyVolume(0.04);
 			Sound.musicLoop();
 			Sound.musicStart();
-			//Creo eroe ed imposto nome e sesso presi da utente
+
 			if (notChooseSex && notChooseNickname)	{
 				lblNotChooseNickname.setOpacity(0);
 				eroe.setName(textName.getText());

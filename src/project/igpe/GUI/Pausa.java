@@ -32,10 +32,9 @@ public class Pausa {
 
     @FXML
     void ClickBackToGame(ActionEvent event) {
-		Main.window.setScene(MovementControl.getSceneGame());
+		Main.window.setScene(MovementControl.getRipristinoGame());
 		Main.window.centerOnScreen();
-
-    	//Da fare
+		Main.resumeGame();
     }
 
     @FXML

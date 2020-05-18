@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.GUI.MenuIniziale;
-import project.igpe.GUI.SceneHandler;
 import project.igpe.main.Main;
 
 
@@ -16,6 +15,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 
 	private Movement movimento;
 	private static Scene sceneGame;
+	private static Scene ripristinoGame;
 	
 	public MovementControl(Movement movimento) {
 		this.movimento = movimento;
@@ -49,29 +49,19 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			
 		case ESCAPE:
 			
-			//creo animazione cerchio
+			setRipristinoGame(Main.window.getScene());
 			Main.pauseGame();
-			// Switcho sul menu di PAUSA
+
 			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
 			AnchorPane root = null;
 			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			
 			Scene menuPausa = new Scene(root, 1270, 900);	
-			
-			/*
-			try {	
-				SceneHandler.SleepScene(menuPausa);	
-				} 
-			catch (Exception e2) {
-				e2.printStackTrace();
-				}
-			*/
-			//Main.window.setScene(menuPausa);	
-			break;
-			
-			
+			Main.window.setScene(menuPausa);
+				
+			break;			
 		case P:
-			break;
 			
+			break;			
 		default:
 			break;
 		}
@@ -79,6 +69,14 @@ public class MovementControl implements EventHandler<KeyEvent> {
 
 	public static Scene getSceneGame() {
 		return sceneGame;
+	}
+
+	public static Scene getRipristinoGame() {
+		return ripristinoGame;
+	}
+
+	public static void setRipristinoGame(Scene ripristinoGame) {
+		MovementControl.ripristinoGame = ripristinoGame;
 	}
 	
 

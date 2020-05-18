@@ -49,7 +49,9 @@ public class Main extends Application{
 	public static void pauseGame() {
 		gl.stop();
 	}
-
+	public static void resumeGame() {
+		gl.start();
+	}
 	public static void main(String[] args) {
 		launch(args);	
 	}
