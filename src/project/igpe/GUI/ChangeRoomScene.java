@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.classes.Effects;
 import project.igpe.classes.GraphicHero;
+import project.igpe.classes.MovementControl;
 import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
@@ -23,7 +24,7 @@ public class ChangeRoomScene {
     
     
     public static void changeRoom () throws Exception {
-    	Main.GameInPause = false;
+    	Main.pauseGame();
     	Sound.musicPause();
     	String openDoor = "src/project/igpe/sounds/apertura_porta.wav";
 		Effects.setEffects(openDoor);
@@ -42,6 +43,8 @@ public class ChangeRoomScene {
 		Effects.EffectsStart();
 		while(Effects.audioclip.isPlaying()) {
 		}
+		Main.window.setScene(MovementControl.getRipristinoGame());
+		Main.window.centerOnScreen();
 		Main.resumeGame();
 		Sound.musicStart();
     }
