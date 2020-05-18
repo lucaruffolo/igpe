@@ -19,7 +19,8 @@ public class Main extends Application{
 	public static GameLoop gl=new GameLoop(game);
 	public static Boolean GameInPause = false;
 	
-	
+	private static Scene scenegame;
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	
@@ -41,10 +42,14 @@ public class Main extends Application{
 
 
 	public static void startGame() {
-		Scene scenegame = new Scene(game, 1270, 900);
+		
+		if (!GameInPause) {
+			scenegame = new Scene(game, 1270, 900);
+		}
 		Main.window.setScene(scenegame);
 		Main.window.centerOnScreen();
 		gl.start();
+		GameInPause=false;
 	}
 
 	public static void pauseGame() {

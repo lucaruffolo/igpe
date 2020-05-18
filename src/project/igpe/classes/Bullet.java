@@ -34,13 +34,13 @@ public class Bullet {
 				setPosX(getPosX() + speed);
 			}
 			if(Movement.MOVE_DOWN==dir) {
-				setPosY(getPosY() - speed);
+				setPosY(getPosY() + speed);
 			}
 			if(Movement.MOVE_LEFT==dir) {
 				setPosX(getPosX() - speed);
 			}
 			if(Movement.MOVE_UP==dir) {
-				setPosY(getPosY() + speed);
+				setPosY(getPosY() - speed);
 			}
 			
 			try {
