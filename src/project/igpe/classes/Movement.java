@@ -1,5 +1,7 @@
 package project.igpe.classes;
 
+import project.igpe.GUI.ChangeRoomScene;
+
 public class Movement {
 
     public final static int MOVE_RIGHT = 0;
@@ -46,7 +48,7 @@ public class Movement {
 		
 		if (door(newPosX,newPosY)) {  //controllo porta in nuova posizione
 			try {
-				graphicGame.switchRoom();
+				ChangeRoomScene.changeRoom();
 				graphicGame.setBg((Maps.getIndiceMappe()+1)%Maps.getNumMappe());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

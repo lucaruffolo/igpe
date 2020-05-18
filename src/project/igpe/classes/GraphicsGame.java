@@ -21,7 +21,6 @@ public class GraphicsGame extends StackPane{
 	private static boolean Transition=false;
 	
 	private static Movement movimento;
-	private boolean isBlack = false;
 	
 	public GraphicsGame(Movement movimentox) {
 		movimento = movimentox;
@@ -92,7 +91,6 @@ public class GraphicsGame extends StackPane{
 	public void draw() {
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		
-		if (!isBlack) {
 			for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
 				int x = i * Settings.block;
 				for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
@@ -142,36 +140,11 @@ public class GraphicsGame extends StackPane{
 			}
 			*/
 			//del
-		}
 		
 	}
-
-	public void switchRoom () {
-		
-		Image caricaSfondo = new Image ("project/igpe/images/blackscreen.jpg");
-		BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo,  
-		        BackgroundRepeat.NO_REPEAT,  
-		        BackgroundRepeat.NO_REPEAT,  
-		        BackgroundPosition.DEFAULT,  
-		           BackgroundSize.DEFAULT); 
-		
-		Background sfondo = new Background(backgroundimage);
-		
-		this.setBackground(sfondo);
-		
-		isBlack=true;
-		
-		Sound.musicPause();
-		String LadderEffect = "src/project/igpe/sounds/apertura_porta.wav";
-		Effects.setEffects(LadderEffect);
-		Effects.modifyVolumeEffetcs(0.05);
-		Effects.EffectsStart();
-		while(Effects.audioclip.isPlaying()) {
-		}
-		isBlack=false;
-		Sound.musicStart();
-	}
-
+	
+	
+	
 	
 	public static boolean isTransition() {
 		return Transition;
@@ -179,14 +152,6 @@ public class GraphicsGame extends StackPane{
 
 	public static void setTransition(boolean transition) {
 		Transition = transition;
-	}
-
-	public boolean isBlack() {
-		return isBlack;
-	}
-
-	public void setBlack(boolean isBlack) {
-		this.isBlack = isBlack;
 	}
 
 	public Canvas getCanvas() {
