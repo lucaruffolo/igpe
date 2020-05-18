@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import project.igpe.classes.GameLoop;
 import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Maps;
 import project.igpe.classes.MovementControl;

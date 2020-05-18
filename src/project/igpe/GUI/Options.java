@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import project.igpe.classes.Settings;
 import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
@@ -46,14 +47,14 @@ public class Options {
     @FXML
     public void initialize() {
     	//save per gli effects
-    	sliderEffects.setValue(Config.AudioEffects);
+    	sliderEffects.setValue(Settings.AudioEffects);
     	Double valore = sliderEffects.getValue();
     	int valoreprecon = valore.intValue();
     	String valoreconvertito = String.valueOf(valoreprecon);
     	numberEffects.setText(valoreconvertito);
     	
     	//save per la music
-    	sliderMusic.setValue(Config.AudioMusic);
+    	sliderMusic.setValue(Settings.AudioMusic);
     	Double valore2 = sliderMusic.getValue();
     	int valoreprecon2 = valore2.intValue();
     	String valoreconvertito2 = String.valueOf(valoreprecon2);
@@ -69,7 +70,7 @@ public class Options {
     	int valoreprecon = valore.intValue();
     	String valoreconvertito = String.valueOf(valoreprecon);
     	numberEffects.setText(valoreconvertito);
-    	Config.AudioEffects = valore;
+    	Settings.AudioEffects = valore;
     }
     
     @FXML
@@ -78,7 +79,7 @@ public class Options {
     	int valoreprecon = valore.intValue();
     	String valoreconvertito = String.valueOf(valoreprecon);
     	numberEffects.setText(valoreconvertito);
-    	Config.AudioEffects = valore;
+    	Settings.AudioEffects = valore;
     }
 
     @FXML
@@ -89,7 +90,7 @@ public class Options {
     	numberMusic.setText(valoreconvertito);
     	double valoreVolume = valore/1000;
     	Sound.modifyVolume(valoreVolume);
-    	Config.AudioMusic = valore;
+    	Settings.AudioMusic = valore;
     }
     
     @FXML
@@ -100,7 +101,7 @@ public class Options {
     	numberMusic.setText(valoreconvertito);
     	double valoreVolume = valore/1000;
     	Sound.modifyVolume(valoreVolume);
-    	Config.AudioMusic = valore;
+    	Settings.AudioMusic = valore;
     }
 
     @FXML
