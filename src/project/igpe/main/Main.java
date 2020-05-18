@@ -10,6 +10,7 @@ import project.igpe.classes.GameLoop;
 import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Maps;
 import project.igpe.classes.Movement;
+import project.igpe.classes.MovementControl;
 import project.igpe.classes.Sound;
 
 public class Main extends Application{
@@ -42,7 +43,7 @@ public class Main extends Application{
 
 
 	public static void startGame() {
-		
+		Maps.setIndiceMappe(0);
 		if (!GameInPause) {
 			scenegame = new Scene(game, 1270, 900);
 		}
