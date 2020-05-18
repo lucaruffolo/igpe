@@ -15,7 +15,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 
 	private Movement movimento;
 	private static Scene sceneGame;
-	private static Scene ripristinoGame;
+	private static Scene ripristinoGame;	
 	
 	public MovementControl(Movement movimento) {
 		this.movimento = movimento;
@@ -23,53 +23,50 @@ public class MovementControl implements EventHandler<KeyEvent> {
 
 	@Override
 	public void handle(KeyEvent e) {
-		switch (e.getCode()) {
-		case LEFT:
-			movimento.move(Movement.MOVE_LEFT);
-			break;
-		case RIGHT:
-			movimento.move(Movement.MOVE_RIGHT);
-			break;
-		case UP:
-			movimento.move(Movement.MOVE_UP);
-			break;
-		case DOWN:
-			movimento.move(Movement.MOVE_DOWN);
-			break;
-		case X:
-			Hero.setLife(100);			
-		case L:
-			if (Hero.getLife()>0)
-				Hero.setLife(Hero.getLife()-10);			
-			break;
-			
-		case SPACE:
-			Hero.shoot();
-			break;
-			
-		case ESCAPE:
-			
-			setRipristinoGame(Main.window.getScene());
-		
-
-			//switch transition
-		//	GraphicsGame.setTransition(true);
-			Main.pauseGame();
-			
-			
-			
-			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
-			AnchorPane root = null;
-			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			
-			Scene menuPausa = new Scene(root, 1270, 900);	
-			Main.window.setScene(menuPausa);
+		if (!Main.GameInPause) {
+			switch (e.getCode()) {
+			case LEFT:
+				movimento.move(Movement.MOVE_LEFT);
+				break;
+			case RIGHT:
+				movimento.move(Movement.MOVE_RIGHT);
+				break;
+			case UP:
+				movimento.move(Movement.MOVE_UP);
+				break;
+			case DOWN:
+				movimento.move(Movement.MOVE_DOWN);
+				break;
+			case X:
+				Hero.setLife(100);			
+			case L:
+				if (Hero.getLife()>0)
+					Hero.setLife(Hero.getLife()-10);			
+				break;
 				
-			break;			
-		case P:
-			
-			break;			
-		default:
-			break;
+			case SPACE:
+				Hero.shoot();
+				break;
+				
+			case ESCAPE:
+				
+				setRipristinoGame(Main.window.getScene());
+				GraphicsGame.setTransition(true);	
+				GraphicsGame.drawTransition();
+	
+				//switch transition
+				Main.pauseGame();
+				
+				FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
+				AnchorPane root = null;
+				try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
+				Scene menuPausa = new Scene(root, 1270, 900);	
+				Main.window.setScene(menuPausa);
+					
+				break;					
+			default:
+				break;
+			}
 		}
 	}
 

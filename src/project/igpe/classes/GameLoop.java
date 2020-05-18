@@ -20,12 +20,12 @@ public class GameLoop extends AnimationTimer {
 				b.moveBullet();
 			} 
 		}
-		if (currentNanoTime - previousTime >= frequency) {
-
-			
+		if (currentNanoTime - previousTime >= frequency) {			
 			gg.draw();
 			previousTime = currentNanoTime;
 		}
+		
 	}
+	
 }
 

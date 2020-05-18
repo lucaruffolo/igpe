@@ -1,10 +1,9 @@
-package project.igpe.GUI;
+package project.igpe.classes;
 
 
 public class ChangeRoomScene {
 	
 	public void changeRoom() {
-		SceneHandler.getAllWindows("scene");
 		
 	}
 	

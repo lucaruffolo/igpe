@@ -6,7 +6,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import project.igpe.GUI.MenuIniziale;
 import project.igpe.GUI.SceltaDelPersonaggio;
-import project.igpe.GUI.SceneHandler;
 import project.igpe.classes.GameLoop;
 import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Maps;
@@ -18,6 +17,8 @@ public class Main extends Application{
 	public static Stage window; //Schermate
 	public static GraphicsGame game = new GraphicsGame(new Movement(SceltaDelPersonaggio.eroe, new Maps()));
 	public static GameLoop gl=new GameLoop(game);
+	public static Boolean GameInPause = false;
+	
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -37,23 +38,30 @@ public class Main extends Application{
 		Sound.musicStart();
 	}
 	
+
+
 	public static void startGame() {
-		gl.start();
 		Scene scenegame = new Scene(game, 1270, 900);
 		Main.window.setScene(scenegame);
 		Main.window.centerOnScreen();
-		SceneHandler.setAllWindows("scenegame",scenegame);
-		game.draw();
-	}
-	
-	public static void pauseGame() {
-		gl.stop();
-	}
-	public static void resumeGame() {
 		gl.start();
 	}
+
+	public static void pauseGame() {
+		GameInPause = true;
+		gl.stop();
+	}
+	
+	public static void resumeGame() {
+		GameInPause = false;
+		gl.start();
+	}
+	
 	public static void main(String[] args) {
 		launch(args);	
 	}
+
+
+
 
 }

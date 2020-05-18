@@ -120,7 +120,7 @@ public class SceltaDelPersonaggio {
 				Hero.setY(4);
 				
 				Main.startGame();
-				
+
 				notChooseSex=false;
 				notChooseNickname=false;
 			}
