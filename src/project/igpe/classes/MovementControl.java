@@ -50,8 +50,14 @@ public class MovementControl implements EventHandler<KeyEvent> {
 		case ESCAPE:
 			
 			setRipristinoGame(Main.window.getScene());
-			Main.pauseGame();
+		
 
+			//switch transition
+		//	GraphicsGame.setTransition(true);
+			Main.pauseGame();
+			
+			
+			
 			FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
 			AnchorPane root = null;
 			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}			

@@ -17,17 +17,25 @@ import javafx.scene.text.Font;
 public class GraphicsGame extends StackPane{
 	
 	private Canvas canvas;
+	private Canvas canvasTransition;
+	private static boolean Transition=false;
 	
 	private Movement movimento;
-	
 	private boolean isBlack = false;
 	
 	public GraphicsGame(Movement movimento) {
 		this.movimento = movimento;
 		canvas = new Canvas();
+		
+		canvasTransition = new Canvas();
+		
 		canvas.setFocusTraversable(true);
 		canvas.setOnKeyPressed(new MovementControl(movimento));
 		getChildren().add(canvas);
+		
+		canvasTransition.setFocusTraversable(true);
+		canvasTransition.setOnKeyPressed(new MovementControl(movimento));
+		getChildren().add(canvasTransition);
 		movimento.setGraphicGame(this);
 	
 		
@@ -40,7 +48,11 @@ public class GraphicsGame extends StackPane{
 
 	
 		canvas.widthProperty().bind(this.widthProperty());
-        canvas.heightProperty().bind(this.heightProperty());        
+        canvas.heightProperty().bind(this.heightProperty());
+        
+        canvasTransition.widthProperty().bind(this.widthProperty());
+        canvasTransition.heightProperty().bind(this.heightProperty());
+
 	}
 	
 	public void setBg(int index) throws Exception {
@@ -98,10 +110,30 @@ public class GraphicsGame extends StackPane{
 			for(Bullet b:Hero.getContenitoreBullets()) {
 				canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
 			}
+			
+			//del
+			if (!Transition) {
+				canvasTransition.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+			}
+			else  {
+				for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
+					int x = i * Settings.block;
+					for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
+						int y = j * Settings.block;
+						canvas.getGraphicsContext2D().setFill(Color.BLUE);
+						canvasTransition.getGraphicsContext2D().setEffect(getEffect());
+						canvasTransition.getGraphicsContext2D().fillRect(x+Settings.block/15, y+Settings.block/15, Settings.block*1, Settings.block*1);						
+
+					}
+				}
+			}
+			
+			//del
 		}
 		
 	}
-	
+
+
 	public void switchRoom () {
 		
 		Image caricaSfondo = new Image ("project/igpe/images/blackscreen.jpg");
@@ -126,6 +158,15 @@ public class GraphicsGame extends StackPane{
 		}
 		isBlack=false;
 		Sound.musicStart();
+	}
+
+	
+	public static boolean isTransition() {
+		return Transition;
+	}
+
+	public static void setTransition(boolean transition) {
+		Transition = transition;
 	}
 
 	public boolean isBlack() {
