@@ -52,7 +52,7 @@ public class Movement {
 				MovementControl.setRipristinoGame(Main.window.getScene());
 				GraphicsGame.setTransition(true);	
 				GraphicsGame.drawTransition();
-				ChangeRoomScene.changeRoom();
+				//ChangeRoomScene.changeRoom();
 				graphicGame.setBg((Maps.getIndiceMappe()+1)%Maps.getNumMappe());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
