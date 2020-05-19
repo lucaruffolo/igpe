@@ -51,7 +51,8 @@ public class Maps {
 
 	public static void loadcontenitoreMappe() {
 		
-		File img0 = new File("src/project/igpe/images/mappa2(SX-SU).png");
+		File img0 = new File("src/project/igpe/images/mappaSpawn.png");
+		
 		File img1 = new File("src/project/igpe/images/mappa2(SX-SU).png");
 		File img2 = new File("src/project/igpe/images/mappa2(SU-DX).png");
 		File img3 = new File("src/project/igpe/images/mappa2(DX-GIU).png");
@@ -63,9 +64,21 @@ public class Maps {
 		File img9 = new File("src/project/igpe/images/mappa3(SU-SX-GIU).png");
 		File img10 = new File("src/project/igpe/images/mappa3(SX-GIU-DX).png");
 		File img11 = new File("src/project/igpe/images/mappa4.png");
-		//File img12 = new File("src/project/igpe/images/mappaAcqua.png");
 		
-		String txt0 = new String("src/project/igpe/maps/Template2door(SX-SU).txt");
+		File img12 = new File("src/project/igpe/images/mappaAcqua2(SX-SU).png");
+		File img13 = new File("src/project/igpe/images/mappaAcqua2(SU-DX).png");
+		File img14 = new File("src/project/igpe/images/mappaAcqua2(DX-GIU).png");
+		File img15 = new File("src/project/igpe/images/mappaAcqua2(GIU-SX).png");
+		File img16 = new File("src/project/igpe/images/mappaAcqua2(SX-DX).png");
+		File img17 = new File("src/project/igpe/images/mappaAcqua2(SU-GIU).png");
+		File img18 = new File("src/project/igpe/images/mappaAcqua3(SX-SU-DX).png");
+		File img19 = new File("src/project/igpe/images/mappaAcqua3(SU-DX-GIU).png");
+		File img20 = new File("src/project/igpe/images/mappaAcqua3(SU-SX-GIU).png");
+		File img21 = new File("src/project/igpe/images/mappaAcqua3(SX-GIU-DX).png");
+		File img22 = new File("src/project/igpe/images/mappaAcqua4.png");
+		
+		String txt0 = new String("src/project/igpe/maps/TemplateSpawn.txt");
+		
 		String txt1 = new String("src/project/igpe/maps/Template2door(SX-SU).txt");
 		String txt2 = new String("src/project/igpe/maps/Template2door(SU-DX).txt");
 		String txt3 = new String("src/project/igpe/maps/Template2door(DX-GIU).txt");
@@ -77,7 +90,18 @@ public class Maps {
 		String txt9 = new String("src/project/igpe/maps/Template3door(SU-SX-GIU).txt");
 		String txt10 = new String("src/project/igpe/maps/Template3door(SX-GIU-DX).txt");
 		String txt11 = new String("src/project/igpe/maps/Template4door.txt");
-		//String txt12 = new String("src/project/igpe/maps/Template4doorACQUA.txt");
+		
+		String txt12 = new String("src/project/igpe/maps/Template2doorACQUA(SX-SU).txt");
+		String txt13 = new String("src/project/igpe/maps/Template2doorACQUA(SU-DX).txt");
+		String txt14 = new String("src/project/igpe/maps/Template2doorACQUA(DX-GIU).txt");
+		String txt15 = new String("src/project/igpe/maps/Template2doorACQUA(GIU-SX).txt");
+		String txt16 = new String("src/project/igpe/maps/Template2doorACQUA(SX-DX).txt");
+		String txt17 = new String("src/project/igpe/maps/Template2doorACQUA(SU-GIU).txt");
+		String txt18 = new String("src/project/igpe/maps/Template3doorACQUA(SX-SU-DX).txt");
+		String txt19 = new String("src/project/igpe/maps/Template3doorACQUA(SU-DX-GIU).txt");
+		String txt20 = new String("src/project/igpe/maps/Template3doorACQUA(SU-SX-GIU).txt");
+		String txt21 = new String("src/project/igpe/maps/Template3doorACQUA(SX-GIU-DX).txt");
+		String txt22 = new String("src/project/igpe/maps/Template4doorACQUA.txt");
 		
 		firstRoomImg = img0;
 		firstRoomTxt = txt0;
@@ -96,6 +120,20 @@ public class Maps {
 		upTxt.put(9, txt9);
 		upImg.put(11, img11);
 		upTxt.put(11, txt11);
+		upImg.put(12, img12);
+		upTxt.put(12, txt12);
+		upImg.put(13, img13);
+		upTxt.put(13, txt13);
+		upImg.put(17, img17);
+		upTxt.put(17, txt17);
+		upImg.put(18, img18);
+		upTxt.put(18, txt18);
+		upImg.put(19, img19);
+		upTxt.put(19, txt19);
+		upImg.put(20, img20);
+		upTxt.put(20, txt20);
+		upImg.put(22, img22);
+		upTxt.put(22, txt22);
 		
 		downImg.put(3, img3);
 		downTxt.put(3, txt3);
@@ -111,6 +149,20 @@ public class Maps {
 		downTxt.put(10, txt10);
 		downImg.put(11, img11);
 		downTxt.put(11, txt11);
+		downImg.put(14, img14);
+		downTxt.put(14, txt14);
+		downImg.put(15, img15);
+		downTxt.put(15, txt15);
+		downImg.put(17, img17);
+		downTxt.put(17, txt17);
+		downImg.put(19, img19);
+		downTxt.put(19, txt19);
+		downImg.put(20, img20);
+		downTxt.put(20, txt20);
+		downImg.put(21, img21);
+		downTxt.put(21, txt21);
+		downImg.put(22, img22);
+		downTxt.put(22, txt22);
 		
 		leftImg.put(1, img1);
 		leftTxt.put(1, txt1);
@@ -126,6 +178,20 @@ public class Maps {
 		leftTxt.put(10, txt10);
 		leftImg.put(11, img11);
 		leftTxt.put(11, txt11);
+		leftImg.put(12, img12);
+		leftTxt.put(12, txt12);
+		leftImg.put(15, img15);
+		leftTxt.put(15, txt15);
+		leftImg.put(16, img16);
+		leftTxt.put(16, txt16);
+		leftImg.put(18, img18);
+		leftTxt.put(18, txt18);
+		leftImg.put(20, img20);
+		leftTxt.put(20, txt20);
+		leftImg.put(21, img21);
+		leftTxt.put(21, txt21);
+		leftImg.put(22, img22);
+		leftTxt.put(22, txt22);
 		
 		rightImg.put(2, img2);
 		rightTxt.put(2, txt2);
@@ -141,6 +207,20 @@ public class Maps {
 		rightTxt.put(10, txt10);
 		rightImg.put(11, img11);
 		rightTxt.put(11, txt11);
+		rightImg.put(13, img13);
+		rightTxt.put(13, txt13);
+		rightImg.put(14, img14);
+		rightTxt.put(14, txt14);
+		rightImg.put(16, img16);
+		rightTxt.put(16, txt16);
+		rightImg.put(18, img18);
+		rightTxt.put(18, txt18);
+		rightImg.put(19, img19);
+		rightTxt.put(19, txt19);
+		rightImg.put(21, img21);
+		rightTxt.put(21, txt21);
+		rightImg.put(22, img22);
+		rightTxt.put(22, txt22);
 		
 	}
 	
