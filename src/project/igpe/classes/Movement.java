@@ -58,6 +58,8 @@ public class Movement {
 				//ChangeRoomScene.changeRoom();
 				
 			    nRand = (int)(14.0 * Math.random());
+			    
+			    //non funge
 			    while(!checkNrand2) {
 			    	checkNrand2=true;
 					for (int i = 0; i < Maps.getIndexYetChoosen().size(); i++) {
