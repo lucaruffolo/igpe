@@ -20,6 +20,9 @@ public class Movement {
 	private static boolean doorDown = false;
 	private static boolean doorLx = false;
 	
+	private static int nRand;
+	private static boolean checkNrand = false;
+	
 	public void move(int direction) {
 		int posHeroX=pg.getX();
 		int posHeroY=pg.getY();
@@ -52,9 +55,34 @@ public class Movement {
 				GraphicsGame.drawTransition();
 				
 				//ChangeRoomScene.changeRoom();
-			
-				Maps.setIndiceMappe(Maps.getIndiceMappe()+1);				
-				graphicGame.setBg((Maps.getIndiceMappe())%Maps.getNumMappe());
+				
+			    nRand = (int)(12.0 * Math.random());
+			    while(!checkNrand) {
+					for (int i = 0; i < Maps.getIndexYetChoosen().size(); i++) {
+						if (nRand == Maps.getIndexYetChoosen().get(i)) {
+							nRand = (int) (12.0 * Math.random());
+						} 
+					}
+					if(doorDown && nRand!=1 && nRand!=2 && nRand!=3 && nRand!=7 && nRand!=8 && nRand!=9 && nRand!=11) {
+						nRand = (int)(12.0 * Math.random());
+				    }
+					else if(doorLx && nRand!=2 && nRand!=3 && nRand!=5 && nRand!=7 && nRand!=8 && nRand!=10 && nRand!=11) {
+						nRand = (int)(12.0 * Math.random());
+					}
+					else if(doorUp && nRand!=3 && nRand!=4 && nRand!=6 && nRand!=8 && nRand!=9 && nRand!=10 && nRand!=11) {
+						nRand = (int)(12.0 * Math.random());
+					}
+					else if(doorDx && nRand!=1 && nRand!=4 && nRand!=5 && nRand!=7 && nRand!=9 && nRand!=10 && nRand!=11) {
+						nRand = (int)(12.0 * Math.random());
+					}
+					else
+						checkNrand=true;
+				}
+			    System.out.println(nRand);
+			    Maps.getIndexYetChoosen().add(nRand);
+				Maps.setIndiceMappe(nRand);				
+				graphicGame.setBg(nRand);
+				checkNrand=false;
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -150,6 +178,24 @@ public class Movement {
 	
 	
 	
+	public static boolean isCheckNrand() {
+		return checkNrand;
+	}
+
+
+	public static void setCheckNrand(boolean checkNrand) {
+		Movement.checkNrand = checkNrand;
+	}
+
+
+	public static int getnRand() {
+		return nRand;
+	}
+
+	public static void setnRand(int nRand) {
+		Movement.nRand = nRand;
+	}
+
 	public static int getDir() {
 		return dir;
 	}
@@ -186,4 +232,38 @@ public class Movement {
 	public void setGraphicGame(GraphicsGame graphicGame) {
 		this.graphicGame = graphicGame;
 	}
+
+	public static boolean isDoorDx() {
+		return doorDx;
+	}
+
+	public static void setDoorDx(boolean doorDx) {
+		Movement.doorDx = doorDx;
+	}
+
+	public static boolean isDoorUp() {
+		return doorUp;
+	}
+
+	public static void setDoorUp(boolean doorUp) {
+		Movement.doorUp = doorUp;
+	}
+
+	public static boolean isDoorDown() {
+		return doorDown;
+	}
+
+	public static void setDoorDown(boolean doorDown) {
+		Movement.doorDown = doorDown;
+	}
+
+	public static boolean isDoorLx() {
+		return doorLx;
+	}
+
+	public static void setDoorLx(boolean doorLx) {
+		Movement.doorLx = doorLx;
+	}
+	
+	
 }

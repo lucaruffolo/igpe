@@ -43,7 +43,7 @@ public class Main extends Application{
 		
 		
 		try { 	//Reset Mappe TXT + Background
-			game.setBg(0);
+			game.spawnBg();
 		} catch (Exception e) {	e.printStackTrace();}
 		
 		

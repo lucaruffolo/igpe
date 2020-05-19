@@ -18,7 +18,8 @@ public class GraphicsGame extends StackPane{
 	
 	private Canvas canvas;
 	private static Canvas canvasTransition;
-	private static boolean Transition=false;
+	private static boolean Transition = false;
+	private static boolean firstRoom = true;
 	
 	private static Movement movimento;
 	
@@ -37,14 +38,21 @@ public class GraphicsGame extends StackPane{
 		getChildren().add(canvasTransition);
 		movimento.setGraphicGame(this);
 	
-		
-		try {
-			setBg(0);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(!firstRoom) {
+			try {
+				setBg(Movement.getnRand());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-
+		else {
+			try {
+				spawnBg();
+				firstRoom = false;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	
 		canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());
@@ -54,13 +62,12 @@ public class GraphicsGame extends StackPane{
 
 	}
 	
-	public void setBg(int index) throws Exception {
-		Maps.setIndiceMappe(index);
-		Maps.loadMap(index);
+	
+	public void spawnBg() throws Exception {
 		Image caricaSfondo = null;
 		try {
 			
-			caricaSfondo = new Image (new FileInputStream(Maps.getContenitoreImg(Maps.getIndiceMappe())));
+			caricaSfondo = new Image (new FileInputStream(Maps.getFirstRoomImg()));
 			BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT); 
 			Background sfondo = new Background(backgroundimage);
 			
@@ -69,6 +76,85 @@ public class GraphicsGame extends StackPane{
 		} catch (FileNotFoundException e) {
 			System.out.println("JPG - Sfondo non trovato");
 			e.printStackTrace();
+		}
+
+	}
+	
+	public void setBg(int index) throws Exception {
+		if (Movement.isDoorDown()) {
+			Maps.setIndiceMappe(index);
+			Maps.loadMap(index);
+			Image caricaSfondo = null;
+			try {
+
+				caricaSfondo = new Image(new FileInputStream(Maps.getUpImg().get(index)));
+				BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo, BackgroundRepeat.NO_REPEAT,
+						BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+				Background sfondo = new Background(backgroundimage);
+
+				this.setBackground(sfondo);
+
+			} catch (FileNotFoundException e) {
+				System.out.println("JPG - Sfondo non trovato");
+				e.printStackTrace();
+			} 
+		}
+		
+		if (Movement.isDoorDx()) {
+			Maps.setIndiceMappe(index);
+			Maps.loadMap(index);
+			Image caricaSfondo = null;
+			try {
+
+				caricaSfondo = new Image(new FileInputStream(Maps.getLeftImg().get(index)));
+				BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo, BackgroundRepeat.NO_REPEAT,
+						BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+				Background sfondo = new Background(backgroundimage);
+
+				this.setBackground(sfondo);
+
+			} catch (FileNotFoundException e) {
+				System.out.println("JPG - Sfondo non trovato");
+				e.printStackTrace();
+			} 
+		}
+		
+		if (Movement.isDoorLx()) {
+			Maps.setIndiceMappe(index);
+			Maps.loadMap(index);
+			Image caricaSfondo = null;
+			try {
+
+				caricaSfondo = new Image(new FileInputStream(Maps.getRightImg().get(index)));
+				BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo, BackgroundRepeat.NO_REPEAT,
+						BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+				Background sfondo = new Background(backgroundimage);
+
+				this.setBackground(sfondo);
+
+			} catch (FileNotFoundException e) {
+				System.out.println("JPG - Sfondo non trovato");
+				e.printStackTrace();
+			} 
+		}
+		
+		if (Movement.isDoorUp()) {
+			Maps.setIndiceMappe(index);
+			Maps.loadMap(index);
+			Image caricaSfondo = null;
+			try {
+
+				caricaSfondo = new Image(new FileInputStream(Maps.getDownImg().get(index)));
+				BackgroundImage backgroundimage = new BackgroundImage(caricaSfondo, BackgroundRepeat.NO_REPEAT,
+						BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+				Background sfondo = new Background(backgroundimage);
+
+				this.setBackground(sfondo);
+
+			} catch (FileNotFoundException e) {
+				System.out.println("JPG - Sfondo non trovato");
+				e.printStackTrace();
+			} 
 		}
 
 	}
@@ -162,6 +248,16 @@ public class GraphicsGame extends StackPane{
 
 	public void setCanvas(Canvas canvas) {
 		this.canvas = canvas;
+	}
+
+
+	public static boolean getFirstRoom() {
+		return firstRoom;
+	}
+
+
+	public static void setFirstRoom(boolean firstRoom) {
+		GraphicsGame.firstRoom = firstRoom;
 	}
 	
 	
