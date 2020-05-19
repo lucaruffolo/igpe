@@ -72,7 +72,9 @@ public class GraphicsGame extends StackPane{
 		}
 
 	}
-
+	
+	
+	
 	public static void drawTransition() {
 //		if (!Transition) {
 //			canvasTransition.getGraphicsContext2D().clearRect(0, 0, canvasTransition.getWidth(), canvasTransition.getHeight());

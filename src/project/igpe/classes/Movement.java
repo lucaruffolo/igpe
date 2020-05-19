@@ -1,6 +1,5 @@
 package project.igpe.classes;
 
-import project.igpe.GUI.ChangeRoomScene;
 import project.igpe.main.Main;
 
 public class Movement {
@@ -44,16 +43,19 @@ public class Movement {
 			setDir(MOVE_DOWN);
 		}
 		GraphicHero.setImgDir(direction);
-		
-		
+				
 		
 		if (door(newPosX,newPosY)) {  //controllo porta in nuova posizione
 			try {
 				MovementControl.setRipristinoGame(Main.window.getScene());
 				GraphicsGame.setTransition(true);	
 				GraphicsGame.drawTransition();
+				
 				//ChangeRoomScene.changeRoom();
-				graphicGame.setBg((Maps.getIndiceMappe()+1)%Maps.getNumMappe());
+			
+				Maps.setIndiceMappe(Maps.getIndiceMappe()+1);				
+				graphicGame.setBg((Maps.getIndiceMappe())%Maps.getNumMappe());
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

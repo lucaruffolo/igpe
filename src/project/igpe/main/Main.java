@@ -10,7 +10,6 @@ import project.igpe.classes.GameLoop;
 import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Maps;
 import project.igpe.classes.Movement;
-import project.igpe.classes.MovementControl;
 import project.igpe.classes.Sound;
 
 public class Main extends Application{
@@ -19,8 +18,7 @@ public class Main extends Application{
 	public static GraphicsGame game = new GraphicsGame(new Movement(SceltaDelPersonaggio.eroe, new Maps()));
 	public static GameLoop gl=new GameLoop(game);
 	public static Boolean GameInPause = false;
-	
-	private static Scene scenegame;
+	private static Scene scenegame;	
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -41,12 +39,18 @@ public class Main extends Application{
 	}
 	
 
-
 	public static void startGame() {
-		Maps.setIndiceMappe(0);
+		
+		
+		try { 	//Reset Mappe TXT + Background
+			game.setBg(0);
+		} catch (Exception e) {	e.printStackTrace();}
+		
+		
 		if (!GameInPause) {
-			scenegame = new Scene(game, 1270, 900);
+			scenegame = new Scene(game, 1270, 900);		
 		}
+		
 		Main.window.setScene(scenegame);
 		Main.window.centerOnScreen();
 		gl.start();
@@ -66,8 +70,6 @@ public class Main extends Application{
 	public static void main(String[] args) {
 		launch(args);	
 	}
-
-
 
 
 }

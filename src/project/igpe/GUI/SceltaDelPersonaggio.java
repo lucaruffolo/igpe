@@ -99,32 +99,33 @@ public class SceltaDelPersonaggio {
     	if (!textName.getText().isEmpty()) {
     		notChooseNickname=true;
     		lblNotChooseNickname.setOpacity(0);
-
     	}
     	else
     		lblNotChooseNickname.setOpacity(1);
-		
+
+		if (notChooseSex && notChooseNickname)	{
+						
 			Sound.musicStop();
-			String musicFile = "src/project/igpe/sounds/dead_song.mp3";
+			String musicFile = "src/project/igpe/sounds/dead_song.mp3"; //musica iniziale ?
 			Sound.setMusic(musicFile);
 			Sound.modifyVolume(0.04);
 			Sound.musicLoop();
-			Sound.musicStart();
+			Sound.musicStart();		
+		
+			eroe.setName(textName.getText());
+			eroe.setSex(sesso);
+			GraphicHero.selectSex(eroe.getSex());
+			Hero.setLife(100);
+			Hero.setX(4);
+			Hero.setY(4);
+			Maps.setIndiceMappe(0);
+			System.out.println(Maps.getIndiceMappe());
+			
+			Main.startGame();
 
-			if (notChooseSex && notChooseNickname)	{
-				lblNotChooseNickname.setOpacity(0);
-				eroe.setName(textName.getText());
-				eroe.setSex(sesso);
-				GraphicHero.selectSex(eroe.getSex());
-				Hero.setLife(100);
-				Hero.setX(4);
-				Hero.setY(4);
-				
-				Main.startGame();
-
-				notChooseSex=false;
-				notChooseNickname=false;
-			}
+			notChooseSex=false;
+			notChooseNickname=false;
+		}
 		
     }
 
