@@ -52,6 +52,7 @@ public class Maps {
 	public static void loadcontenitoreMappe() {
 		
 		File img0 = new File("src/project/igpe/images/mappaSpawn.png");
+		String txt0 = new String("src/project/igpe/maps/TemplateSpawn.txt");
 		
 		File img1 = new File("src/project/igpe/images/mappa2(SX-SU).png");
 		File img2 = new File("src/project/igpe/images/mappa2(SU-DX).png");
@@ -76,8 +77,6 @@ public class Maps {
 		File img20 = new File("src/project/igpe/images/mappaAcqua3(SU-SX-GIU).png");
 		File img21 = new File("src/project/igpe/images/mappaAcqua3(SX-GIU-DX).png");
 		File img22 = new File("src/project/igpe/images/mappaAcqua4.png");
-		
-		String txt0 = new String("src/project/igpe/maps/TemplateSpawn.txt");
 		
 		String txt1 = new String("src/project/igpe/maps/Template2door(SX-SU).txt");
 		String txt2 = new String("src/project/igpe/maps/Template2door(SU-DX).txt");
