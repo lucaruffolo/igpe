@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.classes.Sound;
 import project.igpe.main.Main;
-
+import javafx.scene.image.ImageView;
 public class MenuIniziale {
 
 	    @FXML
@@ -27,6 +27,9 @@ public class MenuIniziale {
 
 	    @FXML
 	    private Button Exit;
+	    
+	    @FXML
+	    private ImageView SfondoMenu;
 
 
 	    @FXML
