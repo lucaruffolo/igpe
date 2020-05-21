@@ -69,9 +69,6 @@ public class Movement {
 							i=0;
 						}
 					}
-					if(!checkNrand2) {
-						nRand = (int) (14.0 * Math.random());
-					}
 					System.out.println("ciao");
 			    }	
 				
