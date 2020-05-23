@@ -17,7 +17,7 @@ import javafx.scene.text.Font;
 public class GraphicsGame extends StackPane{
 	
 	private Canvas canvas;
-	private static Canvas canvasTransition;
+	public static Canvas canvasTransition;
 	private static boolean Transition = false;
 	private static boolean firstRoom = true;
 	
@@ -159,22 +159,7 @@ public class GraphicsGame extends StackPane{
 
 	}
 	
-	
-	
-	public static void drawTransition() {
-//		if (!Transition) {
-//			canvasTransition.getGraphicsContext2D().clearRect(0, 0, canvasTransition.getWidth(), canvasTransition.getHeight());
-//		}
-//		else  {
-//			for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
-//				int x = i * Settings.block;
-//				for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
-//					int y = j * Settings.block;
-//					canvasTransition.getGraphicsContext2D().fillRect(x, y, Settings.block*2, Settings.block*2);	
-//				}
-//			}
-//		}
-	}
+
 	
 	public void draw() {
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());

@@ -34,7 +34,6 @@ public class Pausa {
     @FXML
     void ClickBackToGame(ActionEvent event) {
 		GraphicsGame.setTransition(false);	
-		GraphicsGame.drawTransition();
 		Main.GameInPause = false;		
 		Main.window.setScene(MovementControl.getRipristinoGame());
 		Main.window.centerOnScreen();
