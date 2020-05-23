@@ -51,9 +51,7 @@ public class Movement {
 		if (door(newPosX,newPosY)) {  //controllo porta in nuova posizione
 			try {
 				MovementControl.setRipristinoGame(Main.window.getScene());
-				GraphicsGame.setTransition(true);	
-				GraphicsGame.drawTransition();
-				
+				GraphicsGame.setTransition(true);				
 				//ChangeRoomScene.changeRoom();
 				
 			    nRand = (int)(23.0 * Math.random());

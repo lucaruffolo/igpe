@@ -1,13 +1,8 @@
 package project.igpe.classes;
 
-import java.io.IOException;
-
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-import project.igpe.GUI.MenuIniziale;
 import project.igpe.main.Main;
 
 
@@ -16,10 +11,13 @@ public class MovementControl implements EventHandler<KeyEvent> {
 	private Movement movimento;
 	private static Scene sceneGame;
 	private static Scene ripristinoGame;	
+	public static SwitchAnimation sa;
 	
 	public MovementControl(Movement movimento) {
 		this.movimento = movimento;
 	}
+
+
 
 	@Override
 	public void handle(KeyEvent e) {
@@ -52,17 +50,21 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				
 				setRipristinoGame(Main.window.getScene());
 				GraphicsGame.setTransition(true);	
-				GraphicsGame.drawTransition();
-	
+				
+				sa = new SwitchAnimation(Main.window.getScene());
+
 				//switch transition
 				Main.pauseGame();
 				
-				FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
-				AnchorPane root = null;
-				try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
-				Scene menuPausa = new Scene(root, 1270, 900);	
-				Main.window.setScene(menuPausa);
-					
+				 
+				sa.start();
+				/*
+					FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
+					AnchorPane root = null;
+					try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
+					Scene menuPausa = new Scene(root, 1270, 900);	
+					Main.window.setScene(menuPausa);
+				*/
 				break;					
 			default:
 				break;
@@ -81,6 +83,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 	public static void setRipristinoGame(Scene ripristinoGame) {
 		MovementControl.ripristinoGame = ripristinoGame;
 	}
+
 	
 
 }
