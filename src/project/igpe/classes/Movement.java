@@ -56,13 +56,13 @@ public class Movement {
 				
 				//ChangeRoomScene.changeRoom();
 				
-			    nRand = (int)(14.0 * Math.random());
+			    nRand = (int)(23.0 * Math.random());
 			    
 			    while(!checkNrand2) {
 			    	checkNrand2=true;
 					for (int i = 0; i < Maps.getIndexYetChoosen().size(); i++) {
 						while (nRand == Maps.getIndexYetChoosen().get(i)) {
-							nRand = (int) (14.0 * Math.random());
+							nRand = (int) (22.0 * Math.random());
 							checkNrand2=false;
 							i=0;
 						}
@@ -70,28 +70,28 @@ public class Movement {
 					System.out.println("ciao");
 					if (doorDown) {
 				    	  while (nRand != 1 && nRand != 2 && nRand != 6 && nRand != 7 && nRand != 8 && nRand != 9 && nRand != 11) {
-				    		  nRand = (int) (14.0 * Math.random());
+				    		  nRand = (int) (23.0 * Math.random());
 				    		  checkNrand2=false;
 				    	  }
 				    } 
 				    
 				    if (doorLx) {
 				    	  while (nRand != 2 && nRand != 3 && nRand != 5 && nRand != 7 && nRand != 8 && nRand != 10 && nRand != 11) {
-				    		  nRand = (int) (14.0 * Math.random());
+				    		  nRand = (int) (23.0 * Math.random());
 				    		  checkNrand2=false;
 				    	  }
 				    }
 				    
 				    if (doorUp) {
 				    	while (nRand != 3 && nRand != 4 && nRand != 6 && nRand != 8 && nRand != 9 && nRand != 10 && nRand != 11) {
-				    		  nRand = (int) (14.0 * Math.random());
+				    		  nRand = (int) (23.0 * Math.random());
 				    		  checkNrand2=false;
 				    	  }
 				    }
 				    
 				    if (doorDx) {
 				    	while (nRand != 1 && nRand != 4 && nRand != 5 && nRand != 7 && nRand != 9 && nRand != 10 && nRand != 11) {
-				    		  nRand = (int) (14.0 * Math.random());
+				    		  nRand = (int) (23.0 * Math.random());
 				    		  checkNrand2=false;
 				    	  }
 				    }
