@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="720.0" fitWidth="1024.0">
          <image>
-            <Image url="@../../../../../../Desktop/grafica%20igpe/menu.png" />
+            <Image url="@../images/menu.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="-141.0" layoutY="-225.0" prefHeight="720.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
