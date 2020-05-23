@@ -21,7 +21,6 @@ public class Movement {
 	private static boolean doorLx = false;
 	
 	private static int nRand = 0;
-	private static boolean checkNrand = false;
 	private static boolean checkNrand2 = false;
 	
 	public void move(int direction) {
@@ -70,54 +69,40 @@ public class Movement {
 						}
 					}
 					System.out.println("ciao");
+					if (doorDown) {
+				    	  while (nRand != 1 && nRand != 2 && nRand != 6 && nRand != 7 && nRand != 8 && nRand != 9 && nRand != 11) {
+				    		  nRand = (int) (14.0 * Math.random());
+				    		  checkNrand2=false;
+				    	  }
+				    } 
+				    
+				    if (doorLx) {
+				    	  while (nRand != 2 && nRand != 3 && nRand != 5 && nRand != 7 && nRand != 8 && nRand != 10 && nRand != 11) {
+				    		  nRand = (int) (14.0 * Math.random());
+				    		  checkNrand2=false;
+				    	  }
+				    }
+				    
+				    if (doorUp) {
+				    	while (nRand != 3 && nRand != 4 && nRand != 6 && nRand != 8 && nRand != 9 && nRand != 10 && nRand != 11) {
+				    		  nRand = (int) (14.0 * Math.random());
+				    		  checkNrand2=false;
+				    	  }
+				    }
+				    
+				    if (doorDx) {
+				    	while (nRand != 1 && nRand != 4 && nRand != 5 && nRand != 7 && nRand != 9 && nRand != 10 && nRand != 11) {
+				    		  nRand = (int) (14.0 * Math.random());
+				    		  checkNrand2=false;
+				    	  }
+				    }
 			    }	
-				
-			    if (doorDown) {
-			    	  while (nRand != 1 && nRand != 2 && nRand != 6 && nRand != 7 && nRand != 8 && nRand != 9 && nRand != 11) {
-			    		  nRand = (int) (14.0 * Math.random());
-			    	  }
-			    } 
 			    
-			    if (doorLx) {
-			    	  while (nRand != 2 && nRand != 3 && nRand != 5 && nRand != 7 && nRand != 8 && nRand != 10 && nRand != 11) {
-			    		  nRand = (int) (14.0 * Math.random());
-			    	  }
-			    }
-			    
-			    if (doorUp) {
-			    	while (nRand != 3 && nRand != 4 && nRand != 6 && nRand != 8 && nRand != 9 && nRand != 10 && nRand != 11) {
-			    		  nRand = (int) (14.0 * Math.random());
-			    	  }
-			    }
-			    
-			    if (doorDx) {
-			    	while (nRand != 1 && nRand != 4 && nRand != 5 && nRand != 7 && nRand != 9 && nRand != 10 && nRand != 11) {
-			    		  nRand = (int) (14.0 * Math.random());
-			    	  }
-			    }
-			    /*
-				while (!checkNrand) {
-					if (doorDown && (nRand != 1 || nRand != 2 || nRand != 3 || nRand != 7 || nRand != 8 || nRand != 9 || nRand != 11)) {
-						nRand = (int) (14.0 * Math.random());
-					} 
-					else if (doorDown) {
-						checkNrand = true;
-					}
-					else if (doorLx && (nRand != 2 || nRand != 3 || nRand != 5 || nRand != 7 || nRand != 8 || nRand != 10 || nRand != 11)) {
-						nRand = (int) (14.0 * Math.random());
-					} else if (doorUp && (nRand != 3 || nRand != 4 || nRand != 6 || nRand != 8 || nRand != 9 || nRand != 10 || nRand != 11)) {
-						nRand = (int) (14.0 * Math.random());
-					} else if (doorDx && (nRand != 1 || nRand != 4 || nRand != 5 || nRand != 7 || nRand != 9 || nRand != 10 || nRand != 11)) {
-						nRand = (int) (14.0 * Math.random());
-					} 
-					System.out.println("we"+nRand);
-				}
-				*/
 				System.out.println(nRand);
 			    Maps.getIndexYetChoosen().add(nRand);
 				Maps.setIndiceMappe(nRand);				
 				graphicGame.setBg(nRand);
-				checkNrand=false;
+				checkNrand2=false;
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -220,17 +205,7 @@ public class Movement {
 	public static void setCheckNrand2(boolean checkNrand2) {
 		Movement.checkNrand2 = checkNrand2;
 	}
-
-	public static boolean isCheckNrand() {
-		return checkNrand;
-	}
-
-
-	public static void setCheckNrand(boolean checkNrand) {
-		Movement.checkNrand = checkNrand;
-	}
-
-
+	
 	public static int getnRand() {
 		return nRand;
 	}
