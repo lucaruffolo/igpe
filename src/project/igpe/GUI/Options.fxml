@@ -40,7 +40,7 @@
             <Font name="Monotype Corsiva" size="20.0" />
          </font>
       </CheckBox>
-      <Button fx:id="bttBack" layoutX="14.0" layoutY="681.0" mnemonicParsing="false" onAction="#ClickBack" prefHeight="25.0" prefWidth="109.0" text="Torna Indietro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="901.0" AnchorPane.topAnchor="681.0" />
+      <Button fx:id="bttBack" layoutX="14.0" layoutY="681.0" mnemonicParsing="false" onAction="#ClickBack" prefHeight="25.0" prefWidth="109.0" stylesheets="@buttonIndietro.css" text="Torna Indietro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="870.0" AnchorPane.topAnchor="672.0" />
       <Label fx:id="numberEffects" layoutX="710.0" layoutY="279.0" prefHeight="31.0" prefWidth="42.0" text="50">
          <font>
             <Font name="System Bold Italic" size="21.0" />

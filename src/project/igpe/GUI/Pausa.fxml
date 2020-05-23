@@ -9,10 +9,10 @@
    <children>
       <AnchorPane fx:id="apBtt" layoutX="350.0" layoutY="232.0" prefHeight="257.0" prefWidth="325.0">
          <children>
-            <Button fx:id="bttBackToGame" layoutX="81.0" layoutY="50.0" mnemonicParsing="false" onAction="#ClickBackToGame" prefHeight="29.0" prefWidth="164.0" text="Ritorna al gioco" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="50.0" />
-            <Button fx:id="bttOptions" layoutX="81.0" layoutY="100.0" mnemonicParsing="false" onAction="#ClickOptions" prefHeight="29.0" prefWidth="164.0" text="Menù Impostazioni" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
-            <Button fx:id="bttMenuStart" layoutX="81.0" layoutY="129.0" mnemonicParsing="false" onAction="#ClickMenuStart" prefHeight="29.0" prefWidth="164.0" text="Menù Iniziale" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
-            <Button fx:id="bttExit" layoutX="81.0" layoutY="179.0" mnemonicParsing="false" onAction="#ClickExit" prefHeight="29.0" prefWidth="164.0" text="Esci dal gioco" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
+            <Button fx:id="bttBackToGame" stylesheets="@button.css" layoutX="81.0" layoutY="50.0" mnemonicParsing="false" onAction="#ClickBackToGame" prefHeight="29.0" prefWidth="164.0" text="Ritorna al gioco" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="50.0" />
+            <Button fx:id="bttOptions" stylesheets="@button.css" layoutX="81.0" layoutY="100.0" mnemonicParsing="false" onAction="#ClickOptions" prefHeight="29.0" prefWidth="164.0" text="Menù Impostazioni" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
+            <Button fx:id="bttMenuStart" stylesheets="@button.css" layoutX="81.0" layoutY="129.0" mnemonicParsing="false" onAction="#ClickMenuStart" prefHeight="29.0" prefWidth="164.0" text="Menù Iniziale" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
+            <Button fx:id="bttExit" stylesheets="@button.css" layoutX="81.0" layoutY="179.0" mnemonicParsing="false" onAction="#ClickExit" prefHeight="29.0" prefWidth="164.0" text="Esci dal gioco" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
          </children>
       </AnchorPane>
    </children>

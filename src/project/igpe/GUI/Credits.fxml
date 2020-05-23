@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="anchorPaneCredits" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.Credits">
    <children>
-      <Button fx:id="bttBack" layoutX="40.0" layoutY="657.0" mnemonicParsing="false" onAction="#clickBack" text="Torna Indietro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="901.0" AnchorPane.topAnchor="681.0" />
+      <Button fx:id="bttBack" layoutX="40.0" layoutY="657.0" mnemonicParsing="false" onAction="#clickBack" stylesheets="@buttonIndietro.css" text="Torna Indietro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="870.0" AnchorPane.topAnchor="672.0" />
       <Label fx:id="lblcredits" layoutX="398.0" layoutY="25.0" text="CREDITI...">
          <font>
             <Font name="Monotype Corsiva" size="55.0" />
