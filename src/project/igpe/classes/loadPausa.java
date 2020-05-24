@@ -12,7 +12,11 @@ public class loadPausa {
 
 
 	public static void load() {
+	
+	//	GraphicsGame.canvasTransition.getGraphicsContext2D().clearRect(0,0,1280,900);
 		MovementControl.sa.stop();
+
+		
 		FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
 		AnchorPane root = null;
 		try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
