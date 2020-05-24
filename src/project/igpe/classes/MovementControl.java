@@ -50,7 +50,9 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				setRipristinoGame(Main.window.getScene());
 				
 				sa = new SwitchAnimation(Main.window.getScene());
-				sa.start();
+
+				//switch transition
+				Main.pauseGame();
 				
 				
 				break;					
