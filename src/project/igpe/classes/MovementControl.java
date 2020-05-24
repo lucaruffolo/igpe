@@ -48,7 +48,6 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case ESCAPE:
 				
 				setRipristinoGame(Main.window.getScene());
-				GraphicsGame.setTransition(true);	
 				
 				sa = new SwitchAnimation(Main.window.getScene());
 				sa.start();

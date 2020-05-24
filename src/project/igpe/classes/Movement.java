@@ -1,5 +1,6 @@
 package project.igpe.classes;
 
+import project.igpe.GUI.ChangeRoomScene;
 import project.igpe.main.Main;
 
 public class Movement {
@@ -50,9 +51,8 @@ public class Movement {
 		
 		if (door(newPosX,newPosY)) {  //controllo porta in nuova posizione
 			try {
-				MovementControl.setRipristinoGame(Main.window.getScene());
-				GraphicsGame.setTransition(true);				
-				//ChangeRoomScene.changeRoom();
+				MovementControl.setRipristinoGame(Main.window.getScene());			
+				ChangeRoomScene.changeRoom();
 				
 			    nRand = (int)(23.0 * Math.random());
 			    
