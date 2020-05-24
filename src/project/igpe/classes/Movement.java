@@ -191,10 +191,7 @@ public class Movement {
 	
 	
 	
-	
-	
-	
-	
+
 	public static boolean isCheckNrand2() {
 		return checkNrand2;
 	}

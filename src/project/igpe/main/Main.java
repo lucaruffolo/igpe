@@ -58,11 +58,13 @@ public class Main extends Application{
 	}
 
 	public static void pauseGame() {
+		GraphicsGame.disableKeyEvent();
 		GameInPause = true;
 		gl.stop();
 	}
 	
 	public static void resumeGame() {
+		GraphicsGame.enableKeyEvent();
 		GameInPause = false;
 		gl.start();
 	}

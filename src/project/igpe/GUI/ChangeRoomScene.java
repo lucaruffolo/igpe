@@ -45,18 +45,5 @@ public class ChangeRoomScene {
 		Sound.musicStart();
     }
     
-    
-    public static void changeRoom2 () throws Exception {
-    	
-    	Main.pauseGame();
-    	Sound.musicPause();
-    	String openDoor = "src/project/igpe/sounds/apertura_porta.wav";
-		Effects.setEffects(openDoor);
-		Effects.modifyVolumeEffetcs(0.05);
-		Effects.EffectsStart();
-    	
-    }
-    
-    
 	
 }
