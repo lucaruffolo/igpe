@@ -40,8 +40,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case L:
 				if (Hero.getLife()>0)
 					Hero.setLife(Hero.getLife()-10);			
-				break;
-				
+				break;				
 			case SPACE:
 				Hero.shoot();
 				break;
@@ -52,19 +51,10 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				GraphicsGame.setTransition(true);	
 				
 				sa = new SwitchAnimation(Main.window.getScene());
-
-				//switch transition
-				Main.pauseGame();
-				
-				 
 				sa.start();
-				/*
-					FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
-					AnchorPane root = null;
-					try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
-					Scene menuPausa = new Scene(root, 1270, 900);	
-					Main.window.setScene(menuPausa);
-				*/
+				
+				
+				
 				break;					
 			default:
 				break;

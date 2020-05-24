@@ -3,6 +3,7 @@ package project.igpe.classes;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import project.igpe.main.Main;
 
 public class SwitchAnimation extends AnimationTimer{
 	private long frequency = 60 * 1000000;
@@ -11,32 +12,32 @@ public class SwitchAnimation extends AnimationTimer{
 	public int y = 0;
 	public double opacity = 0.0001;
 	private long previousTime;
-
+    
 	public SwitchAnimation(Scene ss) {
 		this.setScene(ss);
+	
 	}
 	
 	public void handle(long currentNanoTime) {		
 		if (currentNanoTime - previousTime >= frequency) {
-		
-		while (opacity<1){
-			opacity += 0.0001;
-			GraphicsGame.canvasTransition.getGraphicsContext2D().setGlobalAlpha(opacity);
-			GraphicsGame.canvasTransition.getGraphicsContext2D().setFill(Color.BLACK);
-			GraphicsGame.canvasTransition.getGraphicsContext2D().fillOval(x, y, Settings.block*20, Settings.block*20);	
 
-			System.out.println(opacity);		
-
-	
+			GraphicsGame.canvasTransition.getGraphicsContext2D().setFill(Color.GOLD);
+			GraphicsGame.canvasTransition.getGraphicsContext2D().fillRect(100, 110, 110,110);
+			while (opacity < 1){
+				opacity += 0.00001;
+				System.out.println(opacity);					
 			}
 			try {
 				Thread.sleep(1000);	
 				System.out.println("we");
-				loadPausa.load();
 				
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			System.out.println("fine");
+			Main.pauseGame();
+			//loadPausa.load();
+
 		}
 	}
 
