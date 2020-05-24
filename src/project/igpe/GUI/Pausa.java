@@ -6,8 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import project.igpe.classes.GraphicsGame;
-import project.igpe.classes.Maps;
 import project.igpe.classes.MovementControl;
 import project.igpe.main.Main;
 
@@ -32,8 +30,7 @@ public class Pausa {
     private Button bttBackToGame;
 
     @FXML
-    void ClickBackToGame(ActionEvent event) {
-		GraphicsGame.setTransition(false);	
+    void ClickBackToGame(ActionEvent event) {	
 		Main.GameInPause = false;		
 		Main.window.setScene(MovementControl.getRipristinoGame());
 		Main.window.centerOnScreen();

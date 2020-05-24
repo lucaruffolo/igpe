@@ -18,7 +18,6 @@ public class GraphicsGame extends StackPane{
 	
 	private Canvas canvas;
 	public static Canvas canvasTransition;
-	private static boolean Transition = false;
 	private static boolean firstRoom = true;
 	
 	private static Movement movimento;
@@ -195,37 +194,9 @@ public class GraphicsGame extends StackPane{
 			for(Bullet b:Hero.getContenitoreBullets()) {
 				canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
 			}
-			
-			//del
-			/*
-			if (!Transition) {
-				canvasTransition.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-			}
-			else  {
-				for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
-					int x = i * Settings.block;
-					for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
-						int y = j * Settings.block;
-						canvasTransition.getGraphicsContext2D().fillRect(x, y, Settings.block*2, Settings.block*2);						
-
-					}
-				}
-			}
-			*/
-			//del
 		
 	}
 	
-	
-	
-	
-	public static boolean isTransition() {
-		return Transition;
-	}
-
-	public static void setTransition(boolean transition) {
-		Transition = transition;
-	}
 
 	public Canvas getCanvas() {
 		return canvas;

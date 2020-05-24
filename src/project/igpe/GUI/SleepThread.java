@@ -20,7 +20,7 @@ public class SleepThread extends Application {
 
     public static final double D = 20;  // diameter.
 
-    public void start(Scene scene) {
+    public static void start(Scene scene) {
         DoubleProperty opacity  = new SimpleDoubleProperty();
 
         Timeline timeline = new Timeline(
