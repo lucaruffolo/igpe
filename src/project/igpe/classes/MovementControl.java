@@ -54,7 +54,6 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				sa.start();
 				
 				
-				
 				break;					
 			default:
 				break;
