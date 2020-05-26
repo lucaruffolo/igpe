@@ -16,8 +16,11 @@ public class GameLoop extends AnimationTimer {
 	public void handle(long currentNanoTime) {		
 		
 		if (currentNanoTime - previousTime >= 1000000) {
-			for (Bullet b : Hero.getContenitoreBullets()) {
+			for (int i = 0; i<Hero.getContenitoreBullets().size(); i++) {
+				Bullet b = Hero.getContenitoreBullets().get(i); 
 				b.moveBullet();
+				if (!b.alive)
+					Hero.getContenitoreBullets().remove(b);
 			} 
 		}
 		if (currentNanoTime - previousTime >= frequency) {			

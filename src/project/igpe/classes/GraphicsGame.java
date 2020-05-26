@@ -19,12 +19,14 @@ import javafx.scene.text.Font;
 public class GraphicsGame extends StackPane{
 	
 	private Canvas canvas;
+	private StackPane root;
 	public static Canvas canvasTransition;
 	private static boolean firstRoom = true;
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
 	
 	public GraphicsGame(Movement movimentox) {
+		root = this;
 		movimento = movimentox;
 		canvas = new Canvas();
 		
