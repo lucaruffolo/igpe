@@ -5,14 +5,14 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="apHome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.Pausa">
+<AnchorPane fx:id="apHome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.Pausa">
    <children>
-      <AnchorPane fx:id="apBtt" layoutX="350.0" layoutY="232.0" prefHeight="257.0" prefWidth="325.0">
+      <AnchorPane fx:id="apBtt" layoutX="473.0" layoutY="308.0" prefHeight="257.0" prefWidth="325.0" AnchorPane.topAnchor="308.0">
          <children>
-            <Button fx:id="bttBackToGame" stylesheets="@button.css" layoutX="81.0" layoutY="50.0" mnemonicParsing="false" onAction="#ClickBackToGame" prefHeight="29.0" prefWidth="164.0" text="Ritorna al gioco" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="50.0" />
-            <Button fx:id="bttOptions" stylesheets="@button.css" layoutX="81.0" layoutY="100.0" mnemonicParsing="false" onAction="#ClickOptions" prefHeight="29.0" prefWidth="164.0" text="Menù Impostazioni" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
-            <Button fx:id="bttMenuStart" stylesheets="@button.css" layoutX="81.0" layoutY="129.0" mnemonicParsing="false" onAction="#ClickMenuStart" prefHeight="29.0" prefWidth="164.0" text="Menù Iniziale" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
-            <Button fx:id="bttExit" stylesheets="@button.css" layoutX="81.0" layoutY="179.0" mnemonicParsing="false" onAction="#ClickExit" prefHeight="29.0" prefWidth="164.0" text="Esci dal gioco" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="80.0" />
+            <Button fx:id="bttBackToGame" layoutX="28.0" layoutY="41.0" mnemonicParsing="false" onAction="#ClickBackToGame" prefHeight="50.0" prefWidth="270.0" stylesheets="@button.css" text="Ritorna al gioco" AnchorPane.bottomAnchor="193.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="41.0" />
+            <Button fx:id="bttOptions" layoutX="28.0" layoutY="100.0" mnemonicParsing="false" onAction="#ClickOptions" prefHeight="50.0" prefWidth="270.0" stylesheets="@button.css" text="Menù Impostazioni" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="27.0" />
+            <Button fx:id="bttMenuStart" layoutX="28.0" layoutY="150.0" mnemonicParsing="false" onAction="#ClickMenuStart" prefHeight="50.0" prefWidth="270.0" stylesheets="@button.css" text="Menù Iniziale" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="27.0" />
+            <Button fx:id="bttExit" layoutX="30.0" layoutY="213.0" mnemonicParsing="false" onAction="#ClickExit" prefHeight="50.0" prefWidth="270.0" stylesheets="@button.css" text="Esci dal gioco" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="25.0" />
          </children>
       </AnchorPane>
    </children>

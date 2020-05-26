@@ -2,6 +2,7 @@ package project.igpe.classes;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
@@ -21,7 +22,6 @@ public class GraphicsGame extends StackPane{
 	public static Canvas canvasTransition;
 	private static boolean firstRoom = true;
 	private static EventHandler<KeyEvent> keyHandler;
-	
 	private static Movement movimento;
 	
 	public GraphicsGame(Movement movimentox) {
@@ -29,14 +29,11 @@ public class GraphicsGame extends StackPane{
 		canvas = new Canvas();
 		
 		canvasTransition = new Canvas();
-		
 		canvas.setFocusTraversable(true);
 		keyHandler=new MovementControl(movimento);
 		canvas.setOnKeyPressed(keyHandler);
-		getChildren().add(canvas);
 		
-		canvasTransition.setFocusTraversable(true);
-		canvasTransition.setOnKeyPressed(new MovementControl(movimento));
+		getChildren().add(canvas);			
 		getChildren().add(canvasTransition);
 		movimento.setGraphicGame(this);
 	
@@ -56,6 +53,7 @@ public class GraphicsGame extends StackPane{
 			}
 		}
 	
+		
 		canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());
         

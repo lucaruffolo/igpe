@@ -36,7 +36,7 @@ public class Pausa {
 		Main.window.centerOnScreen();
 		Main.resumeGame();
     }
-
+ 
     @FXML
     void ClickOptions(ActionEvent event) throws Exception {
     	//Sistemare Options copiare e modificare il RITORNA AL Menu di PAUSA

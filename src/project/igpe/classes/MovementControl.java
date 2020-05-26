@@ -1,8 +1,13 @@
 package project.igpe.classes;
 
+import java.io.IOException;
+
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import project.igpe.GUI.MenuIniziale;
 import project.igpe.main.Main;
 
 
@@ -10,8 +15,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 
 	private Movement movimento;
 	private static Scene sceneGame;
-	private static Scene ripristinoGame;	
-	public static SwitchAnimation sa;
+	private static Scene ripristinoGame;
 	
 	public MovementControl(Movement movimento) {
 		this.movimento = movimento;
@@ -47,11 +51,24 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				
 			case ESCAPE:
 				
-				Main.pauseGame();
-				setRipristinoGame(Main.window.getScene());
-				sa = new SwitchAnimation(Main.window.getScene());				
-				sa.start();
+				ripristinoGame=Main.window.getScene();
 				
+			 	Main.pauseGame();
+		    	Sound.musicPause();
+		    	String openDoor = "src/project/igpe/sounds/menupausa.wav";
+				Effects.setEffects(openDoor);
+				Effects.modifyVolumeEffetcs(0.05);
+				Effects.EffectsStart();
+				
+				
+				FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
+				AnchorPane root = null;
+				try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
+				Scene menuPausa = new Scene(root, 1270, 900);	
+				Main.window.setScene(menuPausa);
+				Sound.musicStart();
+		    
+		    
 				break;					
 			default:
 				break;
