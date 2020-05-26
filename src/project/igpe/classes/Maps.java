@@ -26,7 +26,12 @@ public class Maps {
 	private static HashMap<Integer, String> leftTxt = new HashMap<Integer, String>();
 	private static HashMap<Integer, File> rightImg = new HashMap<Integer, File>();
 	private static HashMap<Integer, String> rightTxt = new HashMap<Integer, String>();
-
+	
+	//
+	private static HashMap<Integer, File> allImg = new HashMap<Integer, File>();
+	private static HashMap<Integer, String> allTxt = new HashMap<Integer, String>();
+	//
+	
 	public Maps() {
 			
 		loadcontenitoreMappe();
@@ -220,6 +225,54 @@ public class Maps {
 		rightTxt.put(21, txt21);
 		rightImg.put(22, img22);
 		rightTxt.put(22, txt22);
+		
+		allImg.put(0, img0);
+		allImg.put(1, img1);
+		allImg.put(2, img2);
+		allImg.put(3, img3);
+		allImg.put(4, img4);
+		allImg.put(5, img5);
+		allImg.put(6, img6);
+		allImg.put(7, img7);
+		allImg.put(8, img8);
+		allImg.put(9, img9);
+		allImg.put(10, img10);
+		allImg.put(11, img11);
+		allImg.put(12, img12);
+		allImg.put(13, img13);
+		allImg.put(14, img14);
+		allImg.put(15, img15);
+		allImg.put(16, img16);
+		allImg.put(17, img17);
+		allImg.put(18, img18);
+		allImg.put(19, img19);
+		allImg.put(20, img20);
+		allImg.put(21, img21);
+		allImg.put(22, img22);
+		
+		allTxt.put(0, txt0);
+		allTxt.put(1, txt1);
+		allTxt.put(2, txt2);
+		allTxt.put(3, txt3);
+		allTxt.put(4, txt4);
+		allTxt.put(5, txt5);
+		allTxt.put(6, txt6);
+		allTxt.put(7, txt7);
+		allTxt.put(8, txt8);
+		allTxt.put(9, txt9);
+		allTxt.put(10, txt10);
+		allTxt.put(11, txt11);
+		allTxt.put(12, txt12);
+		allTxt.put(13, txt13);
+		allTxt.put(14, txt14);
+		allTxt.put(15, txt15);
+		allTxt.put(16, txt16);
+		allTxt.put(17, txt17);
+		allTxt.put(18, txt18);
+		allTxt.put(19, txt19);
+		allTxt.put(20, txt20);
+		allTxt.put(21, txt21);
+		allTxt.put(22, txt22);
 		
 	}
 	
