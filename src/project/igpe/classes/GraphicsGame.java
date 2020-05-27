@@ -83,6 +83,7 @@ public class GraphicsGame extends StackPane{
 	}
 	
 	public void setBg(int index) throws Exception {
+		
 		if (Movement.isDoorDown()) {
 			Maps.setIndiceMappe(index);
 			Maps.loadMap(index);
