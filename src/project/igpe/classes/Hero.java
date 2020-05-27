@@ -9,8 +9,8 @@ public class Hero {
 	private String name;
 	private Boolean sex;
 	private static int life=100;
-	private int speed=1;
-	private int size;
+	private static int speed=1;
+	private static int size=60;
 	private Image img;
 	private static int x;
 	private static int y;
@@ -30,7 +30,6 @@ public class Hero {
 		sex = false;
 		x=6;
 		y=6;
-		size=50;
 		contenitoreBullets=new ArrayList<Bullet>();
 	}
 
@@ -69,20 +68,20 @@ public class Hero {
 		life = lifex;
 	}
 
-	public int getSpeed() {
+	public static int getSpeed() {
 		return speed;
 	}
 
-	public void setSpeed(int speed) {
-		this.speed = speed;
+	public static void setSpeed(int speedx) {
+		speed = speedx;
 	}
 
-	public int getSize() {
+	public static int getSize() {
 		return size;
 	}
 
-	public void setSize(int size) {
-		this.size = size;
+	public static void setSize(int sizex) {
+		size = sizex;
 	}
 
 	public Image getImg() {

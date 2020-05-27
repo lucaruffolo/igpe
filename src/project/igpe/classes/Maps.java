@@ -307,9 +307,6 @@ public class Maps {
 							if (costruzioneRiga.equals("6")) {
 								cella[riga][colonne++] = new Cell(Cell.OBSTACLE);
 							}
-							if (costruzioneRiga.equals("7")) {
-								cella[riga][colonne++] = new Cell(Cell.HEAL);
-							}
 							if (costruzioneRiga.equals("8")) {
 								cella[riga][colonne++] = new Cell(Cell.OBSTACLEDAMAGE);
 							}
@@ -350,9 +347,6 @@ public class Maps {
 						if (costruzioneRiga.equals("6")) {
 							cella[riga][colonne++] = new Cell(Cell.OBSTACLE);
 						}
-						if (costruzioneRiga.equals("7")) {
-							cella[riga][colonne++] = new Cell(Cell.HEAL);
-						}
 						if (costruzioneRiga.equals("8")) {
 							cella[riga][colonne++] = new Cell(Cell.OBSTACLEDAMAGE);
 						}
@@ -392,9 +386,7 @@ public class Maps {
 						if (costruzioneRiga.equals("6")) {
 							cella[riga][colonne++] = new Cell(Cell.OBSTACLE);
 						}
-						if (costruzioneRiga.equals("7")) {
-							cella[riga][colonne++] = new Cell(Cell.HEAL);
-						}
+	
 						if (costruzioneRiga.equals("8")) {
 							cella[riga][colonne++] = new Cell(Cell.OBSTACLEDAMAGE);
 						}
@@ -434,9 +426,7 @@ public class Maps {
 						if (costruzioneRiga.equals("6")) {
 							cella[riga][colonne++] = new Cell(Cell.OBSTACLE);
 						}
-						if (costruzioneRiga.equals("7")) {
-							cella[riga][colonne++] = new Cell(Cell.HEAL);
-						}
+						
 						if (costruzioneRiga.equals("8")) {
 							cella[riga][colonne++] = new Cell(Cell.OBSTACLEDAMAGE);
 						}
@@ -476,9 +466,7 @@ public class Maps {
 						if (costruzioneRiga.equals("6")) {
 							cella[riga][colonne++] = new Cell(Cell.OBSTACLE);
 						}
-						if (costruzioneRiga.equals("7")) {
-							cella[riga][colonne++] = new Cell(Cell.HEAL);
-						}
+						
 						if (costruzioneRiga.equals("8")) {
 							cella[riga][colonne++] = new Cell(Cell.OBSTACLEDAMAGE);
 						}
