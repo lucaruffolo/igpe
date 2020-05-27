@@ -48,11 +48,8 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case SPACE:
 				Hero.shoot();
 				break;
-				
 			case ESCAPE:
-				
-				ripristinoGame=Main.window.getScene();
-				
+				ripristinoGame=Main.window.getScene();				
 			 	Main.pauseGame();
 		    	Sound.musicPause();
 		    	String openDoor = "src/project/igpe/sounds/menupausa.wav";
@@ -60,15 +57,12 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				Effects.modifyVolumeEffetcs(0.05);
 				Effects.EffectsStart();
 				
-				
 				FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
 				AnchorPane root = null;
 				try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
 				Scene menuPausa = new Scene(root, 1270, 900);	
 				Main.window.setScene(menuPausa);
-				Sound.musicStart();
-		    
-		    
+				Sound.musicStart();	  
 				break;					
 			default:
 				break;

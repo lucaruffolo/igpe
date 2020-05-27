@@ -18,9 +18,8 @@ import javafx.scene.text.Font;
 
 public class GraphicsGame extends StackPane{
 	
-	private Canvas canvas;
+	private static Canvas canvas;
 	private StackPane root;
-	public static Canvas canvasTransition;
 	private static boolean firstRoom = true;
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
@@ -29,14 +28,11 @@ public class GraphicsGame extends StackPane{
 		root = this;
 		movimento = movimentox;
 		canvas = new Canvas();
-		
-		canvasTransition = new Canvas();
 		canvas.setFocusTraversable(true);
 		keyHandler=new MovementControl(movimento);
 		canvas.setOnKeyPressed(keyHandler);
 		
 		getChildren().add(canvas);			
-		getChildren().add(canvasTransition);
 		movimento.setGraphicGame(this);
 	
 		if(!firstRoom) {
@@ -58,10 +54,6 @@ public class GraphicsGame extends StackPane{
 		
 		canvas.widthProperty().bind(this.widthProperty());
         canvas.heightProperty().bind(this.heightProperty());
-        
-        canvasTransition.widthProperty().bind(this.widthProperty());
-        canvasTransition.heightProperty().bind(this.heightProperty());
-
 	}
 	
 	
@@ -205,8 +197,8 @@ public class GraphicsGame extends StackPane{
 		return canvas;
 	}
 
-	public void setCanvas(Canvas canvas) {
-		this.canvas = canvas;
+	public void setCanvas(Canvas canvasx) {
+		canvas = canvasx;
 	}
 
 
@@ -221,11 +213,11 @@ public class GraphicsGame extends StackPane{
 	
 	
 	public static void enableKeyEvent() {
-		canvasTransition.setOnKeyPressed(keyHandler);
+		canvas.setOnKeyPressed(keyHandler);
 	}
 	
 	public static void disableKeyEvent() {
-		canvasTransition.setOnKeyPressed(null);
+		canvas.setOnKeyPressed(null);
 
 	}
 	

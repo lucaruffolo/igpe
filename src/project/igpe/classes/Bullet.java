@@ -31,22 +31,28 @@ public class Bullet {
 
 	public void moveBullet() {
 			if(Movement.MOVE_RIGHT==dir) {
-				if (getPosX()<1270)
+				if (getPosX()<=1270)
 					setPosX(getPosX() + speed);
 				else
 					alive = false;
 			}
 			if(Movement.MOVE_DOWN==dir) {
-				if (getPosX()<900)
-				setPosY(getPosY() + speed);
+				if (getPosY()<=900)
+					setPosY(getPosY() + speed);
+				else
+					alive = false;
 			}
 			if(Movement.MOVE_LEFT==dir) {
 				if (getPosX()>=0)
-				setPosX(getPosX() - speed);
+					setPosX(getPosX() - speed);
+				else
+					alive = false;
 			}
 			if(Movement.MOVE_UP==dir) {
-				if (getPosX()>=0)
-				setPosY(getPosY() - speed);
+				if (getPosY()>=0)
+					setPosY(getPosY() - speed);
+				else
+					alive = false;
 			}
 			
 			try {
