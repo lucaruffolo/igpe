@@ -9,7 +9,6 @@ public class Cell {
 	public static final int ENEMY = 4;
 	public static final int DOOR = 5;
 	public static final int OBSTACLE = 6;
-	public static final int HEAL = 7;
 	public static final int OBSTACLEDAMAGE = 8;
 	public static final int FALLINGDOWN = 9;
 	

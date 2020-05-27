@@ -158,6 +158,12 @@ public class GraphicsGame extends StackPane{
 	public void draw() {
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		
+		// Vita in alto a SX
+		canvas.getGraphicsContext2D().setFill(Color.RED);
+		Font font = new Font("Verdana", 20);
+		canvas.getGraphicsContext2D().setFont(font);
+		canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 50, 50);
+	
 			for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
 				int x = i * Settings.block;
 				for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
@@ -169,19 +175,12 @@ public class GraphicsGame extends StackPane{
 						canvas.getGraphicsContext2D().setFill(Color.BLUE);
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
 						break;
-					*/
-					case Cell.HEAL:
-						canvas.getGraphicsContext2D().setFill(Color.RED);
-						Font font = new Font("Verdana", 20);
-						canvas.getGraphicsContext2D().setFont(font);
-						canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 50, 50);
-						break;
-						
+					*/						
 					default:
 						break;
 					}
 					if (movimento.getPg().getX() == i && movimento.getPg().getY() == j)
-						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Settings.block,Settings.block);
+						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Hero.getSize(), Hero.getSize());
 					
 
 				}
