@@ -11,4 +11,7 @@ public class Settings {
 	public static double AudioEffects = 50;
 	public static double AudioMusic = 50;
 	
+	
+	public static double valueOfProgressBar = 0.00;
+	
 }

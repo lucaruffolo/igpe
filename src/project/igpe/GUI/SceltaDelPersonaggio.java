@@ -89,8 +89,8 @@ public class SceltaDelPersonaggio {
     }
 
     @FXML
-    void clickGame(ActionEvent event) {    	
-    	
+    void clickGame(ActionEvent event) throws Exception {    	
+    
     	if (notChooseSex) 
     		lblNotChooseSex.setOpacity(0);    	
     	else
@@ -121,10 +121,13 @@ public class SceltaDelPersonaggio {
 			Maps.setIndiceMappe(0);
 			System.out.println(Maps.getIndiceMappe());
 			
-			Main.startGame();
-
 			notChooseSex=false;
 			notChooseNickname=false;
+			
+			FXMLLoader loader = new FXMLLoader(LoadScene.class.getResource("LoadScene.fxml"));
+			AnchorPane root = (AnchorPane) loader.load();
+			Scene scenaCaricamento = new Scene(root, 1024,720); 
+			Main.window.setScene(scenaCaricamento);
 		}
 		
     }
