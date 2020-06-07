@@ -45,7 +45,6 @@ public class GraphicsGame extends StackPane{
 		else {
 			try {
 				spawnBg();
-				firstRoom = false;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

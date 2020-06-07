@@ -48,7 +48,10 @@ public class Main extends Application{
 		
 		
 		if (!GameInPause) {
-			scenegame = new Scene(game, 1270, 900);		
+			scenegame = new Scene(game, 1270, 900);	
+			if(GraphicsGame.getFirstRoom()==true) {
+				Maps.getIndexYetChoosen().add(0);
+			}
 		}
 		
 		Main.window.setScene(scenegame);

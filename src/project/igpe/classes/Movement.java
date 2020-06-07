@@ -27,12 +27,11 @@ public class Movement {
 	
 	//
 	private HashMap<Integer, HashMap<String, Integer>> saveDoorOpened = new HashMap<Integer, HashMap<String,Integer>>();
-	//private static int lastMap=0;
 	private static int mappaAttuale = 0;
 	private static int prossimaMappa;
 	private boolean firstTime = true;
-	//private Integer nRandConv;
-	//private Integer nextRoom = -1;
+	//MovementControl.setRipristinoGame(Main.window.getScene());
+	//ChangeRoomScene.changeRoom();
 	//
 	
 	
@@ -63,72 +62,8 @@ public class Movement {
 		
 		if (door(newPosX,newPosY)) {
 			
-			if(GraphicsGame.getFirstRoom()==true) {
-				Maps.getIndexYetChoosen().add(0);
-			}
-			
-			HashMap<String, Integer> questaStanza = null;
-			if (saveDoorOpened.containsKey(mappaAttuale)) {
-				questaStanza = saveDoorOpened.get(mappaAttuale);
-				//
-				System.out.println("we"+ questaStanza);
-				//
-				
-				if (doorUp && questaStanza.get("portaUp")!=-1) {
-					Maps.setIndiceMappe(questaStanza.get("portaUp"));
-					System.out.println("questa stanza:"+ questaStanza.get("portaUp"));
-					try {
-						graphicGame.setBg(Maps.getIndiceMappe());
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-				else if (doorUp && questaStanza.get("portaUp")==-1) {
-					ciuski(questaStanza);
-				}
-				
-				if (doorDown && questaStanza.get("portaDown")!=-1) {
-					Maps.setIndiceMappe(questaStanza.get("portaDown"));
-					System.out.println("questa stanza:"+ questaStanza.get("portaDown"));
-					try {
-						graphicGame.setBg(Maps.getIndiceMappe());
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-				else if (doorDown && questaStanza.get("portaDown")!=-1) {
-					ciuski(questaStanza);
-				}
-				
-				if (doorLx && questaStanza.get("portaLeft")!=-1) {
-					Maps.setIndiceMappe(questaStanza.get("portaLeft"));
-					System.out.println("questa stanza:"+ questaStanza.get("portaLeft"));
-					try {
-						graphicGame.setBg(Maps.getIndiceMappe());
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-				else if (doorLx && questaStanza.get("portaLeft")==-1) {
-					ciuski(questaStanza);
-				}
-				
-				if (doorDx && questaStanza.get("portaRight")!=-1) {
-					Maps.setIndiceMappe(questaStanza.get("portaRight"));
-					System.out.println("questa stanza:"+ questaStanza.get("portaRight"));
-					try {
-						graphicGame.setBg(Maps.getIndiceMappe());
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-				else if(doorDx && questaStanza.get("portaRight")==-1) {
-					ciuski(questaStanza);
-				}
-				
-			} else {
-				ciuski(questaStanza);
-			}
+			//funzione controllo hasmap
+			checkMap();
 			
 			if (doorDown) {
 				newPosX = 10;
@@ -146,13 +81,15 @@ public class Movement {
 				newPosX = 2;
 				newPosY = 7;
 			}
+			
 			doorDown=false;
 			doorDx=false;
 			doorLx=false;
 			doorUp=false;
-			
-			mappaAttuale=Maps.getIndiceMappe();
-			
+
+
+			GraphicsGame.setFirstRoom(false);
+		
 		}
 		
 		
@@ -168,113 +105,175 @@ public class Movement {
 		Hero.setY(posHeroY);
 	}
 	
-	public void ciuski(HashMap<String, Integer> questaStanza) {
-		//
-		System.out.println("sono qui");
-		//
-		questaStanza = new HashMap<String, Integer>();
-		questaStanza.put("portaDown", -1);
-		questaStanza.put("portaLeft", -1);
-		questaStanza.put("portaUp", -1);
-		questaStanza.put("portaRight", -1);
-		saveDoorOpened.put(mappaAttuale, questaStanza);
 	
 	
-		try {
-			//MovementControl.setRipristinoGame(Main.window.getScene());
-			//ChangeRoomScene.changeRoom();
-
-			nRand = (int) (23.0 * Math.random());
-
-			while (!checkNrand2) {
-				checkNrand2 = true;
-				for (int i = 0; i < Maps.getIndexYetChoosen().size(); i++) {
-					while (nRand == Maps.getIndexYetChoosen().get(i)) {
-						nRand = (int) (22.0 * Math.random());
-						checkNrand2 = false;
-						i = 0;
-					}
-				}
-
-				if (doorDown) {
-					while (nRand != 1 && nRand != 2 && nRand != 6 && nRand != 7 && nRand != 8 && nRand != 9
-							&& nRand != 11 && nRand != 12 && nRand != 13 && nRand != 17 && nRand != 18
-							&& nRand != 19 && nRand != 20 && nRand != 22) {
-						nRand = (int) (23.0 * Math.random());
-						checkNrand2 = false;
-					}
-				}
-
-				if (doorLx) {
-					while (nRand != 2 && nRand != 3 && nRand != 5 && nRand != 7 && nRand != 8 && nRand != 10
-							&& nRand != 11 && nRand != 13 && nRand != 14 && nRand != 16 && nRand != 18
-							&& nRand != 19 && nRand != 21 && nRand != 22) {
-						nRand = (int) (23.0 * Math.random());
-						checkNrand2 = false;
-					}
-				}
-
-				if (doorUp) {
-					while (nRand != 3 && nRand != 4 && nRand != 6 && nRand != 8 && nRand != 9 && nRand != 10
-							&& nRand != 11 && nRand != 14 && nRand != 15 && nRand != 17 && nRand != 19
-							&& nRand != 20 && nRand != 21 && nRand != 22) {
-						nRand = (int) (23.0 * Math.random());
-						checkNrand2 = false;
-					}
-				}
-
-				if (doorDx) {
-					while (nRand != 1 && nRand != 4 && nRand != 5 && nRand != 7 && nRand != 9 && nRand != 10
-							&& nRand != 11 && nRand != 12 && nRand != 15 && nRand != 17 && nRand != 18
-							&& nRand != 20 && nRand != 21 && nRand != 22) {
-						nRand = (int) (23.0 * Math.random());
-						checkNrand2 = false;
-					}
+	public void checkMap () {
+		
+		mappaAttuale=Maps.getIndiceMappe();
+		
+		HashMap<String, Integer> questaStanza = null;
+		if(GraphicsGame.getFirstRoom()==true) {
+			questaStanza = new HashMap<String, Integer>();
+			questaStanza.put("portaDown", -1);
+			questaStanza.put("portaLeft", -1);
+			questaStanza.put("portaUp", -1);
+			questaStanza.put("portaRight", -1);
+			saveDoorOpened.put(mappaAttuale, questaStanza);
+		}
+		
+		if (saveDoorOpened.containsKey(mappaAttuale)) {
+			questaStanza = saveDoorOpened.get(mappaAttuale);
+			if (doorUp && questaStanza.get("portaUp")!=-1) {
+				Maps.setIndiceMappe(questaStanza.get("portaUp"));
+				System.out.println("questa stanza:"+ questaStanza.get("portaUp"));
+				try {
+					graphicGame.setBg(Maps.getIndiceMappe());
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
-			System.out.println("prossima mappa:"+nRand);
-			prossimaMappa=nRand;
+			else if (doorUp && questaStanza.get("portaUp")==-1) {
+				newRoom(questaStanza);
+			}
 			
-			HashMap<String, Integer> prossimaStanza;
-			prossimaStanza = new HashMap<String, Integer>();
-			prossimaStanza.put("portaDown", -1);
-			prossimaStanza.put("portaLeft", -1);
-			prossimaStanza.put("portaUp", -1);
-			prossimaStanza.put("portaRight", -1);
-			saveDoorOpened.put(prossimaMappa, prossimaStanza);
+			if (doorDown && questaStanza.get("portaDown")!=-1) {
+				Maps.setIndiceMappe(questaStanza.get("portaDown"));
+				System.out.println("questa stanza:"+ questaStanza.get("portaDown"));
+				try {
+					graphicGame.setBg(Maps.getIndiceMappe());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else if (doorDown && questaStanza.get("portaDown")==-1) {
+				newRoom(questaStanza);
+			}
 			
+			if (doorLx && questaStanza.get("portaLeft")!=-1) {
+				Maps.setIndiceMappe(questaStanza.get("portaLeft"));
+				System.out.println("questa stanza:"+ questaStanza.get("portaLeft"));
+				try {
+					graphicGame.setBg(Maps.getIndiceMappe());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else if (doorLx && questaStanza.get("portaLeft")==-1) {
+				newRoom(questaStanza);
+			}
+			
+			if (doorDx && questaStanza.get("portaRight")!=-1) {
+				Maps.setIndiceMappe(questaStanza.get("portaRight"));
+				System.out.println("questa stanza:"+ questaStanza.get("portaRight"));
+				try {
+					graphicGame.setBg(Maps.getIndiceMappe());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else if(doorDx && questaStanza.get("portaRight")==-1) {
+				newRoom(questaStanza);
+			}
+			
+		} else {
+			newRoom(questaStanza);
+		}
+
+	}
+	
+	
+	public void newRoom(HashMap<String, Integer> questaStanza) {
+		
+		
+		
+		nRand = (int) (23.0 * Math.random());
+
+		while (!checkNrand2) {
+			checkNrand2 = true;
+			for (int i = 0; i < Maps.getIndexYetChoosen().size(); i++) {
+				while (nRand == Maps.getIndexYetChoosen().get(i)) {
+					nRand = (int) (22.0 * Math.random());
+					checkNrand2 = false;
+					i = 0;
+				}
+			}
+
 			if (doorDown) {
-				questaStanza.put("portaDown", prossimaMappa);
-				//
-				System.out.println(questaStanza.get("portaDown"));
-				prossimaStanza.put("portaUp", mappaAttuale);
-				//
-				System.out.println(prossimaStanza.get("portaUp"));
+				while (nRand != 1 && nRand != 2 && nRand != 6 && nRand != 7 && nRand != 8 && nRand != 9
+						&& nRand != 11 && nRand != 12 && nRand != 13 && nRand != 17 && nRand != 18
+						&& nRand != 19 && nRand != 20 && nRand != 22) {
+					nRand = (int) (23.0 * Math.random());
+					checkNrand2 = false;
+				}
 			}
+
 			if (doorLx) {
-				questaStanza.put("portaLeft", prossimaMappa);
-				prossimaStanza.put("portaRight", mappaAttuale);
+				while (nRand != 2 && nRand != 3 && nRand != 5 && nRand != 7 && nRand != 8 && nRand != 10
+						&& nRand != 11 && nRand != 13 && nRand != 14 && nRand != 16 && nRand != 18
+						&& nRand != 19 && nRand != 21 && nRand != 22) {
+					nRand = (int) (23.0 * Math.random());
+					checkNrand2 = false;
+				}
 			}
+
 			if (doorUp) {
-				questaStanza.put("portaUp", prossimaMappa);
-				prossimaStanza.put("portaDown", mappaAttuale);
+				while (nRand != 3 && nRand != 4 && nRand != 6 && nRand != 8 && nRand != 9 && nRand != 10
+						&& nRand != 11 && nRand != 14 && nRand != 15 && nRand != 17 && nRand != 19
+						&& nRand != 20 && nRand != 21 && nRand != 22) {
+					nRand = (int) (23.0 * Math.random());
+					checkNrand2 = false;
+				}
 			}
+
 			if (doorDx) {
-				questaStanza.put("portaRight", prossimaMappa);
-				prossimaStanza.put("portaLeft", mappaAttuale);
+				while (nRand != 1 && nRand != 4 && nRand != 5 && nRand != 7 && nRand != 9 && nRand != 10
+						&& nRand != 11 && nRand != 12 && nRand != 15 && nRand != 17 && nRand != 18
+						&& nRand != 20 && nRand != 21 && nRand != 22) {
+					nRand = (int) (23.0 * Math.random());
+					checkNrand2 = false;
+				}
 			}
+		}
+		System.out.println("prossima mappa:"+nRand);
+		prossimaMappa=nRand;
+		
+		HashMap<String, Integer> prossimaStanza;
+		prossimaStanza = new HashMap<String, Integer>();
+		prossimaStanza.put("portaDown", -1);
+		prossimaStanza.put("portaLeft", -1);
+		prossimaStanza.put("portaUp", -1);
+		prossimaStanza.put("portaRight", -1);
+		saveDoorOpened.put(prossimaMappa, prossimaStanza);
+		
+		if (doorDown) {
+			questaStanza.put("portaDown", prossimaMappa);
+			prossimaStanza.put("portaUp", mappaAttuale);
+		}
+		if (doorLx) {
+			questaStanza.put("portaLeft", prossimaMappa);
+			prossimaStanza.put("portaRight", mappaAttuale);
+		}
+		if (doorUp) {
+			questaStanza.put("portaUp", prossimaMappa);
+			prossimaStanza.put("portaDown", mappaAttuale);
+		}
+		if (doorDx) {
+			questaStanza.put("portaRight", prossimaMappa);
+			prossimaStanza.put("portaLeft", mappaAttuale);
+		}
 
-			Maps.getIndexYetChoosen().add(prossimaMappa);
-			Maps.setIndiceMappe(prossimaMappa);
+		Maps.getIndexYetChoosen().add(prossimaMappa);
+		Maps.setIndiceMappe(prossimaMappa);
+		try {
 			graphicGame.setBg(prossimaMappa);
-			checkNrand2 = false;
-
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		checkNrand2 = false;
 	}
+	
+	
 	
 	//verifica se c'è una porta nella prossima casella
 
