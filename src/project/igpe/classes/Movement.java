@@ -325,11 +325,9 @@ public class Movement {
 
 
 
-	//
 	public static int getProssimaMappa() {
 		return prossimaMappa;
 	}
-
 
 
 	public static void setProssimaMappa(int prossimaMappa) {
@@ -342,33 +340,11 @@ public class Movement {
 	}
 
 
-
 	public static void setMappaAttuale(int mappaAttuale) {
 		Movement.mappaAttuale = mappaAttuale;
 	}
 
-	
-	/*
-	public Integer getNextRoom() {
-		return nextRoom;
-	}
 
-
-	public void setNextRoom(Integer nextRoom) {
-		this.nextRoom = nextRoom;
-	}
-
-	
-	public Integer getnRandConv() {
-		return nRandConv;
-	}
-
-
-	public void setnRandConv(Integer nRandConv) {
-		this.nRandConv = nRandConv;
-	}
-	*/
-	
 	public boolean isFirstTime() {
 		return firstTime;
 	}
@@ -378,16 +354,6 @@ public class Movement {
 		this.firstTime = firstTime;
 	}
 
-	/*
-	public static int getLastMap() {
-		return lastMap;
-	}
-
-
-	public static void setLastMap(int lastMap) {
-		Movement.lastMap = lastMap;
-	}
-	*/
 
 	public HashMap<Integer, HashMap<String, Integer>> getSaveDoorOpened() {
 		return saveDoorOpened;
@@ -398,7 +364,6 @@ public class Movement {
 		this.saveDoorOpened = saveDoorOpened;
 	}
 
-	//
 	
 	public static boolean isCheckNrand2() {
 		return checkNrand2;
