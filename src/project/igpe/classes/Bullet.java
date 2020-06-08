@@ -13,17 +13,17 @@ public class Bullet {
 	
 	private int dir;
 	private int speed=30;
-	private int frequenzy;
+	private int frequency;
 	
 	boolean alive;
 	
 	
-	public Bullet(int posX, int posY, int dir, int frequenzy) {
+	public Bullet(int posX, int posY, int dir, int frequency) {
 		super();
 		this.setPosX(posX);
 		this.setPosY(posY);
 		this.dir = dir;
-		this.frequenzy = frequenzy;
+		this.frequency = frequency;
 		alive=true;
 		
 	}
@@ -64,9 +64,6 @@ public class Bullet {
 	}
 
 
-	
-	
-	
 	
 	
 	public Image getImgBulletDX() {

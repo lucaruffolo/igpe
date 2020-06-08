@@ -1,5 +1,6 @@
 package project.igpe.classes;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -23,6 +24,7 @@ public class GraphicsGame extends StackPane{
 	private static boolean firstRoom = true;
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
+	
 	
 	public GraphicsGame(Movement movimentox) {
 		root = this;
@@ -156,41 +158,55 @@ public class GraphicsGame extends StackPane{
 
 	
 	public void draw() {
-		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+		
+		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());		
+		canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
 		
 		// Vita in alto a SX
 		canvas.getGraphicsContext2D().setFill(Color.RED);
 		Font font = new Font("Verdana", 20);
 		canvas.getGraphicsContext2D().setFont(font);
 		canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 50, 50);
-	
+		
+		//bullets
+		for(Bullet b:Hero.getContenitoreBullets()) {
+			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
+		}
+		
+		
+		/*  DISEGNARE SU MAPPA MATRICE
 			for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
 				int x = i * Settings.block;
 				for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
 					int y = j * Settings.block;
-
-					switch (movimento.getRoom().getCella()[i][j].getType()) {
-					/*	
+					
+					
+					switch (movimento.getRoom().getCella()[i][j].getType()) {						
 					case Cell.WALL:
 						canvas.getGraphicsContext2D().setFill(Color.BLUE);
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
-						break;
-					*/						
+						break;										
 					default:
 						break;
 					}
-					if (movimento.getPg().getX() == i && movimento.getPg().getY() == j)
-						canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Hero.getSize(), Hero.getSize());
-					
-
+			// DISEGNARE PG BLOCCHI MATRICE		
+			//		if (movimento.getPg().getX() == i && movimento.getPg().getY() == j)
+			//			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Hero.getSize(), Hero.getSize());
 				}
 			}
-			for(Bullet b:Hero.getContenitoreBullets()) {
-				canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
-			}
-		
+			*/		
 	}
 	
+/*	int indexSprite = 1;
+	
+	public void drawSprite() {
+		if (indexSprite == 6)
+			indexSprite = 1;
+		
+		indexSprite++;
+		
+	}
+*/	
 
 	public Canvas getCanvas() {
 		return canvas;
@@ -219,5 +235,8 @@ public class GraphicsGame extends StackPane{
 		canvas.setOnKeyPressed(null);
 
 	}
+
+
+	
 	
 }

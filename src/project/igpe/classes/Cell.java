@@ -19,8 +19,6 @@ public class Cell {
 	}
 	
 	
-	
-	
 	public void setType(int type) {
 		this.type = type;
 	}

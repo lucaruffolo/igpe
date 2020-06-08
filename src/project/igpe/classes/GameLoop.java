@@ -21,12 +21,12 @@ public class GameLoop extends AnimationTimer {
 				b.moveBullet();
 				if (!b.alive)
 					Hero.getContenitoreBullets().remove(b);
-			} 
-		}
-		if (currentNanoTime - previousTime >= frequency) {			
+			}
 			gg.draw();
+	//		gg.drawSprite();
 			previousTime = currentNanoTime;
 		}
+		
 		
 	}
 	

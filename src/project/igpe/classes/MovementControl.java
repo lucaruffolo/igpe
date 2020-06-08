@@ -18,7 +18,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 	private static Scene ripristinoGame;
 	
 	public MovementControl(Movement movimento) {
-		this.movimento = movimento;
+		this.movimento = movimento;		
 	}
 
 

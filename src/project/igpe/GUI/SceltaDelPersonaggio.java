@@ -115,9 +115,8 @@ public class SceltaDelPersonaggio {
 			eroe.setName(textName.getText());
 			eroe.setSex(sesso);
 			GraphicHero.selectSex(eroe.getSex());
-			Hero.setLife(100);
-			Hero.setX(4);
-			Hero.setY(4);
+			Hero.setLife(100);			
+			Hero.ResetPosition();
 			Maps.setIndiceMappe(0);
 			System.out.println(Maps.getIndiceMappe());
 			

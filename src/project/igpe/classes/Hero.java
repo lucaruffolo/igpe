@@ -9,14 +9,32 @@ public class Hero {
 	private String name;
 	private Boolean sex;
 	private static int life=100;
-	private static int speed=1;
+	private static int speed=10;
 	private static int size=60;
 	private Image img;
 	private static int x;
 	private static int y;
 	private static List<Bullet> contenitoreBullets;
+
+	public Hero() {
+		name = "nome";
+		sex = false;
+		ResetPosition();
+		contenitoreBullets=new ArrayList<Bullet>();
+	}
 	
 	
+	public static void ResetPosition () {
+		x=450;
+		y=250;
+	}
+	
+	public static void shoot() {
+		Bullet bullet =  new Bullet(getX(), getY(), Movement.getDir(), 10);
+		contenitoreBullets.add(bullet);
+	}
+
+
 	public static List<Bullet> getContenitoreBullets() {
 		return contenitoreBullets;
 	}
@@ -25,23 +43,6 @@ public class Hero {
 		Hero.contenitoreBullets = bullets;
 	}
 
-	public Hero() {
-		name = "nome";
-		sex = false;
-		x=6;
-		y=6;
-		contenitoreBullets=new ArrayList<Bullet>();
-	}
-
-	
-	public static void shoot() {
-		Bullet bullet =  new Bullet(x, y, Movement.getDir(), 10);
-		contenitoreBullets.add(bullet);
-	}
-
-	
-
-	
 	
 	
 	public  String getName() {
@@ -92,7 +93,7 @@ public class Hero {
 		this.img = img;
 	}
 
-	public int getX() {
+	public static int getX() {
 		return x;
 	}
 
@@ -100,7 +101,7 @@ public class Hero {
 		x = xx;
 	}
 
-	public int getY() {
+	public static int getY() {
 		return y;
 	}
 

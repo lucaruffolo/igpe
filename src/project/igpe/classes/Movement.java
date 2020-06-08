@@ -1,8 +1,6 @@
 package project.igpe.classes;
 
 import java.util.HashMap;
-import project.igpe.GUI.ChangeRoomScene;
-import project.igpe.main.Main;
 
 public class Movement {
 
@@ -32,29 +30,32 @@ public class Movement {
 	
 	
 	public void move(int direction) {
-		int posHeroX=pg.getX();
-		int posHeroY=pg.getY();
+		int posHeroX=Hero.getX();
+		int posHeroY=Hero.getY();
 		int newPosX=posHeroX;
 		int newPosY=posHeroY;
 		
 		if(direction == MOVE_RIGHT) {
-			newPosX=pg.getX()+1;
+			newPosX=Hero.getX()+Hero.getSpeed();
 			setDir(MOVE_RIGHT);
-			}
+		}
 		else if(direction == MOVE_LEFT) {
-			newPosX=pg.getX()-1;
+			newPosX=Hero.getX()-Hero.getSpeed();
 			setDir(MOVE_LEFT);
+			
 		}
 		else if(direction == MOVE_UP) {
-			newPosY=pg.getY()-1;
+			newPosY=Hero.getY()-Hero.getSpeed();
 			setDir(MOVE_UP);
 		}
 		else if(direction == MOVE_DOWN) {
-			newPosY=pg.getY()+1;
+			newPosY=Hero.getY()+Hero.getSpeed();
 			setDir(MOVE_DOWN);
+			
 		}
 		GraphicHero.setImgDir(direction);
-				
+		
+	/*
 		
 		if (door(newPosX,newPosY)) { //controllo porta in nuova posizione
 			
@@ -222,9 +223,11 @@ public class Movement {
 			doorLx=false;
 			doorUp=false;
 			doorDx=false;
-			
+			*/
+		Hero.setX(newPosX);
+		Hero.setY(newPosY);
 		}
-		
+		/*
 		
 		if(!collision(newPosX, newPosY)) {
 			posHeroX=newPosX;
@@ -238,7 +241,7 @@ public class Movement {
 		Hero.setY(posHeroY);
 	}
 	
-	
+	*/
 	
 	//verifica se c'è una porta nella prossima casella
 
