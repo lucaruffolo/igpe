@@ -23,6 +23,7 @@ public class LoadScene{
     @FXML
     void ClickEnter(KeyEvent event) {
     	if(ready) {
+			Settings.valueOfProgressBar = 0;
     		Main.startGame();
     	}
     }
@@ -61,10 +62,10 @@ public class LoadScene{
 		protected Void call() throws Exception {
 			
 			while(Settings.valueOfProgressBar <= 1) {
-				Settings.valueOfProgressBar += 0.10;
+				Settings.valueOfProgressBar += 0.005;
 				ProgressBar.setProgress(Settings.valueOfProgressBar);
 				//System.out.println(Settings.valueOfProgressBar);
-				Thread.sleep(50);
+				Thread.sleep(10);
 			}
 			return null;
 		}
