@@ -63,8 +63,8 @@ public class LoadScene{
 			while(Settings.valueOfProgressBar <= 1) {
 				Settings.valueOfProgressBar += 0.10;
 				ProgressBar.setProgress(Settings.valueOfProgressBar);
-				System.out.println(Settings.valueOfProgressBar);
-				Thread.sleep(200);
+				//System.out.println(Settings.valueOfProgressBar);
+				Thread.sleep(50);
 			}
 			return null;
 		}
