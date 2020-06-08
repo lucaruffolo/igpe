@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#ClickEnter" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.LoadScene">
+   <children>
+      <ProgressBar fx:id="ProgressBar" layoutX="37.0" layoutY="632.0" prefHeight="20.0" prefWidth="950.0" progress="0.0" />
+      <Text fx:id="textPressToContinue" layoutX="243.0" layoutY="595.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="premi &quot;invio&quot; per continuare" textAlignment="CENTER" wrappingWidth="538.13671875">
+         <font>
+            <Font name="System Bold Italic" size="31.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

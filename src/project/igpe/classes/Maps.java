@@ -110,6 +110,8 @@ public class Maps {
 		firstRoomImg = img0;
 		firstRoomTxt = txt0;
 		
+		upImg.put(0, img0);
+		upTxt.put(0, txt0);
 		upImg.put(1, img1);
 		upTxt.put(1, txt1);
 		upImg.put(2, img2);
@@ -139,6 +141,8 @@ public class Maps {
 		upImg.put(22, img22);
 		upTxt.put(22, txt22);
 		
+		downImg.put(0, img0);
+		downTxt.put(0, txt0);
 		downImg.put(3, img3);
 		downTxt.put(3, txt3);
 		downImg.put(4, img4);
@@ -168,6 +172,8 @@ public class Maps {
 		downImg.put(22, img22);
 		downTxt.put(22, txt22);
 		
+		leftImg.put(0, img0);
+		leftTxt.put(0, txt0);
 		leftImg.put(1, img1);
 		leftTxt.put(1, txt1);
 		leftImg.put(4, img4);
@@ -197,6 +203,8 @@ public class Maps {
 		leftImg.put(22, img22);
 		leftTxt.put(22, txt22);
 		
+		rightImg.put(0, img0);
+		rightTxt.put(0, txt0);
 		rightImg.put(2, img2);
 		rightTxt.put(2, txt2);
 		rightImg.put(3, img3);
@@ -225,7 +233,7 @@ public class Maps {
 		rightTxt.put(21, txt21);
 		rightImg.put(22, img22);
 		rightTxt.put(22, txt22);
-		
+		/*
 		allImg.put(0, img0);
 		allImg.put(1, img1);
 		allImg.put(2, img2);
@@ -273,7 +281,7 @@ public class Maps {
 		allTxt.put(20, txt20);
 		allTxt.put(21, txt21);
 		allTxt.put(22, txt22);
-		
+		*/
 	}
 	
 	public static void loadFirstRoom() throws Exception{

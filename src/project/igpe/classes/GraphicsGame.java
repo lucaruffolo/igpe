@@ -47,7 +47,6 @@ public class GraphicsGame extends StackPane{
 		else {
 			try {
 				spawnBg();
-				firstRoom = false;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -77,6 +76,7 @@ public class GraphicsGame extends StackPane{
 	}
 	
 	public void setBg(int index) throws Exception {
+		
 		if (Movement.isDoorDown()) {
 			Maps.setIndiceMappe(index);
 			Maps.loadMap(index);
