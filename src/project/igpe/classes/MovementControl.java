@@ -44,7 +44,11 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case L:
 				if (Hero.getLife()>0)
 					Hero.setLife(Hero.getLife()-10);			
-				break;				
+				break;	
+			case C:
+				System.out.println(Hero.getX()+" . "+ Hero.getY());
+				
+				break;
 			case SPACE:
 				Hero.shoot();
 				break;

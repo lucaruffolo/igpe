@@ -40,8 +40,8 @@ public class Main extends Application{
 	
 
 	public static void startGame() {
-		
-		
+	
+			
 		try { 	//Reset Mappe TXT + Background
 			game.spawnBg();
 		} catch (Exception e) {	e.printStackTrace();}
