@@ -196,39 +196,73 @@ public class Movement {
 				}
 			}
 
+			
+			
 			if (doorDown) {
-				while (nRand != 1 && nRand != 2 && nRand != 6 && nRand != 7 && nRand != 8 && nRand != 9
-						&& nRand != 11 && nRand != 12 && nRand != 13 && nRand != 17 && nRand != 18
-						&& nRand != 19 && nRand != 20 && nRand != 22) {
-					nRand = (int) (23.0 * Math.random());
-					checkNrand2 = false;
+				if (Maps.isClosedMap()) {
+					while (nRand != 1 && nRand != 2 && nRand != 6 && nRand != 7 && nRand != 8 && nRand != 9
+							&& nRand != 11) {
+						nRand = (int) (23.0 * Math.random());
+						checkNrand2 = false;
+					} 
+				}
+				else {
+					while (nRand != 12 && nRand != 13 && nRand != 17 && nRand != 18 && nRand != 19
+							&& nRand != 20 && nRand != 22) {
+						nRand = (int) (23.0 * Math.random());
+						checkNrand2 = false;
+					}
 				}
 			}
 
 			if (doorLx) {
-				while (nRand != 2 && nRand != 3 && nRand != 5 && nRand != 7 && nRand != 8 && nRand != 10
-						&& nRand != 11 && nRand != 13 && nRand != 14 && nRand != 16 && nRand != 18
-						&& nRand != 19 && nRand != 21 && nRand != 22) {
-					nRand = (int) (23.0 * Math.random());
-					checkNrand2 = false;
+				if (Maps.isClosedMap()) {
+					while (nRand != 2 && nRand != 3 && nRand != 5 && nRand != 7 && nRand != 8 && nRand != 10
+							&& nRand != 11) {
+						nRand = (int) (23.0 * Math.random());
+						checkNrand2 = false;
+					} 
+				}
+				else {
+					while (nRand != 13 && nRand != 14 && nRand != 16 && nRand != 18 && nRand != 19
+							&& nRand != 21 && nRand != 22) {
+						nRand = (int) (23.0 * Math.random());
+						checkNrand2 = false;
+					}
 				}
 			}
 
 			if (doorUp) {
-				while (nRand != 3 && nRand != 4 && nRand != 6 && nRand != 8 && nRand != 9 && nRand != 10
-						&& nRand != 11 && nRand != 14 && nRand != 15 && nRand != 17 && nRand != 19
-						&& nRand != 20 && nRand != 21 && nRand != 22) {
-					nRand = (int) (23.0 * Math.random());
-					checkNrand2 = false;
+				if (Maps.isClosedMap()) {
+					while (nRand != 3 && nRand != 4 && nRand != 6 && nRand != 8 && nRand != 9 && nRand != 10
+							&& nRand != 11) {
+						nRand = (int) (23.0 * Math.random());
+						checkNrand2 = false;
+					} 
+				}
+				else {
+					while (nRand != 14 && nRand != 15 && nRand != 17 && nRand != 19 && nRand != 20
+							&& nRand != 21 && nRand != 22) {
+						nRand = (int) (23.0 * Math.random());
+						checkNrand2 = false;
+					} 
 				}
 			}
 
 			if (doorDx) {
-				while (nRand != 1 && nRand != 4 && nRand != 5 && nRand != 7 && nRand != 9 && nRand != 10
-						&& nRand != 11 && nRand != 12 && nRand != 15 && nRand != 17 && nRand != 18
-						&& nRand != 20 && nRand != 21 && nRand != 22) {
-					nRand = (int) (23.0 * Math.random());
-					checkNrand2 = false;
+				if (Maps.isClosedMap()) {
+					while (nRand != 1 && nRand != 4 && nRand != 5 && nRand != 7 && nRand != 9 && nRand != 10
+							&& nRand != 11) {
+						nRand = (int) (23.0 * Math.random());
+						checkNrand2 = false;
+					} 
+				}
+				else {
+					while (nRand != 12 && nRand != 15 && nRand != 16 && nRand != 18 && nRand != 20
+							&& nRand != 21 && nRand != 22) {
+						nRand = (int) (23.0 * Math.random());
+						checkNrand2 = false;
+					}
 				}
 			}
 		}

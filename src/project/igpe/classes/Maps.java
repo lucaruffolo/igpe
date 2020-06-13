@@ -27,13 +27,19 @@ public class Maps {
 	private static HashMap<Integer, File> rightImg = new HashMap<Integer, File>();
 	private static HashMap<Integer, String> rightTxt = new HashMap<Integer, String>();
 	
-	//
-	private static HashMap<Integer, File> allImg = new HashMap<Integer, File>();
-	private static HashMap<Integer, String> allTxt = new HashMap<Integer, String>();
-	//
+	private static boolean closedMap = false;
 	
 	public Maps() {
-			
+		
+		int nRand = (int) (2.0 * Math.random());
+		if(nRand == 0) {
+			setClosedMap(true);
+			setIndiceMappe(0);
+		}
+		else {
+			setIndiceMappe(22);
+		}
+		
 		loadcontenitoreMappe();
 		if(!GraphicsGame.getFirstRoom())
 		{
@@ -59,6 +65,9 @@ public class Maps {
 		File img0 = new File("src/project/igpe/images/mappaSpawn.png");
 		String txt0 = new String("src/project/igpe/maps/TemplateSpawn.txt");
 		
+		File img22 = new File("src/project/igpe/images/mappaAcqua4.png");
+		String txt22 = new String("src/project/igpe/maps/Template4doorACQUA.txt");
+		
 		File img1 = new File("src/project/igpe/images/mappa2(SX-SU).png");
 		File img2 = new File("src/project/igpe/images/mappa2(SU-DX).png");
 		File img3 = new File("src/project/igpe/images/mappa2(DX-GIU).png");
@@ -81,7 +90,6 @@ public class Maps {
 		File img19 = new File("src/project/igpe/images/mappaAcqua3(SU-DX-GIU).png");
 		File img20 = new File("src/project/igpe/images/mappaAcqua3(SU-SX-GIU).png");
 		File img21 = new File("src/project/igpe/images/mappaAcqua3(SX-GIU-DX).png");
-		File img22 = new File("src/project/igpe/images/mappaAcqua4.png");
 		
 		String txt1 = new String("src/project/igpe/maps/Template2door(SX-SU).txt");
 		String txt2 = new String("src/project/igpe/maps/Template2door(SU-DX).txt");
@@ -105,10 +113,16 @@ public class Maps {
 		String txt19 = new String("src/project/igpe/maps/Template3doorACQUA(SU-DX-GIU).txt");
 		String txt20 = new String("src/project/igpe/maps/Template3doorACQUA(SU-SX-GIU).txt");
 		String txt21 = new String("src/project/igpe/maps/Template3doorACQUA(SX-GIU-DX).txt");
-		String txt22 = new String("src/project/igpe/maps/Template4doorACQUA.txt");
 		
-		firstRoomImg = img0;
-		firstRoomTxt = txt0;
+		if(closedMap) {
+			firstRoomImg = img0;
+			firstRoomTxt = txt0;
+		}
+		else {
+			firstRoomImg = img22;
+			firstRoomTxt = txt22;
+		}
+		
 		
 		upImg.put(0, img0);
 		upTxt.put(0, txt0);
@@ -138,8 +152,6 @@ public class Maps {
 		upTxt.put(19, txt19);
 		upImg.put(20, img20);
 		upTxt.put(20, txt20);
-		upImg.put(22, img22);
-		upTxt.put(22, txt22);
 		
 		downImg.put(0, img0);
 		downTxt.put(0, txt0);
@@ -169,8 +181,6 @@ public class Maps {
 		downTxt.put(20, txt20);
 		downImg.put(21, img21);
 		downTxt.put(21, txt21);
-		downImg.put(22, img22);
-		downTxt.put(22, txt22);
 		
 		leftImg.put(0, img0);
 		leftTxt.put(0, txt0);
@@ -200,8 +210,6 @@ public class Maps {
 		leftTxt.put(20, txt20);
 		leftImg.put(21, img21);
 		leftTxt.put(21, txt21);
-		leftImg.put(22, img22);
-		leftTxt.put(22, txt22);
 		
 		rightImg.put(0, img0);
 		rightTxt.put(0, txt0);
@@ -231,57 +239,7 @@ public class Maps {
 		rightTxt.put(19, txt19);
 		rightImg.put(21, img21);
 		rightTxt.put(21, txt21);
-		rightImg.put(22, img22);
-		rightTxt.put(22, txt22);
-		/*
-		allImg.put(0, img0);
-		allImg.put(1, img1);
-		allImg.put(2, img2);
-		allImg.put(3, img3);
-		allImg.put(4, img4);
-		allImg.put(5, img5);
-		allImg.put(6, img6);
-		allImg.put(7, img7);
-		allImg.put(8, img8);
-		allImg.put(9, img9);
-		allImg.put(10, img10);
-		allImg.put(11, img11);
-		allImg.put(12, img12);
-		allImg.put(13, img13);
-		allImg.put(14, img14);
-		allImg.put(15, img15);
-		allImg.put(16, img16);
-		allImg.put(17, img17);
-		allImg.put(18, img18);
-		allImg.put(19, img19);
-		allImg.put(20, img20);
-		allImg.put(21, img21);
-		allImg.put(22, img22);
 		
-		allTxt.put(0, txt0);
-		allTxt.put(1, txt1);
-		allTxt.put(2, txt2);
-		allTxt.put(3, txt3);
-		allTxt.put(4, txt4);
-		allTxt.put(5, txt5);
-		allTxt.put(6, txt6);
-		allTxt.put(7, txt7);
-		allTxt.put(8, txt8);
-		allTxt.put(9, txt9);
-		allTxt.put(10, txt10);
-		allTxt.put(11, txt11);
-		allTxt.put(12, txt12);
-		allTxt.put(13, txt13);
-		allTxt.put(14, txt14);
-		allTxt.put(15, txt15);
-		allTxt.put(16, txt16);
-		allTxt.put(17, txt17);
-		allTxt.put(18, txt18);
-		allTxt.put(19, txt19);
-		allTxt.put(20, txt20);
-		allTxt.put(21, txt21);
-		allTxt.put(22, txt22);
-		*/
 	}
 	
 	public static void loadFirstRoom() throws Exception{
@@ -484,11 +442,21 @@ public class Maps {
 	}
 	
 	
+	
+	
+
+	public static boolean isClosedMap() {
+		return closedMap;
+	}
+	
+	public static void setClosedMap(boolean closedMap) {
+		Maps.closedMap = closedMap;
+	}
 
 	public Cell[][] getCella() {
 		return cella;
 	}
-	
+		
 	public int getCellType(int x, int y) {
 		return cella[x][y].getType();
 	}
@@ -497,12 +465,10 @@ public class Maps {
 		return indiceMappe;
 	}
 
-
 	public static void setIndiceMappe(int indiceMappe) {
 		Maps.indiceMappe = indiceMappe;
 	}
 	
-
 	public static File getFirstRoomImg() {
 		return firstRoomImg;
 	}
@@ -592,18 +558,4 @@ public class Maps {
 	}
 	
 	
-	
-	
-	/* DA modificare per aggiugere ostacoli random
-	count = 0;
-	while(count < 4) {
-		int randX = r.nextInt(Settings.cellSize-1)+1;
-		for(int j = 0; j < blocks[randX].length/2; j++) {
-			if(blocks[randX][j].getType()==Block.EMPTY) {
-				blocks[randX][j].setType(Block.WALL);
-			}
-		}
-		count++;	
-	}
-	*/
 }
