@@ -122,12 +122,12 @@ public class Movement {
 		return (y*Settings.yMatrix)/Settings.y;
 	}
 	
-	public int matrixInPixelX (int x) {
+	public static int matrixInPixelX (int x) {
 		// totpixel * pos matrice / tot matrice		
 		return (Settings.x*x)/Settings.xMatrix;		
 	}
 	
-	public int matrixInPixelY (int y) {
+	public static int matrixInPixelY (int y) {
 		return (Settings.y*y)/Settings.yMatrix;		
 	}
 	
@@ -364,6 +364,8 @@ public class Movement {
 		else
 			return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
 	}
+	
+	
 	
 	public void collisionDamage(int newX, int newY) {	
 			if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE) {
