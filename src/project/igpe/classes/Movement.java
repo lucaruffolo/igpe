@@ -39,71 +39,88 @@ public class Movement {
 		int newPosX=posHeroX;
 		int newPosY=posHeroY;
 		
-		if(direction == MOVE_RIGHT) {
-			newPosX=Hero.getX()+Hero.getSpeed();
+		if (direction == MOVE_RIGHT) {
+			newPosX = Hero.getX() + Hero.getSpeed();
 			setDir(MOVE_RIGHT);
-		}
-		else if(direction == MOVE_LEFT) {
-			newPosX=Hero.getX()-Hero.getSpeed();
+		} else if (direction == MOVE_LEFT) {
+			newPosX = Hero.getX() - Hero.getSpeed();
 			setDir(MOVE_LEFT);
-			
-		}
-		else if(direction == MOVE_UP) {
-			newPosY=Hero.getY()-Hero.getSpeed();
+		} else if (direction == MOVE_UP) {
+			newPosY = Hero.getY() - Hero.getSpeed();
 			setDir(MOVE_UP);
-		}
-		else if(direction == MOVE_DOWN) {
-			newPosY=Hero.getY()+Hero.getSpeed();
+		} else if (direction == MOVE_DOWN) {
+			newPosY = Hero.getY() + Hero.getSpeed();
 			setDir(MOVE_DOWN);
-			
 		}
+		
+		
 		GraphicHero.setImgDir(direction);
-		/*
-		if (door(newPosX,newPosY)) {
-			
-			//funzione controllo hasmap
+		
+		
+		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
+
+			// funzione controllo hasmap
 			checkMap();
-			
+
 			if (doorDown) {
-				newPosX = 10;
-				newPosY = 2;
+				newPosX = 600;
+				newPosY = 140;
 			}
 			if (doorLx) {
-				newPosX = 18;
-				newPosY = 7;
+				newPosX = 1050;
+				newPosY = 430;
 			}
 			if (doorUp) {
-				newPosX = 10;
-				newPosY = 12;
+				newPosX = 600;
+				newPosY = 690;
 			}
 			if (doorDx) {
-				newPosX = 2;
-				newPosY = 7;
+				newPosX = 150;
+				newPosY = 420;
 			}
-			
-			doorDown=false;
-			doorDx=false;
-			doorLx=false;
-			doorUp=false;
 
+			doorDown = false;
+			doorDx = false;
+			doorLx = false;
+			doorUp = false;
 
 			GraphicsGame.setFirstRoom(false);
-		
 		}
 		
 		
-		if(!collision(newPosX, newPosY)) {
-			posHeroX=newPosX;
-			posHeroY=newPosY;
+		if (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
+
+			Hero.setX(newPosX);
+			Hero.setY(newPosY);
 		}
 		
-		collisionDamage(newPosX, newPosY);
-		*/
-		Hero.setX(newPosX);
-		Hero.setY(newPosY);
+		collisionDamage(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY));
+		
+		//System.out.println(pixelInMatrixX(newPosX));
+		//System.out.println(pixelInMatrixX(newPosY));
+
+
 	}
 	
+	public int pixelInMatrixX (int x) {
+		// pos pixel : totpixel = pos matrice : tot matrice
+		// pos pixel * totale matrice / tot pixel
+		
+		return (x*Settings.xMatrix)/Settings.x;		
+	}
 	
+	public int pixelInMatrixY (int y) {
+		return (y*Settings.yMatrix)/Settings.y;
+	}
+	
+	public int matrixInPixelX (int x) {
+		// totpixel * pos matrice / tot matrice		
+		return (Settings.x*x)/Settings.xMatrix;		
+	}
+	
+	public int matrixInPixelY (int y) {
+		return (Settings.y*y)/Settings.yMatrix;		
+	}
 	
 	public void checkMap () {
 		

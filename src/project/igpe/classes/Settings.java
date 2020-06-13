@@ -3,8 +3,11 @@ package project.igpe.classes;
 public class Settings {
 
 	public final static int size = 900;
-	public final static int x = 1270; //21
-	public final static int y = 900; // 15
+	public final static int x = 1270;//1270
+	public final static int y = 900; //900
+	public final static int xMatrix = 21;
+	public final static int yMatrix = 15;
+	
 	public final static int block = 60;
 	public final static int cellSize = size/block;
 	
