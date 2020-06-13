@@ -152,6 +152,8 @@ public class Maps {
 		upTxt.put(19, txt19);
 		upImg.put(20, img20);
 		upTxt.put(20, txt20);
+		upImg.put(22, img22);
+		upTxt.put(22, txt22);
 		
 		downImg.put(0, img0);
 		downTxt.put(0, txt0);
@@ -181,6 +183,8 @@ public class Maps {
 		downTxt.put(20, txt20);
 		downImg.put(21, img21);
 		downTxt.put(21, txt21);
+		downImg.put(22, img22);
+		downTxt.put(22, txt22);
 		
 		leftImg.put(0, img0);
 		leftTxt.put(0, txt0);
@@ -210,6 +214,8 @@ public class Maps {
 		leftTxt.put(20, txt20);
 		leftImg.put(21, img21);
 		leftTxt.put(21, txt21);
+		leftImg.put(22, img22);
+		leftTxt.put(22, txt22);
 		
 		rightImg.put(0, img0);
 		rightTxt.put(0, txt0);
@@ -239,6 +245,8 @@ public class Maps {
 		rightTxt.put(19, txt19);
 		rightImg.put(21, img21);
 		rightTxt.put(21, txt21);
+		rightImg.put(22, img22);
+		rightTxt.put(22, txt22);
 		
 	}
 	

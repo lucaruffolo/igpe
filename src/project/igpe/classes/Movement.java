@@ -2,6 +2,9 @@ package project.igpe.classes;
 
 import java.util.HashMap;
 
+import project.igpe.GUI.ChangeRoomScene;
+import project.igpe.main.Main;
+
 public class Movement {
 
     public final static int MOVE_RIGHT = 0;
@@ -28,8 +31,7 @@ public class Movement {
 	private static int mappaAttuale = 0;
 	private static int prossimaMappa;
 	private boolean firstTime = true;
-	//MovementControl.setRipristinoGame(Main.window.getScene());
-	//ChangeRoomScene.changeRoom();
+	
 	//
 	
 	
@@ -59,6 +61,13 @@ public class Movement {
 		
 		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
 
+			MovementControl.setRipristinoGame(Main.window.getScene());
+			try {
+				ChangeRoomScene.changeRoom();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			// funzione controllo hasmap
 			checkMap();
 
@@ -68,7 +77,7 @@ public class Movement {
 			}
 			if (doorLx) {
 				newPosX = 1050;
-				newPosY = 430;
+				newPosY = 410;
 			}
 			if (doorUp) {
 				newPosX = 600;
@@ -201,7 +210,7 @@ public class Movement {
 		
 		
 		
-		nRand = (int) (23.0 * Math.random());
+		nRand = (int) (22.0 * Math.random());
 
 		while (!checkNrand2) {
 			checkNrand2 = true;
@@ -219,14 +228,14 @@ public class Movement {
 				if (Maps.isClosedMap()) {
 					while (nRand != 1 && nRand != 2 && nRand != 6 && nRand != 7 && nRand != 8 && nRand != 9
 							&& nRand != 11) {
-						nRand = (int) (23.0 * Math.random());
+						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					} 
 				}
 				else {
 					while (nRand != 12 && nRand != 13 && nRand != 17 && nRand != 18 && nRand != 19
-							&& nRand != 20 && nRand != 22) {
-						nRand = (int) (23.0 * Math.random());
+							&& nRand != 20) {
+						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					}
 				}
@@ -236,14 +245,14 @@ public class Movement {
 				if (Maps.isClosedMap()) {
 					while (nRand != 2 && nRand != 3 && nRand != 5 && nRand != 7 && nRand != 8 && nRand != 10
 							&& nRand != 11) {
-						nRand = (int) (23.0 * Math.random());
+						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					} 
 				}
 				else {
 					while (nRand != 13 && nRand != 14 && nRand != 16 && nRand != 18 && nRand != 19
-							&& nRand != 21 && nRand != 22) {
-						nRand = (int) (23.0 * Math.random());
+							&& nRand != 21) {
+						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					}
 				}
@@ -253,14 +262,14 @@ public class Movement {
 				if (Maps.isClosedMap()) {
 					while (nRand != 3 && nRand != 4 && nRand != 6 && nRand != 8 && nRand != 9 && nRand != 10
 							&& nRand != 11) {
-						nRand = (int) (23.0 * Math.random());
+						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					} 
 				}
 				else {
 					while (nRand != 14 && nRand != 15 && nRand != 17 && nRand != 19 && nRand != 20
-							&& nRand != 21 && nRand != 22) {
-						nRand = (int) (23.0 * Math.random());
+							&& nRand != 21) {
+						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					} 
 				}
@@ -270,14 +279,14 @@ public class Movement {
 				if (Maps.isClosedMap()) {
 					while (nRand != 1 && nRand != 4 && nRand != 5 && nRand != 7 && nRand != 9 && nRand != 10
 							&& nRand != 11) {
-						nRand = (int) (23.0 * Math.random());
+						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					} 
 				}
 				else {
 					while (nRand != 12 && nRand != 15 && nRand != 16 && nRand != 18 && nRand != 20
-							&& nRand != 21 && nRand != 22) {
-						nRand = (int) (23.0 * Math.random());
+							&& nRand != 21) {
+						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					}
 				}

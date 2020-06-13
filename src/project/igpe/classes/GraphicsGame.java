@@ -173,8 +173,8 @@ public class GraphicsGame extends StackPane{
 			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
 		}
 		
-		
-		/*  DISEGNARE SU MAPPA MATRICE
+		/*
+		 // DISEGNARE SU MAPPA MATRICE
 			for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
 				int x = i * Settings.block;
 				for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
@@ -182,7 +182,7 @@ public class GraphicsGame extends StackPane{
 					
 					
 					switch (movimento.getRoom().getCella()[i][j].getType()) {						
-					case Cell.WALL:
+					case Cell.OBSTACLE:
 						canvas.getGraphicsContext2D().setFill(Color.BLUE);
 						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
 						break;										
