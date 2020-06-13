@@ -173,6 +173,25 @@ public class GraphicsGame extends StackPane{
 			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
 		}
 		
+		
+		for (int i = 0; i < Settings.xMatrix; i++) {
+			for (int j = 0; j < Settings.yMatrix; j++) {				
+				switch (movimento.getRoom().getCella()[i][j].getType()) {						
+				case Cell.OBSTACLE:
+					canvas.getGraphicsContext2D().setFill(Color.BLUE);
+					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
+					break;		
+				case Cell.OBSTACLEDAMAGE:
+					canvas.getGraphicsContext2D().setFill(Color.RED);
+					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
+					break;	
+				default:
+					break;					
+				}
+			}
+		}
+		
+	}
 		/*
 		 // DISEGNARE SU MAPPA MATRICE
 			for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
@@ -194,20 +213,8 @@ public class GraphicsGame extends StackPane{
 			//			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Hero.getSize(), Hero.getSize());
 				}
 			}
-			*/		
-	}
+			*/	
 	
-/*	int indexSprite = 1;
-	
-	public void drawSprite() {
-		if (indexSprite == 6)
-			indexSprite = 1;
-		
-		indexSprite++;
-		
-	}
-*/	
-
 	public Canvas getCanvas() {
 		return canvas;
 	}
