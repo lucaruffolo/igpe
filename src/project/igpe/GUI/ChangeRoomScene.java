@@ -25,6 +25,7 @@ public class ChangeRoomScene {
 		Effects.EffectsStart();
 		
 		while(Effects.audioclip.isPlaying()) {
+			
 		}
 		
     	FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("ChangeRoom.fxml"));
@@ -37,6 +38,7 @@ public class ChangeRoomScene {
 		Effects.EffectsStart();
 		
 		while(Effects.audioclip.isPlaying()) {
+			
 		}
 		
 		Main.window.setScene(MovementControl.getRipristinoGame());

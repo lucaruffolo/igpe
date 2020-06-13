@@ -26,13 +26,11 @@ public class Movement {
 	private static int nRand = -20;
 	private static boolean checkNrand2 = false;
 	
-	//
 	private HashMap<Integer, HashMap<String, Integer>> saveDoorOpened = new HashMap<Integer, HashMap<String,Integer>>();
 	private static int mappaAttuale = 0;
 	private static int prossimaMappa;
 	private boolean firstTime = true;
 	
-	//
 	
 	
 	public void move(int direction) {
@@ -61,6 +59,7 @@ public class Movement {
 		
 		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
 
+			Hero.setSpeed(0);
 			MovementControl.setRipristinoGame(Main.window.getScene());
 			try {
 				ChangeRoomScene.changeRoom();
@@ -94,6 +93,7 @@ public class Movement {
 			doorUp = false;
 
 			GraphicsGame.setFirstRoom(false);
+			Hero.setSpeed(10);
 		}
 		
 		

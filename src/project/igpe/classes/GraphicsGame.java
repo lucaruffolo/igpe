@@ -1,6 +1,5 @@
 package project.igpe.classes;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -225,17 +224,6 @@ public class GraphicsGame extends StackPane{
 	public static void setFirstRoom(boolean firstRoom) {
 		GraphicsGame.firstRoom = firstRoom;
 	}
-	
-	
-	public static void enableKeyEvent() {
-		canvas.setOnKeyPressed(keyHandler);
-	}
-	
-	public static void disableKeyEvent() {
-		canvas.setOnKeyPressed(null);
-
-	}
-
 
 	
 	

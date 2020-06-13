@@ -11,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.classes.GraphicHero;
 import project.igpe.classes.Hero;
-import project.igpe.classes.Maps;
 import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
