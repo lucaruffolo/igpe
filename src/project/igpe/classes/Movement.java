@@ -59,12 +59,10 @@ public class Movement {
 		
 		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
 
-			Hero.setSpeed(0);
 			MovementControl.setRipristinoGame(Main.window.getScene());
 			try {
 				ChangeRoomScene.changeRoom();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			// funzione controllo hasmap
@@ -93,32 +91,36 @@ public class Movement {
 			doorUp = false;
 
 			GraphicsGame.setFirstRoom(false);
-			Hero.setSpeed(10);
 		}
 		
+//		System.out.println("Stampa Pos in MATRICE: x "+pixelInMatrixX(newPosX)+"- y "+pixelInMatrixX(newPosY));
+/*
+ * if ((!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) && !collision(pixelInMatrixX(newPosX+45), pixelInMatrixY(newPosY)) && direction == MOVE_UP)
+				|| (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY+59)) && !collision(pixelInMatrixX(newPosX+45), pixelInMatrixY(newPosY+59)) && direction == MOVE_DOWN)
+				|| (!collision(pixelInMatrixX(newPosX+59), pixelInMatrixY(newPosY)) && !collision(pixelInMatrixX(newPosX+59), pixelInMatrixY(newPosY+45)) && direction == MOVE_RIGHT) 
+				|| (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) && !collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY+45)) && direction == MOVE_LEFT)) {
+*/
+//		if (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))){
 		
-		if (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
-
+		if (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))){
 			Hero.setX(newPosX);
 			Hero.setY(newPosY);
 		}
 		
 		collisionDamage(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY));
 		
-		//System.out.println(pixelInMatrixX(newPosX));
-		//System.out.println(pixelInMatrixX(newPosY));
 
 
 	}
 	
-	public int pixelInMatrixX (int x) {
+	public static int pixelInMatrixX (int x) {
 		// pos pixel : totpixel = pos matrice : tot matrice
 		// pos pixel * totale matrice / tot pixel
 		
 		return (x*Settings.xMatrix)/Settings.x;		
 	}
 	
-	public int pixelInMatrixY (int y) {
+	public static int pixelInMatrixY (int y) {
 		return (y*Settings.yMatrix)/Settings.y;
 	}
 	
@@ -230,11 +232,9 @@ public class Movement {
 							&& nRand != 11) {
 						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
-					} 
-				}
-				else {
-					while (nRand != 12 && nRand != 13 && nRand != 17 && nRand != 18 && nRand != 19
-							&& nRand != 20) {
+					}
+				} else {
+					while (nRand != 12 && nRand != 13 && nRand != 17 && nRand != 18 && nRand != 19 && nRand != 20) {
 						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					}
@@ -247,11 +247,9 @@ public class Movement {
 							&& nRand != 11) {
 						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
-					} 
-				}
-				else {
-					while (nRand != 13 && nRand != 14 && nRand != 16 && nRand != 18 && nRand != 19
-							&& nRand != 21) {
+					}
+				} else {
+					while (nRand != 13 && nRand != 14 && nRand != 16 && nRand != 18 && nRand != 19 && nRand != 21) {
 						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					}
@@ -264,14 +262,12 @@ public class Movement {
 							&& nRand != 11) {
 						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
-					} 
-				}
-				else {
-					while (nRand != 14 && nRand != 15 && nRand != 17 && nRand != 19 && nRand != 20
-							&& nRand != 21) {
+					}
+				} else {
+					while (nRand != 14 && nRand != 15 && nRand != 17 && nRand != 19 && nRand != 20 && nRand != 21) {
 						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
-					} 
+					}
 				}
 			}
 
@@ -281,11 +277,9 @@ public class Movement {
 							&& nRand != 11) {
 						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
-					} 
-				}
-				else {
-					while (nRand != 12 && nRand != 15 && nRand != 16 && nRand != 18 && nRand != 20
-							&& nRand != 21) {
+					}
+				} else {
+					while (nRand != 12 && nRand != 15 && nRand != 16 && nRand != 18 && nRand != 20 && nRand != 21) {
 						nRand = (int) (22.0 * Math.random());
 						checkNrand2 = false;
 					}
@@ -325,7 +319,7 @@ public class Movement {
 		try {
 			graphicGame.setBg(prossimaMappa);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		checkNrand2 = false;
@@ -359,10 +353,11 @@ public class Movement {
 	
 
 	public boolean collision(int newX, int newY) {
-		if((newX<0 || newX>Settings.x-2) || (newY<0 || newY>Settings.y-2))
+		if((newX<0 || newX>Settings.xMatrix) || (newY<0 || newY>Settings.yMatrix))
 			return true;
-		else
+		else {
 			return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
+		}
 	}
 	
 	
@@ -384,49 +379,38 @@ public class Movement {
 	
 	
 	
-
-
-
 	public static int getProssimaMappa() {
 		return prossimaMappa;
 	}
 
-
 	public static void setProssimaMappa(int prossimaMappa) {
 		Movement.prossimaMappa = prossimaMappa;
 	}
-	
-	
+
 	public static int getMappaAttuale() {
 		return mappaAttuale;
 	}
-
 
 	public static void setMappaAttuale(int mappaAttuale) {
 		Movement.mappaAttuale = mappaAttuale;
 	}
 
-
 	public boolean isFirstTime() {
 		return firstTime;
 	}
-
 
 	public void setFirstTime(boolean firstTime) {
 		this.firstTime = firstTime;
 	}
 
-
 	public HashMap<Integer, HashMap<String, Integer>> getSaveDoorOpened() {
 		return saveDoorOpened;
 	}
-
 
 	public void setSaveDoorOpened(HashMap<Integer, HashMap<String, Integer>> saveDoorOpened) {
 		this.saveDoorOpened = saveDoorOpened;
 	}
 
-	
 	public static boolean isCheckNrand2() {
 		return checkNrand2;
 	}
@@ -434,7 +418,7 @@ public class Movement {
 	public static void setCheckNrand2(boolean checkNrand2) {
 		Movement.checkNrand2 = checkNrand2;
 	}
-	
+
 	public static int getnRand() {
 		return nRand;
 	}
@@ -467,7 +451,7 @@ public class Movement {
 		this.pg = pg;
 	}
 
-	public Movement(Hero pg, Maps map ) {
+	public Movement(Hero pg, Maps map) {
 		this.pg = pg;
 		this.room = map;
 	}
@@ -511,6 +495,5 @@ public class Movement {
 	public static void setDoorLx(boolean doorLx) {
 		Movement.doorLx = doorLx;
 	}
-	
-	
+
 }

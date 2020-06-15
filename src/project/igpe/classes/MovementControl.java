@@ -46,8 +46,10 @@ public class MovementControl implements EventHandler<KeyEvent> {
 					Hero.setLife(Hero.getLife()-10);			
 				break;	
 			case C:
-				System.out.println(Hero.getX()+" . "+ Hero.getY());
-				
+				System.out.println(Hero.getX()+" . "+ Hero.getY());				
+				break;
+			case M:
+				System.out.println(Movement.pixelInMatrixX(Hero.getX())+" . "+ Movement.pixelInMatrixY(Hero.getY()));
 				break;
 			case SPACE:
 				Hero.shoot();
