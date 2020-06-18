@@ -31,7 +31,7 @@ public class Movement {
 	private static int prossimaMappa;
 	private boolean firstTime = true;
 	
-	
+	public int dacancellare = 0;
 	
 	public void move(int direction) {
 		int posHeroX=Hero.getX();
@@ -100,16 +100,26 @@ public class Movement {
 				|| (!collision(pixelInMatrixX(newPosX+59), pixelInMatrixY(newPosY)) && !collision(pixelInMatrixX(newPosX+59), pixelInMatrixY(newPosY+45)) && direction == MOVE_RIGHT) 
 				|| (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) && !collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY+45)) && direction == MOVE_LEFT)) {
 */
-//		if (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))){
+/*		if (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))){
+			Hero.setX(newPosX);
+			Hero.setY(newPosY);
+		}
+	*/
 		
-		if (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))){
+		if (room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
 			Hero.setX(newPosX);
 			Hero.setY(newPosY);
 		}
 		
-		collisionDamage(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY));
+		if (direction == MOVE_UP 
+				&& 	(room.getCellType(pixelInMatrixX(newPosX+Settings.block-10), pixelInMatrixY(newPosY)) == Cell.OBSTACLE)
+				
+				) {
+			
+			System.out.println("ostacolo UPP" + dacancellare++);
+		}
 		
-
+		collisionDamage(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY));
 
 	}
 	
@@ -356,7 +366,8 @@ public class Movement {
 		if((newX<0 || newX>Settings.xMatrix) || (newY<0 || newY>Settings.yMatrix))
 			return true;
 		else {
-			return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
+		//	return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
+			return room.getCellType(newX, newY) == Cell.WALL;
 		}
 	}
 	

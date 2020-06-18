@@ -37,7 +37,7 @@ public class Maps {
 			setIndiceMappe(0);
 		}
 		else {
-			setIndiceMappe(22);
+			setIndiceMappe(0); // metti a 0 non funziona ?!
 		}
 		
 		loadcontenitoreMappe();
