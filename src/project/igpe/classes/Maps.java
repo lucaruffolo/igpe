@@ -32,6 +32,7 @@ public class Maps {
 	public Maps() {
 		
 		int nRand = (int) (2.0 * Math.random());
+		nRand=0; // da togliere
 		if(nRand == 0) {
 			setClosedMap(true);
 			setIndiceMappe(0);
@@ -39,6 +40,9 @@ public class Maps {
 		else {
 			setIndiceMappe(22);
 		}
+		//
+		System.out.println(indiceMappe);
+		//
 		
 		loadcontenitoreMappe();
 		if(!GraphicsGame.getFirstRoom())
@@ -122,6 +126,7 @@ public class Maps {
 			firstRoomImg = img22;
 			firstRoomTxt = txt22;
 		}
+		
 		
 		
 		upImg.put(0, img0);
