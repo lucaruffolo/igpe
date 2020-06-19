@@ -25,8 +25,8 @@ public class Hero {
 	
 	
 	public static void ResetPosition () {
-		x=450;
-		y=250;
+		x=Settings.x/2;
+		y=Settings.y/2;
 	}
 	
 	public static void shoot() {
