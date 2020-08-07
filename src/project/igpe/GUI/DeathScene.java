@@ -30,7 +30,7 @@ public class DeathScene {
 		//	DeathName.setText(Hero.getName());
 		} else {
 			DeathName.setTextFill(Color.BLUE);			
-			//DeathName.setText(Hero.getName()); 
+			//DeathName.setText(Hero.getName());  
 		}		
 	} 
 
