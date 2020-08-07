@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.DeathScene">
+   <children>
+      <ImageView fx:id="BlackScreen" fitHeight="900.0" fitWidth="1270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../images/blackscreen.jpg" />
+         </image></ImageView>
+      <Label layoutX="520.0" layoutY="128.0" prefHeight="201.0" prefWidth="231.0" text="RIP" textFill="#eb0000">
+         <font>
+            <Font size="150.0" />
+         </font>
+      </Label>
+      <Label fx:id="DeathName" layoutX="379.0" layoutY="391.0" prefHeight="173.0" prefWidth="512.0" text="nome" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -187,7 +187,7 @@ public class GraphicsGame extends StackPane{
 				case Cell.OBSTACLEDAMAGE:
 					canvas.getGraphicsContext2D().setFill(Color.RED);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
-					break;	
+					break;
 				default:
 					break;					
 				}

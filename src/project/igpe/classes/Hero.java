@@ -6,8 +6,8 @@ import java.util.List;
 import javafx.scene.image.Image;
 
 public class Hero {
-	private String name;
-	private Boolean sex;
+	private static String name;
+	private static Boolean sex; //0 maschio | 1 femmina
 	private static int life=100;
 	private static int speed=10;
 	private static int size=60;
@@ -23,6 +23,11 @@ public class Hero {
 		contenitoreBullets=new ArrayList<Bullet>();
 	}
 	
+	public static void resetHero () {
+		life = 100;
+		x=Settings.x/2;
+		y=Settings.y/2;
+	}
 	
 	public static void ResetPosition () {
 		x=Settings.x/2;
@@ -45,20 +50,20 @@ public class Hero {
 
 	
 	
-	public  String getName() {
+	public static String getName() {
 		return name;
 	}
 
 	public void setName(String nome) {
-		this.name = nome;
+		Hero.name = nome;
 	}
 
-	public  Boolean getSex() {
+	public static Boolean getSex() {
 		return sex;
 	}
 
 	public void setSex(Boolean sesso) {
-		this.sex = sesso;
+		Hero.sex = sesso;
 	}
 
 	public static int getLife() {

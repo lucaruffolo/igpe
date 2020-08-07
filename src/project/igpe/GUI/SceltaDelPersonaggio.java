@@ -120,7 +120,7 @@ public class SceltaDelPersonaggio {
 			
 			notChooseSex=false;
 			notChooseNickname=false;
-			
+
 			FXMLLoader loader = new FXMLLoader(LoadScene.class.getResource("LoadScene.fxml"));
 			AnchorPane root = (AnchorPane) loader.load();
 			Scene scenaCaricamento = new Scene(root, 1024,720); 

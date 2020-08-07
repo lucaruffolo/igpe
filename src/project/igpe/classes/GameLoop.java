@@ -1,12 +1,13 @@
 package project.igpe.classes;
 
 import javafx.animation.AnimationTimer;
+import project.igpe.GUI.DeathScene;
 
 public class GameLoop extends AnimationTimer {
 
 	private long previousTime;
 	private GraphicsGame gg;
-	private long frequency = 60 * 1000000;
+	//private long frequency = 60 * 1000000;
 
 	public GameLoop(GraphicsGame g) {
 		gg = g;
@@ -25,6 +26,16 @@ public class GameLoop extends AnimationTimer {
 			gg.draw();
 	//		gg.drawSprite();
 			previousTime = currentNanoTime;
+			
+			
+			//Death Scene
+			if (Hero.getLife()<1 ) {	//&& Singleplayer = true
+				try {
+					DeathScene.Rip();
+					} catch (Exception e) {	e.printStackTrace();}
+			//Fine Death
+				
+			}
 		}
 		
 		
