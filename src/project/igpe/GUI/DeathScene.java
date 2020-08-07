@@ -23,7 +23,7 @@ public class DeathScene {
     
    
     public static void setDeathName() {
-    	// Da Verificare se vogliamo mettere il nome da un bug non si cambia la label! 
+    	// Da Verificare se vogliamo mettere il nome da un bug non si cambia la label!  
     	
 		if (Hero.getSex().equals(true)) {			
 			DeathName.setTextFill(Color.PINK);
@@ -32,7 +32,7 @@ public class DeathScene {
 			DeathName.setTextFill(Color.BLUE);			
 			//DeathName.setText(Hero.getName());
 		}		
-	}
+	} 
 
 	public static void Rip () throws Exception {
     	Main.pauseGame();
