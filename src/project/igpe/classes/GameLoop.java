@@ -17,6 +17,8 @@ public class GameLoop extends AnimationTimer {
 	public void handle(long currentNanoTime) {		
 		
 		if (currentNanoTime - previousTime >= 1000000) {
+			
+			
 			for (int i = 0; i<Hero.getContenitoreBullets().size(); i++) {
 				Bullet b = Hero.getContenitoreBullets().get(i); 
 				b.moveBullet();
@@ -32,10 +34,9 @@ public class GameLoop extends AnimationTimer {
 			if (Hero.getLife()<1 ) {	//&& Singleplayer = true
 				try {
 					DeathScene.Rip();
-					} catch (Exception e) {	e.printStackTrace();}
-			//Fine Death
-				
+					} catch (Exception e) {	e.printStackTrace();}				
 			}
+			//Fine Death
 		}
 		
 		

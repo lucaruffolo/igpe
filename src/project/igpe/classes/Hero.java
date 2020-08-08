@@ -58,7 +58,7 @@ public class Hero {
 		Hero.name = nome;
 	}
 
-	public static Boolean getSex() {
+	public  Boolean getSex() {
 		return sex;
 	}
 

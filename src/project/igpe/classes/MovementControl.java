@@ -40,7 +40,9 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				movimento.move(Movement.MOVE_DOWN);
 				break;
 			case X:
-				Hero.setLife(100);			
+				Hero.setLife(100);		
+			case Z:
+				Hero.setLife(0);		
 			case L:
 				if (Hero.getLife()>0)
 					Hero.setLife(Hero.getLife()-10);			
