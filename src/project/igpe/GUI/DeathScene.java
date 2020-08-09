@@ -44,6 +44,7 @@ public class DeathScene {
 		
 		Hero.resetHero();
     }
-    
+
+	
 		
 }

@@ -20,7 +20,7 @@ public class GraphicsGame extends StackPane{
 	
 	private static Canvas canvas;
 	private StackPane root;
-	private static boolean firstRoom = true;
+	public static boolean firstRoom = true;
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
 	

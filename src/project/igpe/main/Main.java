@@ -39,8 +39,7 @@ public class Main extends Application{
 	}
 	
 
-	public static void startGame() {
-	
+	public static void startGame() {	
 			
 		try { 	//Reset Mappe TXT + Background
 			game.spawnBg();

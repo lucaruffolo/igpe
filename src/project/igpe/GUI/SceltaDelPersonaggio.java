@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.classes.GraphicHero;
 import project.igpe.classes.Hero;
+import project.igpe.classes.Maps;
 import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
@@ -116,10 +117,12 @@ public class SceltaDelPersonaggio {
 			GraphicHero.selectSex(eroe.getSex());
 			Hero.setLife(100);			
 			Hero.ResetPosition();
-			//Maps.setIndiceMappe(0);
+
 			
 			notChooseSex=false;
 			notChooseNickname=false;
+			
+			Maps.loadFirstRoom();
 
 			FXMLLoader loader = new FXMLLoader(LoadScene.class.getResource("LoadScene.fxml"));
 			AnchorPane root = (AnchorPane) loader.load();

@@ -27,7 +27,7 @@ public class Maps {
 	private static HashMap<Integer, File> rightImg = new HashMap<Integer, File>();
 	private static HashMap<Integer, String> rightTxt = new HashMap<Integer, String>();
 	
-	private static boolean closedMap = false;
+	public static boolean closedMap = false;
 	
 	public Maps() {
 		

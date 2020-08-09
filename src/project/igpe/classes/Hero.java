@@ -23,7 +23,7 @@ public class Hero {
 		contenitoreBullets=new ArrayList<Bullet>();
 	}
 	
-	public static void resetHero () {
+	public static void resetHero () throws Exception {
 		life = 100;
 		x=Settings.x/2;
 		y=Settings.y/2;
