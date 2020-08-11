@@ -6,24 +6,22 @@ import javafx.scene.image.Image;
 
 public class Bullet {
 	
-	private Image imgBulletDX = new Image(Bullet.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "maschiosu.png"));
+	private Image imgBulletDX = new Image(Bullet.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "bullettest.png"));
 	
 	private int posX;
 	private int posY;
 	
 	private int dir;
 	private int speed=30;
-	private int frequency;
 	
-	boolean alive;
+	public boolean alive;
 	
 	
-	public Bullet(int posX, int posY, int dir, int frequency) {
+	public Bullet(int posX, int posY, int dir) {
 		super();
 		this.setPosX(posX);
 		this.setPosY(posY);
 		this.dir = dir;
-		this.frequency = frequency;
 		alive=true;
 		
 	}
@@ -31,32 +29,32 @@ public class Bullet {
 
 	public void moveBullet() {
 			if(Movement.MOVE_RIGHT==dir) {
-				if (getPosX()<=1270)
+				if (getPosX()<=1054)
 					setPosX(getPosX() + speed);
 				else
 					alive = false;
 			}
 			if(Movement.MOVE_DOWN==dir) {
-				if (getPosY()<=900)
+				if (getPosY()<=696)
 					setPosY(getPosY() + speed);
 				else
 					alive = false;
 			}
 			if(Movement.MOVE_LEFT==dir) {
-				if (getPosX()>=0)
+				if (getPosX()>=155)
 					setPosX(getPosX() - speed);
 				else
 					alive = false;
 			}
 			if(Movement.MOVE_UP==dir) {
-				if (getPosY()>=0)
+				if (getPosY()>=150)
 					setPosY(getPosY() - speed);
 				else
 					alive = false;
 			}
 			
 			try {
-				Thread.sleep(1000/60);
+				Thread.sleep(1200/60);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -32,6 +32,7 @@ public class GraphicsGame extends StackPane{
 		canvas.setFocusTraversable(true);
 		keyHandler=new MovementControl(movimento);
 		canvas.setOnKeyPressed(keyHandler);
+		canvas.setOnKeyReleased(keyHandler);
 		
 		getChildren().add(canvas);			
 		movimento.setGraphicGame(this);

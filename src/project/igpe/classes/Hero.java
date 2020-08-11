@@ -9,11 +9,14 @@ public class Hero {
 	private static String name;
 	private static Boolean sex; //0 maschio | 1 femmina
 	private static int life=100;
-	private static int speed=10;
+	private static int speed=5;
 	private static int size=60;
 	private Image img;
 	private static int x;
 	private static int y;
+	public static double velX = 0;
+	public static double velY = 0;
+	
 	private static List<Bullet> contenitoreBullets;
 
 	public Hero() {
@@ -23,6 +26,27 @@ public class Hero {
 		contenitoreBullets=new ArrayList<Bullet>();
 	}
 	
+	public static void moveHero() {
+		x += velX;
+		y += velY;
+	}
+	
+	public static double getVelX() {
+		return velX;
+	}
+
+	static void setVelX(double velX) {
+		Hero.velX = velX;
+	}
+
+	public static double getVelY() {
+		return velY;
+	}
+
+	public static void setVelY(double velY) {
+		Hero.velY = velY;
+	}
+
 	public static void resetHero () throws Exception {
 		life = 100;
 		x=Settings.x/2;
@@ -35,7 +59,7 @@ public class Hero {
 	}
 	
 	public static void shoot() {
-		Bullet bullet =  new Bullet(getX(), getY(), Movement.getDir(), 10);
+		Bullet bullet =  new Bullet(getX(), getY(), Movement.getDir());
 		contenitoreBullets.add(bullet);
 	}
 

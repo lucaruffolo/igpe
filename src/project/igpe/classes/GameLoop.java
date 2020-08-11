@@ -8,7 +8,7 @@ public class GameLoop extends AnimationTimer {
 	private long previousTime;
 	private GraphicsGame gg;
 	//private long frequency = 60 * 1000000;
-
+	
 	public GameLoop(GraphicsGame g) {
 		gg = g;
 		previousTime = 0;
@@ -18,25 +18,34 @@ public class GameLoop extends AnimationTimer {
 		
 		if (currentNanoTime - previousTime >= 1000000) {
 			
-			
+			//------BulletHero
 			for (int i = 0; i<Hero.getContenitoreBullets().size(); i++) {
 				Bullet b = Hero.getContenitoreBullets().get(i); 
 				b.moveBullet();
 				if (!b.alive)
 					Hero.getContenitoreBullets().remove(b);
 			}
+			//Fine BulletHero------
+			
+			
 			gg.draw();
 	//		gg.drawSprite();
-			previousTime = currentNanoTime;
 			
 			
-			//Death Scene
+			Hero.moveHero();
+			
+			
+
+			//------Death Scene
 			if (Hero.getLife()<1 ) {	//&& Singleplayer = true
 				try {
 					DeathScene.Rip();
 					} catch (Exception e) {	e.printStackTrace();}				
 			}
-			//Fine Death
+			//Fine Death------
+			
+			
+			previousTime = currentNanoTime;
 		}
 		
 		

@@ -21,11 +21,42 @@ public class MovementControl implements EventHandler<KeyEvent> {
 		this.movimento = movimento;		
 	}
 
-
-
+	
+	
 	@Override
-	public void handle(KeyEvent e) {
+	public void handle(KeyEvent event) {
+		
 		if (!Main.GameInPause) {
+			onKeyPressed(event);
+			onKeyReleased(event);
+		}		
+	}
+	
+	public void onKeyReleased(KeyEvent e) {
+		
+		if (e.getEventType().equals(KeyEvent.KEY_RELEASED)) { 
+			switch (e.getCode()) {
+			case LEFT:
+				Hero.setVelX(0);
+				break;
+			case RIGHT:
+				Hero.setVelX(0);
+				break;
+			case UP:
+				Hero.setVelY(0);
+				break;
+			case DOWN:
+				Hero.setVelY(0);
+				break;
+			default:
+				break;
+			}
+		}	
+	}
+	
+	public void onKeyPressed(KeyEvent e) {
+
+		if(e.getEventType().equals(KeyEvent.KEY_PRESSED)) {
 			switch (e.getCode()) {
 			case LEFT:
 				movimento.move(Movement.MOVE_LEFT);
@@ -40,9 +71,14 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				movimento.move(Movement.MOVE_DOWN);
 				break;
 			case X:
-				Hero.setLife(100);		
+				Hero.setLife(100);
+				break;
+			case R:
+				Hero.ResetPosition();
+				break;
 			case Z:
-				Hero.setLife(0);		
+				Hero.setLife(0);
+				break;
 			case L:
 				if (Hero.getLife()>0)
 					Hero.setLife(Hero.getLife()-10);			

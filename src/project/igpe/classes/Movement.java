@@ -34,29 +34,31 @@ public class Movement {
 	public int dacancellare = 0;
 	
 	public void move(int direction) {
-		int posHeroX=Hero.getX();
-		int posHeroY=Hero.getY();
-		int newPosX=posHeroX;
-		int newPosY=posHeroY;
+		int newPosX=Hero.getX();
+		int newPosY=Hero.getY();
 		
-		if (direction == MOVE_RIGHT) {
-			newPosX = Hero.getX() + Hero.getSpeed();
+		if (direction == MOVE_RIGHT && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
+			Hero.setVelX(3);
+			newPosX = (int) (Hero.getX() + Hero.getVelX());
 			setDir(MOVE_RIGHT);
-		} else if (direction == MOVE_LEFT) {
-			newPosX = Hero.getX() - Hero.getSpeed();
+		} else if (direction == MOVE_LEFT && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
+			Hero.setVelX(-3);
+			newPosX = (int) (Hero.getX() - Hero.getVelX());
 			setDir(MOVE_LEFT);
-		} else if (direction == MOVE_UP) {
-			newPosY = Hero.getY() - Hero.getSpeed();
+		} else if (direction == MOVE_UP && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
+			Hero.setVelY(-3);
+			newPosY = (int) (Hero.getY() - Hero.getVelY());
 			setDir(MOVE_UP);
-		} else if (direction == MOVE_DOWN) {
-			newPosY = Hero.getY() + Hero.getSpeed();
+		} else if (direction == MOVE_DOWN && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
+			Hero.setVelY(3);
+			newPosY = (int) (Hero.getY() + Hero.getVelY());
 			setDir(MOVE_DOWN);
 		}
 		
 		
 		GraphicHero.setImgDir(direction);
 		
-		
+		//Controllo PORTA
 		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
 
 			MovementControl.setRipristinoGame(Main.window.getScene());
@@ -105,11 +107,13 @@ public class Movement {
 			Hero.setY(newPosY);
 		}
 	*/
-		
+	/*	
 		if (room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
 			Hero.setX(newPosX);
 			Hero.setY(newPosY);
 		}
+		
+*/		
 		
 		if (direction == MOVE_UP 
 				&& 	(room.getCellType(pixelInMatrixX(newPosX+Settings.block-10), pixelInMatrixY(newPosY)) == Cell.OBSTACLE)
@@ -377,14 +381,10 @@ public class Movement {
 			if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE) {
 				if (Hero.getLife() > 0)
 					Hero.setLife(Hero.getLife()-10);
-				if (Hero.getLife() == 0) {
-					//aggiungere schermata morte
-				}
 			}
 				
 			if (room.getCellType(newX, newY) == Cell.FALLINGDOWN) {
 				Hero.setLife(0);
-				//aggiungere schermata morte
 			}
 	}
 	
