@@ -21,7 +21,7 @@ public class Bullet {
 		super();
 		this.setPosX(posX);
 		this.setPosY(posY);
-		this.dir = dir;
+		this.dir = Hero.getDirHero();
 		alive=true;
 		
 	}
@@ -54,7 +54,7 @@ public class Bullet {
 			}
 			
 			try {
-				Thread.sleep(1200/60);
+				Thread.sleep(1000/60);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

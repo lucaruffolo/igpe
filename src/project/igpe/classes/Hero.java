@@ -6,6 +6,11 @@ import java.util.List;
 import javafx.scene.image.Image;
 
 public class Hero {
+	public final static int MOVE_RIGHT = 0;
+	public final static int MOVE_LEFT = 1;
+	public final static int MOVE_UP = 2;
+	public final static int MOVE_DOWN = 3;
+	
 	private static String name;
 	private static Boolean sex; //0 maschio | 1 femmina
 	private static int life=100;
@@ -16,8 +21,10 @@ public class Hero {
 	private static int y;
 	public static double velX = 0;
 	public static double velY = 0;
-	
+	public static int dirHero = 0;
 	private static List<Bullet> contenitoreBullets;
+
+
 
 	public Hero() {
 		name = "nome";
@@ -27,8 +34,41 @@ public class Hero {
 	}
 	
 	public static void moveHero() {
-		x += velX;
-		y += velY;
+		
+		if (!Movement.collisionWall(x, y)){
+			x += velX;
+			y += velY;
+		}
+		else if (getDirHero() == MOVE_RIGHT){
+			x -= 4;
+			velX = 0;
+			velY = 0;
+			
+		}	else if (getDirHero() == MOVE_LEFT){
+			x += 4;
+			velX = 0;
+			velY = 0;
+		}	else if (getDirHero() == MOVE_UP){
+			y += 4;
+			velX = 0;
+			velY = 0;
+		}	else if (getDirHero() == MOVE_DOWN){
+			y -= 4;
+			velY = 0;
+			velX = 0;
+		}
+			
+		//	System.out.println("Mi muovo di X " + x + " Alla velocità di "+velX);
+		//	System.out.print("Mi muovo di Y " + y + " Alla velocità di "+velY);
+	
+	}
+	
+	public static int getDirHero() {
+		return dirHero;
+	}
+
+	public static void setDirHero(int dirHero) {
+		Hero.dirHero = dirHero;
 	}
 	
 	public static double getVelX() {

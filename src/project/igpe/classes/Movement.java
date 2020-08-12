@@ -12,7 +12,7 @@ public class Movement {
 	public final static int MOVE_UP = 2;
 	public final static int MOVE_DOWN = 3;
 	
-	private Maps room;
+	private static Maps room;
 	private Hero pg;
 	private static int dir;
 	
@@ -33,26 +33,30 @@ public class Movement {
 	
 	public int dacancellare = 0;
 	
+	
 	public void move(int direction) {
 		int newPosX=Hero.getX();
 		int newPosY=Hero.getY();
 		
-		if (direction == MOVE_RIGHT && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
-			Hero.setVelX(3);
+		if (direction == MOVE_RIGHT) { // && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
+			Hero.setDirHero(MOVE_RIGHT);
+			Hero.setVelX(2);
 			newPosX = (int) (Hero.getX() + Hero.getVelX());
-			setDir(MOVE_RIGHT);
-		} else if (direction == MOVE_LEFT && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
-			Hero.setVelX(-3);
+			
+		} else if (direction == MOVE_LEFT) {			
+			Hero.setDirHero(MOVE_LEFT);
+			Hero.setVelX(-2);
 			newPosX = (int) (Hero.getX() - Hero.getVelX());
-			setDir(MOVE_LEFT);
-		} else if (direction == MOVE_UP && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
-			Hero.setVelY(-3);
+			
+		} else if (direction == MOVE_UP) {			
+			Hero.setDirHero(MOVE_UP);
+			Hero.setVelY(-2);
 			newPosY = (int) (Hero.getY() - Hero.getVelY());
-			setDir(MOVE_UP);
-		} else if (direction == MOVE_DOWN && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
-			Hero.setVelY(3);
+			
+		} else if (direction == MOVE_DOWN) {			
+			Hero.setDirHero(MOVE_DOWN);
+			Hero.setVelY(2);
 			newPosY = (int) (Hero.getY() + Hero.getVelY());
-			setDir(MOVE_DOWN);
 		}
 		
 		
@@ -126,7 +130,38 @@ public class Movement {
 		collisionDamage(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY));
 
 	}
+	// INIZIO COLLISIONI
 	
+	public static boolean collisionWall(int newX, int newY) {
+		
+	//	if((newX<0 || newX>Settings.x) || (newY<0 || newY>Settings.y))
+	//		return true;
+	
+		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.WALL)
+			return true;
+			
+		//	return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
+		//	return room.getCellType(newX, newY) == Cell.WALL;
+		
+		return false;
+	}
+	
+	
+	
+	public void collisionDamage(int newX, int newY) {	
+			if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE) {
+				if (Hero.getLife() > 0)
+					Hero.setLife(Hero.getLife()-10);
+			}
+				
+			if (room.getCellType(newX, newY) == Cell.FALLINGDOWN) {
+				Hero.setLife(0);
+			}
+	}
+	
+	// FINE COLLISIONI
+	
+	// INIZIO PIXEL IN MATRIX E VICEVERSA
 	public static int pixelInMatrixX (int x) {
 		// pos pixel : totpixel = pos matrice : tot matrice
 		// pos pixel * totale matrice / tot pixel
@@ -147,6 +182,8 @@ public class Movement {
 		return (Settings.y*y)/Settings.yMatrix;		
 	}
 	
+	
+	// FINE --------
 	public void checkMap () {
 		
 		mappaAttuale=Maps.getIndiceMappe();
@@ -366,28 +403,7 @@ public class Movement {
 	}
 	
 
-	public boolean collision(int newX, int newY) {
-		if((newX<0 || newX>Settings.xMatrix) || (newY<0 || newY>Settings.yMatrix))
-			return true;
-		else {
-		//	return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
-			return room.getCellType(newX, newY) == Cell.WALL;
-		}
-	}
-	
-	
-	
-	public void collisionDamage(int newX, int newY) {	
-			if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE) {
-				if (Hero.getLife() > 0)
-					Hero.setLife(Hero.getLife()-10);
-			}
-				
-			if (room.getCellType(newX, newY) == Cell.FALLINGDOWN) {
-				Hero.setLife(0);
-			}
-	}
-	
+
 	
 	
 	public static int getProssimaMappa() {
@@ -442,16 +458,13 @@ public class Movement {
 		return dir;
 	}
 
-	public static void setDir(int direzione) {
-		dir = direzione;
-	}
 
 	public Maps getRoom() {
 		return room;
 	}
 
 	public void setRoom(Maps room) {
-		this.room = room;
+		Movement.room = room;
 	}
 
 	public Hero getPg() {
@@ -464,7 +477,7 @@ public class Movement {
 
 	public Movement(Hero pg, Maps map) {
 		this.pg = pg;
-		this.room = map;
+		Movement.room = map;
 	}
 
 	public GraphicsGame getGraphicGame() {
