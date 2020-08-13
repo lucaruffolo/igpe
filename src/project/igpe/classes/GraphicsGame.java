@@ -19,14 +19,12 @@ import javafx.scene.text.Font;
 public class GraphicsGame extends StackPane{
 	
 	private static Canvas canvas;
-	private StackPane root;
 	public static boolean firstRoom = true;
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
 	
 	
 	public GraphicsGame(Movement movimentox) {
-		root = this;
 		movimento = movimentox;
 		canvas = new Canvas();
 		canvas.setFocusTraversable(true);
@@ -166,13 +164,20 @@ public class GraphicsGame extends StackPane{
 		canvas.getGraphicsContext2D().setFill(Color.RED);
 		Font font = new Font("Verdana", 20);
 		canvas.getGraphicsContext2D().setFont(font);
-		canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 50, 50);
+		canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 45, 50);
 		
-		//bullets
+		
+		//Contatore bulletsHero
+		canvas.getGraphicsContext2D().setFill(Color.GREEN);
+		canvas.getGraphicsContext2D().setFont(font);
+		canvas.getGraphicsContext2D().fillText("Colpi Rimanenti: " + (Bullet.maxAmmo-Bullet.heroAmmo), 45, 80);
+		
+		//bullets Hero
 		for(Bullet b:Hero.getContenitoreBullets()) {
 			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
 		}
 		
+
 		
 		for (int i = 0; i < Settings.xMatrix; i++) {
 			for (int j = 0; j < Settings.yMatrix; j++) {				

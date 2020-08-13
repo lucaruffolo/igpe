@@ -14,7 +14,7 @@ public class Hero {
 	private static String name;
 	private static Boolean sex; //0 maschio | 1 femmina
 	private static int life=100;
-	private static int speed=5;
+	public static int speed=2;
 	private static int size=60;
 	private Image img;
 	private static int x;
@@ -23,7 +23,10 @@ public class Hero {
 	public static double velY = 0;
 	public static int dirHero = 0;
 	private static List<Bullet> contenitoreBullets;
-
+	public static boolean lockRight = false;
+	public static boolean lockLeft = false;
+	public static boolean lockUp = false;
+	public static boolean lockDown = false;
 
 
 	public Hero() {
@@ -33,27 +36,48 @@ public class Hero {
 		contenitoreBullets=new ArrayList<Bullet>();
 	}
 	
+	
+	
 	public static void moveHero() {
 		
 		if (!Movement.collisionWall(x, y) && !Movement.collisionObstacle(x, y)){
 			x += velX;
 			y += velY;
+			
 		}
 		else if (getDirHero() == MOVE_RIGHT){
-			x -= 4;
+			
+			lockRight = true;
+			if (!lockDown && !lockLeft && !lockUp)
+				x -= 4;		
+			
+			velX = 0;
+			velY = 0;
+						
+		}	else if (getDirHero() == MOVE_LEFT){
+			
+			lockLeft = true;
+			if (!lockDown && !lockRight && !lockUp)
+				x += 4;
+			
 			velX = 0;
 			velY = 0;
 			
-		}	else if (getDirHero() == MOVE_LEFT){
-			x += 4;
-			velX = 0;
-			velY = 0;
 		}	else if (getDirHero() == MOVE_UP){
-			y += 4;
+			
+			lockUp = true;
+			if (!lockDown && !lockLeft && !lockRight)
+				y += 4;
+			
 			velX = 0;
 			velY = 0;
+			
 		}	else if (getDirHero() == MOVE_DOWN){
-			y -= 4;
+			
+			lockDown = true;
+			if (!lockRight && !lockLeft && !lockUp)
+				y -= 4;
+			
 			velY = 0;
 			velX = 0;
 		}
@@ -61,6 +85,13 @@ public class Hero {
 		//	System.out.println("Mi muovo di X " + x + " Alla velocità di "+velX);
 		//	System.out.print("Mi muovo di Y " + y + " Alla velocità di "+velY);
 	
+	}
+	
+	public static void resetHeroLockMove() {
+		Hero.lockRight = false;
+		Hero.lockLeft = false;
+		Hero.lockUp = false;
+		Hero.lockDown = false;
 	}
 	
 	public static int getDirHero() {

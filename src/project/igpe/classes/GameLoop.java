@@ -22,8 +22,10 @@ public class GameLoop extends AnimationTimer {
 			for (int i = 0; i<Hero.getContenitoreBullets().size(); i++) {
 				Bullet b = Hero.getContenitoreBullets().get(i); 
 				b.moveBullet();
-				if (!b.alive)
+				if (!b.alive) {
 					Hero.getContenitoreBullets().remove(b);
+					Bullet.heroAmmo--;
+				}
 			}
 			//Fine BulletHero------
 			
@@ -37,7 +39,7 @@ public class GameLoop extends AnimationTimer {
 			
 
 			//------Death Scene
-			if (Hero.getLife()<0 ) {	//&& Singleplayer = true
+			if (Hero.getLife()<1 ) {	//&& Singleplayer = true
 				try {
 					DeathScene.Rip();
 					} catch (Exception e) {	e.printStackTrace();}				

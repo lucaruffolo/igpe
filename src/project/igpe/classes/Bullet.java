@@ -6,16 +6,19 @@ import javafx.scene.image.Image;
 
 public class Bullet {
 	
+	public static final int maxAmmo = 3;
+
 	private Image imgBulletDX = new Image(Bullet.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "bullettest.png"));
 	
 	private int posX;
 	private int posY;
 	
 	private int dir;
-	private int speed=30;
+	private int speed=23;
 	
 	public boolean alive;
-	
+	public static int heroAmmo = 0;
+
 	
 	public Bullet(int posX, int posY, int dir) {
 		super();
@@ -29,25 +32,25 @@ public class Bullet {
 
 	public void moveBullet() {
 			if(Movement.MOVE_RIGHT==dir) {
-				if (getPosX()<=1054 || Movement.room.getCellType(posX, posY)!= Cell.OBSTACLE)
+				if (collisionBullet(getPosX(), getPosY()))
 					setPosX(getPosX() + speed);
 				else
 					alive = false;
 			}
 			if(Movement.MOVE_DOWN==dir) {
-				if (getPosY()<=696 || Movement.room.getCellType(posX, posY)!= Cell.OBSTACLE)
+				if (collisionBullet(getPosX(), getPosY()))
 					setPosY(getPosY() + speed);
 				else
 					alive = false;
 			}
 			if(Movement.MOVE_LEFT==dir) {
-				if (getPosX()>=155 || Movement.room.getCellType(posX, posY)!= Cell.OBSTACLE)
+				if (collisionBullet(getPosX(), getPosY()))
 					setPosX(getPosX() - speed);
 				else
 					alive = false;
 			}
-			if(Movement.MOVE_UP==dir ) {
-				if (getPosY()>=150|| Movement.room.getCellType(posX, posY)!= Cell.OBSTACLE )
+			if(Movement.MOVE_UP==dir) {
+				if (collisionBullet(getPosX(), getPosY()))
 					setPosY(getPosY() - speed);
 				else
 					alive = false;
@@ -55,12 +58,17 @@ public class Bullet {
 			
 			try {
 				Thread.sleep(1000/60);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} catch (InterruptedException e) {e.printStackTrace();			}
 	}
 
+	public static boolean collisionBullet(int x, int y) {
+		if (Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.EMPTY 
+				|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.FALLINGDOWN
+					|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.OBSTACLEDAMAGE)
+			return true;
+		
+		return false;		
+	}
 
 	
 	

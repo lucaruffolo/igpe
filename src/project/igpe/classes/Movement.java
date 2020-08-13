@@ -38,25 +38,33 @@ public class Movement {
 		int newPosX=Hero.getX();
 		int newPosY=Hero.getY();
 		
-		if (direction == MOVE_RIGHT) { // && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
+		if (direction == MOVE_RIGHT && !Hero.lockRight) { // && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
 			Hero.setDirHero(MOVE_RIGHT);
-			Hero.setVelX(2);
+			Hero.setVelX(Hero.speed);
 			newPosX = (int) (Hero.getX() + Hero.getVelX());
 			
-		} else if (direction == MOVE_LEFT) {			
+			Hero.resetHeroLockMove();
+			
+		} else if (direction == MOVE_LEFT && !Hero.lockLeft) {			
 			Hero.setDirHero(MOVE_LEFT);
-			Hero.setVelX(-2);
+			Hero.setVelX(-Hero.speed);
 			newPosX = (int) (Hero.getX() - Hero.getVelX());
 			
-		} else if (direction == MOVE_UP) {			
+			Hero.resetHeroLockMove();
+			
+		} else if (direction == MOVE_UP  && !Hero.lockUp) {			
 			Hero.setDirHero(MOVE_UP);
-			Hero.setVelY(-2);
+			Hero.setVelY(-Hero.speed);
 			newPosY = (int) (Hero.getY() - Hero.getVelY());
 			
-		} else if (direction == MOVE_DOWN) {			
+			Hero.resetHeroLockMove();
+			
+		} else if (direction == MOVE_DOWN && !Hero.lockDown) {			
 			Hero.setDirHero(MOVE_DOWN);
-			Hero.setVelY(2);
+			Hero.setVelY(Hero.speed);
 			newPosY = (int) (Hero.getY() + Hero.getVelY());
+			
+			Hero.resetHeroLockMove();
 		}
 		
 		
@@ -65,16 +73,16 @@ public class Movement {
 		//Controllo PORTA
 		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
 			
-			System.out.println("Porta trovata x: " + Hero.getX() + "  y: "+ Hero.getY()+ " -> in matr " + pixelInMatrixX(newPosX) + pixelInMatrixY(newPosY));
+			//System.out.println("Porta trovata x: " + Hero.getX() + "  y: "+ Hero.getY()+ " -> in matr " + pixelInMatrixX(newPosX) + pixelInMatrixY(newPosY));
 			
 			MovementControl.setRipristinoGame(Main.window.getScene());
-			try { ChangeRoomScene.changeRoom();
+			try { 
+				ChangeRoomScene.changeRoom();
 				} catch (Exception e) {	e.printStackTrace();}
 			
 			checkMap(); // funzione controllo hasmap
 
-			if (doorDown) {
-				
+			if (doorDown) {				
 				newPosX = 600;
 				newPosY = 140;
 			}
@@ -84,7 +92,7 @@ public class Movement {
 			}
 			if (doorUp) {
 				newPosX = 600;
-				newPosY = 690;
+				newPosY = 672;
 			}
 			if (doorDx) {
 				newPosX = 150;
@@ -101,41 +109,20 @@ public class Movement {
 			GraphicsGame.setFirstRoom(false);
 		}
 		
-//		System.out.println("Stampa Pos in MATRICE: x "+pixelInMatrixX(newPosX)+"- y "+pixelInMatrixX(newPosY));
-/*
- * if ((!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) && !collision(pixelInMatrixX(newPosX+45), pixelInMatrixY(newPosY)) && direction == MOVE_UP)
-				|| (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY+59)) && !collision(pixelInMatrixX(newPosX+45), pixelInMatrixY(newPosY+59)) && direction == MOVE_DOWN)
-				|| (!collision(pixelInMatrixX(newPosX+59), pixelInMatrixY(newPosY)) && !collision(pixelInMatrixX(newPosX+59), pixelInMatrixY(newPosY+45)) && direction == MOVE_RIGHT) 
-				|| (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) && !collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY+45)) && direction == MOVE_LEFT)) {
-*/
-/*		if (!collision(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))){
-			Hero.setX(newPosX);
-			Hero.setY(newPosY);
-		}
-	*/
-	/*	
-		if (room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
-			Hero.setX(newPosX);
-			Hero.setY(newPosY);
-		}
 		
-*/		
-
-		
-		collisionDamage(newPosX, newPosY);
-		
+		collisionDamage(newPosX, newPosY);		
 	
 	}
+	
 	// INIZIO COLLISIONI
 	
 	public static boolean collisionWall(int newX, int newY) {
 		
-	//	if((newX<0 || newX>Settings.x) || (newY<0 || newY>Settings.y))
-	//		return true;
+		if((newX<0 || newX>Settings.x) || (newY<0 || newY>Settings.y)) //end world
+			return true;
 		
 		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.WALL)
 			return true;	
-		
 		return false;
 	}
 	
@@ -151,21 +138,23 @@ public class Movement {
 	}
 	
 	public void collisionDamage(int newX, int newY) {	
-			//if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE) {
-			if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE
-				|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
-					|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
-						|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE) {
-				if (Hero.getLife() > 0)
-					Hero.setLife(Hero.getLife()-1);
-			}
-				
-			if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.FALLINGDOWN
-					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.FALLINGDOWN
-						|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.FALLINGDOWN
-							|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.FALLINGDOWN) {
-				Hero.setLife(0);
-			}
+		
+		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE
+			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
+				|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
+					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE) {
+			
+			if (Hero.getLife() > 0)
+				Hero.setLife(Hero.getLife()-1);
+		}
+			
+		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.FALLINGDOWN
+				|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.FALLINGDOWN
+					|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.FALLINGDOWN
+						|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.FALLINGDOWN) {
+							
+			Hero.setLife(0);
+		}
 	}
 	
 	// FINE COLLISIONI
@@ -179,15 +168,17 @@ public class Movement {
 	}
 	
 	public static int pixelInMatrixY (int y) {
+		
 		return (y*Settings.yMatrix)/Settings.y;
 	}
 	
-	public static int matrixInPixelX (int x) {
+	public static int matrixInPixelX (int x) {		
 		// totpixel * pos matrice / tot matrice		
 		return (Settings.x*x)/Settings.xMatrix;		
 	}
 	
 	public static int matrixInPixelY (int y) {
+		
 		return (Settings.y*y)/Settings.yMatrix;		
 	}
 	
@@ -390,17 +381,17 @@ public class Movement {
 	//verifica se c'è una porta nella prossima casella
 
 	public boolean door (int newX, int newY) {
-		
-		if(newX==1 && newY==7) {
+
+		if(newX==1 && newY==7 || newX==1 && newY==8 ) {
 			doorLx=true;
 		}
-		else if(newX==10 && newY==13) {
+		else if(newX==10 && newY==13 || newX==11 && newY==13) {
 			doorDown=true;
 		}
-		else if(newX==19 && newY==7) {
+		else if(newX==19 && newY==7 || newX==19 && newY==8) {
 			doorDx=true;
 		}
-		else if(newX==10 && newY==1) {
+		else if(newX==10 && newY==1 || newX==11 && newY==1 ) {
 			doorUp=true;
 		}
 		
@@ -409,6 +400,7 @@ public class Movement {
 		}
 		else
 			return false;
+		
 	}
 	
 
