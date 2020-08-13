@@ -11,6 +11,7 @@ public class Settings {
 	public final static int yMatrix = 15;
 	
 	public final static int block = 60;
+	public final static int obstacleSize = 52;
 	
 	public static double AudioEffects = 50;
 	public static double AudioMusic = 50;

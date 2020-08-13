@@ -12,7 +12,7 @@ public class Movement {
 	public final static int MOVE_UP = 2;
 	public final static int MOVE_DOWN = 3;
 	
-	private static Maps room;
+	public static Maps room;
 	private Hero pg;
 	private static int dir;
 	
@@ -64,17 +64,17 @@ public class Movement {
 		
 		//Controllo PORTA
 		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
-
+			
+			System.out.println("Porta trovata x: " + Hero.getX() + "  y: "+ Hero.getY()+ " -> in matr " + pixelInMatrixX(newPosX) + pixelInMatrixY(newPosY));
+			
 			MovementControl.setRipristinoGame(Main.window.getScene());
-			try {
-				ChangeRoomScene.changeRoom();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			// funzione controllo hasmap
-			checkMap();
+			try { ChangeRoomScene.changeRoom();
+				} catch (Exception e) {	e.printStackTrace();}
+			
+			checkMap(); // funzione controllo hasmap
 
 			if (doorDown) {
+				
 				newPosX = 600;
 				newPosY = 140;
 			}
@@ -90,7 +90,9 @@ public class Movement {
 				newPosX = 150;
 				newPosY = 420;
 			}
-
+			
+			Hero.setX(newPosX);
+			Hero.setY(newPosY);
 			doorDown = false;
 			doorDx = false;
 			doorLx = false;
@@ -118,17 +120,11 @@ public class Movement {
 		}
 		
 */		
-		
-		if (direction == MOVE_UP 
-				&& 	(room.getCellType(pixelInMatrixX(newPosX+Settings.block-10), pixelInMatrixY(newPosY)) == Cell.OBSTACLE)
-				
-				) {
-			
-			System.out.println("ostacolo UPP" + dacancellare++);
-		}
-		
-		collisionDamage(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY));
 
+		
+		collisionDamage(newPosX, newPosY);
+		
+	
 	}
 	// INIZIO COLLISIONI
 	
@@ -136,25 +132,38 @@ public class Movement {
 		
 	//	if((newX<0 || newX>Settings.x) || (newY<0 || newY>Settings.y))
 	//		return true;
-	
+		
 		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.WALL)
-			return true;
-			
-		//	return room.getCellType(newX, newY) == Cell.WALL || room.getCellType(newX, newY) == Cell.OBSTACLE ;
-		//	return room.getCellType(newX, newY) == Cell.WALL;
+			return true;	
 		
 		return false;
 	}
 	
-	
+	public static boolean collisionObstacle(int newX, int newY) {
+		
+		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.OBSTACLE
+			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLE
+				|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLE
+					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.OBSTACLE)
+							return true;
+					
+		return false;		
+	}
 	
 	public void collisionDamage(int newX, int newY) {	
-			if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE) {
+			//if (room.getCellType(newX, newY) == Cell.OBSTACLEDAMAGE) {
+			if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE
+				|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
+					|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
+						|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE) {
 				if (Hero.getLife() > 0)
-					Hero.setLife(Hero.getLife()-10);
+					Hero.setLife(Hero.getLife()-1);
 			}
 				
-			if (room.getCellType(newX, newY) == Cell.FALLINGDOWN) {
+			if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.FALLINGDOWN
+					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.FALLINGDOWN
+						|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.FALLINGDOWN
+							|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.FALLINGDOWN) {
 				Hero.setLife(0);
 			}
 	}

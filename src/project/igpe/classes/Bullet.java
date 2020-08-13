@@ -29,25 +29,25 @@ public class Bullet {
 
 	public void moveBullet() {
 			if(Movement.MOVE_RIGHT==dir) {
-				if (getPosX()<=1054)
+				if (getPosX()<=1054 || Movement.room.getCellType(posX, posY)!= Cell.OBSTACLE)
 					setPosX(getPosX() + speed);
 				else
 					alive = false;
 			}
 			if(Movement.MOVE_DOWN==dir) {
-				if (getPosY()<=696)
+				if (getPosY()<=696 || Movement.room.getCellType(posX, posY)!= Cell.OBSTACLE)
 					setPosY(getPosY() + speed);
 				else
 					alive = false;
 			}
 			if(Movement.MOVE_LEFT==dir) {
-				if (getPosX()>=155)
+				if (getPosX()>=155 || Movement.room.getCellType(posX, posY)!= Cell.OBSTACLE)
 					setPosX(getPosX() - speed);
 				else
 					alive = false;
 			}
-			if(Movement.MOVE_UP==dir) {
-				if (getPosY()>=150)
+			if(Movement.MOVE_UP==dir ) {
+				if (getPosY()>=150|| Movement.room.getCellType(posX, posY)!= Cell.OBSTACLE )
 					setPosY(getPosY() - speed);
 				else
 					alive = false;
