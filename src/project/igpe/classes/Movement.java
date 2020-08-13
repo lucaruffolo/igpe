@@ -109,7 +109,7 @@ public class Movement {
 			GraphicsGame.setFirstRoom(false);
 		}
 		
-		
+		System.out.println("X " + pixelInMatrixX(newPosX) +"  - Y "+pixelInMatrixY(newPosY));
 		collisionDamage(newPosX, newPosY);		
 	
 	}
@@ -382,16 +382,16 @@ public class Movement {
 
 	public boolean door (int newX, int newY) {
 
-		if(newX==1 && newY==7 || newX==1 && newY==8 ) {
+		if(newX==2 && newY==7 || newX==3 && newY==7) {
 			doorLx=true;
 		}
-		else if(newX==10 && newY==13 || newX==11 && newY==13) {
+		else if(newX==10 && newY==12) {
 			doorDown=true;
 		}
-		else if(newX==19 && newY==7 || newX==19 && newY==8) {
+		else if(newX==18 && newY==7) {
 			doorDx=true;
 		}
-		else if(newX==10 && newY==1 || newX==11 && newY==1 ) {
+		else if(newX==10 && newY==2) {
 			doorUp=true;
 		}
 		

@@ -186,11 +186,11 @@ public class GraphicsGame extends StackPane{
 					canvas.getGraphicsContext2D().setFill(Color.BLUE);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;		
-				case Cell.DOOR:
+	/*			case Cell.DOOR:
 					canvas.getGraphicsContext2D().setFill(Color.YELLOW);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;	
-				case Cell.OBSTACLEDAMAGE:
+		*/		case Cell.OBSTACLEDAMAGE:
 					canvas.getGraphicsContext2D().setFill(Color.RED);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;
