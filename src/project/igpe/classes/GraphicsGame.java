@@ -164,15 +164,15 @@ public class GraphicsGame extends StackPane{
 		canvas.getGraphicsContext2D().setFill(Color.RED);
 		Font font = new Font("Verdana", 20);
 		canvas.getGraphicsContext2D().setFont(font);
-		canvas.getGraphicsContext2D().fillText("Vita: " + Hero.getLife() + "%", 45, 50);
+		canvas.getGraphicsContext2D().fillText("Vita: " + (int) Hero.getLife() + "%", 45, 50);
 		
 		
-		//Contatore bulletsHero
+		// Contatore bulletsHero
 		canvas.getGraphicsContext2D().setFill(Color.GREEN);
 		canvas.getGraphicsContext2D().setFont(font);
 		canvas.getGraphicsContext2D().fillText("Colpi Rimanenti: " + (Bullet.maxAmmo-Bullet.heroAmmo), 45, 80);
 		
-		//bullets Hero
+		// bullets Hero
 		for(Bullet b:Hero.getContenitoreBullets()) {
 			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
 		}
@@ -201,28 +201,6 @@ public class GraphicsGame extends StackPane{
 		}
 		
 	}
-		/*
-		 // DISEGNARE SU MAPPA MATRICE
-			for (int i = 0; i < movimento.getRoom().getCella().length; i++) {
-				int x = i * Settings.block;
-				for (int j = 0; j < movimento.getRoom().getCella()[i].length; j++) {
-					int y = j * Settings.block;
-					
-					
-					switch (movimento.getRoom().getCella()[i][j].getType()) {						
-					case Cell.OBSTACLE:
-						canvas.getGraphicsContext2D().setFill(Color.BLUE);
-						canvas.getGraphicsContext2D().fillRect(x+Settings.block/15, y, Settings.block*1, Settings.block*1);						
-						break;										
-					default:
-						break;
-					}
-			// DISEGNARE PG BLOCCHI MATRICE		
-			//		if (movimento.getPg().getX() == i && movimento.getPg().getY() == j)
-			//			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), x, y, Hero.getSize(), Hero.getSize());
-				}
-			}
-			*/	
 	
 	public Canvas getCanvas() {
 		return canvas;

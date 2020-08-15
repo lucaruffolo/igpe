@@ -48,6 +48,9 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case DOWN:
 				Hero.setVelY(0);
 				break;
+			case SHIFT:
+				Hero.setSpeed(2);
+				break;
 			default:
 				break;
 			}
@@ -69,6 +72,9 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				break;
 			case DOWN:
 				movimento.move(Movement.MOVE_DOWN);
+				break;
+			case SHIFT:
+				Hero.setSpeed(4);
 				break;
 			case X:
 				Hero.setLife(100);
