@@ -1,5 +1,6 @@
 package project.igpe.classes;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -22,9 +23,15 @@ public class GraphicsGame extends StackPane{
 	public static boolean firstRoom = true;
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
-	
+	private static Image[] imagesObstacle;
 	
 	public GraphicsGame(Movement movimentox) {
+	
+		imagesObstacle = new Image[] {		
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1.png")), 
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs2.png")), 
+						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs3.png"))
+					};
 		movimento = movimentox;
 		canvas = new Canvas();
 		canvas.setFocusTraversable(true);
@@ -153,8 +160,6 @@ public class GraphicsGame extends StackPane{
 
 	}
 	
-
-	
 	public void draw() {
 		
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());		
@@ -201,7 +206,9 @@ public class GraphicsGame extends StackPane{
 				switch (movimento.getRoom().getCella()[i][j].getType()) {						
 				case Cell.OBSTACLE:
 					canvas.getGraphicsContext2D().setFill(Color.BLUE);
-					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
+				//	int nRand = (int) (2.0 * Math.random());
+					canvas.getGraphicsContext2D().drawImage(imagesObstacle[1], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize(), Hero.getSize());
+				//	canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;		
 /*				case Cell.DOOR:
 					canvas.getGraphicsContext2D().setFill(Color.YELLOW);
