@@ -160,24 +160,41 @@ public class GraphicsGame extends StackPane{
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());		
 		canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
 		
-		// Vita in alto a SX
-		canvas.getGraphicsContext2D().setFill(Color.RED);
+		// HEALT BAR
+		//Background Vita
+		canvas.getGraphicsContext2D().setFill(Color.BLACK);
+		canvas.getGraphicsContext2D().fillRect(40, 20, 210, 40);
+				
+		if (Hero.getLife()>67)
+			canvas.getGraphicsContext2D().setFill(Color.LIME);
+		if (Hero.getLife()<66)
+			canvas.getGraphicsContext2D().setFill(Color.YELLOW);
+		if (Hero.getLife()<34)
+				canvas.getGraphicsContext2D().setFill(Color.RED);		
+		
+		canvas.getGraphicsContext2D().fillRect(45, 25, Hero.getLife()*2, 30); //Hero.getLife()*2 perchè barra lunga 200
+		
+		
+		// TESTO
+		canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
 		Font font = new Font("Verdana", 20);
 		canvas.getGraphicsContext2D().setFont(font);
-		canvas.getGraphicsContext2D().fillText("Vita: " + (int) Hero.getLife() + "%", 45, 50);
+		canvas.getGraphicsContext2D().fillText("Vita: " + (int) Hero.getLife() + "%", 100, 50);		
+		
+		//FINE HEALT BAR
 		
 		
 		// Contatore bulletsHero
 		canvas.getGraphicsContext2D().setFill(Color.GREEN);
 		canvas.getGraphicsContext2D().setFont(font);
-		canvas.getGraphicsContext2D().fillText("Colpi Rimanenti: " + (Bullet.maxAmmo-Bullet.heroAmmo), 45, 80);
+		canvas.getGraphicsContext2D().fillText("Colpi Rimanenti: " + (Bullet.maxAmmo-Bullet.heroAmmo), 45, 100);
 		
 		// bullets Hero
 		for(Bullet b:Hero.getContenitoreBullets()) {
 			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
 		}
 		
-
+		
 		
 		for (int i = 0; i < Settings.xMatrix; i++) {
 			for (int j = 0; j < Settings.yMatrix; j++) {				
@@ -186,11 +203,11 @@ public class GraphicsGame extends StackPane{
 					canvas.getGraphicsContext2D().setFill(Color.BLUE);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;		
-	/*			case Cell.DOOR:
+/*				case Cell.DOOR:
 					canvas.getGraphicsContext2D().setFill(Color.YELLOW);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;	
-		*/		case Cell.OBSTACLEDAMAGE:
+	*/			case Cell.OBSTACLEDAMAGE:
 					canvas.getGraphicsContext2D().setFill(Color.RED);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;

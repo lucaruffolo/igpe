@@ -63,7 +63,9 @@ public class Movement {
 		
 	
 	}
-	public static void checkHero (int x, int y) { //Funzione che viene richiamata nel Hero.movehero() per il gameloop e richiama altre funzioni per il Check movimento/porte ostacoli ecc.
+	
+	//Funzione che viene richiamata nel Hero.movehero() per il gameloop e richiama altre funzioni per il Check movimento/porte ostacoli ecc.
+	public static void checkHero (int x, int y) { 
 		
 		checkDoor(x, y);
 		collisionDamage(x, y);
@@ -73,43 +75,41 @@ public class Movement {
 	//Controllo PORTA
 	public static void checkDoor (int newPosX, int newPosY) {
 		
-				if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
-					
-					//System.out.println("Porta trovata x: " + Hero.getX() + "  y: "+ Hero.getY()+ " -> in matr " + pixelInMatrixX(newPosX) + pixelInMatrixY(newPosY));
-					
-					MovementControl.setRipristinoGame(Main.window.getScene());
-					try { 
-						ChangeRoomScene.changeRoom();
-						} catch (Exception e) {	e.printStackTrace();}
-					
-					checkMap(); // funzione controllo hasmap
+		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
+	
+			MovementControl.setRipristinoGame(Main.window.getScene());
+			try { 
+				ChangeRoomScene.changeRoom();
+				} catch (Exception e) {	e.printStackTrace();}
+			
+			checkMap(); // funzione controllo hasmap
 
-					if (doorDown) {				
-						newPosX = 600;
-						newPosY = 140;
-					}
-					if (doorLx) {
-						newPosX = 1050;
-						newPosY = 410;
-					}
-					if (doorUp) {
-						newPosX = 600;
-						newPosY = 672;
-					}
-					if (doorDx) {
-						newPosX = 150;
-						newPosY = 420;
-					}
-					
-					Hero.setX(newPosX);
-					Hero.setY(newPosY);
-					doorDown = false;
-					doorDx = false;
-					doorLx = false;
-					doorUp = false;
+			if (doorDown) {				
+				newPosX = 600;
+				newPosY = 140;
+			}
+			if (doorLx) {
+				newPosX = 1050;
+				newPosY = 410;
+			}
+			if (doorUp) {
+				newPosX = 600;
+				newPosY = 672;
+			}
+			if (doorDx) {
+				newPosX = 150;
+				newPosY = 420;
+			}
+			
+			Hero.setX(newPosX);
+			Hero.setY(newPosY);
+			doorDown = false;
+			doorDx = false;
+			doorLx = false;
+			doorUp = false;
 
-					GraphicsGame.setFirstRoom(false);
-				}
+			GraphicsGame.setFirstRoom(false);
+		}
 	}
 	// INIZIO COLLISIONI
 	
@@ -159,13 +159,11 @@ public class Movement {
 	// INIZIO PIXEL IN MATRIX E VICEVERSA
 	public static int pixelInMatrixX (int x) {
 		// pos pixel : totpixel = pos matrice : tot matrice
-		// pos pixel * totale matrice / tot pixel
-		
+		// pos pixel * totale matrice / tot pixel		
 		return (x*Settings.xMatrix)/Settings.x;		
 	}
 	
-	public static int pixelInMatrixY (int y) {
-		
+	public static int pixelInMatrixY (int y) {		
 		return (y*Settings.yMatrix)/Settings.y;
 	}
 	
@@ -174,13 +172,12 @@ public class Movement {
 		return (Settings.x*x)/Settings.xMatrix;		
 	}
 	
-	public static int matrixInPixelY (int y) {
-		
+	public static int matrixInPixelY (int y) {		
 		return (Settings.y*y)/Settings.yMatrix;		
 	}
 	
+	// FINE PIXEL IN MATRIX E VICEVERSA--------
 	
-	// FINE --------
 	public static void checkMap () {
 		
 		mappaAttuale=Maps.getIndiceMappe();

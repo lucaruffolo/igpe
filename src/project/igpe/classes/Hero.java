@@ -84,7 +84,7 @@ public class Hero {
 			velX = 0;
 		}
 		
-		Movement.checkHero(x, y);
+		Movement.checkHero(x, y); //checkDoor(x, y);collisionDamage(x, y);
 		
 			
 	}
