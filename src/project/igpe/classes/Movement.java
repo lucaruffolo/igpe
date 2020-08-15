@@ -16,7 +16,7 @@ public class Movement {
 	private Hero pg;
 	private static int dir;
 	
-	private GraphicsGame graphicGame;
+	private static GraphicsGame graphicGame;
 
 	private static boolean doorDx = false;
 	private static boolean doorUp = false;
@@ -26,7 +26,7 @@ public class Movement {
 	private static int nRand = -20;
 	private static boolean checkNrand2 = false;
 	
-	private HashMap<Integer, HashMap<String, Integer>> saveDoorOpened = new HashMap<Integer, HashMap<String,Integer>>();
+	private static HashMap<Integer, HashMap<String, Integer>> saveDoorOpened = new HashMap<Integer, HashMap<String,Integer>>();
 	private static int mappaAttuale = 0;
 	private static int prossimaMappa;
 	private boolean firstTime = true;
@@ -35,85 +35,82 @@ public class Movement {
 	
 	
 	public void move(int direction) {
-		int newPosX=Hero.getX();
-		int newPosY=Hero.getY();
 		
 		if (direction == MOVE_RIGHT && !Hero.lockRight) { // && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
 			Hero.setDirHero(MOVE_RIGHT);
-			Hero.setVelX(Hero.speed);
-			newPosX = (int) (Hero.getX() + Hero.getVelX());
-			
+			Hero.setVelX(Hero.speed);			
 			Hero.resetHeroLockMove();
 			
-		} else if (direction == MOVE_LEFT && !Hero.lockLeft) {			
+		} else if (direction == MOVE_LEFT && !Hero.lockLeft) {					
 			Hero.setDirHero(MOVE_LEFT);
-			Hero.setVelX(-Hero.speed);
-			newPosX = (int) (Hero.getX() - Hero.getVelX());
+			Hero.setVelX(-Hero.speed);	
+			Hero.resetHeroLockMove();		
 			
-			Hero.resetHeroLockMove();
-			
-		} else if (direction == MOVE_UP  && !Hero.lockUp) {			
+		} else if (direction == MOVE_UP  && !Hero.lockUp) {					
 			Hero.setDirHero(MOVE_UP);
 			Hero.setVelY(-Hero.speed);
-			newPosY = (int) (Hero.getY() - Hero.getVelY());
-			
 			Hero.resetHeroLockMove();
 			
-		} else if (direction == MOVE_DOWN && !Hero.lockDown) {			
+		} else if (direction == MOVE_DOWN && !Hero.lockDown) {				
 			Hero.setDirHero(MOVE_DOWN);
-			Hero.setVelY(Hero.speed);
-			newPosY = (int) (Hero.getY() + Hero.getVelY());
-			
+			Hero.setVelY(Hero.speed);		
 			Hero.resetHeroLockMove();
 		}
 		
 		
 		GraphicHero.setImgDir(direction);
 		
-		//Controllo PORTA
-		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
-			
-			//System.out.println("Porta trovata x: " + Hero.getX() + "  y: "+ Hero.getY()+ " -> in matr " + pixelInMatrixX(newPosX) + pixelInMatrixY(newPosY));
-			
-			MovementControl.setRipristinoGame(Main.window.getScene());
-			try { 
-				ChangeRoomScene.changeRoom();
-				} catch (Exception e) {	e.printStackTrace();}
-			
-			checkMap(); // funzione controllo hasmap
-
-			if (doorDown) {				
-				newPosX = 600;
-				newPosY = 140;
-			}
-			if (doorLx) {
-				newPosX = 1050;
-				newPosY = 410;
-			}
-			if (doorUp) {
-				newPosX = 600;
-				newPosY = 672;
-			}
-			if (doorDx) {
-				newPosX = 150;
-				newPosY = 420;
-			}
-			
-			Hero.setX(newPosX);
-			Hero.setY(newPosY);
-			doorDown = false;
-			doorDx = false;
-			doorLx = false;
-			doorUp = false;
-
-			GraphicsGame.setFirstRoom(false);
-		}
 		
-		System.out.println("X " + pixelInMatrixX(newPosX) +"  - Y "+pixelInMatrixY(newPosY));
-		collisionDamage(newPosX, newPosY);		
 	
 	}
+	public static void checkHero (int x, int y) { //Funzione che viene richiamata nel Hero.movehero() per il gameloop e richiama altre funzioni per il Check movimento/porte ostacoli ecc.
+		
+		checkDoor(x, y);
+		collisionDamage(x, y);
+
+	}
 	
+	//Controllo PORTA
+	public static void checkDoor (int newPosX, int newPosY) {
+		
+				if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
+					
+					//System.out.println("Porta trovata x: " + Hero.getX() + "  y: "+ Hero.getY()+ " -> in matr " + pixelInMatrixX(newPosX) + pixelInMatrixY(newPosY));
+					
+					MovementControl.setRipristinoGame(Main.window.getScene());
+					try { 
+						ChangeRoomScene.changeRoom();
+						} catch (Exception e) {	e.printStackTrace();}
+					
+					checkMap(); // funzione controllo hasmap
+
+					if (doorDown) {				
+						newPosX = 600;
+						newPosY = 140;
+					}
+					if (doorLx) {
+						newPosX = 1050;
+						newPosY = 410;
+					}
+					if (doorUp) {
+						newPosX = 600;
+						newPosY = 672;
+					}
+					if (doorDx) {
+						newPosX = 150;
+						newPosY = 420;
+					}
+					
+					Hero.setX(newPosX);
+					Hero.setY(newPosY);
+					doorDown = false;
+					doorDx = false;
+					doorLx = false;
+					doorUp = false;
+
+					GraphicsGame.setFirstRoom(false);
+				}
+	}
 	// INIZIO COLLISIONI
 	
 	public static boolean collisionWall(int newX, int newY) {
@@ -137,7 +134,7 @@ public class Movement {
 		return false;		
 	}
 	
-	public void collisionDamage(int newX, int newY) {	
+	public static void collisionDamage(int newX, int newY) {	
 		
 		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE
 			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
@@ -145,7 +142,7 @@ public class Movement {
 					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE) {
 			
 			if (Hero.getLife() > 0)
-				Hero.setLife(Hero.getLife()-1);
+				Hero.setLife(Hero.getLife()-0.1);
 		}
 			
 		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.FALLINGDOWN
@@ -184,7 +181,7 @@ public class Movement {
 	
 	
 	// FINE --------
-	public void checkMap () {
+	public static void checkMap () {
 		
 		mappaAttuale=Maps.getIndiceMappe();
 		
@@ -259,7 +256,7 @@ public class Movement {
 	}
 	
 	
-	public void newRoom(HashMap<String, Integer> questaStanza) {
+	public static void newRoom(HashMap<String, Integer> questaStanza) {
 		
 		
 		
@@ -380,7 +377,7 @@ public class Movement {
 	
 	//verifica se c'è una porta nella prossima casella
 
-	public boolean door (int newX, int newY) {
+	public static boolean door (int newX, int newY) {
 
 		if(newX==2 && newY==7 || newX==3 && newY==7) {
 			doorLx=true;
@@ -436,7 +433,7 @@ public class Movement {
 	}
 
 	public void setSaveDoorOpened(HashMap<Integer, HashMap<String, Integer>> saveDoorOpened) {
-		this.saveDoorOpened = saveDoorOpened;
+		Movement.saveDoorOpened = saveDoorOpened;
 	}
 
 	public static boolean isCheckNrand2() {
@@ -486,7 +483,7 @@ public class Movement {
 	}
 
 	public void setGraphicGame(GraphicsGame graphicGame) {
-		this.graphicGame = graphicGame;
+		Movement.graphicGame = graphicGame;
 	}
 
 	public static boolean isDoorDx() {

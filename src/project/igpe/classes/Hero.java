@@ -13,14 +13,14 @@ public class Hero {
 	
 	private static String name;
 	private static Boolean sex; //0 maschio | 1 femmina
-	private static int life=100;
+	private static double life=100;
 	public static int speed=2;
 	private static int size=60;
 	private Image img;
 	private static int x;
 	private static int y;
-	public static double velX = 0;
-	public static double velY = 0;
+	public static int velX = 0;
+	public static int velY = 0;
 	public static int dirHero = 0;
 	private static List<Bullet> contenitoreBullets;
 	public static boolean lockRight = false;
@@ -39,52 +39,54 @@ public class Hero {
 	
 	
 	public static void moveHero() {
-		
+	
 		if (!Movement.collisionWall(x, y) && !Movement.collisionObstacle(x, y)){
 			x += velX;
 			y += velY;
 			
-		}
-		else if (getDirHero() == MOVE_RIGHT){
+		} else if (getDirHero() == MOVE_RIGHT){			
 			
 			lockRight = true;
-			if (!lockDown && !lockLeft && !lockUp)
-				x -= 4;		
-			
+			if (!lockDown && !lockLeft && !lockUp) {				
+				x -= velX;
+				y -= velY;
+			}			
 			velX = 0;
-			velY = 0;
-						
+			velY = 0;						
 		}	else if (getDirHero() == MOVE_LEFT){
 			
 			lockLeft = true;
-			if (!lockDown && !lockRight && !lockUp)
-				x += 4;
-			
+			if (!lockDown && !lockRight && !lockUp){
+				x -= velX;
+				y-=velY;
+			}		
 			velX = 0;
 			velY = 0;
 			
 		}	else if (getDirHero() == MOVE_UP){
 			
 			lockUp = true;
-			if (!lockDown && !lockLeft && !lockRight)
-				y += 4;
-			
+			if (!lockDown && !lockLeft && !lockRight){
+				x -= velX;
+				y-=velY;
+			}			
 			velX = 0;
 			velY = 0;
 			
 		}	else if (getDirHero() == MOVE_DOWN){
 			
 			lockDown = true;
-			if (!lockRight && !lockLeft && !lockUp)
-				y -= 4;
-			
+			if (!lockRight && !lockLeft && !lockUp){
+				x -= velX;
+				y-=velY;
+			}			
 			velY = 0;
 			velX = 0;
 		}
+		
+		Movement.checkHero(x, y);
+		
 			
-		//	System.out.println("Mi muovo di X " + x + " Alla velocità di "+velX);
-		//	System.out.print("Mi muovo di Y " + y + " Alla velocità di "+velY);
-	
 	}
 	
 	public static void resetHeroLockMove() {
@@ -102,19 +104,19 @@ public class Hero {
 		Hero.dirHero = dirHero;
 	}
 	
-	public static double getVelX() {
+	public static int getVelX() {
 		return velX;
 	}
 
-	static void setVelX(double velX) {
+	static void setVelX(int velX) {
 		Hero.velX = velX;
 	}
 
-	public static double getVelY() {
+	public static int getVelY() {
 		return velY;
 	}
 
-	public static void setVelY(double velY) {
+	public static void setVelY(int velY) {
 		Hero.velY = velY;
 	}
 
@@ -161,12 +163,12 @@ public class Hero {
 		Hero.sex = sesso;
 	}
 
-	public static int getLife() {
+	public static double getLife() {
 		return life;
 	}
 
-	public static void setLife(int lifex) {
-		life = lifex;
+	public static void setLife(double d) {
+		life = d;
 	}
 
 	public static int getSpeed() {

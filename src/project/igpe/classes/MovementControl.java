@@ -59,7 +59,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 		if(e.getEventType().equals(KeyEvent.KEY_PRESSED)) {
 			switch (e.getCode()) {
 			case LEFT:
-				movimento.move(Movement.MOVE_LEFT);
+				movimento.move(Movement.MOVE_LEFT); 
 				break;
 			case RIGHT:
 				movimento.move(Movement.MOVE_RIGHT);
