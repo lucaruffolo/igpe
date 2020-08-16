@@ -201,7 +201,8 @@ public class GraphicsGame extends StackPane{
 		
 		// bullets Hero
 		for(Bullet b:Hero.getContenitoreBullets()) {
-			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block/2,Settings.block/2);
+			//if direzione player SX = ->
+			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block,Settings.block-20);
 		}
 		
 		
@@ -224,7 +225,7 @@ public class GraphicsGame extends StackPane{
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;
 				case Cell.HEART:
-					canvas.getGraphicsContext2D().drawImage(heart, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 50, 45);						
+					canvas.getGraphicsContext2D().drawImage(heart, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 50, 42);						
 					break;
 				default:
 					break;					

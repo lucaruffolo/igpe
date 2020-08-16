@@ -8,7 +8,7 @@ public class Bullet {
 	
 	public static final int maxAmmo = 3;
 
-	private Image imgBulletDX = new Image(Bullet.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "bullettest.png"));
+	private Image imgBulletDX = new Image(Bullet.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "bullettest.gif"));
 	
 	private int posX;
 	private int posY;
