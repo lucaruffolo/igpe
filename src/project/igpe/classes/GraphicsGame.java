@@ -24,8 +24,12 @@ public class GraphicsGame extends StackPane{
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
 	private static Image[] imagesObstacle;
+	private static Image heart;
 	
 	public GraphicsGame(Movement movimentox) {
+		
+		heart = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "heart.gif"));
+
 	
 		imagesObstacle = new Image[] {		
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1.png")), 
@@ -33,6 +37,7 @@ public class GraphicsGame extends StackPane{
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs3.png"))
 					};
 		movimento = movimentox;
+		
 		canvas = new Canvas();
 		canvas.setFocusTraversable(true);
 		keyHandler=new MovementControl(movimento);
@@ -165,7 +170,7 @@ public class GraphicsGame extends StackPane{
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());		
 		canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
 		
-		// HEALT BAR
+		// HEALTH BAR
 		//Background Vita
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
 		canvas.getGraphicsContext2D().fillRect(40, 20, 210, 40);
@@ -186,8 +191,8 @@ public class GraphicsGame extends StackPane{
 		canvas.getGraphicsContext2D().setFont(font);
 		canvas.getGraphicsContext2D().fillText("Vita: " + (int) Hero.getLife() + "%", 100, 50);		
 		
-		//FINE HEALT BAR
-		
+		//FINE HEALTH BAR
+	
 		
 		// Contatore bulletsHero
 		canvas.getGraphicsContext2D().setFill(Color.GREEN);
@@ -217,6 +222,9 @@ public class GraphicsGame extends StackPane{
 	*/			case Cell.OBSTACLEDAMAGE:
 					canvas.getGraphicsContext2D().setFill(Color.RED);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
+					break;
+				case Cell.HEART:
+					canvas.getGraphicsContext2D().drawImage(heart, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 50, 45);						
 					break;
 				default:
 					break;					

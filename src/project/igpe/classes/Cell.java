@@ -11,6 +11,7 @@ public class Cell {
 	public static final int OBSTACLE = 6;
 	public static final int OBSTACLEDAMAGE = 8;
 	public static final int FALLINGDOWN = 9;
+	public static final int HEART = 10;
 	
 	private int type;
 	

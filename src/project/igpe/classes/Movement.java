@@ -69,8 +69,24 @@ public class Movement {
 		
 		checkDoor(x, y);
 		collisionDamage(x, y);
-
+		collisionHeart(x,y);
+		
 	}
+	
+	public static void collisionHeart(int newX, int newY) {
+		
+		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.HEART) {				
+				room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella heart				
+				int i = 0;
+				if (Hero.getLife() < 100) {
+					while (i<25 && Hero.getLife()<100) {
+						Hero.setLife(Hero.getLife()+1);
+						i++;
+					}
+				}
+			}
+	}
+	
 	
 	//Controllo PORTA
 	public static void checkDoor (int newPosX, int newPosY) {

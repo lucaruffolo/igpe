@@ -283,7 +283,10 @@ public class Maps {
 							}
 							if (costruzioneRiga.equals("9")) {
 								cella[riga][colonne++] = new Cell(Cell.FALLINGDOWN);
-							}								
+							}	
+							if (costruzioneRiga.equals("10")) {
+								cella[riga][colonne++] = new Cell(Cell.HEART);
+							}
 						} 
 					riga++;
 					colonne=0;
@@ -324,6 +327,9 @@ public class Maps {
 						if (costruzioneRiga.equals("9")) {
 							cella[riga][colonne++] = new Cell(Cell.FALLINGDOWN);
 						}
+						if (costruzioneRiga.equals("10")) {
+							cella[riga][colonne++] = new Cell(Cell.HEART);
+						}
 					}
 					riga++;
 					colonne = 0;
@@ -363,6 +369,9 @@ public class Maps {
 						if (costruzioneRiga.equals("9")) {
 							cella[riga][colonne++] = new Cell(Cell.FALLINGDOWN);
 						}
+						if (costruzioneRiga.equals("10")) {
+							cella[riga][colonne++] = new Cell(Cell.HEART);
+						}
 					}
 					riga++;
 					colonne = 0;
@@ -401,6 +410,9 @@ public class Maps {
 						}
 						if (costruzioneRiga.equals("9")) {
 							cella[riga][colonne++] = new Cell(Cell.FALLINGDOWN);
+						}
+						if (costruzioneRiga.equals("10")) {
+							cella[riga][colonne++] = new Cell(Cell.HEART);
 						}
 					}
 					riga++;
@@ -442,6 +454,9 @@ public class Maps {
 						if (costruzioneRiga.equals("9")) {
 							cella[riga][colonne++] = new Cell(Cell.FALLINGDOWN);
 						}
+						if (costruzioneRiga.equals("10")) {
+							cella[riga][colonne++] = new Cell(Cell.HEART);
+						}
 					}
 					riga++;
 					colonne = 0;
@@ -473,7 +488,9 @@ public class Maps {
 	public int getCellType(int x, int y) {
 		return cella[x][y].getType();
 	}
-
+	public void setCellType(int x, int y,int tipo) {
+		cella[x][y].setType(tipo);
+	}
 	public static int getIndiceMappe() {
 		return indiceMappe;
 	}

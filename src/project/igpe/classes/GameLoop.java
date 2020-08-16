@@ -6,7 +6,7 @@ import project.igpe.GUI.DeathScene;
 public class GameLoop extends AnimationTimer {
 
 	private long previousTime;
-	private GraphicsGame gg;
+	public static GraphicsGame gg;
 	//private long frequency = 60 * 1000000;
 	
 	public GameLoop(GraphicsGame g) {
