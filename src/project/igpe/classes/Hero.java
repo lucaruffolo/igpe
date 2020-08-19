@@ -27,7 +27,8 @@ public class Hero {
 	public static boolean lockLeft = false;
 	public static boolean lockUp = false;
 	public static boolean lockDown = false;
-
+	public static long TimeStartPlayed = 0;
+	public static long TimeEndPlayed = 0;
 
 	public Hero() {
 		name = "nome";
@@ -155,7 +156,7 @@ public class Hero {
 		Hero.name = nome;
 	}
 
-	public  Boolean getSex() {
+	public static Boolean getSex() {
 		return sex;
 	}
 

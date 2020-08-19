@@ -14,10 +14,19 @@
          <image>
             <Image url="@../images/blackscreen.jpg" />
          </image></ImageView>
-      <Label layoutX="520.0" layoutY="128.0" prefHeight="201.0" prefWidth="231.0" text="RIP" textFill="#eb0000">
+      <Label layoutX="220.0" layoutY="41.0" prefHeight="185.0" prefWidth="835.0" text="GAME OVER" textFill="#eb0000">
          <font>
             <Font size="150.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Label>
+      <TextArea fx:id="textAreaDetails" editable="false" layoutX="437.0" layoutY="396.0" opacity="0.0" prefHeight="259.0" prefWidth="401.0">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font></TextArea>
+      <Button fx:id="bttMenu" layoutX="43.0" layoutY="806.0" mnemonicParsing="false" onAction="#ClickBttMenu" prefHeight="55.0" prefWidth="228.0" stylesheets="@button.css" text="Menu Principale" />
+      <Button fx:id="bttDetails" layoutX="431.0" layoutY="260.0" mnemonicParsing="false" onAction="#CickBttDetails" prefHeight="80.0" prefWidth="412.0" stylesheets="@button.css" text="Visualizza Dettagli" textAlignment="CENTER" />
    </children>
 </AnchorPane>

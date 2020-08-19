@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
+import project.igpe.classes.Hero;
 import project.igpe.classes.Settings;
 import project.igpe.main.Main;
 
@@ -25,6 +26,7 @@ public class LoadScene{
     	if(ready) {
 			Settings.valueOfProgressBar = 0;
     		Main.startGame();
+    		Hero.TimeStartPlayed = System.currentTimeMillis();    		
     	}
     }
 

@@ -115,8 +115,8 @@ public class SceltaDelPersonaggio {
 			eroe.setName(textName.getText());
 			eroe.setSex(sesso);
 			GraphicHero.selectSex(eroe.getSex());
-			Hero.setLife(100);			
-			Hero.ResetPosition();
+			
+			Hero.resetHero();
 
 			
 			notChooseSex=false;
