@@ -8,7 +8,13 @@ public class Bullet {
 	
 	public static final int maxAmmo = 3;
 
-	private Image imgBulletDX = new Image(Bullet.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "bullettest.gif"));
+	private static Image[] imagesBullet = new Image[] {		
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "hero" + File.separator + "bulletdx.gif")), //dx
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "hero" + File.separator + "bulletsx.gif")), //sx
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "hero" + File.separator + "bulletup.gif")), //up
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "hero" + File.separator + "bulletdown.gif")), //down
+		};
+	private static Image imgBullet = imagesBullet[3];
 	
 	private int posX;
 	private int posY;
@@ -18,7 +24,7 @@ public class Bullet {
 	
 	public boolean alive;
 	public static int heroAmmo = 0;
-
+	
 	
 	public Bullet(int posX, int posY, int dir) {
 		super();
@@ -61,6 +67,7 @@ public class Bullet {
 			} catch (InterruptedException e) {e.printStackTrace();			}
 	}
 
+	
 	public static boolean collisionBullet(int x, int y) {
 		if (Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.EMPTY 
 				|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.FALLINGDOWN
@@ -71,17 +78,15 @@ public class Bullet {
 	}
 
 	
-	
-	public Image getImgBulletDX() {
-		return imgBulletDX;
+
+	public static void setDirBullet(int dir) {
+		imgBullet = imagesBullet[dir];
 	}
 
 
-
-	public void setImgBulletDX(Image imgBulletDX) {
-		this.imgBulletDX = imgBulletDX;
+	public Image getImgBullet() {
+		return imgBullet;
 	}
-
 
 	public int getPosX() {
 		return posX;
@@ -100,6 +105,8 @@ public class Bullet {
 
 	public void setPosY(int posY) {
 		this.posY = posY;
-	} 
-	
+	}
+
+
+
 }

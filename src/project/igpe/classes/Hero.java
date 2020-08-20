@@ -21,7 +21,7 @@ public class Hero {
 	private static int y;
 	public static int velX = 0;
 	public static int velY = 0;
-	public static int dirHero = 0;
+	public static int dirHero = 3;
 	private static List<Bullet> contenitoreBullets;
 	public static boolean lockRight = false;
 	public static boolean lockLeft = false;
@@ -133,7 +133,28 @@ public class Hero {
 	}
 	
 	public static void shoot() {
-		Bullet bullet =  new Bullet(getX(), getY(), Movement.getDir());
+		int x = 0;
+		int y = 0;
+		
+		if (Hero.getDirHero() == Hero.MOVE_LEFT) {
+			x = Hero.getX() - 50;
+			y = Hero.getY() - 5;
+		}
+		if (Hero.getDirHero() == Hero.MOVE_RIGHT){
+			x = Hero.getX() + 50;
+			y = Hero.getY() - 5;
+		}
+		if (Hero.getDirHero() == Hero.MOVE_UP){
+			x = Hero.getX() - 2;
+			y = Hero.getY() - 60;
+		}
+		if (Hero.getDirHero() == Hero.MOVE_DOWN){
+			x = Hero.getX() + 5;
+			y = Hero.getY() + 60;
+		}
+
+
+		Bullet bullet =  new Bullet(x, y, Movement.getDir());
 		contenitoreBullets.add(bullet);
 	}
 

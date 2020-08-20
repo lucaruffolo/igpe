@@ -38,28 +38,33 @@ public class Movement {
 		
 		if (direction == MOVE_RIGHT && !Hero.lockRight) { // && room.getCellType(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY)) != Cell.WALL) {
 			Hero.setDirHero(MOVE_RIGHT);
+			Bullet.setDirBullet(MOVE_RIGHT);
 			Hero.setVelX(Hero.speed);			
 			Hero.resetHeroLockMove();
 			
 		} else if (direction == MOVE_LEFT && !Hero.lockLeft) {					
 			Hero.setDirHero(MOVE_LEFT);
+			Bullet.setDirBullet(MOVE_LEFT);
 			Hero.setVelX(-Hero.speed);	
 			Hero.resetHeroLockMove();		
 			
 		} else if (direction == MOVE_UP  && !Hero.lockUp) {					
 			Hero.setDirHero(MOVE_UP);
+			Bullet.setDirBullet(MOVE_UP);
 			Hero.setVelY(-Hero.speed);
 			Hero.resetHeroLockMove();
 			
-		} else if (direction == MOVE_DOWN && !Hero.lockDown) {				
+		} else if (direction == MOVE_DOWN && !Hero.lockDown) {					
 			Hero.setDirHero(MOVE_DOWN);
+			Bullet.setDirBullet(MOVE_DOWN);
 			Hero.setVelY(Hero.speed);		
 			Hero.resetHeroLockMove();
 		}
 		
 		
 		GraphicHero.setImgDir(direction);
-		
+		GraphicHero.setImgPistolDir(direction);
+
 		
 	
 	}
@@ -69,7 +74,7 @@ public class Movement {
 		
 		checkDoor(x, y);
 		collisionDamage(x, y);
-		collisionHeart(x,y);
+		collisionHeart(x, y);
 		
 	}
 	

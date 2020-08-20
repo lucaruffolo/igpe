@@ -25,6 +25,7 @@ public class GraphicsGame extends StackPane{
 	private static Movement movimento;
 	private static Image[] imagesObstacle;
 	private static Image heart;
+	public static int nRandObstacles = 0; 
 	
 	public GraphicsGame(Movement movimentox) {
 		
@@ -87,6 +88,8 @@ public class GraphicsGame extends StackPane{
 	
 	public void setBg(int index) throws Exception {
 		
+		//nRandObstacles = (int) (2.0 * Math.random());
+
 		if (Movement.isDoorDown()) {
 			Maps.setIndiceMappe(index);
 			Maps.loadMap(index);
@@ -164,11 +167,30 @@ public class GraphicsGame extends StackPane{
 		}
 
 	}
+	public void dirPistol(int dir) {
+		if (Hero.getDirHero() == Hero.MOVE_LEFT)
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-40, Hero.getY()-10, Hero.getSize()+20, Hero.getSize()+20);
+		if (Hero.getDirHero() == Hero.MOVE_RIGHT)
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()+25, Hero.getY()-10, Hero.getSize()+20, Hero.getSize()+20);
+		if (Hero.getDirHero() == Hero.MOVE_UP)
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-10, Hero.getY()-40, Hero.getSize()+20, Hero.getSize()+20);
+		if (Hero.getDirHero() == Hero.MOVE_DOWN)
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-10, Hero.getY()+20, Hero.getSize()+20, Hero.getSize()+20);
+	}
 	
 	public void draw() {
 		
-		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());		
-		canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+		
+		if (Hero.getDirHero() == Hero.MOVE_DOWN) {
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+			dirPistol(Hero.getDirHero());
+		} else {
+			dirPistol(Hero.getDirHero());
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+		}
+		
+		
 		
 		// HEALTH BAR
 		//Background Vita
@@ -202,7 +224,7 @@ public class GraphicsGame extends StackPane{
 		// bullets Hero
 		for(Bullet b:Hero.getContenitoreBullets()) {
 			//if direzione player SX = ->
-			canvas.getGraphicsContext2D().drawImage(b.getImgBulletDX(), b.getPosX(), b.getPosY(), Settings.block,Settings.block-20);
+			canvas.getGraphicsContext2D().drawImage(b.getImgBullet(), b.getPosX(), b.getPosY(), Settings.block,Settings.block);
 		}
 		
 		
@@ -212,8 +234,7 @@ public class GraphicsGame extends StackPane{
 				switch (movimento.getRoom().getCella()[i][j].getType()) {						
 				case Cell.OBSTACLE:
 					canvas.getGraphicsContext2D().setFill(Color.BLUE);
-				//	int nRand = (int) (2.0 * Math.random());
-					canvas.getGraphicsContext2D().drawImage(imagesObstacle[1], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize(), Hero.getSize());
+					canvas.getGraphicsContext2D().drawImage(imagesObstacle[nRandObstacles], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize(), Hero.getSize());
 				//	canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;		
 /*				case Cell.DOOR:
