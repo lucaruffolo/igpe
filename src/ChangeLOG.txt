@@ -1,4 +1,0 @@
-//////////////// CHANGELOG:
-
-- 28/04/2020 12:00 - Fix Interfaccia Iniziale
-- 28/04/2020 20:26 - Inserimento HERO+MAPPA

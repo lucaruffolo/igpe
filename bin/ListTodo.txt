@@ -1,19 +1,17 @@
 /////// LISTA COSE DA FARE
 
 
-
 Reparto codice manca:
 
-	- Sistema gameloop static
-	- proiettile
-	- Sleep cambio mappa
-	- Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 )
+	# Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 ) Controllare se funziona MOVEMENT
 	- Creazione mappe statiche 5 stanza chiave - 6 stanza boss 
 	- spawn chiave random in una stanza stabilita 
-	- pierpy+sara- mappe di gioco codice-layout insieme all'img delle mappe
-	- Aggiungere menu online
-	- Threads per VITA personaggio (futuro)
-	
+	- settare heart(recupera vita) id 10 lato codice
+	- Sistemare pistola hero
+	- Aggiungere nemici (che sparano e si muovono)
+	- Sistemare gameloop lag
+	- Aggiungere menu online/locale/arena
+			
 Reparto musica pierpy:
 	
 	musica = mp3
@@ -31,34 +29,22 @@ Reparto musica pierpy:
 	- suono vittoria---ok
 	- musica vittoria?????
 	- musica sconfitta---ok
-	- suono cambio stanza---ok
-	- suono apertura porta---ok
 	- suono morte nemico
-	- suono morte hero
-	
+	- suono morte --- hero inserita nella deathscene	
 
 Reparto grafico manca:
 
-	#pierpy+sara- mappe di gioco grafico (MURO - OSTACOLO - TERRENO - PORTE)
-	
-	sara- i 2 personaggi masc e femm = 4 movimenti (con arma)  + 3 quando subisci danno (con arma) 
-	
-	sara- schermata inziale + tutti i menu 
-	sara- possibile nemico
-	sara- possibile BOSS
-	sara- chiave
-	sara- video credits
-	
-	cibbo- grafica dei bottoni ? = Da SCENE BUILDER BOTTONE PER BOTTONE da fare insieme alla grafica dei menu
-	
-	pierpycibbo- Schermata caricamento (Tutorial tasti how2play) barra di caricamento tipo trackmania?
-	
-	
+	- Togliere ostacoli di danno e di blocco dal background della mappa {NON TOGLIERE FALLINGDOWN} ( Aggiunta funzione che disegna il canvas direttamente l'ostacolo)
+	- mappe di gioco grafico (MURO - OSTACOLO - TERRENO - PORTE)
+	- i 2 personaggi masc e femm = 4 movimenti (con arma)  + 3 quando subisci danno (con arma) 	
+	- schermata inziale + tutti i menu 
+	- possibile nemico
+	- possibile BOSS
+	- chiave
+	- video credits	
+	- Schermata caricamento (Tutorial tasti how2play) barra di caricamento tipo trackmania?		
 	- movimenti pg nemici boss
-	- porta che si apre con sfondo scale
-	
 
-////// PROPOSTE
 	
 	
 	
