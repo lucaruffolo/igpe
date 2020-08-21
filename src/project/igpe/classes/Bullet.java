@@ -20,7 +20,7 @@ public class Bullet {
 	private int posY;
 	
 	private int dir;
-	private int speed=23;
+	private int speed=10;
 	
 	public boolean alive;
 	public static int heroAmmo = 0;
@@ -37,6 +37,7 @@ public class Bullet {
 
 
 	public void moveBullet() {
+		
 			if(Movement.MOVE_RIGHT==dir) {
 				if (collisionBullet(getPosX(), getPosY()))
 					setPosX(getPosX() + speed);
@@ -61,10 +62,6 @@ public class Bullet {
 				else
 					alive = false;
 			}
-			
-			try {
-				Thread.sleep(1000/60);
-			} catch (InterruptedException e) {e.printStackTrace();			}
 	}
 
 	
