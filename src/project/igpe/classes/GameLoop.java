@@ -31,11 +31,7 @@ public class GameLoop extends AnimationTimer {
 			
 			
 			gg.draw();
-	//		gg.drawSprite();
-			
-			
 			Hero.moveHero();
-			
 			
 
 			//------Death Scene

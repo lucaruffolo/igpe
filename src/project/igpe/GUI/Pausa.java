@@ -11,6 +11,8 @@ import project.igpe.main.Main;
 
 public class Pausa {
 
+	public static boolean MenuPausaAttivo = false;
+	
     @FXML
     private Button bttMenuStart;
 
@@ -31,6 +33,7 @@ public class Pausa {
 
     @FXML
     void ClickBackToGame(ActionEvent event) {	
+    	MenuPausaAttivo = false;
 		Main.GameInPause = false;		
 		Main.window.setScene(MovementControl.getRipristinoGame());
 		Main.window.centerOnScreen();
@@ -54,6 +57,8 @@ public class Pausa {
 		Scene menuIniziale = new Scene(root, 1024,720); 
 		Main.window.setScene(menuIniziale);
 		Main.window.centerOnScreen();
+		MenuPausaAttivo = false;
+	//	Main.GameInPause = true;
     }
 
     @FXML

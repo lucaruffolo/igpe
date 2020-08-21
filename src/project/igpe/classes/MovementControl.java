@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.GUI.MenuIniziale;
+import project.igpe.GUI.Pausa;
 import project.igpe.main.Main;
 
 
@@ -104,6 +105,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case ESCAPE:
 				ripristinoGame=Main.window.getScene();				
 			 	Main.pauseGame();
+			 	Pausa.MenuPausaAttivo = true;
 		    	Sound.musicPause();
 		    	String openDoor = "src/project/igpe/sounds/menupausa.wav";
 				Effects.setEffects(openDoor);
@@ -115,6 +117,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
 				Scene menuPausa = new Scene(root, 1270, 900);	
 				Main.window.setScene(menuPausa);
+				Main.window.centerOnScreen();
 				Sound.musicStart();	  
 				break;					
 			default:

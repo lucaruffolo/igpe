@@ -65,7 +65,7 @@ public class DeathScene {
     @FXML
     void CickBttDetails(ActionEvent event) {
     	String sesso;
-    	if (!Hero.getSex())
+    	if (!SceltaDelPersonaggio.eroe.getSex())
     		sesso = "Maschio";
     	else
     		sesso = "Femmina";    	

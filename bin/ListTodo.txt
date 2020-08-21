@@ -6,8 +6,9 @@ Reparto codice manca:
 	# Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 ) Controllare se funziona MOVEMENT
 	- Creazione mappe statiche 5 stanza chiave - 6 stanza boss 
 	- spawn chiave random in una stanza stabilita 
-	- settare heart(recupera vita) id 10 lato codice
+	- settare lato map.txt heart(recupera vita) id 10 lato codice
 	- Sistemare pistola hero
+	- Sistemare animazioni hero
 	- Aggiungere nemici (che sparano e si muovono)
 	- Sistemare gameloop lag
 	- Aggiungere menu online/locale/arena
@@ -35,17 +36,11 @@ Reparto musica pierpy:
 Reparto grafico manca:
 
 	- Togliere ostacoli di danno e di blocco dal background della mappa {NON TOGLIERE FALLINGDOWN} ( Aggiunta funzione che disegna il canvas direttamente l'ostacolo)
-	- mappe di gioco grafico (MURO - OSTACOLO - TERRENO - PORTE)
-	- i 2 personaggi masc e femm = 4 movimenti (con arma)  + 3 quando subisci danno (con arma) 	
-	- schermata inziale + tutti i menu 
-	- possibile nemico
-	- possibile BOSS
+	- Animazioni HERO maschio/femmina
+	- Completare tutte le grafiche dei menu rimasti 
+	- possibile nemico con le sue animazioni
+	- possibile BOSS con le sue animazioni
 	- chiave
 	- video credits	
 	- Schermata caricamento (Tutorial tasti how2play) barra di caricamento tipo trackmania?		
-	- movimenti pg nemici boss
-
-	
-	
-	
 	

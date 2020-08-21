@@ -37,8 +37,9 @@ public class MenuIniziale {
 	    	
 	    	FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("SceltaDelPersonaggio.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
 			AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
-			Scene menuSceltaPersonaggio = new Scene(root, 1024,720); 
+			Scene menuSceltaPersonaggio = new Scene(root, 1024,720);
 			Main.window.setScene(menuSceltaPersonaggio);	
+			Main.window.centerOnScreen();
 	    }
 	    
 	    @FXML
@@ -48,6 +49,7 @@ public class MenuIniziale {
 			AnchorPane root = (AnchorPane) loader.load(); 
 			Scene menuImpostazioni = new Scene(root, 1024,720);
 			Main.window.setScene(menuImpostazioni);
+			Main.window.centerOnScreen();
 	    }
 	    
 	    @FXML
@@ -63,6 +65,7 @@ public class MenuIniziale {
 			AnchorPane root = (AnchorPane) loader.load(); 
 			Scene crediti = new Scene(root, 1024,720); 
 			Main.window.setScene(crediti);
+			Main.window.centerOnScreen();
 	    }
 	
 

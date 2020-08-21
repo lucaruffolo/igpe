@@ -1,5 +1,7 @@
 package project.igpe.GUI;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,8 +44,7 @@ public class Options {
 
     @FXML
     private Button bttBack;
-    
-    
+        
     @FXML
     public void initialize() {
     	//save per gli effects
@@ -106,14 +107,34 @@ public class Options {
 
     @FXML
     void ClickFullscreen(ActionEvent event) {
+    	
+    	if (bttFullscreen.isSelected()) {
+    		Main.window.setFullScreen(true);
+    	}
+    	else {
+    		Main.window.setFullScreen(false);
+    	}
+    			
     }
 
     @FXML
     void ClickBack(ActionEvent event) throws Exception {
-    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("MenuIniziale.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
-		AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
-		Scene menuIniziale = new Scene(root, 1024,720); 
-		Main.window.setScene(menuIniziale);
+    	
+    	if (!Pausa.MenuPausaAttivo) {
+	    	FXMLLoader loader = new FXMLLoader(Options.class.getResource("MenuIniziale.fxml"));  //prendiamo il file dalla classe che è legata all'interfaccia
+			AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
+			Scene menuIniziale = new Scene(root, 1024,720); 
+			Main.window.setScene(menuIniziale);
+			Main.window.centerOnScreen();
+    	} else {
+    		
+    		FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("Pausa.fxml"));  
+			AnchorPane root = null;
+			try { root = (AnchorPane) loader.load(); } catch (IOException e1) {	e1.printStackTrace();}
+			Scene menuPausa = new Scene(root, 1270, 900);	
+			Main.window.setScene(menuPausa);
+			Main.window.centerOnScreen();
+    	}
     }    
 
 }
