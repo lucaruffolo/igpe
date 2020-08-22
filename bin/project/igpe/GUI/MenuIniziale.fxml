@@ -38,6 +38,11 @@
                   <Font size="19.0" />
                </font></Button>
             <Button fx:id="Credits" focusTraversable="false" layoutX="358.0" layoutY="497.0" mnemonicParsing="false" onAction="#ClickCredits" prefHeight="56.0" prefWidth="205.0" stylesheets="@button.css" text="CREDITI" />
+            <Button fx:id="ScoreBoard" focusTraversable="false" layoutX="26.0" layoutY="332.0" mnemonicParsing="false" onAction="#ClickScoreBoard" prefHeight="56.0" prefWidth="230.0" stylesheets="@button.css" text="CLASSIFICA">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
