@@ -23,6 +23,8 @@ public class Hero {
 	public static int velY = 0;
 	public static int dirHero = 3;
 	private static List<Bullet> contenitoreBullets;
+	public static int counterShoot = 0;
+
 	public static boolean lockRight = false;
 	public static boolean lockLeft = false;
 	public static boolean lockUp = false;
@@ -125,6 +127,7 @@ public class Hero {
 		life = 100;
 		x=Settings.x/2;
 		y=Settings.y/2;
+		counterShoot = 0;
 	}
 	
 	public static void ResetPosition () {
@@ -155,6 +158,7 @@ public class Hero {
 
 
 		Bullet bullet =  new Bullet(x, y, Movement.getDir());
+		counterShoot++;
 		contenitoreBullets.add(bullet);
 	}
 
@@ -177,7 +181,7 @@ public class Hero {
 		Hero.name = nome;
 	}
 
-	public Boolean getSex() {
+	public static Boolean getSex() {
 		return sex;
 	}
 

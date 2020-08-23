@@ -1,6 +1,9 @@
 package project.igpe.GUI;
 
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,10 +47,18 @@ public class DeathScene {
 		Effects.setEffects(ripSong);
 		Effects.modifyVolumeEffetcs(0.05);
 		Effects.EffectsStart();	
-		Hero.TimeEndPlayed = System.currentTimeMillis();    		
+		Hero.TimeEndPlayed = System.currentTimeMillis();   
+		long s = Hero.TimeEndPlayed-Hero.TimeStartPlayed;
+    	int z = (int) (s/1000);
+    	z = z/60;
+    	WriteScoreBoard(z);
 
     }
-
+    private static void WriteScoreBoard(int time) throws Exception {
+    	BufferedWriter writer = new BufferedWriter(new FileWriter("src/project/igpe/GUI/scoreboard.txt", true));
+		writer.append(System.lineSeparator() + Hero.getName() + ";" + Hero.getSex() + ";" + "0" + ";" + Hero.counterShoot + ";" +  time);
+		writer.close();
+	}
     @FXML
     void ClickBttMenu(ActionEvent event) throws Exception {
     	
@@ -65,7 +76,7 @@ public class DeathScene {
     @FXML
     void CickBttDetails(ActionEvent event) {
     	String sesso;
-    	if (!SceltaDelPersonaggio.eroe.getSex())
+    	if (!Hero.getSex())
     		sesso = "Maschio";
     	else
     		sesso = "Femmina";    	
@@ -88,6 +99,7 @@ public class DeathScene {
     	textAreaDetails.setText("Nome: " + Hero.getName() + "\n" +
     							"Sesso: " + sesso + "\n" +
     							"Nemici uccisi: " + " 0 " + "\n" +
+    							"Colpi Sparati: "+ Hero.counterShoot + "\n" +
     							"Tempo di gioco: " + z + tempo);
     	Thread t = new Thread(task);
     	t.setDaemon(true);

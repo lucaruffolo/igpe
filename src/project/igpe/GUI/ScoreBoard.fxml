@@ -17,11 +17,11 @@
       </Label>
       <TableView fx:id="Table" layoutX="164.0" layoutY="133.0" prefHeight="504.0" prefWidth="751.0">
         <columns>
-          <TableColumn fx:id="clmNameHero" prefWidth="190.0" text="Nome Hero" />
-          <TableColumn fx:id="clmSexHero" prefWidth="110.0" text="Sesso" />
-            <TableColumn fx:id="clmKillEnemy" prefWidth="150.0" text="Nemici Uccisi" />
-            <TableColumn fx:id="clmAmmoShoot" prefWidth="150.0" text="Colpi Sparati" />
-            <TableColumn fx:id="clmTimePlayed" prefWidth="147.0" text="Tempo Di Gioco" />
+          <TableColumn fx:id="clmNameHero" prefWidth="180.0" text="Nome Hero" />
+          <TableColumn fx:id="clmSexHero" prefWidth="120.0" text="Sesso" />
+            <TableColumn fx:id="clmKillEnemy" prefWidth="140.0" text="Nemici Uccisi" />
+            <TableColumn fx:id="clmAmmoShoot" prefWidth="140.0" text="Colpi Sparati" />
+            <TableColumn fx:id="clmTimePlayed" prefWidth="169.0" text="Tempo Di Gioco in Minuti" />
         </columns>
       </TableView>
       <Button fx:id="bttReset" layoutX="854.0" layoutY="671.0" mnemonicParsing="false" onAction="#clickReset" stylesheets="@buttonIndietro.css" text="Azzera Classifica" />

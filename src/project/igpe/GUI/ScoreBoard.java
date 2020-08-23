@@ -100,7 +100,7 @@ public class ScoreBoard implements Initializable{
 			    	 
 			    	 t1.setKill(tok.nextToken());
 			    	 t1.setShoot(tok.nextToken());
-			    	 t1.setTimePlayed(tok.nextToken());
+			    	 t1.setTimePlayed(tok.nextToken());			        
 			    	 
 			    	 arrayPlayer.add(t1);
 			     }

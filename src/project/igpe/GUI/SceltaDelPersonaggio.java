@@ -114,7 +114,7 @@ public class SceltaDelPersonaggio {
 		
 			eroe.setName(textName.getText());
 			eroe.setSex(sesso);
-			GraphicHero.selectSex(eroe.getSex());
+			GraphicHero.selectSex(Hero.getSex());
 			
 			Hero.resetHero();
 
