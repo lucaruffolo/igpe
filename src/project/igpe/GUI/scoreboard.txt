@@ -1,11 +1,4 @@
-username1;ISBN1;Title1;Author1;Publisher1;2018
-username1;ISBN2;Title2;Author2;Publisher2;2015
-username1;ISBN3;Title3;Author3;Publisher3;2011
-username2;ISBN1;Title1;Author1;Publisher1;2018
-username2;ISBN2;Title2;Author2;Publisher2;2015
-username3;ISBN3;Title3;Author3;Publisher3;2011
-username3;ISBN1;Title1;Author1;Publisher1;2018
-username3;ISBN2;Title2;Author2;Publisher2;2015
-username4;ISBN1;Title1;Author1;Publisher1;2018
-username2;ISBN3;Title3;Author3;Publisher3;2011
-username1;ISBN5;Title5;Author5;Publisher5;2019
+Giuampepp;false;0;1;2
+test1;false;22;0;2
+sofikino;true;15;0;2
+tes2t3;false;3;5;2

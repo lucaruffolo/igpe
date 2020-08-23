@@ -1,62 +1,70 @@
 package project.igpe.GUI;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class ScoreBoardData {
 
-	private String nameHero;
-	private Boolean sex;
-	private int kill;
-	private int shoot;
-	private int timePlayed;
+	private SimpleStringProperty nameHero;
+	private SimpleStringProperty sex;
+	private SimpleStringProperty kill;
+	private SimpleStringProperty shoot;
+	private SimpleStringProperty timePlayed;
 	
-	public ScoreBoardData(String nameHero, Boolean sex, int kill, int shoot, int timePlayed) {
+	public ScoreBoardData(String nameHero, String sex, String kill, String shoot, String timePlayed) {
 		super();
-		this.nameHero = nameHero;
-		this.sex = sex;
-		this.kill = kill;
-		this.shoot = shoot;
-		this.timePlayed = timePlayed;
+		this.nameHero = new SimpleStringProperty(nameHero);
+		this.sex = new SimpleStringProperty(sex);
+		this.kill = new SimpleStringProperty(kill);
+		this.shoot = new SimpleStringProperty(shoot);
+		this.timePlayed = new SimpleStringProperty(timePlayed);
 	}
+	/*
+	public String toString() {
+        return getNameHero() + ";" + getSex()  + ";" + getKill() + ";" + getShoot() + ";" + getTimePlayed();
+    }*/
+
+	public ScoreBoardData() {}
 
 	public String getNameHero() {
-		return nameHero;
+		return nameHero.get();
+	}
+
+	public String getSex() {
+		return sex.getValue();
+	}
+
+	public String getKill() {
+		return kill.get();
+	}
+
+	public String getShoot() {
+		return shoot.get();
+	}
+
+	public String getTimePlayed() {
+		return timePlayed.get();
 	}
 
 	public void setNameHero(String nameHero) {
-		this.nameHero = nameHero;
+		this.nameHero = new SimpleStringProperty(nameHero);
 	}
 
-	public Boolean getSex() {
-		return sex;
+	public void setSex(String sex) {
+		this.sex = new SimpleStringProperty(sex);
+
 	}
 
-	public void setSex(Boolean sex) {
-		this.sex = sex;
+	public void setKill(String kill) {
+		this.kill = new SimpleStringProperty(kill);
 	}
 
-	public int getKill() {
-		return kill;
+	public void setShoot(String shoot) {
+		this.shoot = new SimpleStringProperty(shoot);
 	}
 
-	public void setKill(int kill) {
-		this.kill = kill;
+	public void setTimePlayed(String timePlayed) {
+		this.timePlayed = new SimpleStringProperty(timePlayed);
 	}
 
-	public int getShoot() {
-		return shoot;
-	}
-
-	public void setShoot(int shoot) {
-		this.shoot = shoot;
-	}
-
-	public int getTimePlayed() {
-		return timePlayed;
-	}
-
-	public void setTimePlayed(int timePlayed) {
-		this.timePlayed = timePlayed;
-	}
-	
-	
 	
 }
