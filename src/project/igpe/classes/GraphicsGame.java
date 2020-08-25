@@ -25,11 +25,14 @@ public class GraphicsGame extends StackPane{
 	private static Movement movimento;
 	private static Image[] imagesObstacle;
 	private static Image heart;
+	private static Image weapon;
+
 	public static int nRandObstacles = 0; 
 	
 	public GraphicsGame(Movement movimentox) {
 		
 		heart = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "heart.gif"));
+		weapon = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "pistol.gif"));
 
 	
 		imagesObstacle = new Image[] {		
@@ -184,9 +187,11 @@ public class GraphicsGame extends StackPane{
 		
 		if (Hero.getDirHero() == Hero.MOVE_DOWN) {
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-			dirPistol(Hero.getDirHero());
+			if (Hero.takePistol)
+				dirPistol(Hero.getDirHero());
 		} else {
-			dirPistol(Hero.getDirHero());
+			if (Hero.takePistol)
+				dirPistol(Hero.getDirHero());
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
 		}
 		
@@ -204,26 +209,24 @@ public class GraphicsGame extends StackPane{
 		if (Hero.getLife()<34)
 				canvas.getGraphicsContext2D().setFill(Color.RED);		
 		
-		canvas.getGraphicsContext2D().fillRect(45, 25, Hero.getLife()*2, 30); //Hero.getLife()*2 perchè barra lunga 200
-		
+		canvas.getGraphicsContext2D().fillRect(45, 25, Hero.getLife()*2, 30); //Hero.getLife()*2 perchè barra lunga 200	
 		
 		// TESTO
 		canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
 		Font font = new Font("Verdana", 20);
 		canvas.getGraphicsContext2D().setFont(font);
-		canvas.getGraphicsContext2D().fillText("Vita: " + (int) Hero.getLife() + "%", 100, 50);		
-		
-		//FINE HEALTH BAR
-	
+		canvas.getGraphicsContext2D().fillText("Vita: " + (int) Hero.getLife() + "%", 100, 50);				
+		//---------FINE HEALTH BAR
 		
 		// Contatore bulletsHero
-		canvas.getGraphicsContext2D().setFill(Color.GREEN);
-		canvas.getGraphicsContext2D().setFont(font);
-		canvas.getGraphicsContext2D().fillText("Colpi Rimanenti: " + (Bullet.maxAmmo-Bullet.heroAmmo), 45, 100);
+		if (Hero.takePistol) {
+			canvas.getGraphicsContext2D().setFill(Color.GREEN);
+			canvas.getGraphicsContext2D().setFont(font);
+			canvas.getGraphicsContext2D().fillText("Colpi Rimanenti: " + (Bullet.maxAmmo-Bullet.heroAmmo), 45, 100);
+		}
 		
 		// bullets Hero
 		for(Bullet b:Hero.getContenitoreBullets()) {
-			//if direzione player SX = ->
 			canvas.getGraphicsContext2D().drawImage(b.getImgBullet(), b.getPosX(), b.getPosY(), Settings.block,Settings.block);
 		}
 		
@@ -235,18 +238,16 @@ public class GraphicsGame extends StackPane{
 				case Cell.OBSTACLE:
 					canvas.getGraphicsContext2D().setFill(Color.BLUE);
 					canvas.getGraphicsContext2D().drawImage(imagesObstacle[nRandObstacles], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize(), Hero.getSize());
-				//	canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
-					break;		
-/*				case Cell.DOOR:
-					canvas.getGraphicsContext2D().setFill(Color.YELLOW);
-					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
-					break;	
-	*/			case Cell.OBSTACLEDAMAGE:
+					break;			
+				case Cell.OBSTACLEDAMAGE: //Da Disegnare OBJ
 					canvas.getGraphicsContext2D().setFill(Color.RED);
 					canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
 					break;
 				case Cell.HEART:
 					canvas.getGraphicsContext2D().drawImage(heart, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 50, 42);						
+					break;
+				case Cell.PISTOL:
+					canvas.getGraphicsContext2D().drawImage(weapon, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 90, 80);						
 					break;
 				default:
 					break;					

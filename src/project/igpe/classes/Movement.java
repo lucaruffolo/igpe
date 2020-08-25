@@ -75,7 +75,17 @@ public class Movement {
 		checkDoor(x, y);
 		collisionDamage(x, y);
 		collisionHeart(x, y);
+		collisionPistol(x, y);
+
 		
+	}
+	public static void collisionPistol(int newX, int newY) {
+		
+		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.PISTOL) {		
+			Hero.takePistol = true;
+			room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella heart
+				
+		}
 	}
 	
 	public static void collisionHeart(int newX, int newY) {

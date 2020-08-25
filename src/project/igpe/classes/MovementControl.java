@@ -97,9 +97,11 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				System.out.println(Movement.pixelInMatrixX(Hero.getX())+" . "+ Movement.pixelInMatrixY(Hero.getY()));
 				break;
 			case SPACE:
-				if (Bullet.heroAmmo < Bullet.maxAmmo) {
-					Hero.shoot();
-					Bullet.heroAmmo++;
+				if (Hero.takePistol) {
+					if (Bullet.heroAmmo < Bullet.maxAmmo) {
+						Hero.shoot();
+						Bullet.heroAmmo++;
+					}
 				}
 				break;
 			case ESCAPE:

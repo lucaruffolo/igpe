@@ -32,6 +32,8 @@ public class Hero {
 	public static long TimeStartPlayed = 0;
 	public static long TimeEndPlayed = 0;
 
+	public static boolean takePistol = false;
+
 	public Hero() {
 		name = "nome";
 		sex = false;
@@ -128,6 +130,7 @@ public class Hero {
 		x=Settings.x/2;
 		y=Settings.y/2;
 		counterShoot = 0;
+		takePistol = false;
 	}
 	
 	public static void ResetPosition () {
