@@ -61,11 +61,8 @@ public class Movement {
 			Hero.resetHeroLockMove();
 		}
 		
-		
 		GraphicHero.setImgDir(direction);
-		GraphicHero.setImgPistolDir(direction);
-
-		
+		GraphicHero.setImgPistolDir(direction);		
 	
 	}
 	
@@ -106,11 +103,12 @@ public class Movement {
 	//Controllo PORTA
 	public static void checkDoor (int newPosX, int newPosY) {
 		
-		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
-	
+		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {			
+
+			Main.GameInPause = true;	
 			MovementControl.setRipristinoGame(Main.window.getScene());
 			try { 
-				ChangeRoomScene.changeRoom();
+					ChangeRoomScene.changeRoom();
 				} catch (Exception e) {	e.printStackTrace();}
 			
 			checkMap(); // funzione controllo hasmap
@@ -141,6 +139,9 @@ public class Movement {
 
 			GraphicsGame.setFirstRoom(false);
 		}
+	
+	
+		
 	}
 	// INIZIO COLLISIONI
 	

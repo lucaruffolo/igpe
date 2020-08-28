@@ -32,6 +32,7 @@ public class ChangeRoomScene {
 		AnchorPane root = (AnchorPane) loader.load();
 		Scene changeRoom = new Scene(root, 1270,899); 
 		Main.window.setScene(changeRoom);
+		
 		String ladderEffect = "src/project/igpe/sounds/cambio_stanza.wav";
 		Effects.setEffects(ladderEffect);
 		Effects.modifyVolumeEffetcs(0.05);

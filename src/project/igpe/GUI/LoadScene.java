@@ -49,7 +49,6 @@ public class LoadScene{
 		
 			@Override
 			public void handle(WorkerStateEvent event) {
-				// TODO Auto-generated method stub
 				textPressToContinue.setOpacity(1);
 				ready=true;
 			}
@@ -66,7 +65,6 @@ public class LoadScene{
 			while(Settings.valueOfProgressBar <= 1) {
 				Settings.valueOfProgressBar += 0.005;
 				ProgressBar.setProgress(Settings.valueOfProgressBar);
-				//System.out.println(Settings.valueOfProgressBar);
 				Thread.sleep(10);
 			}
 			return null;
