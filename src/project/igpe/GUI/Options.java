@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
@@ -26,9 +25,6 @@ public class Options {
 
 	@FXML
     private Slider sliderMusic;
-
-    @FXML
-    private CheckBox bttFullscreen;
 
     @FXML
     private Label lblEffects;
@@ -104,7 +100,7 @@ public class Options {
     	Sound.modifyVolume(valoreVolume);
     	Settings.AudioMusic = valore;
     }
-
+/*
     @FXML
     void ClickFullscreen(ActionEvent event) {
     	
@@ -115,7 +111,7 @@ public class Options {
     		Main.window.setFullScreen(false);
     	}
     			
-    }
+    }*/
 
     @FXML
     void ClickBack(ActionEvent event) throws Exception {

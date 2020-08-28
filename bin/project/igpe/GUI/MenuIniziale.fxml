@@ -12,12 +12,12 @@
    <children>
       <ImageView fitHeight="720.0" fitWidth="1024.0">
          <image>
-            <Image url="@../images/menu.png" />
+            <Image url="@../images/menu/sfondoMenu.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="-141.0" layoutY="-225.0" prefHeight="720.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="Title" layoutX="283.0" layoutY="110.0" prefHeight="101.0" prefWidth="459.0" text="Titolo Project" textFill="#dd0c0c" AnchorPane.bottomAnchor="492.0" AnchorPane.topAnchor="-10.0">
+            <Label fx:id="Title" layoutX="283.0" layoutY="-35.0" prefHeight="101.0" prefWidth="459.0" text="Titolo Project" textFill="#4a4a4a" AnchorPane.bottomAnchor="517.0" AnchorPane.topAnchor="-35.0">
                <font>
                   <Font name="Monotype Corsiva" size="93.0" />
                </font>
@@ -38,7 +38,7 @@
                   <Font size="19.0" />
                </font></Button>
             <Button fx:id="Credits" focusTraversable="false" layoutX="358.0" layoutY="497.0" mnemonicParsing="false" onAction="#ClickCredits" prefHeight="56.0" prefWidth="205.0" stylesheets="@button.css" text="CREDITI" />
-            <Button fx:id="ScoreBoard" focusTraversable="false" layoutX="26.0" layoutY="332.0" mnemonicParsing="false" onAction="#ClickScoreBoard" prefHeight="56.0" prefWidth="230.0" stylesheets="@button.css" text="CLASSIFICA">
+            <Button fx:id="ScoreBoard" focusTraversable="false" layoutX="22.0" layoutY="364.0" mnemonicParsing="false" onAction="#ClickScoreBoard" prefHeight="56.0" prefWidth="205.0" stylesheets="@button.css" text="CLASSIFICA">
                <font>
                   <Font size="18.0" />
                </font>

@@ -185,7 +185,39 @@ public class GraphicsGame extends StackPane{
 		if (Hero.getDirHero() == Hero.MOVE_DOWN)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-10, Hero.getY()+20, Hero.getSize()+20, Hero.getSize()+20);
 	}
-	
+	/*
+	static Service<Void> service = new Service<Void>() { //animations
+		@Override
+		protected Task<Void> createTask() {
+			return new Task<Void>() {
+				
+				@Override
+				protected Void call() throws Exception {
+					if (transition) {
+						int value = 0;
+						while(value<= (Settings.x+100)) {
+							canvas.getGraphicsContext2D().setFill(Color.BLACK);
+							canvas.getGraphicsContext2D().fillOval(Settings.x/2, Settings.y/2, value, value);
+							canvas.getGraphicsContext2D().fillOval(Settings.x/2-value, Settings.y/2, value, value);
+							canvas.getGraphicsContext2D().fillOval(Settings.x/2, Settings.y/2-value, value, value);
+							canvas.getGraphicsContext2D().fillOval(Settings.x/2-value, Settings.y/2-value, value, value);
+							//per togliere il cerchio fai un clean e disegni uno piu piccolo...
+							value += 1;
+							Thread.sleep(1);
+							System.out.println(value);
+						}
+						
+						System.out.println("finito disegno transition");
+						transition = false;
+						service.cancel();
+					}
+					return null;
+				} 
+			};
+			
+		}
+			
+	};*/
 	
 	public void draw() {	
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
