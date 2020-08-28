@@ -103,8 +103,8 @@ public class Movement {
 	//Controllo PORTA
 	public static void checkDoor (int newPosX, int newPosY) {
 		
-		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {			
-
+		if (door(pixelInMatrixX(newPosX), pixelInMatrixY(newPosY))) {
+					
 			Main.GameInPause = true;	
 			MovementControl.setRipristinoGame(Main.window.getScene());
 			try { 
@@ -211,7 +211,7 @@ public class Movement {
 	// FINE PIXEL IN MATRIX E VICEVERSA--------
 	
 	public static void checkMap () {
-		
+		GraphicsGame.nRandObstacles = (int) (2.0 * Math.random());
 		mappaAttuale=Maps.getIndiceMappe();
 		
 		HashMap<String, Integer> questaStanza = null;

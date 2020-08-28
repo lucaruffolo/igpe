@@ -24,6 +24,7 @@ public class GraphicsGame extends StackPane{
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
 	private static Image[] imagesObstacle;
+	private static Image[] imagesObstacleDamages;
 	private static Image heart;
 	private static Image weapon;
 
@@ -34,7 +35,11 @@ public class GraphicsGame extends StackPane{
 		heart = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "heart.gif"));
 		weapon = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "pistol.gif"));
 
-	
+		imagesObstacleDamages  = new Image[] {		
+				new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1dmg.gif")), 
+				new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs2dmg.gif")), 
+				new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1dmg.gif"))
+			};
 		imagesObstacle = new Image[] {		
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1.png")), 
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs2.png")), 
@@ -180,160 +185,82 @@ public class GraphicsGame extends StackPane{
 		if (Hero.getDirHero() == Hero.MOVE_DOWN)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-10, Hero.getY()+20, Hero.getSize()+20, Hero.getSize()+20);
 	}
-	/*
-	static Service<Void> service = new Service<Void>() {
-
-		@Override
-		protected Task<Void> createTask() {
-			return new Task<Void>() {
-				
-				@Override
-				protected Void call() throws Exception {
-					if (transition) {
-						int value = 0;
-						while(value<= (Settings.x+100)) {
-							canvas.getGraphicsContext2D().setFill(Color.BLACK);
-							canvas.getGraphicsContext2D().fillOval(Settings.x/2, Settings.y/2, value, value);
-							canvas.getGraphicsContext2D().fillOval(Settings.x/2-value, Settings.y/2, value, value);
-							canvas.getGraphicsContext2D().fillOval(Settings.x/2, Settings.y/2-value, value, value);
-							canvas.getGraphicsContext2D().fillOval(Settings.x/2-value, Settings.y/2-value, value, value);
-							
-							value += 1;
-							Thread.sleep(1);
-							System.out.println(value);
-						}
-						
-						System.out.println("finito disegno transition");
-						transition = false;
-						service.cancel();
-					}
-
-					return null;
-				} 
-			};
-			
-		}
-			
-	};
 	
-    	
-	public static void drawAnimation() {		
-		if (transition) {
-			if (service.getState().equals(State.READY) || service.getState().equals(State.SUCCEEDED)) // || service.getState().equals(State.SUCCEEDED))
-				service.restart();
-			
-			System.out.println(service.getState());
-		}
-	}
-	 /*
-	transition = true;
-	Main.GameInPause = true;
-	Thread t = new Thread(taskAnimTransition);
-	t.setDaemon(true);
-	t.start();*/  
-	/*
-	public static void drawAnimation() {
+	
+	public void draw() {	
+		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+		if (Hero.getDirHero() == Hero.MOVE_DOWN) {
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+			if (Hero.takePistol)
+				dirPistol(Hero.getDirHero());
+		}else if (Hero.getDirHero() == Hero.MOVE_RIGHT) {
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+			if (Hero.takePistol)
+				dirPistol(Hero.getDirHero());
+		} else {
+			if (Hero.takePistol)
+				dirPistol(Hero.getDirHero());
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+		}				
 		
-		transition = true;
-		Main.GameInPause = true;
-		Thread t = new Thread(taskAnimTransition);
-		t.setDaemon(true);
-		t.start();  
-	}
-	
-	public static Task<Void> taskAnimTransition = new Task<Void>() {    	
-		@Override
-		protected Void call() throws Exception {
-			int value = 0;
-			while(value<= Settings.x+100) {
-				canvas.getGraphicsContext2D().setFill(Color.BLACK);
-				canvas.getGraphicsContext2D().fillOval(Settings.x/2, Settings.y/2, value, value);
-				canvas.getGraphicsContext2D().fillOval(Settings.x/2-value, Settings.y/2, value, value);
-				canvas.getGraphicsContext2D().fillOval(Settings.x/2, Settings.y/2-value, value, value);
-				canvas.getGraphicsContext2D().fillOval(Settings.x/2-value, Settings.y/2-value, value, value);
+		// HEALTH BAR
+		//Background Vita
+		canvas.getGraphicsContext2D().setFill(Color.BLACK);
+		canvas.getGraphicsContext2D().fillRect(40, 20, 210, 40);
 				
-				value += 3;
-				Thread.sleep(5);
-			}
-			System.out.println("finito disegno transition");
-			return null;
-		}			
-	};  
-		*/
-	public static boolean transition = false;
-	
-	public void draw() {		
-	//	if (!transition) {
-			canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-	
-			if (Hero.getDirHero() == Hero.MOVE_DOWN) {
-				canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-				if (Hero.takePistol)
-					dirPistol(Hero.getDirHero());
-			} else {
-				if (Hero.takePistol)
-					dirPistol(Hero.getDirHero());
-				canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-			}				
-			
-			// HEALTH BAR
-			//Background Vita
-			canvas.getGraphicsContext2D().setFill(Color.BLACK);
-			canvas.getGraphicsContext2D().fillRect(40, 20, 210, 40);
-					
-			if (Hero.getLife()>67)
-				canvas.getGraphicsContext2D().setFill(Color.LIME);
-			if (Hero.getLife()<66)
-				canvas.getGraphicsContext2D().setFill(Color.YELLOW);
-			if (Hero.getLife()<34)
-				canvas.getGraphicsContext2D().setFill(Color.RED);		
-			
-			canvas.getGraphicsContext2D().fillRect(45, 25, Hero.getLife()*2, 30); //Hero.getLife()*2 perchè barra lunga 200	
-			
-			// TESTO
-			canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
-			Font font = new Font("Verdana", 20);
+		if (Hero.getLife()>67)
+			canvas.getGraphicsContext2D().setFill(Color.LIME);
+		if (Hero.getLife()<66)
+			canvas.getGraphicsContext2D().setFill(Color.YELLOW);
+		if (Hero.getLife()<34)
+			canvas.getGraphicsContext2D().setFill(Color.RED);		
+		
+		canvas.getGraphicsContext2D().fillRect(45, 25, Hero.getLife()*2, 30); //Hero.getLife()*2 perchè barra lunga 200	
+		
+		// TESTO
+		canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+		Font font = new Font("Verdana", 20);
+		canvas.getGraphicsContext2D().setFont(font);
+		canvas.getGraphicsContext2D().fillText("Vita: " + (int) Hero.getLife() + "%", 100, 50);				
+		//---------FINE HEALTH BAR
+		
+		// Contatore bulletsHero
+		if (Hero.takePistol) {
+			canvas.getGraphicsContext2D().setFill(Color.GREEN);
 			canvas.getGraphicsContext2D().setFont(font);
-			canvas.getGraphicsContext2D().fillText("Vita: " + (int) Hero.getLife() + "%", 100, 50);				
-			//---------FINE HEALTH BAR
-			
-			// Contatore bulletsHero
-			if (Hero.takePistol) {
-				canvas.getGraphicsContext2D().setFill(Color.GREEN);
-				canvas.getGraphicsContext2D().setFont(font);
-				canvas.getGraphicsContext2D().fillText("Colpi Rimanenti: " + (Bullet.maxAmmo-Bullet.heroAmmo), 45, 100);
-			}
-			
-			// bullets Hero
-			for(Bullet b:Hero.getContenitoreBullets()) {
-				canvas.getGraphicsContext2D().drawImage(b.getImgBullet(), b.getPosX(), b.getPosY(), Settings.block,Settings.block);
-			}
-			
-			
-			
-			for (int i = 0; i < Settings.xMatrix; i++) {
-				for (int j = 0; j < Settings.yMatrix; j++) {				
-					switch (movimento.getRoom().getCella()[i][j].getType()) {						
-					case Cell.OBSTACLE:
-						canvas.getGraphicsContext2D().setFill(Color.BLUE);
-						canvas.getGraphicsContext2D().drawImage(imagesObstacle[nRandObstacles], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize(), Hero.getSize());
-						break;			
-					case Cell.OBSTACLEDAMAGE: //Da Disegnare OBJ
-						canvas.getGraphicsContext2D().setFill(Color.RED);
-						canvas.getGraphicsContext2D().fillRect(Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Settings.block*1, Settings.block*1);						
-						break;
-					case Cell.HEART:
-						canvas.getGraphicsContext2D().drawImage(heart, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 50, 42);						
-						break;
-					case Cell.PISTOL:
-						if (!Hero.takePistol)
-							canvas.getGraphicsContext2D().drawImage(weapon, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 90, 80);						
-						break;
-					default:
-						break;					
-					}
+			canvas.getGraphicsContext2D().fillText("Colpi Rimanenti: " + (Bullet.maxAmmo-Bullet.heroAmmo), 45, 100);
+		}
+		
+		// bullets Hero
+		for(Bullet b:Hero.getContenitoreBullets()) {
+			canvas.getGraphicsContext2D().drawImage(b.getImgBullet(), b.getPosX(), b.getPosY(), Settings.block,Settings.block);
+		}
+		
+		
+		
+		for (int i = 0; i < Settings.xMatrix; i++) {
+			for (int j = 0; j < Settings.yMatrix; j++) {				
+				switch (movimento.getRoom().getCella()[i][j].getType()) {						
+				case Cell.OBSTACLE:
+					canvas.getGraphicsContext2D().drawImage(imagesObstacle[nRandObstacles], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize()+10, Hero.getSize()+10);
+					break;			
+				case Cell.OBSTACLEDAMAGE:
+					//canvas.getGraphicsContext2D().setFill(Color.RED);
+					canvas.getGraphicsContext2D().drawImage(imagesObstacleDamages[nRandObstacles], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize()+10, Hero.getSize()+10);
+					break;
+				case Cell.HEART:
+					canvas.getGraphicsContext2D().drawImage(heart, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 50, 42);						
+					break;
+				case Cell.PISTOL:
+					if (!Hero.takePistol)
+						canvas.getGraphicsContext2D().drawImage(weapon, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 90, 80);						
+					break;
+				default:
+					break;					
 				}
 			}
+		}
 	}
 	
 	public Canvas getCanvas() {
