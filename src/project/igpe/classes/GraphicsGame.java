@@ -179,13 +179,14 @@ public class GraphicsGame extends StackPane{
 		if (Hero.getDirHero() == Hero.MOVE_LEFT)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-40, Hero.getY()-10, Hero.getSize()+20, Hero.getSize()+20);
 		if (Hero.getDirHero() == Hero.MOVE_RIGHT)
-			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()+25, Hero.getY()-10, Hero.getSize()+20, Hero.getSize()+20);
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()+37, Hero.getY()-5, Hero.getSize()+20, Hero.getSize()+20);
 		if (Hero.getDirHero() == Hero.MOVE_UP)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-10, Hero.getY()-40, Hero.getSize()+20, Hero.getSize()+20);
 		if (Hero.getDirHero() == Hero.MOVE_DOWN)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-10, Hero.getY()+20, Hero.getSize()+20, Hero.getSize()+20);
 	}
 	/*
+	 * ANIMAZIONE SWITCH SCENE/DOOR
 	static Service<Void> service = new Service<Void>() { //animations
 		@Override
 		protected Task<Void> createTask() {

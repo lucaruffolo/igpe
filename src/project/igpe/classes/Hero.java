@@ -113,7 +113,7 @@ public class Hero {
 		return velX;
 	}
 
-	static void setVelX(int velX) {
+	static public void setVelX(int velX) {
 		Hero.velX = velX;
 	}
 

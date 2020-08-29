@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.net.*?>
 <?import javafx.scene.media.*?>
 <?import javafx.scene.text.*?>
@@ -9,19 +10,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.ScoreBoard">
    <children>
+      <ImageView fitHeight="720.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/menu/audio.png" />
+         </image>
+      </ImageView>
       <Button fx:id="bttBack" layoutX="40.0" layoutY="657.0" mnemonicParsing="false" onAction="#clickBack" stylesheets="@buttonIndietro.css" text="Torna Indietro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="870.0" AnchorPane.topAnchor="672.0" />
-      <Label layoutX="398.0" layoutY="25.0" text="CLASSIFICA">
+      <Label layoutX="291.0" layoutY="25.0" text="Classifica Hero">
          <font>
-            <Font name="Monotype Corsiva" size="55.0" />
+            <Font name="Monotype Corsiva" size="90.0" />
          </font>
       </Label>
-      <TableView fx:id="Table" layoutX="164.0" layoutY="133.0" prefHeight="504.0" prefWidth="751.0">
+      <TableView fx:id="Table" layoutX="145.0" layoutY="157.0" prefHeight="504.0" prefWidth="771.0">
         <columns>
           <TableColumn fx:id="clmNameHero" prefWidth="180.0" text="Nome Hero" />
           <TableColumn fx:id="clmSexHero" prefWidth="120.0" text="Sesso" />
             <TableColumn fx:id="clmKillEnemy" prefWidth="140.0" text="Nemici Uccisi" />
-            <TableColumn fx:id="clmAmmoShoot" prefWidth="140.0" text="Colpi Sparati" />
-            <TableColumn fx:id="clmTimePlayed" prefWidth="169.0" text="Tempo Di Gioco in Minuti" />
+            <TableColumn fx:id="clmAmmoShoot" prefWidth="163.0" text="Colpi Sparati" />
+            <TableColumn fx:id="clmTimePlayed" prefWidth="165.0" text="Tempo Di Gioco in Minuti" />
         </columns>
       </TableView>
       <Button fx:id="bttReset" layoutX="854.0" layoutY="671.0" mnemonicParsing="false" onAction="#clickReset" stylesheets="@buttonIndietro.css" text="Azzera Classifica" />

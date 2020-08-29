@@ -8,6 +8,7 @@ import project.igpe.GUI.MenuIniziale;
 import project.igpe.GUI.SceltaDelPersonaggio;
 import project.igpe.classes.GameLoop;
 import project.igpe.classes.GraphicsGame;
+import project.igpe.classes.Hero;
 import project.igpe.classes.Maps;
 import project.igpe.classes.Movement;
 import project.igpe.classes.Sound;
@@ -61,6 +62,9 @@ public class Main extends Application{
 	}
 
 	public static void pauseGame() {
+
+	 	Hero.setVelX(0);
+		Hero.setVelY(0);
 		GameInPause = true;
 		gl.stop();
 	}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.net.*?>
 <?import javafx.scene.media.*?>
 <?import javafx.scene.text.*?>
@@ -9,12 +10,17 @@
 
 <AnchorPane fx:id="anchorPaneCredits" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.igpe.GUI.Credits">
    <children>
+      <ImageView fitHeight="720.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/menu/credits.png" />
+         </image>
+      </ImageView>
       <Button fx:id="bttBack" layoutX="40.0" layoutY="657.0" mnemonicParsing="false" onAction="#clickBack" stylesheets="@buttonIndietro.css" text="Torna Indietro" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="870.0" AnchorPane.topAnchor="672.0" />
-      <Label fx:id="lblcredits" layoutX="398.0" layoutY="25.0" text="CREDITI...">
+      <Label fx:id="lblcredits" layoutX="392.0" layoutY="19.0" prefHeight="134.0" prefWidth="240.0" text="Crediti">
          <font>
-            <Font name="Monotype Corsiva" size="55.0" />
+            <Font name="Monotype Corsiva" size="93.0" />
          </font>
       </Label>
-      <MediaView fx:id="media" fitHeight="550.0" fitWidth="950.0" layoutX="37.0" layoutY="110.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="37.0" />
+      <MediaView fx:id="media" fitHeight="500.0" fitWidth="900.0" layoutX="62.0" layoutY="158.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="62.0" AnchorPane.topAnchor="158.0" />
    </children>
 </AnchorPane>

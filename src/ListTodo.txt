@@ -1,19 +1,21 @@
 /////// LISTA COSE DA FARE
 
+! URGENTE
+# FATTO CONCORDARE SE VA BENE
+- DA FARE
 
 Reparto codice manca:
 
-	# Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 ) Controllare se funziona MOVEMENT
+	! Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 ) Controllare se funziona MOVEMENT
 	- Creazione mappe statiche 5 stanza chiave - 6 stanza boss 
 	- spawn chiave random in una stanza stabilita 
 	- settare lato map.txt heart(recupera vita) id 10 lato codice
-	- Sistemare pistola hero
-	- Sistemare animazioni hero
+	# Sistemare pistola hero 
+	- Sistemare animazioni hero 
 	- Aggiungere nemici (che sparano e si muovono)
-	- Sistemare gameloop lag
 	- Aggiungere menu online/locale/arena
 			
-Reparto musica pierpy:
+Reparto musica:
 	
 	musica = mp3
 	effetti/suoni = waw
@@ -35,9 +37,9 @@ Reparto musica pierpy:
 
 Reparto grafico manca:
 
-	- Togliere ostacoli di danno e di blocco dal background della mappa {NON TOGLIERE FALLINGDOWN} ( Aggiunta funzione che disegna il canvas direttamente l'ostacolo)
+	# Togliere ostacoli di danno e di blocco dal background della mappa {NON TOGLIERE FALLINGDOWN} ( Aggiunta funzione che disegna il canvas direttamente l'ostacolo)
 	- Animazioni HERO maschio/femmina
-	- Completare tutte le grafiche dei menu rimasti 
+	# Completare tutte le grafiche dei menu rimasti {MANCA IL VIDEO CREDITS} 
 	- possibile nemico con le sue animazioni
 	- possibile BOSS con le sue animazioni
 	- chiave
