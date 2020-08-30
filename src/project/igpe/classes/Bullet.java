@@ -24,7 +24,7 @@ public class Bullet {
 	
 	public boolean alive;
 	public static int heroAmmo = 0;
-	
+	public static int damage = 10;
 	
 	public Bullet(int posX, int posY, int dir) {
 		super();
@@ -70,9 +70,16 @@ public class Bullet {
 				|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.FALLINGDOWN
 					|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.OBSTACLEDAMAGE
 						|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.PISTOL
-							|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.HEART)
+							|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.HEART)			
 			return true;
 		
+		if (Movement.room.getCellType(Movement.pixelInMatrixX(x+Settings.obstacleSize), Movement.pixelInMatrixY(y)) == Cell.ENEMY
+			|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y+Settings.obstacleSize)) == Cell.ENEMY
+				|| Movement.room.getCellType(Movement.pixelInMatrixX(x+Settings.obstacleSize), Movement.pixelInMatrixY(y+Settings.obstacleSize)) == Cell.ENEMY
+					|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.ENEMY) {
+				System.out.println("Nemico colpito");
+			GraphicsGame.nemico.setLife(GraphicsGame.nemico.getLife()-Bullet.damage);
+		}
 		return false;		
 	}
 

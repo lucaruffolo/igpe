@@ -27,7 +27,7 @@ public class GraphicsGame extends StackPane{
 	private static Image[] imagesObstacleDamages;
 	private static Image heart;
 	private static Image weapon;
-
+	public static Enemy nemico;
 	public static int nRandObstacles = 0; 
 	
 	public GraphicsGame(Movement movimentox) {
@@ -222,7 +222,8 @@ public class GraphicsGame extends StackPane{
 	
 	public void draw() {	
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
+		
+		//Disegno HERO con la sua Pistola
 		if (Hero.getDirHero() == Hero.MOVE_DOWN) {
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
 			if (Hero.takePistol)
@@ -236,6 +237,7 @@ public class GraphicsGame extends StackPane{
 				dirPistol(Hero.getDirHero());
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
 		}				
+		//Fine disegno Hero
 		
 		// HEALTH BAR
 		//Background Vita
@@ -288,6 +290,13 @@ public class GraphicsGame extends StackPane{
 				case Cell.PISTOL:
 					if (!Hero.takePistol)
 						canvas.getGraphicsContext2D().drawImage(weapon, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 90, 80);						
+					break;
+				case Cell.ENEMY: 
+					//if not kill					
+					
+						nemico = new Enemy(Movement.matrixInPixelX(i),Movement.matrixInPixelY(j));
+						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), nemico.getSize(), nemico.getSize());
+					
 					break;
 				default:
 					break;					
