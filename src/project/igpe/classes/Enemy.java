@@ -10,22 +10,24 @@ public class Enemy {
 	public final static int MOVE_UP = 2;
 	public final static int MOVE_DOWN = 3;
 	
+	
 	private int x;
 	private int y;
 	private int speed = 2;
-	private int life = 100;
+	private int life = 200;
 	public static int velX = 0;
 	public static int velY = 0;
-	public static int dirHero = 3;
+	public static int dirEnemy = 3;
+	public final static int damage = 5;
 	
-	private int size = 60;	
+	private static int size = 70;	
 	private static List<Bullet> contenitoreBullets;
 	
 	
 	public Enemy(int x, int y) {
 		this.x = x;
 		this.y = y;
-		life = 100;
+		life = 200;
 		contenitoreBullets = new ArrayList<Bullet>();
 	} 
 	
@@ -66,7 +68,7 @@ public class Enemy {
 		this.speed = speed;
 	}
 
-	public int getSize() {
+	public static int getSize() {
 		return size;
 	}
 

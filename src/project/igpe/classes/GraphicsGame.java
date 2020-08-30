@@ -293,10 +293,16 @@ public class GraphicsGame extends StackPane{
 					break;
 				case Cell.ENEMY: 
 					//if not kill					
-					
+					if (!EnemySpawn) {
 						nemico = new Enemy(Movement.matrixInPixelX(i),Movement.matrixInPixelY(j));
-						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), nemico.getSize(), nemico.getSize());
-					
+						EnemySpawn = true;
+						System.out.println("Spawno nemico");
+					}
+					if (nemico.getLife()>0)
+						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+10, Enemy.getSize()-10);
+					else {
+						Movement.room.setCellType(i, j, Cell.EMPTY);
+					}
 					break;
 				default:
 					break;					
@@ -304,6 +310,7 @@ public class GraphicsGame extends StackPane{
 			}
 		}
 	}
+	public static Boolean EnemySpawn = false; 
 	
 	public Canvas getCanvas() {
 		return canvas;

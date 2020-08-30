@@ -73,6 +73,7 @@ public class Movement {
 		collisionDamage(x, y);
 		collisionHeart(x, y);
 		collisionPistol(x, y);
+		collisionEnemy(x, y);
 
 		
 	}
@@ -162,6 +163,20 @@ public class Movement {
 				|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLE
 					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.OBSTACLE)
 							return true;
+					
+		return false;		
+	}
+	
+	public static boolean collisionEnemy(int newX, int newY) {
+		
+		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.ENEMY
+			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.ENEMY
+				|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.ENEMY
+					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.ENEMY) {
+			
+							Hero.setLife(Hero.getLife()-Enemy.damage);							
+							return true;
+		}
 					
 		return false;		
 	}
