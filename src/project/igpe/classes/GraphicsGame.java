@@ -285,6 +285,20 @@ public class GraphicsGame extends StackPane{
 						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+10, Enemy.getSize()-10);
 					else {
 						Movement.room.setCellType(i, j, Cell.EMPTY);
+						Hero.counterKill++;
+					}
+					if (nemico.getLife()>0) {
+						canvas.getGraphicsContext2D().setFill(Color.BLACK);
+						canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10,  200/3, 5); //200 Life Max enemy
+								
+						if (nemico.getLife()>132)
+							canvas.getGraphicsContext2D().setFill(Color.LIME);
+						if (nemico.getLife()<132)
+							canvas.getGraphicsContext2D().setFill(Color.YELLOW);
+						if (nemico.getLife()<66)
+							canvas.getGraphicsContext2D().setFill(Color.RED);		
+						
+						canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10, nemico.getLife()/3, 5); //Hero.getLife()*2 perchè barra lunga 200	
 					}
 					break;
 				default:
@@ -294,19 +308,7 @@ public class GraphicsGame extends StackPane{
 		}
 		
 		//Vita upper enemy
-		if (nemico.getLife()>0) {
-			canvas.getGraphicsContext2D().setFill(Color.BLACK);
-			canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10,  200/3, 5); //200 Life Max enemy
-					
-			if (nemico.getLife()>132)
-				canvas.getGraphicsContext2D().setFill(Color.LIME);
-			if (nemico.getLife()<132)
-				canvas.getGraphicsContext2D().setFill(Color.YELLOW);
-			if (nemico.getLife()<66)
-				canvas.getGraphicsContext2D().setFill(Color.RED);		
-			
-			canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10, nemico.getLife()/3, 5); //Hero.getLife()*2 perchè barra lunga 200	
-		}
+		
 		
 		//fine vita upper enemy
 		
