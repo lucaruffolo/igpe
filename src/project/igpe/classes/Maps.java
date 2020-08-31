@@ -13,7 +13,7 @@ public class Maps {
 	private static Cell[][] cella = new Cell[Settings.x][Settings.y];
 	
 	private static ArrayList<Integer> indexYetChoosen = new ArrayList<Integer>();
-	private static int indiceMappe=0;
+	private static int indiceMappe;
 
 	private static File firstRoomImg;
 	private static String firstRoomTxt;
@@ -57,6 +57,7 @@ public class Maps {
 		else {
 			try {
 				loadFirstRoom();
+				indexYetChoosen.add(indiceMappe);
 			} catch (Exception e) {
 				System.out.println("non carica metodo LoadFirstMap");
 				e.printStackTrace();
