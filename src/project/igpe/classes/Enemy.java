@@ -11,9 +11,9 @@ public class Enemy {
 	public final static int MOVE_DOWN = 3;
 	
 	
-	private int x;
-	private int y;
-	private int speed = 2;
+	private static int x;
+	private static int y;
+	private static int speed = 1;
 	private int life = 200;
 	public static int velX = 0;
 	public static int velY = 0;
@@ -24,18 +24,65 @@ public class Enemy {
 	private static List<Bullet> contenitoreBullets;
 	
 	
-	public Enemy(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public Enemy(int xx, int yy) {
+		x = xx;
+		y = yy;
 		life = 200;
 		contenitoreBullets = new ArrayList<Bullet>();
 	} 
+	public static int nRand = (int) (4.0 * Math.random());
 	
 	public static void moveEnemy() {
+
+	    moving(nRand);
 		
+		/*		
+		if (Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixX(y)) == Cell.EMPTY) {
+			Movement.room.setCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixX(y), Cell.ENEMY);
+		}
+		*/
 	}
 	
-	 
+
+	public static void moving (int dir) {
+		if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionHero(x, y)){
+	
+			if (dir == MOVE_RIGHT) {
+				x += speed;
+			}
+			if (dir == MOVE_LEFT) {
+				x -= speed;		
+			}
+			if (dir == MOVE_UP) {
+				y -= speed;
+			}
+			if (dir == MOVE_DOWN) {
+				y += speed;
+			}
+		}
+		else {
+			if (dir == MOVE_RIGHT) {
+				x -= speed;
+			}
+			if (dir == MOVE_LEFT) {
+				x += speed;
+			}
+			if (dir == MOVE_UP) {
+				y += speed;
+			}
+			if (dir == MOVE_DOWN) {
+				y -= speed;
+				
+			}
+			int direzione = nRand;		
+			while(nRand == direzione){				
+				System.out.println(nRand);
+				nRand = (int) (4.0 * Math.random());
+			}			
+						
+		}
+	}
+	
 	public static List<Bullet> getContenitoreBullets() {
 		return contenitoreBullets;
 	}
@@ -48,25 +95,22 @@ public class Enemy {
 		return x;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public void setX(int xx) {
+		x = xx;
 	}
 
 	public int getY() {
 		return y;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+	public void setY(int yy) {
+		y = yy;
 	}
 
-	public int getSpeed() {
+	public double getSpeed() {
 		return speed;
 	}
 
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
 
 	public static int getSize() {
 		return size;

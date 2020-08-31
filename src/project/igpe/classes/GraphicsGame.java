@@ -284,9 +284,11 @@ public class GraphicsGame extends StackPane{
 					if (nemico.getLife()>0)
 						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+10, Enemy.getSize()-10);
 					else {
-						Movement.room.setCellType(i, j, Cell.EMPTY);
+						//Movement.room.setCellType(i, j, Cell.EMPTY);
 						Hero.counterKill++;
 					}
+					//Vita upper enemy
+
 					if (nemico.getLife()>0) {
 						canvas.getGraphicsContext2D().setFill(Color.BLACK);
 						canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10,  200/3, 5); //200 Life Max enemy
@@ -298,8 +300,9 @@ public class GraphicsGame extends StackPane{
 						if (nemico.getLife()<66)
 							canvas.getGraphicsContext2D().setFill(Color.RED);		
 						
-						canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10, nemico.getLife()/3, 5); //Hero.getLife()*2 perchè barra lunga 200	
+						canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10, nemico.getLife()/3, 5); //Hero.getLife()*2 perchè barra lunga 200
 					}
+					//fine vita upper enemy
 					break;
 				default:
 					break;					
@@ -307,10 +310,8 @@ public class GraphicsGame extends StackPane{
 			}
 		}
 		
-		//Vita upper enemy
 		
 		
-		//fine vita upper enemy
 		
 		
 		//Disegno HERO con la sua Pistola

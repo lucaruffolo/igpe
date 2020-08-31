@@ -165,6 +165,16 @@ public class Movement {
 					
 		return false;		
 	}
+public static boolean collisionDoor(int newX, int newY) {
+		
+		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.DOOR
+			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.DOOR
+				|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.DOOR
+					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.DOOR)
+							return true;
+					
+		return false;		
+	}
 	
 	public static boolean collisionEnemy(int newX, int newY) {
 		
@@ -178,6 +188,18 @@ public class Movement {
 		}
 					
 		return false;		
+	}
+
+	public static boolean collisionHero(int newX, int newY) {
+		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.HERO
+				|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.HERO
+					|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.HERO
+						|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.HERO) {		
+												
+								return true;
+			}
+						
+			return false;	
 	}
 	
 	public static void collisionDamage(int newX, int newY) {	
@@ -553,6 +575,7 @@ public class Movement {
 	public static void setDoorLx(boolean doorLx) {
 		Movement.doorLx = doorLx;
 	}
+
 
 }
 

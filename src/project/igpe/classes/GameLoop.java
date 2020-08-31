@@ -32,7 +32,7 @@ public class GameLoop extends AnimationTimer {
 			
 			gg.draw();
 			Hero.moveHero();
-
+			Enemy.moveEnemy();
 			//------Death Scene
 			if (Hero.getLife()<1 ) {	//&& Singleplayer = true
 				try {

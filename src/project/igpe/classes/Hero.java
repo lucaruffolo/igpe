@@ -131,6 +131,7 @@ public class Hero {
 		x=Settings.x/2;
 		y=Settings.y/2;
 		counterShoot = 0;
+		counterKill = 0;
 		takePistol = false;
 	}
 	
