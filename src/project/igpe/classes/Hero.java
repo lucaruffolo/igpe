@@ -24,6 +24,7 @@ public class Hero {
 	public static int dirHero = 3;
 	private static List<Bullet> contenitoreBullets;
 	public static int counterShoot = 0;
+	public static int counterKill = 0;
 
 	public static boolean lockRight = false;
 	public static boolean lockLeft = false;

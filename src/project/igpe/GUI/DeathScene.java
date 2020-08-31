@@ -56,7 +56,7 @@ public class DeathScene {
     }
     private static void WriteScoreBoard(int time) throws Exception {
     	BufferedWriter writer = new BufferedWriter(new FileWriter("src/project/igpe/GUI/scoreboard.txt", true));
-		writer.append(System.lineSeparator() + Hero.getName() + ";" + Hero.getSex() + ";" + "0" + ";" + Hero.counterShoot + ";" +  time);
+		writer.append(System.lineSeparator() + Hero.getName() + ";" + Hero.getSex() + ";" + Hero.counterKill + ";" + Hero.counterShoot + ";" +  time);
 		writer.close();
 	}
     @FXML
@@ -98,7 +98,7 @@ public class DeathScene {
     	
     	textAreaDetails.setText("Nome: " + Hero.getName() + "\n" +
     							"Sesso: " + sesso + "\n" +
-    							"Nemici uccisi: " + " 0 " + "\n" +
+    							"Nemici uccisi: " + Hero.counterKill + "\n" +
     							"Colpi Sparati: "+ Hero.counterShoot + "\n" +
     							"Tempo di gioco: " + z + tempo);
     	Thread t = new Thread(task);
