@@ -293,22 +293,42 @@ public class GraphicsGame extends StackPane{
 			}
 		}
 		
+		//Vita upper enemy
+		if (nemico.getLife()>0) {
+			canvas.getGraphicsContext2D().setFill(Color.BLACK);
+			canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10,  200/3, 5); //200 Life Max enemy
+					
+			if (nemico.getLife()>132)
+				canvas.getGraphicsContext2D().setFill(Color.LIME);
+			if (nemico.getLife()<132)
+				canvas.getGraphicsContext2D().setFill(Color.YELLOW);
+			if (nemico.getLife()<66)
+				canvas.getGraphicsContext2D().setFill(Color.RED);		
+			
+			canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10, nemico.getLife()/3, 5); //Hero.getLife()*2 perchè barra lunga 200	
+		}
+		
+		//fine vita upper enemy
+		
+		
 		//Disegno HERO con la sua Pistola
-				if (Hero.getDirHero() == Hero.MOVE_DOWN) {
-					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-					if (Hero.takePistol)
-						dirPistol(Hero.getDirHero());
-				}else if (Hero.getDirHero() == Hero.MOVE_RIGHT) {
-					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-					if (Hero.takePistol)
-						dirPistol(Hero.getDirHero());
-				} else {
-					if (Hero.takePistol)
-						dirPistol(Hero.getDirHero());
-					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-				}				
-				//Fine disegno Hero
+		if (Hero.getDirHero() == Hero.MOVE_DOWN) {
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+			if (Hero.takePistol)
+				dirPistol(Hero.getDirHero());
+		}else if (Hero.getDirHero() == Hero.MOVE_RIGHT) {
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+			if (Hero.takePistol)
+				dirPistol(Hero.getDirHero());
+		} else {
+			if (Hero.takePistol)
+				dirPistol(Hero.getDirHero());
+			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+		}				
+		//Fine disegno Hero
 	}
+	
+	
 	public static Boolean EnemySpawn = false; 
 	
 	public Canvas getCanvas() {
