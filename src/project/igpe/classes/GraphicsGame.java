@@ -221,24 +221,8 @@ public class GraphicsGame extends StackPane{
 	};*/
 	
 	public void draw() {	
-		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		
-		//Disegno HERO con la sua Pistola
-		if (Hero.getDirHero() == Hero.MOVE_DOWN) {
-			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-			if (Hero.takePistol)
-				dirPistol(Hero.getDirHero());
-		}else if (Hero.getDirHero() == Hero.MOVE_RIGHT) {
-			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-			if (Hero.takePistol)
-				dirPistol(Hero.getDirHero());
-		} else {
-			if (Hero.takePistol)
-				dirPistol(Hero.getDirHero());
-			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
-		}				
-		//Fine disegno Hero
-		
+		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());	
 		// HEALTH BAR
 		//Background Vita
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
@@ -271,7 +255,6 @@ public class GraphicsGame extends StackPane{
 		for(Bullet b:Hero.getContenitoreBullets()) {
 			canvas.getGraphicsContext2D().drawImage(b.getImgBullet(), b.getPosX(), b.getPosY(), Settings.block,Settings.block);
 		}
-		
 		
 		
 		for (int i = 0; i < Settings.xMatrix; i++) {
@@ -309,6 +292,22 @@ public class GraphicsGame extends StackPane{
 				}
 			}
 		}
+		
+		//Disegno HERO con la sua Pistola
+				if (Hero.getDirHero() == Hero.MOVE_DOWN) {
+					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+					if (Hero.takePistol)
+						dirPistol(Hero.getDirHero());
+				}else if (Hero.getDirHero() == Hero.MOVE_RIGHT) {
+					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+					if (Hero.takePistol)
+						dirPistol(Hero.getDirHero());
+				} else {
+					if (Hero.takePistol)
+						dirPistol(Hero.getDirHero());
+					canvas.getGraphicsContext2D().drawImage(GraphicHero.getImg(), Hero.getX(), Hero.getY(), Hero.getSize(), Hero.getSize());
+				}				
+				//Fine disegno Hero
 	}
 	public static Boolean EnemySpawn = false; 
 	

@@ -73,10 +73,9 @@ public class Movement {
 		collisionDamage(x, y);
 		collisionHeart(x, y);
 		collisionPistol(x, y);
-		collisionEnemy(x, y);
-
-		
+		collisionEnemy(x, y);		
 	}
+	
 	public static void collisionPistol(int newX, int newY) {
 		
 		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.PISTOL) {		
