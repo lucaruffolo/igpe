@@ -304,6 +304,8 @@ public class GraphicsGame extends StackPane{
 					}
 					//fine vita upper enemy
 					break;
+				case Cell.ENEMYKEY:
+					break;
 				default:
 					break;					
 				}

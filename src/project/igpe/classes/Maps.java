@@ -28,6 +28,7 @@ public class Maps {
 	private static HashMap<Integer, String> rightTxt = new HashMap<Integer, String>();
 	
 	public static boolean closedMap = false;
+	public static boolean mapBoss = false;
 	
 	public Maps() {
 		
@@ -57,7 +58,6 @@ public class Maps {
 		else {
 			try {
 				loadFirstRoom();
-				indexYetChoosen.add(indiceMappe);
 			} catch (Exception e) {
 				System.out.println("non carica metodo LoadFirstMap");
 				e.printStackTrace();
@@ -119,6 +119,26 @@ public class Maps {
 		String txt20 = new String("src/project/igpe/maps/Template3doorACQUA(SU-SX-GIU).txt");
 		String txt21 = new String("src/project/igpe/maps/Template3doorACQUA(SX-GIU-DX).txt");
 		
+		File img23 = new File("src/project/igpe/images/mappaChiusaChiaveDx-Sx.png");
+		File img24 = new File("src/project/igpe/images/mappaChiusaChiaveGiu-Su.png");
+		File img25 = new File("src/project/igpe/images/mappaChiusaChiaveSu-Giu.png");
+		File img26 = new File("src/project/igpe/images/mappaChiusaChiaveSx-Dx.png");
+		
+		String txt23 = new String("src/project/igpe/maps/Template2door(DX-SX)chiave.txt");
+		String txt24 = new String("src/project/igpe/maps/Template2door(GIU-SU)chiave.txt");
+		String txt25 = new String("src/project/igpe/maps/Template2door(SU-GIU)chiave.txt");
+		String txt26 = new String("src/project/igpe/maps/Template2door(SX-DX)chiave.txt");
+		
+		File img27 = new File("src/project/igpe/images/mappaBossDx.png");
+		File img28 = new File("src/project/igpe/images/mappaBossGIU.png");
+		File img29 = new File("src/project/igpe/images/mappaBossSU.png");
+		File img30 = new File("src/project/igpe/images/mappaBossLx.png");
+		
+		String txt27 = new String("src/project/igpe/maps/TemplateBossDx.txt");
+		String txt28 = new String("src/project/igpe/maps/TemplateBossGIU.txt");
+		String txt29 = new String("src/project/igpe/maps/TemplateBossSU.txt");
+		String txt30 = new String("src/project/igpe/maps/TemplateBossLx.txt");
+		
 		if(closedMap) {
 			firstRoomImg = img0;
 			firstRoomTxt = txt0;
@@ -160,6 +180,10 @@ public class Maps {
 		upTxt.put(20, txt20);
 		upImg.put(22, img22);
 		upTxt.put(22, txt22);
+		upImg.put(24, img24);
+		upTxt.put(24, txt24);
+		upImg.put(29, img29);
+		upTxt.put(29, txt29);
 		
 		downImg.put(0, img0);
 		downTxt.put(0, txt0);
@@ -191,6 +215,10 @@ public class Maps {
 		downTxt.put(21, txt21);
 		downImg.put(22, img22);
 		downTxt.put(22, txt22);
+		downImg.put(25, img25);
+		downTxt.put(25, txt25);
+		downImg.put(28, img28);
+		downTxt.put(28, txt28);
 		
 		leftImg.put(0, img0);
 		leftTxt.put(0, txt0);
@@ -222,6 +250,10 @@ public class Maps {
 		leftTxt.put(21, txt21);
 		leftImg.put(22, img22);
 		leftTxt.put(22, txt22);
+		leftImg.put(23, img23);
+		leftTxt.put(23, txt23);
+		leftImg.put(30, img30);
+		leftTxt.put(30, txt30);
 		
 		rightImg.put(0, img0);
 		rightTxt.put(0, txt0);
@@ -253,6 +285,10 @@ public class Maps {
 		rightTxt.put(21, txt21);
 		rightImg.put(22, img22);
 		rightTxt.put(22, txt22);
+		rightImg.put(26, img26);
+		rightTxt.put(26, txt26);
+		rightImg.put(27, img27);
+		rightTxt.put(27, txt27);
 		
 	}
 	
@@ -616,6 +652,14 @@ public class Maps {
 
 	public static void setIndexYetChoosen(ArrayList<Integer> indexYetChoosen) {
 		Maps.indexYetChoosen = indexYetChoosen;
+	}
+
+	public static boolean isMapBoss() {
+		return mapBoss;
+	}
+
+	public static void setMapBoss(boolean mapBoss) {
+		Maps.mapBoss = mapBoss;
 	}
 	
 	

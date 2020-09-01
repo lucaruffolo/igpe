@@ -62,6 +62,11 @@ public class MovementControl implements EventHandler<KeyEvent> {
 
 		if(e.getEventType().equals(KeyEvent.KEY_PRESSED)) {
 			switch (e.getCode()) {
+			case N:
+				for (int i = 0; i < Maps.getIndexYetChoosen().size(); i++) {
+					System.out.println(Maps.getIndexYetChoosen());
+				}
+				break;
 			case LEFT:
 				movimento.move(Movement.MOVE_LEFT); 
 				break;

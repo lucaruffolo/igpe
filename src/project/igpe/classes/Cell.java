@@ -13,6 +13,7 @@ public class Cell {
 	public static final int FALLINGDOWN = 9;
 	public static final int HEART = 10;
 	public static final int PISTOL = 11;
+	public static final int ENEMYKEY = 12;
 	
 	private int type;
 	
