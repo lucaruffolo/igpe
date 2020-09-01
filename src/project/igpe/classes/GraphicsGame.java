@@ -17,6 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+
 public class GraphicsGame extends StackPane{
 	
 	private static Canvas canvas;
@@ -24,7 +25,8 @@ public class GraphicsGame extends StackPane{
 	private static EventHandler<KeyEvent> keyHandler;
 	private static Movement movimento;
 	private static Image[] imagesObstacle;
-	private static Image[] imagesObstacleDamages;
+	private static Image imagesObstacleDamages;
+	private static Image imagesFire;
 	private static Image heart;
 	private static Image weapon;
 	public static Enemy nemico;
@@ -35,11 +37,8 @@ public class GraphicsGame extends StackPane{
 		heart = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "heart.gif"));
 		weapon = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "pistol.gif"));
 
-		imagesObstacleDamages  = new Image[] {		
-				new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1dmg.gif")), 
-				new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs2dmg.gif")), 
-				new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1dmg.gif"))
-			};
+		imagesObstacleDamages  = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1dmg.gif"));
+		imagesFire = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs2dmg.gif"));
 		imagesObstacle = new Image[] {		
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1.png")), 
 						new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs2.png")), 
@@ -265,7 +264,10 @@ public class GraphicsGame extends StackPane{
 					break;			
 				case Cell.OBSTACLEDAMAGE:
 					//canvas.getGraphicsContext2D().setFill(Color.RED);
-					canvas.getGraphicsContext2D().drawImage(imagesObstacleDamages[nRandObstacles], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize()+10, Hero.getSize()+10);
+					canvas.getGraphicsContext2D().drawImage(imagesObstacleDamages, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize()+10, Hero.getSize()+10);
+					break;
+				case Cell.FIRE:
+					canvas.getGraphicsContext2D().drawImage(imagesFire, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize()+10, Hero.getSize()+10);
 					break;
 				case Cell.HEART:
 					canvas.getGraphicsContext2D().drawImage(heart, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 50, 42);						

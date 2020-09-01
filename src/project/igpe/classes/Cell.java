@@ -14,6 +14,7 @@ public class Cell {
 	public static final int HEART = 10;
 	public static final int PISTOL = 11;
 	public static final int ENEMYKEY = 12;
+	public static final int FIRE = 13;
 	
 	private int type;
 	

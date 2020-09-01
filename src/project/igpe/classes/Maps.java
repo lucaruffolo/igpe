@@ -330,6 +330,9 @@ public class Maps {
 							if (costruzioneRiga.equals("11")) {
 								cella[riga][colonne++] = new Cell(Cell.PISTOL);
 							}
+							if (costruzioneRiga.equals("13")) {
+								cella[riga][colonne++] = new Cell(Cell.FIRE);
+							}
 						} 
 					riga++;
 					colonne=0;
@@ -379,6 +382,9 @@ public class Maps {
 						if (costruzioneRiga.equals("11")) {
 							cella[riga][colonne++] = new Cell(Cell.PISTOL);
 						}
+						if (costruzioneRiga.equals("13")) {
+							cella[riga][colonne++] = new Cell(Cell.FIRE);
+						}
 					}
 					riga++;
 					colonne = 0;
@@ -426,6 +432,9 @@ public class Maps {
 						}
 						if (costruzioneRiga.equals("11")) {
 							cella[riga][colonne++] = new Cell(Cell.PISTOL);
+						}
+						if (costruzioneRiga.equals("13")) {
+							cella[riga][colonne++] = new Cell(Cell.FIRE);
 						}
 					}
 					riga++;
@@ -475,6 +484,9 @@ public class Maps {
 						if (costruzioneRiga.equals("11")) {
 							cella[riga][colonne++] = new Cell(Cell.PISTOL);
 						}
+						if (costruzioneRiga.equals("13")) {
+							cella[riga][colonne++] = new Cell(Cell.FIRE);
+						}
 					}
 					riga++;
 					colonne = 0;
@@ -523,6 +535,9 @@ public class Maps {
 						}
 						if (costruzioneRiga.equals("11")) {
 							cella[riga][colonne++] = new Cell(Cell.PISTOL);
+						}
+						if (costruzioneRiga.equals("13")) {
+							cella[riga][colonne++] = new Cell(Cell.FIRE);
 						}
 					}
 					riga++;
