@@ -169,6 +169,18 @@ public class Movement {
 		return false;		
 	}
 	
+	public static boolean collisionObstacleDmg(int newX, int newY) { //per enemy
+		
+		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE
+			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
+				|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.OBSTACLEDAMAGE
+					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE)
+							return true;
+					
+		return false;		
+	}
+	
+	
 	public static boolean collisionDoor(int newX, int newY) {
 		
 		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.DOOR
@@ -183,7 +195,10 @@ public class Movement {
 	public static void collisionEnemy(int x, int y) {
 		
 		if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize() 
-				&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()){
+				&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()
+				||	 x>= GraphicsGame.nemico2.getX()-Enemy2.getSize() && x<= GraphicsGame.nemico2.getX()+Enemy.getSize() 
+						&& y>= GraphicsGame.nemico2.getY()-Enemy2.getSize() && y<= GraphicsGame.nemico2.getY()+Enemy.getSize()
+				){
 			
 			if (Hero.getLife() > 0)
 				Hero.setLife(Hero.getLife()-0.1);					
@@ -201,6 +216,8 @@ public class Movement {
 		return false;	
 	}
 	
+
+
 	public static void collisionDamage(int newX, int newY) {	
 		
 		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.OBSTACLEDAMAGE

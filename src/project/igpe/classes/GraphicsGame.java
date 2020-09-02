@@ -196,7 +196,7 @@ public class GraphicsGame extends StackPane{
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
 		canvas.getGraphicsContext2D().fillRect(40, 20, 210, 40);
 				
-		if (Hero.getLife()>=67)
+		if (Hero.getLife()>66)
 			canvas.getGraphicsContext2D().setFill(Color.LIME);
 		if (Hero.getLife()<=66)
 			canvas.getGraphicsContext2D().setFill(Color.YELLOW);

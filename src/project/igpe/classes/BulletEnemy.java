@@ -19,7 +19,7 @@ public class BulletEnemy {
 	private int posY;
 	
 	private int dir;
-	private int speed=7;
+	private int speed=5;
 	
 	public static boolean alive = false;;
 	public static int size = 20;

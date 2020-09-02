@@ -47,7 +47,7 @@ public class Enemy2 {
 		if (GraphicsGame.nemico.isAlive) {
 			
 			dirEnemy = dir;
-			if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y)){
+			if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionObstacleDmg(x, y)){
 
 				if (dir == MOVE_RIGHT && !stopMoving)
 					x += speed;		
