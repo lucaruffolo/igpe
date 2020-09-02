@@ -51,6 +51,8 @@ public class Enemy {
 		if (GraphicsGame.nemico.isAlive) {
 			
 			dirEnemy = dir;
+			GraphicEnemy.setImgDir(dir);
+			
 			if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionObstacleDmg(x, y)){
 
 				if (dir == MOVE_RIGHT && !stopMoving)
