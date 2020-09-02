@@ -8,3 +8,4 @@ hjuk;false;0;0;0
 dwa;false;0;0;0
 dwa;false;1;33;0
 dwa;false;0;29;0
+sd;false;0;8;0

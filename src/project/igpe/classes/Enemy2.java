@@ -1,7 +1,5 @@
 package project.igpe.classes;
 
-import java.util.List;
-
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 
@@ -29,7 +27,11 @@ public class Enemy2 {
 		y = yy;
 		life = 200;
 	} 
-	
+	public static void resetEnemy2() {
+		GraphicsGame.EnemySpawn2=false;
+		BulletEnemy2.setAlive(false);
+		
+	}
 	public static int nRandDir = (int) (4.0 * Math.random());
 	
 	public static void moveEnemy() {

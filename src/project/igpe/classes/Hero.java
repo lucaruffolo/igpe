@@ -40,6 +40,7 @@ public class Hero {
 		sex = false;
 		ResetPosition();
 		contenitoreBullets=new ArrayList<Bullet>();
+		
 	}
 	
 	
@@ -240,6 +241,12 @@ public class Hero {
 
 	public static void setY(int yy) {
 		y = yy;
+	}
+
+
+
+	public static void clearAmmo() {
+		contenitoreBullets.clear();
 	}
 
 	

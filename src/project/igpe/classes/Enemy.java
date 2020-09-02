@@ -24,6 +24,8 @@ public class Enemy {
 	public boolean isAlive = false;
 	private static int size = 60;	
 
+
+
 	public Enemy(int xx, int yy) {
 		x = xx;
 		y = yy;
@@ -39,6 +41,12 @@ public class Enemy {
 
 	public static int contadir = 0;	
 	public static boolean stopMoving = false;
+	
+	public static void resetEnemy() {
+		GraphicsGame.EnemySpawn=false;
+		BulletEnemy.setAlive(false);
+		
+	}
 	
 	public static void moving (int dir) {
 		
