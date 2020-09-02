@@ -138,6 +138,7 @@ public class Movement {
 			doorUp = false;
 
 			GraphicsGame.setFirstRoom(false);
+			GraphicsGame.EnemySpawn=false;
 		}
 	
 	

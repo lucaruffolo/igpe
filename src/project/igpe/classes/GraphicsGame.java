@@ -30,7 +30,8 @@ public class GraphicsGame extends StackPane{
 	private static Image heart;
 	private static Image weapon;
 	public static Enemy nemico;
-	public static int nRandObstacles = 0; 
+	public static int nRandObstacles = 0;
+	public static Boolean EnemySpawn = false;
 	
 	public GraphicsGame(Movement movimentox) {
 		
@@ -334,9 +335,7 @@ public class GraphicsGame extends StackPane{
 		}				
 		//Fine disegno Hero
 	}
-	
-	
-	public static Boolean EnemySpawn = false; 
+	 
 	
 	public Canvas getCanvas() {
 		return canvas;
