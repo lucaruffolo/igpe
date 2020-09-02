@@ -30,8 +30,10 @@ public class GraphicsGame extends StackPane{
 	private static Image heart;
 	private static Image weapon;
 	public static Enemy nemico;
+	public static Enemy2 nemico2;
 	public static int nRandObstacles = 0;
 	public static Boolean EnemySpawn = false;
+	public static Boolean EnemySpawn2 = false;
 	
 	public GraphicsGame(Movement movimentox) {
 		
@@ -258,6 +260,8 @@ public class GraphicsGame extends StackPane{
 		
 		if (BulletEnemy.isAlive())
 			canvas.getGraphicsContext2D().drawImage(Enemy.bullet.getImgBullet(), Enemy.bullet.getPosX(), Enemy.bullet.getPosY(), Settings.block,Settings.block);
+		if (BulletEnemy2.isAlive())
+			canvas.getGraphicsContext2D().drawImage(Enemy2.bullet.getImgBullet(), Enemy2.bullet.getPosX(), Enemy2.bullet.getPosY(), Settings.block,Settings.block);
 		
 		
 		for (int i = 0; i < Settings.xMatrix; i++) {
@@ -310,6 +314,37 @@ public class GraphicsGame extends StackPane{
 					}
 					//fine vita upper enemy
 					break;
+				case Cell.ENEMY2: 
+
+					if (!EnemySpawn2) {
+						nemico2 = new Enemy2(Movement.matrixInPixelX(i),Movement.matrixInPixelY(j));
+						nemico2.isAlive = true;
+						EnemySpawn2 = true;
+						System.out.println("Spawno nemico2");
+					}
+					if (nemico2.getLife()>0)
+						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico2.getX(), nemico2.getY(), Enemy.getSize()+20, Enemy.getSize()+20);
+					else {
+
+						nemico2.isAlive = false;
+					}
+					
+					//Vita upper enemy
+					if (nemico2.getLife()>0) {
+						canvas.getGraphicsContext2D().setFill(Color.BLACK);
+						canvas.getGraphicsContext2D().fillRect(nemico2.getX(), nemico2.getY()-10,  200/3, 5); //200 Life Max enemy
+								
+						if (nemico2.getLife()>132)
+							canvas.getGraphicsContext2D().setFill(Color.LIME);
+						if (nemico2.getLife()<132)
+							canvas.getGraphicsContext2D().setFill(Color.YELLOW);
+						if (nemico2.getLife()<66)
+							canvas.getGraphicsContext2D().setFill(Color.RED);		
+						
+						canvas.getGraphicsContext2D().fillRect(nemico2.getX(), nemico2.getY()-10, nemico2.getLife()/3, 5); //Hero.getLife()*2 perchè barra lunga 200
+					}
+					//fine vita upper enemy
+					break;	
 				case Cell.ENEMYKEY:
 					break;
 				default:

@@ -82,7 +82,21 @@ public class Bullet {
 				}
 				
 			}
-	}
+			if (GraphicsGame.nemico2.isAlive) {
+							
+							if (getPosX()>= GraphicsGame.nemico2.getX()-Enemy.getSize() && getPosX()<= GraphicsGame.nemico2.getX()+Enemy.getSize() 
+								&& getPosY()>= GraphicsGame.nemico2.getY()-Enemy.getSize() && getPosY()<= GraphicsGame.nemico2.getY()+Enemy.getSize()) {		
+								
+								System.out.println("Nemico2 colpito");
+								GraphicsGame.nemico2.setLife(GraphicsGame.nemico2.getLife()-Bullet.damage);
+								alive = false;
+								if (GraphicsGame.nemico2.getLife()<= 0) {
+									Hero.counterKill++;					
+								}
+							}
+							
+						}
+				}
 
 	
 	public static boolean collisionBullet(int x, int y) {
@@ -91,7 +105,8 @@ public class Bullet {
 					|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.OBSTACLEDAMAGE
 						|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.PISTOL
 							|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.HEART
-								|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.ENEMY)
+								|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.ENEMY
+									|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.ENEMY2)
 			return true;		
 		return false;		
 	}	

@@ -31,6 +31,9 @@ public class GameLoop extends AnimationTimer {
 			//------BulletEnemy
 			if (Enemy.colpoPartito)
 				Enemy.bullet.moveBullet();
+			if (Enemy2.colpoPartito)
+				Enemy2.bullet.moveBullet();
+			
 
 		
 				
@@ -40,6 +43,7 @@ public class GameLoop extends AnimationTimer {
 			gg.draw();
 			Hero.moveHero();
 			Enemy.moveEnemy();
+			Enemy2.moveEnemy();
 			//------Death Scene
 			if (Hero.getLife()<1 ) {	//&& Singleplayer = true
 				try {

@@ -139,6 +139,7 @@ public class Movement {
 
 			GraphicsGame.setFirstRoom(false);
 			GraphicsGame.EnemySpawn=false;
+			GraphicsGame.EnemySpawn2=false;
 		}
 	
 	

@@ -4,7 +4,7 @@ import java.io.File;
 
 import javafx.scene.image.Image;
 
-public class BulletEnemy {
+public class BulletEnemy2 {
 	
 	private static Image[] imagesBullet = new Image[] {		
 			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "hero" + File.separator + "bulletdx.gif")), //dx
@@ -25,11 +25,11 @@ public class BulletEnemy {
 	public static int size = 20;
 	public static int damage = 10;
 	
-	public BulletEnemy(int posX, int posY, int dir) {
+	public BulletEnemy2(int posX, int posY, int dir) {
 		super();
 		this.setPosX(posX);
 		this.setPosY(posY);
-		this.dir = Enemy.dirEnemy;
+		this.dir = Enemy2.dirEnemy;
 		setAlive(true);	
 	}
 
@@ -42,7 +42,7 @@ public class BulletEnemy {
 				setPosX(getPosX() + speed);
 			else {
 				alive = false;
-				Enemy.colpoPartito = false;
+				Enemy2.colpoPartito = false;
 			}
 		}
 		if(Movement.MOVE_DOWN==dir) {
@@ -51,7 +51,7 @@ public class BulletEnemy {
 				setPosY(getPosY() + speed);
 			else {
 				alive = false;
-				Enemy.colpoPartito = false;
+				Enemy2.colpoPartito = false;
 			}
 		}
 		if(Movement.MOVE_LEFT==dir) {
@@ -60,7 +60,7 @@ public class BulletEnemy {
 				setPosX(getPosX() - speed);
 			else {
 				alive = false;
-				Enemy.colpoPartito = false;
+				Enemy2.colpoPartito = false;
 			}
 		}
 		if(Movement.MOVE_UP==dir) {
@@ -69,7 +69,7 @@ public class BulletEnemy {
 				setPosY(getPosY() - speed);
 			else {
 				alive = false;
-				Enemy.colpoPartito = false;
+				Enemy2.colpoPartito = false;
 			}
 		}
 		
@@ -81,7 +81,7 @@ public class BulletEnemy {
 				
 				System.out.println("Hero colpito");
 				alive = false;
-				Enemy.colpoPartito = false;
+				Enemy2.colpoPartito = false;
 
 				Hero.setLife(Hero.getLife()-10);
 				
@@ -109,7 +109,7 @@ public class BulletEnemy {
 	}
 
 	public static void setImagesBullet(Image[] imagesBullet) {
-		BulletEnemy.imagesBullet = imagesBullet;
+		BulletEnemy2.imagesBullet = imagesBullet;
 	}
 
 	public Image getImgBullet() {
@@ -117,7 +117,7 @@ public class BulletEnemy {
 	}
 
 	public static void setImgBullet(Image imgBullet) {
-		BulletEnemy.imgBullet = imgBullet;
+		BulletEnemy2.imgBullet = imgBullet;
 	}
 
 	public int getPosX() {
@@ -157,7 +157,7 @@ public class BulletEnemy {
 	}
 
 	public static void setAlive(boolean alive) {
-		BulletEnemy.alive = alive;
+		BulletEnemy2.alive = alive;
 	}
 
 	public static int getSize() {
@@ -165,7 +165,7 @@ public class BulletEnemy {
 	}
 
 	public static void setSize(int size) {
-		BulletEnemy.size = size;
+		BulletEnemy2.size = size;
 	}
 
 	public static int getDamage() {
@@ -173,7 +173,7 @@ public class BulletEnemy {
 	}
 
 	public static void setDamage(int damage) {
-		BulletEnemy.damage = damage;
+		BulletEnemy2.damage = damage;
 	}
 	
 }

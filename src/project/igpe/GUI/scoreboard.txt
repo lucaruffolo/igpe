@@ -1,3 +1,10 @@
 
 sd;false;0;29;0
 sd;false;1;26;0
+dwa;false;0;0;0
+dwa;false;0;19;0
+dw;false;0;17;1
+hjuk;false;0;0;0
+dwa;false;0;0;0
+dwa;false;1;33;0
+dwa;false;0;29;0
