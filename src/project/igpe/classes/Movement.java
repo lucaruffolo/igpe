@@ -139,11 +139,19 @@ public class Movement {
 
 			GraphicsGame.setFirstRoom(false);
 			Hero.clearAmmo();
+			resetEnemyxd();
 			Enemy.resetEnemy();
 			Enemy2.resetEnemy2();
 		}
 	
 	
+		
+	}
+	
+	public static void resetEnemyxd() {
+		GraphicsGame.nemico.setLife(0);
+		GraphicsGame.nemico2.setLife(0);
+
 		
 	}
 	// INIZIO COLLISIONI

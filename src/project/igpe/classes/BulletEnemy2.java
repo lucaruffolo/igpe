@@ -74,16 +74,15 @@ public class BulletEnemy2 {
 		}
 		
 		//collisionW/Enemy
-		if (Hero.getLife()>0) {
+		if (Hero.getLife()>0 && GraphicsGame.nemico2.getLife()>0) {
 			
 			if (getPosX() >= Hero.getX()-Hero.getSize() && getPosX() <= Hero.getX()+Hero.getSize() 
 				&& getPosY() >= Hero.getY()-Hero.getSize() && getPosY() <= Hero.getY()+Hero.getSize()) {		
 				
-				System.out.println("Hero colpito");
 				alive = false;
 				Enemy2.colpoPartito = false;
 
-				Hero.setLife(Hero.getLife()-10);
+				Hero.setLife(Hero.getLife()-5);
 				
 			}
 		}

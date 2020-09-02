@@ -73,7 +73,6 @@ public class Bullet {
 				if (getPosX()>= GraphicsGame.nemico.getX()-Enemy.getSize() && getPosX()<= GraphicsGame.nemico.getX()+Enemy.getSize() 
 					&& getPosY()>= GraphicsGame.nemico.getY()-Enemy.getSize() && getPosY()<= GraphicsGame.nemico.getY()+Enemy.getSize()) {		
 					
-					System.out.println("Nemico colpito");
 					GraphicsGame.nemico.setLife(GraphicsGame.nemico.getLife()-Bullet.damage);
 					alive = false;
 					if (GraphicsGame.nemico.getLife()<= 0) {
@@ -84,19 +83,18 @@ public class Bullet {
 			}
 			if (GraphicsGame.nemico2.isAlive) {
 							
-							if (getPosX()>= GraphicsGame.nemico2.getX()-Enemy.getSize() && getPosX()<= GraphicsGame.nemico2.getX()+Enemy.getSize() 
-								&& getPosY()>= GraphicsGame.nemico2.getY()-Enemy.getSize() && getPosY()<= GraphicsGame.nemico2.getY()+Enemy.getSize()) {		
-								
-								System.out.println("Nemico2 colpito");
-								GraphicsGame.nemico2.setLife(GraphicsGame.nemico2.getLife()-Bullet.damage);
-								alive = false;
-								if (GraphicsGame.nemico2.getLife()<= 0) {
-									Hero.counterKill++;					
-								}
-							}
-							
-						}
+				if (getPosX()>= GraphicsGame.nemico2.getX()-Enemy.getSize() && getPosX()<= GraphicsGame.nemico2.getX()+Enemy.getSize() 
+					&& getPosY()>= GraphicsGame.nemico2.getY()-Enemy.getSize() && getPosY()<= GraphicsGame.nemico2.getY()+Enemy.getSize()) {		
+					
+					GraphicsGame.nemico2.setLife(GraphicsGame.nemico2.getLife()-Bullet.damage);
+					alive = false;
+					if (GraphicsGame.nemico2.getLife()<= 0) {
+						Hero.counterKill++;					
+					}
 				}
+				
+			}
+	}
 
 	
 	public static boolean collisionBullet(int x, int y) {

@@ -78,11 +78,12 @@ public class Enemy2 {
 					y -= speed*3;
 			
 				service.restart();
-				contadir++;
-				System.out.println("dir "+ nRandDir+" cambio direzione ->" + contadir);
-					
+				contadir++;	
 					
 				}
+		}else {
+			x = 0;
+			y = 0;
 		}
 		/*
 		else

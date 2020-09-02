@@ -1,7 +1,5 @@
 package project.igpe.classes;
 
-import java.util.List;
-
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 
@@ -85,11 +83,14 @@ public class Enemy {
 			
 				service.restart();
 				contadir++;
-				System.out.println("dir "+ nRandDir+" cambio direzione ->" + contadir);
 					
 					
 				}
+		} else {
+			x = 0;
+			y = 0;
 		}
+		
 		/*
 		else
 			System.out.println("nemico MORTO RIP");*/
@@ -128,6 +129,7 @@ public class Enemy {
 	public static boolean colpoPartito = false;
 
 	public static BulletEnemy bullet;
+	
 	public static void shoot() {	
 		
 		int xf = 0;
@@ -155,16 +157,7 @@ public class Enemy {
 		}
 		
 	}
-	
-	private static List<BulletEnemy> contenitoreBullets;
 
-	public static List<BulletEnemy> getContenitoreBullets() {
-		return contenitoreBullets;
-	}
-
-	public static void setContenitoreBullets(List<BulletEnemy> contenitoreBullets) {
-		Enemy.contenitoreBullets = contenitoreBullets;
-	}
 
 	public int getX() {
 		return x;
