@@ -32,11 +32,9 @@ public class Bullet {
 		this.setPosX(posX);
 		this.setPosY(posY);
 		this.dir = Hero.getDirHero();
-		alive=true;
-		
+		alive=true;	
 		
 	}
-
 
 	public void moveBullet() {
 		
@@ -68,37 +66,31 @@ public class Bullet {
 				else
 					alive = false;
 			}
-		//	collenemy(getPosX(), getPosY());
+			
+			//collisionW/Enemy
+			if (GraphicsGame.nemico.isAlive) {
+				
+				if (getPosX()>= GraphicsGame.nemico.getX()-Enemy.getSize() && getPosX()<= GraphicsGame.nemico.getX()+Enemy.getSize() 
+					&& getPosY()>= GraphicsGame.nemico.getY()-Enemy.getSize() && getPosY()<= GraphicsGame.nemico.getY()+Enemy.getSize()) {		
+					
+					System.out.println("Nemico colpito");
+					GraphicsGame.nemico.setLife(GraphicsGame.nemico.getLife()-Bullet.damage);
+					alive = false;
+				}
+			}
 	}
-	/*
-	public static void collenemy(int x,int y) {
-		if (x >= GraphicsGame.nemico.getX() && x <= GraphicsGame.nemico.getX()
-				|| y >= GraphicsGame.nemico.getY() && y <= GraphicsGame.nemico.getY()) {
-		//	System.out.println("bulletx "+ x +"bulletY " + y +" _ enemyx" + GraphicsGame.nemico.getX() " enemyy "GraphicsGame.nemico.get());
-			System.out.println("Nemico colpito");
-			GraphicsGame.nemico.setLife(GraphicsGame.nemico.getLife()-Bullet.damage);
-		}
-	}
+
 	
-*/	public static boolean collisionBullet(int x, int y) {
+	public static boolean collisionBullet(int x, int y) {
 		if (Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.EMPTY 
 				|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.FALLINGDOWN
 					|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.OBSTACLEDAMAGE
 						|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.PISTOL
-							|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.HEART)
-			return true;
-	
-
-		
-		if (Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.ENEMY) {			
-			System.out.println("Nemico colpito");
-			GraphicsGame.nemico.setLife(GraphicsGame.nemico.getLife()-Bullet.damage);
-		
-		}
+							|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.HEART
+								|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.ENEMY)
+			return true;		
 		return false;		
-	}
-
-	
+	}	
 
 	public static void setDirBullet(int dir) {
 		imgBullet = imagesBullet[dir];

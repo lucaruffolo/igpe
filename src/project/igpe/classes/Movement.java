@@ -165,7 +165,8 @@ public class Movement {
 					
 		return false;		
 	}
-public static boolean collisionDoor(int newX, int newY) {
+	
+	public static boolean collisionDoor(int newX, int newY) {
 		
 		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.DOOR
 			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.DOOR
@@ -176,30 +177,25 @@ public static boolean collisionDoor(int newX, int newY) {
 		return false;		
 	}
 	
-	public static boolean collisionEnemy(int newX, int newY) {
+	public static void collisionEnemy(int x, int y) {
 		
-		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.ENEMY
-			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.ENEMY
-				|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.ENEMY
-					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.ENEMY) {
+		if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize() 
+				&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()){
 			
-							Hero.setLife(Hero.getLife()-Enemy.damage);							
-							return true;
+			if (Hero.getLife() > 0)
+				Hero.setLife(Hero.getLife()-0.1);					
 		}
-					
-		return false;		
+
 	}
 
-	public static boolean collisionHero(int newX, int newY) {
-		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.HERO
-				|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.HERO
-					|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.HERO
-						|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.HERO) {		
-												
-								return true;
+	public static boolean collisionHero(int x, int y) {
+		
+		if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize() 
+			&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()){												
+				return true;
 			}
 						
-			return false;	
+		return false;	
 	}
 	
 	public static void collisionDamage(int newX, int newY) {	

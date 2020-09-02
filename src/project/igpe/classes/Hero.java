@@ -46,7 +46,7 @@ public class Hero {
 	
 	public static void moveHero() {
 	
-		if (!Movement.collisionWall(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionEnemy(x, y)){
+		if (!Movement.collisionWall(x, y) && !Movement.collisionObstacle(x, y)){
 			x += velX;
 			y += velY;
 			

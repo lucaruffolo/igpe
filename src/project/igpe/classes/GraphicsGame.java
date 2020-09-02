@@ -263,7 +263,6 @@ public class GraphicsGame extends StackPane{
 					canvas.getGraphicsContext2D().drawImage(imagesObstacle[nRandObstacles], Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize()+10, Hero.getSize()+10);
 					break;			
 				case Cell.OBSTACLEDAMAGE:
-					//canvas.getGraphicsContext2D().setFill(Color.RED);
 					canvas.getGraphicsContext2D().drawImage(imagesObstacleDamages, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), Hero.getSize()+10, Hero.getSize()+10);
 					break;
 				case Cell.FIRE:
@@ -277,20 +276,22 @@ public class GraphicsGame extends StackPane{
 						canvas.getGraphicsContext2D().drawImage(weapon, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 90, 80);						
 					break;
 				case Cell.ENEMY: 
-					//if not kill					
+
 					if (!EnemySpawn) {
 						nemico = new Enemy(Movement.matrixInPixelX(i),Movement.matrixInPixelY(j));
+						nemico.isAlive = true;
 						EnemySpawn = true;
 						System.out.println("Spawno nemico");
 					}
 					if (nemico.getLife()>0)
-						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+10, Enemy.getSize()-10);
+						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+20, Enemy.getSize()+20);
 					else {
-						//Movement.room.setCellType(i, j, Cell.EMPTY);
-						Hero.counterKill++;
-					}
-					//Vita upper enemy
 
+						Hero.counterKill++;
+						nemico.isAlive = false;
+					}
+					
+					//Vita upper enemy
 					if (nemico.getLife()>0) {
 						canvas.getGraphicsContext2D().setFill(Color.BLACK);
 						canvas.getGraphicsContext2D().fillRect(nemico.getX(), nemico.getY()-10,  200/3, 5); //200 Life Max enemy
@@ -313,9 +314,6 @@ public class GraphicsGame extends StackPane{
 				}
 			}
 		}
-		
-		
-		
 		
 		
 		//Disegno HERO con la sua Pistola

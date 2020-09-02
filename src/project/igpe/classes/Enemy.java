@@ -22,8 +22,8 @@ public class Enemy {
 	public static int velY = 0;
 	public static int dirEnemy = 3;
 	public final static int damage = 5;
-	
-	private static int size = 70;	
+	public boolean isAlive = false;
+	private static int size = 60;	
 	private static List<Bullet> contenitoreBullets;
 	
 	
@@ -39,56 +39,53 @@ public class Enemy {
 	public static void moveEnemy() {
 
 	    moving(nRandDir);
-		/*		
-		if (Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixX(y)) == Cell.EMPTY) {
-			Movement.room.setCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixX(y), Cell.ENEMY);
-		}
-		*/
 	}
 
-	public static int contadir = 0;
-	
+	public static int contadir = 0;	
 	public static boolean stopMoving = false;
+	
 	public static void moving (int dir) {
-		
-		dirEnemy = dir;
-		if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionHero(x, y)){
-
-			if (dir == MOVE_RIGHT && !stopMoving)
-				x += speed;		
-			if (dir == MOVE_LEFT && !stopMoving)
-				x -= speed;				
-			if (dir == MOVE_UP && !stopMoving)
-				y -= speed;		
-			if (dir == MOVE_DOWN && !stopMoving) 
-				y += speed;	
-			if(x==Settings.x/4 || y==Settings.y/4 || x==Settings.x/2 || y==Settings.y/2) {
-				y += speed;
-				x += speed;
-				service.restart();
-			}
-		} else {			
+		if (GraphicsGame.nemico.isAlive) {
+			dirEnemy = dir;
+			if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y)){
+	
+				if (dir == MOVE_RIGHT && !stopMoving)
+					x += speed;		
+				if (dir == MOVE_LEFT && !stopMoving)
+					x -= speed;				
+				if (dir == MOVE_UP && !stopMoving)
+					y -= speed;		
+				if (dir == MOVE_DOWN && !stopMoving) 
+					y += speed;	
+				if(x==Settings.x/4 || y==Settings.y/4 || x==Settings.x/2 || y==Settings.y/2) {
+					y += speed;
+					x += speed;
+					service.restart();
+				}
+			} else {			
+				
+				int direzione = nRandDir;		
+				while(nRandDir == direzione) {
+					nRandDir = (int) (4.0 * Math.random());				
+				}
+				if (dir == MOVE_RIGHT) 
+					x -= speed*3;			
+				if (dir == MOVE_LEFT) 
+					x += speed*3;			
+				if (dir == MOVE_UP) 
+					y += speed*3;			
+				if (dir == MOVE_DOWN) 
+					y -= speed*3;
 			
-			int direzione = nRandDir;		
-			while(nRandDir == direzione) {
-				nRandDir = (int) (4.0 * Math.random());				
-			}
-			if (dir == MOVE_RIGHT) 
-				x -= speed*3;			
-			if (dir == MOVE_LEFT) 
-				x += speed*3;			
-			if (dir == MOVE_UP) 
-				y += speed*3;			
-			if (dir == MOVE_DOWN) 
-				y -= speed*3;
-		
-			service.restart();
-			contadir++;
-			System.out.println("dir "+ nRandDir+" cambio direzione ->" + contadir);
-				
-				
-			}
-		
+				service.restart();
+				contadir++;
+				System.out.println("dir "+ nRandDir+" cambio direzione ->" + contadir);
+					
+					
+				}
+		}
+		else
+			System.out.println("nemico MORTO RIP");
 	}
 
 
