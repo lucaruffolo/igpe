@@ -227,11 +227,11 @@ public class GraphicsGame extends StackPane{
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
 		canvas.getGraphicsContext2D().fillRect(40, 20, 210, 40);
 				
-		if (Hero.getLife()>67)
+		if (Hero.getLife()>=67)
 			canvas.getGraphicsContext2D().setFill(Color.LIME);
-		if (Hero.getLife()<66)
+		if (Hero.getLife()<=66)
 			canvas.getGraphicsContext2D().setFill(Color.YELLOW);
-		if (Hero.getLife()<34)
+		if (Hero.getLife()<=34)
 			canvas.getGraphicsContext2D().setFill(Color.RED);		
 		
 		canvas.getGraphicsContext2D().fillRect(45, 25, Hero.getLife()*2, 30); //Hero.getLife()*2 perchè barra lunga 200	
@@ -254,6 +254,9 @@ public class GraphicsGame extends StackPane{
 		for(Bullet b:Hero.getContenitoreBullets()) {
 			canvas.getGraphicsContext2D().drawImage(b.getImgBullet(), b.getPosX(), b.getPosY(), Settings.block,Settings.block);
 		}
+		
+		if (BulletEnemy.isAlive())
+			canvas.getGraphicsContext2D().drawImage(Enemy.bullet.getImgBullet(), Enemy.bullet.getPosX(), Enemy.bullet.getPosY(), Settings.block,Settings.block);
 		
 		
 		for (int i = 0; i < Settings.xMatrix; i++) {
@@ -287,7 +290,6 @@ public class GraphicsGame extends StackPane{
 						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+20, Enemy.getSize()+20);
 					else {
 
-						Hero.counterKill++;
 						nemico.isAlive = false;
 					}
 					

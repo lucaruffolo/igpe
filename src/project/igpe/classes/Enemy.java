@@ -1,6 +1,5 @@
 package project.igpe.classes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javafx.concurrent.Service;
@@ -24,14 +23,11 @@ public class Enemy {
 	public final static int damage = 5;
 	public boolean isAlive = false;
 	private static int size = 60;	
-	private static List<Bullet> contenitoreBullets;
-	
-	
+
 	public Enemy(int xx, int yy) {
 		x = xx;
 		y = yy;
 		life = 200;
-		contenitoreBullets = new ArrayList<Bullet>();
 	} 
 	
 	public static int nRandDir = (int) (4.0 * Math.random());
@@ -45,10 +41,12 @@ public class Enemy {
 	public static boolean stopMoving = false;
 	
 	public static void moving (int dir) {
+		
 		if (GraphicsGame.nemico.isAlive) {
+			
 			dirEnemy = dir;
 			if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y)){
-	
+
 				if (dir == MOVE_RIGHT && !stopMoving)
 					x += speed;		
 				if (dir == MOVE_LEFT && !stopMoving)
@@ -84,10 +82,11 @@ public class Enemy {
 					
 				}
 		}
+		/*
 		else
-			System.out.println("nemico MORTO RIP");
+			System.out.println("nemico MORTO RIP");*/
+		
 	}
-
 
 
 	static Service<Void> service = new Service<Void>() { //like timer
@@ -102,6 +101,7 @@ public class Enemy {
 						
 						value++;
 						stopMoving=true;
+						shoot();
 						Thread.sleep(35);					
 					}
 					
@@ -117,13 +117,43 @@ public class Enemy {
 			};
 		}
 	};
+	public static boolean colpoPartito = false;
 
-	
-	public static List<Bullet> getContenitoreBullets() {
-		return contenitoreBullets;
+	public static BulletEnemy bullet;
+	public static void shoot() {	
+		
+		int xf = 0;
+		int yf = 0;
+		if (dirEnemy == Enemy.MOVE_LEFT) {
+			xf = x - 50;
+			yf = y - 5;
+		}
+		if (dirEnemy == Enemy.MOVE_RIGHT){
+			xf = x + 50;
+			yf = y - 5;
+		}
+		if (dirEnemy == Enemy.MOVE_UP){
+			xf = x - 2;
+			yf = y - 60;
+		}
+		if (dirEnemy == Enemy.MOVE_DOWN){
+			xf = x + 5;
+			yf = y + 60;
+		}
+		if (!colpoPartito && GraphicsGame.nemico.isAlive) {
+			
+			bullet =  new BulletEnemy(xf, yf, dirEnemy);
+			colpoPartito = true;
+		}
 	}
 	
-	public static void setContenitoreBullets(List<Bullet> contenitoreBullets) {
+	private static List<BulletEnemy> contenitoreBullets;
+
+	public static List<BulletEnemy> getContenitoreBullets() {
+		return contenitoreBullets;
+	}
+
+	public static void setContenitoreBullets(List<BulletEnemy> contenitoreBullets) {
 		Enemy.contenitoreBullets = contenitoreBullets;
 	}
 
@@ -131,7 +161,7 @@ public class Enemy {
 		return x;
 	}
 
-	public void setX(int xx) {
+	public static void setX(int xx) {
 		x = xx;
 	}
 
@@ -139,7 +169,7 @@ public class Enemy {
 		return y;
 	}
 
-	public void setY(int yy) {
+	public static void setY(int yy) {
 		y = yy;
 	}
 

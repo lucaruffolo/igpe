@@ -28,7 +28,14 @@ public class GameLoop extends AnimationTimer {
 				}
 			}
 			//Fine BulletHero------
+			//------BulletEnemy
+			if (Enemy.colpoPartito)
+				Enemy.bullet.moveBullet();
+
+		
+				
 			
+			//Fine BulletEnemy------
 			
 			gg.draw();
 			Hero.moveHero();

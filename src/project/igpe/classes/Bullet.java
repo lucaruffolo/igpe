@@ -76,7 +76,11 @@ public class Bullet {
 					System.out.println("Nemico colpito");
 					GraphicsGame.nemico.setLife(GraphicsGame.nemico.getLife()-Bullet.damage);
 					alive = false;
+					if (GraphicsGame.nemico.getLife()<= 0) {
+						Hero.counterKill++;					
+					}
 				}
+				
 			}
 	}
 
