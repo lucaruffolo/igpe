@@ -52,6 +52,7 @@ public class Enemy2 {
 			dirEnemy = dir;
 			GraphicEnemy.setImgDir(dir);
 
+
 			if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionObstacleDmg(x, y)){
 
 				if (dir == MOVE_RIGHT && !stopMoving)
@@ -84,7 +85,9 @@ public class Enemy2 {
 			
 				service2.restart();
 				contadir++;	
-					
+				dirEnemy = dir;
+				GraphicEnemy.setImgDir(dir);
+
 				}
 		}
 		/*
@@ -114,7 +117,8 @@ public class Enemy2 {
 					while(nRandDir == direzione) {
 						nRandDir = (int) (4.0 * Math.random());				
 					}
-					
+					GraphicEnemy.setImgDir(direzione);
+
 					stopMoving = false;	
 					
 				return null;

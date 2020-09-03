@@ -178,16 +178,16 @@ public class GraphicsGame extends StackPane{
 
 	}
 	public void dirPistol(int dir) {
-		if (Hero.getDirHero() == Hero.MOVE_LEFT)
+		if (dir == Hero.MOVE_LEFT)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-40, Hero.getY()-10, Hero.getSize()+20, Hero.getSize()+20);
-		if (Hero.getDirHero() == Hero.MOVE_RIGHT)
+		if (dir == Hero.MOVE_RIGHT)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()+37, Hero.getY()-5, Hero.getSize()+20, Hero.getSize()+20);
-		if (Hero.getDirHero() == Hero.MOVE_UP)
+		if (dir == Hero.MOVE_UP)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-10, Hero.getY()-40, Hero.getSize()+20, Hero.getSize()+20);
-		if (Hero.getDirHero() == Hero.MOVE_DOWN)
+		if (dir == Hero.MOVE_DOWN)
 			canvas.getGraphicsContext2D().drawImage(GraphicHero.getImgPistol(), Hero.getX()-10, Hero.getY()+20, Hero.getSize()+20, Hero.getSize()+20);
 	}
-	
+
 	public void draw() {	
 		
 		canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());	
@@ -257,9 +257,10 @@ public class GraphicsGame extends StackPane{
 						EnemySpawn = true;
 						System.out.println("Spawno nemico");
 					}
-					if (nemico.getLife()>0)
+					if (nemico.getLife()>0) {
 						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+20, Enemy.getSize()+20);
-					else {
+						
+					}else {
 
 						nemico.isAlive = false;
 					}
@@ -288,9 +289,9 @@ public class GraphicsGame extends StackPane{
 						EnemySpawn2 = true;
 						System.out.println("Spawno nemico2");
 					}
-					if (nemico2.getLife()>0)
+					if (nemico2.getLife()>0) {
 						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico2.getX(), nemico2.getY(), Enemy.getSize()+20, Enemy.getSize()+20);
-					else {
+					}else {
 
 						nemico2.isAlive = false;
 					}

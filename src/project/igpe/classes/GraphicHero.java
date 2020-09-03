@@ -44,6 +44,8 @@ public class GraphicHero {
 			};
 		private static Image imgPistol = imagesPistol[3];
 		
+
+		
 		public static Image[] getImagesPistol() {
 			return imagesPistol;
 		}
@@ -52,6 +54,7 @@ public class GraphicHero {
 		public static Image getImgPistol() {
 			return imgPistol;
 		}
+		
 
 
 		public static Image getImg() {

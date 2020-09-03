@@ -87,7 +87,8 @@ public class Enemy {
 			
 				service.restart();
 				contadir++;
-					
+				dirEnemy = dir;
+				GraphicEnemy.setImgDir(dir);
 					
 				}
 		}
@@ -106,7 +107,7 @@ public class Enemy {
 				@Override
 				protected Void call() throws Exception {
 
-					int value = 0;					
+					int value = 0;				
 					while(value <= 15) {
 						
 						value++;
@@ -119,7 +120,8 @@ public class Enemy {
 					while(nRandDir == direzione) {
 						nRandDir = (int) (4.0 * Math.random());				
 					}
-					
+					GraphicEnemy.setImgDir(direzione);
+
 					stopMoving = false;	
 					
 				return null;

@@ -15,7 +15,8 @@ public class GraphicEnemy {
 			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "enemy" + File.separator + "enemyDown.png")) //ferma down
 		};
 	private static Image img = images[4];
-
+	
+	
 	public static Image getImg() {
 		return img;
 	}
