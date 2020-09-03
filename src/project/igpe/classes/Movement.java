@@ -372,7 +372,6 @@ public class Movement {
 		if(Maps.getIndexYetChoosen().size()==4 && Maps.isMapBoss()==false) {
 			if (doorDown) {
 				Maps.setIndiceMappe(24);
-				Maps.getIndexYetChoosen().add(24);
 				Enemy.setKeyDrop(true);
 				nRand=24;
 				System.out.println("drop ok");
@@ -385,7 +384,6 @@ public class Movement {
 				
 			else if (doorDx) {
 				Maps.setIndiceMappe(23);
-				Maps.getIndexYetChoosen().add(23);
 				Enemy.setKeyDrop(true);
 				nRand=23;
 				try {
@@ -396,7 +394,6 @@ public class Movement {
 			}
 			else if (doorLx) {
 				Maps.setIndiceMappe(26);
-				Maps.getIndexYetChoosen().add(26);
 				Enemy.setKeyDrop(true);
 				nRand=26;
 				try {
@@ -407,7 +404,6 @@ public class Movement {
 			}
 			else if (doorUp) {
 				Maps.setIndiceMappe(25);
-				Maps.getIndexYetChoosen().add(25);
 				Enemy.setKeyDrop(true);
 				nRand=25;
 				try {
@@ -422,7 +418,6 @@ public class Movement {
 		else if(Maps.isMapBoss()==true) {
 			if (doorDown) {
 				Maps.setIndiceMappe(29);
-				Maps.getIndexYetChoosen().add(29);
 				nRand=29;
 				try {
 					graphicGame.setBg(29);
@@ -433,7 +428,6 @@ public class Movement {
 				
 			else if (doorDx) {
 				Maps.setIndiceMappe(30);
-				Maps.getIndexYetChoosen().add(30);
 				nRand=30;
 				try {
 					graphicGame.setBg(30);
@@ -443,7 +437,6 @@ public class Movement {
 			}
 			else if (doorLx) {
 				Maps.setIndiceMappe(27);
-				Maps.getIndexYetChoosen().add(27);
 				nRand=27;
 				try {
 					graphicGame.setBg(27);
@@ -453,7 +446,6 @@ public class Movement {
 			}
 			else if (doorUp) {
 				Maps.setIndiceMappe(28);
-				Maps.getIndexYetChoosen().add(28);
 				nRand=28;
 				try {
 					graphicGame.setBg(28);
