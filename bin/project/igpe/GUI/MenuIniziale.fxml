@@ -17,7 +17,7 @@
       </ImageView>
       <AnchorPane layoutX="-141.0" layoutY="-225.0" prefHeight="720.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="Title" layoutX="283.0" layoutY="-35.0" prefHeight="101.0" prefWidth="459.0" text="Titolo Project" textFill="#4a4a4a" AnchorPane.bottomAnchor="517.0" AnchorPane.topAnchor="-35.0">
+            <Label fx:id="Title" layoutX="261.0" layoutY="-38.0" prefHeight="238.0" prefWidth="503.0" text="Dungeon Hero" textFill="#4a4a4a" AnchorPane.bottomAnchor="520.0" AnchorPane.topAnchor="-38.0">
                <font>
                   <Font name="Monotype Corsiva" size="93.0" />
                </font>
