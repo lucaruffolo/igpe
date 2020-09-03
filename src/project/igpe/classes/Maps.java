@@ -129,10 +129,10 @@ public class Maps {
 		String txt25 = new String("src/project/igpe/maps/Template2door(SU-GIU)chiave.txt");
 		String txt26 = new String("src/project/igpe/maps/Template2door(SX-DX)chiave.txt");
 		
-		File img27 = new File("src/project/igpe/images/mappaBossDx.png");
-		File img28 = new File("src/project/igpe/images/mappaBossGIU.png");
-		File img29 = new File("src/project/igpe/images/mappaBossSU.png");
-		File img30 = new File("src/project/igpe/images/mappaBossLx.png");
+		File img27 = new File("src/project/igpe/images/portaBossDx.png");
+		File img28 = new File("src/project/igpe/images/portaBossGiu.png");
+		File img29 = new File("src/project/igpe/images/portaBossSu.png");
+		File img30 = new File("src/project/igpe/images/portaBossLx.png");
 		
 		String txt27 = new String("src/project/igpe/maps/TemplateBossDx.txt");
 		String txt28 = new String("src/project/igpe/maps/TemplateBossGIU.txt");
