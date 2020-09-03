@@ -35,6 +35,7 @@ public class Enemy {
 	public static void moveEnemy() {
 
 	    moving(nRandDir);
+	    GraphicEnemy.setImgDir(dirEnemy);
 	    if (GraphicsGame.nemico.getLife()<=0)
 	    	GraphicsGame.nemico.isAlive = false;
 	}
@@ -91,9 +92,6 @@ public class Enemy {
 				}
 		}
 		
-		/*
-		else
-			System.out.println("nemico MORTO RIP");*/
 		
 	}
 
@@ -118,7 +116,6 @@ public class Enemy {
 					while(nRandDir == direzione) {
 						nRandDir = (int) (4.0 * Math.random());				
 					}
-					GraphicEnemy.setImgDir(direzione);
 
 					stopMoving = false;	
 					
