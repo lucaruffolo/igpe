@@ -81,19 +81,6 @@ public class Bullet {
 				}
 				
 			}
-			if (GraphicsGame.nemico2.isAlive) {
-							
-				if (getPosX()>= GraphicsGame.nemico2.getX()-Enemy.getSize() && getPosX()<= GraphicsGame.nemico2.getX()+Enemy.getSize() 
-					&& getPosY()>= GraphicsGame.nemico2.getY()-Enemy.getSize() && getPosY()<= GraphicsGame.nemico2.getY()+Enemy.getSize()) {		
-					
-					GraphicsGame.nemico2.setLife(GraphicsGame.nemico2.getLife()-Bullet.damage);
-					alive = false;
-					if (GraphicsGame.nemico2.getLife()<= 0) {
-						Hero.counterKill++;					
-					}
-				}
-				
-			}
 	}
 
 	

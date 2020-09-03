@@ -53,7 +53,6 @@ public class Enemy {
 		if (GraphicsGame.nemico.isAlive) {
 			
 			dirEnemy = dir;
-			GraphicEnemy.setImgDir(dir);
 			
 			if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionObstacleDmg(x, y)){
 
@@ -87,8 +86,7 @@ public class Enemy {
 			
 				service.restart();
 				contadir++;
-				dirEnemy = dir;
-				GraphicEnemy.setImgDir(dir);
+				dirEnemy = nRandDir;
 					
 				}
 		}
@@ -193,6 +191,11 @@ public class Enemy {
 
 	public void setLife(int life) {
 		this.life = life;
+	}
+
+	public static void dirEnemy(int dir) {
+		dirEnemy = dir;
+		
 	}
 
 

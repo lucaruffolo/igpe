@@ -36,6 +36,7 @@ public class BulletEnemy {
 	public void moveBullet() {
 		
 		setDirBullet(dir);
+		Enemy.dirEnemy(dir);
 		if(Movement.MOVE_RIGHT==dir) {
 			if (collisionBullet(getPosX(), getPosY())
 					&& collisionBullet(getPosX(), getPosY()+size))					

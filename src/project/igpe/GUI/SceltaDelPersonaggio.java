@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.classes.Enemy;
-import project.igpe.classes.Enemy2;
 import project.igpe.classes.GraphicHero;
 import project.igpe.classes.Hero;
 import project.igpe.classes.Maps;
@@ -120,7 +119,6 @@ public class SceltaDelPersonaggio {
 			
 			Hero.resetHero();
 			Enemy.resetEnemy();
-			Enemy2.resetEnemy2();
 			
 			notChooseSex=false;
 			notChooseNickname=false;

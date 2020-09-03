@@ -27,3 +27,7 @@ sd;false;0;0;0
 sd;false;1;36;0
 sd;false;0;0;0
 sd;false;0;1;0
+sd;false;5;150;1
+Ciuski;true;7;240;1
+sd;false;0;0;0
+sd;false;0;0;0
