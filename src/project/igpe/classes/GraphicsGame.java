@@ -224,9 +224,9 @@ public class GraphicsGame extends StackPane{
 			canvas.getGraphicsContext2D().drawImage(b.getImgBullet(), b.getPosX(), b.getPosY(), Settings.block,Settings.block);
 		}
 		
-		if (BulletEnemy.isAlive())
+		if (BulletEnemy.isAlive() && nemico.isAlive)
 			canvas.getGraphicsContext2D().drawImage(Enemy.bullet.getImgBullet(), Enemy.bullet.getPosX(), Enemy.bullet.getPosY(), Settings.block,Settings.block);
-		if (BulletEnemy2.isAlive())
+		if (BulletEnemy2.isAlive() && nemico2.isAlive)
 			canvas.getGraphicsContext2D().drawImage(Enemy2.bullet.getImgBullet(), Enemy2.bullet.getPosX(), Enemy2.bullet.getPosY(), Settings.block,Settings.block);
 		
 		

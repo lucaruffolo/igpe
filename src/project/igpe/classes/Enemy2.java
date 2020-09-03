@@ -47,7 +47,7 @@ public class Enemy2 {
 	
 	public static void moving (int dir) {
 		 
-		if (GraphicsGame.nemico.isAlive) {
+		if (GraphicsGame.nemico2.isAlive) {
 			
 			dirEnemy = dir;
 			GraphicEnemy.setImgDir(dir);
@@ -65,7 +65,7 @@ public class Enemy2 {
 				if(x==Settings.x/4 || y==Settings.y/4 || x==Settings.x/2 || y==Settings.y/2) {
 					y += speed;
 					x += speed;
-					service.restart();
+					service2.restart();
 				}
 			} else {			
 				
@@ -82,7 +82,7 @@ public class Enemy2 {
 				if (dir == MOVE_DOWN) 
 					y -= speed*3;
 			
-				service.restart();
+				service2.restart();
 				contadir++;	
 					
 				}
@@ -94,7 +94,7 @@ public class Enemy2 {
 	}
 
 
-	static Service<Void> service = new Service<Void>() { //like timer
+	static Service<Void> service2 = new Service<Void>() { //like timer
 		@Override
 		protected Task<Void> createTask() {
 			return new Task<Void>() {				
