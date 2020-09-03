@@ -80,27 +80,19 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				movimento.move(Movement.MOVE_DOWN);
 				break;
 			case SHIFT:
-				Hero.setSpeed(4);
-				break;
-			case X:
-				Hero.setLife(100);
+				Hero.setSpeed(3);
 				break;
 			case R:
 				Hero.ResetPosition();
 				break;
-			case Z:
-				Hero.setLife(0);
-				break;
-			case L:
-				if (Hero.getLife()>0)
-					Hero.setLife(Hero.getLife()-10);			
-				break;	
+			/*
 			case C:
 				System.out.println(" x= "+Hero.getX()+" . "+ " y= "+Hero.getY()+" CELL "+ Movement.room.getCellType(Movement.pixelInMatrixX(Hero.getX()),Movement.pixelInMatrixX(Hero.getY())));
 				break;
 			case M:
 				System.out.println(Movement.pixelInMatrixX(+Hero.getX())+" . "+ Movement.pixelInMatrixY(Hero.getY()));
 				break;
+			*/
 			case SPACE:
 				if (Hero.takePistol) {
 					if (Bullet.heroAmmo < Bullet.maxAmmo) {
