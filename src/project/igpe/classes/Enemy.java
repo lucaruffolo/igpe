@@ -20,7 +20,8 @@ public class Enemy {
 	public static int dirEnemy = 3;
 	public final static int damage = 5;
 	public boolean isAlive = false;
-	private static int size = 50;	
+	private static int size = 50;
+	public static Boolean keyDrop = false;
 
 
 
@@ -195,6 +196,15 @@ public class Enemy {
 		
 	}
 
+	public static Boolean getKeyDrop() {
+		return keyDrop;
+	}
+
+	public static void setKeyDrop(Boolean keyDrop) {
+		Enemy.keyDrop = keyDrop;
+	}
+
+	
 
 
 		

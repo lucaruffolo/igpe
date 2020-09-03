@@ -290,6 +290,10 @@ public class Movement {
 			System.out.println(saveDoorOpened.get(mappaAttuale));
 		}
 		
+		if(Enemy.getKeyDrop()==true) {
+			System.out.println("drop no");
+		}
+		
 		if (saveDoorOpened.containsKey(mappaAttuale)) {
 			questaStanza = saveDoorOpened.get(mappaAttuale);
 			if (doorUp && questaStanza.get("portaUp")!=-1) {
@@ -369,6 +373,9 @@ public class Movement {
 			if (doorDown) {
 				Maps.setIndiceMappe(24);
 				Maps.getIndexYetChoosen().add(24);
+				Enemy.setKeyDrop(true);
+				nRand=24;
+				System.out.println("drop ok");
 				try {
 					graphicGame.setBg(24);
 				} catch (Exception e) {
@@ -379,6 +386,8 @@ public class Movement {
 			else if (doorDx) {
 				Maps.setIndiceMappe(23);
 				Maps.getIndexYetChoosen().add(23);
+				Enemy.setKeyDrop(true);
+				nRand=23;
 				try {
 					graphicGame.setBg(23);
 				} catch (Exception e) {
@@ -388,6 +397,8 @@ public class Movement {
 			else if (doorLx) {
 				Maps.setIndiceMappe(26);
 				Maps.getIndexYetChoosen().add(26);
+				Enemy.setKeyDrop(true);
+				nRand=26;
 				try {
 					graphicGame.setBg(26);
 				} catch (Exception e) {
@@ -397,6 +408,8 @@ public class Movement {
 			else if (doorUp) {
 				Maps.setIndiceMappe(25);
 				Maps.getIndexYetChoosen().add(25);
+				Enemy.setKeyDrop(true);
+				nRand=25;
 				try {
 					graphicGame.setBg(25);
 				} catch (Exception e) {
@@ -410,6 +423,7 @@ public class Movement {
 			if (doorDown) {
 				Maps.setIndiceMappe(29);
 				Maps.getIndexYetChoosen().add(29);
+				nRand=29;
 				try {
 					graphicGame.setBg(29);
 				} catch (Exception e) {
@@ -420,6 +434,7 @@ public class Movement {
 			else if (doorDx) {
 				Maps.setIndiceMappe(30);
 				Maps.getIndexYetChoosen().add(30);
+				nRand=30;
 				try {
 					graphicGame.setBg(30);
 				} catch (Exception e) {
@@ -429,6 +444,7 @@ public class Movement {
 			else if (doorLx) {
 				Maps.setIndiceMappe(27);
 				Maps.getIndexYetChoosen().add(27);
+				nRand=27;
 				try {
 					graphicGame.setBg(27);
 				} catch (Exception e) {
@@ -438,6 +454,7 @@ public class Movement {
 			else if (doorUp) {
 				Maps.setIndiceMappe(28);
 				Maps.getIndexYetChoosen().add(28);
+				nRand=28;
 				try {
 					graphicGame.setBg(28);
 				} catch (Exception e) {
@@ -500,6 +517,7 @@ public class Movement {
 					}
 				}
 				
+			}
 			System.out.println("prossima mappa:"+nRand);
 			prossimaMappa=nRand;
 			
@@ -544,7 +562,6 @@ public class Movement {
 	
 				e.printStackTrace();
 			}	
-		}
 	}
 	
 	
