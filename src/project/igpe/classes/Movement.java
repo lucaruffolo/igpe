@@ -139,7 +139,7 @@ public class Movement {
 
 			GraphicsGame.setFirstRoom(false);
 			Hero.clearAmmo();
-			resetEnemyxd();
+			resetEnemy();
 			Enemy.resetEnemy();
 			Enemy2.resetEnemy2();
 		}
@@ -148,7 +148,7 @@ public class Movement {
 		
 	}
 	
-	public static void resetEnemyxd() {
+	public static void resetEnemy() {
 		GraphicsGame.nemico.setLife(0);
 		GraphicsGame.nemico2.setLife(0);
 
@@ -202,10 +202,10 @@ public class Movement {
 	
 	public static void collisionEnemy(int x, int y) {
 		
-		if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize() 
-				&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()
-				||	 x>= GraphicsGame.nemico2.getX()-Enemy2.getSize() && x<= GraphicsGame.nemico2.getX()+Enemy.getSize() 
-						&& y>= GraphicsGame.nemico2.getY()-Enemy2.getSize() && y<= GraphicsGame.nemico2.getY()+Enemy.getSize()
+		if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize()-10 
+				&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()-10
+				||	 x>= GraphicsGame.nemico2.getX()-Enemy2.getSize() && x<= GraphicsGame.nemico2.getX()+Enemy.getSize()-10 
+						&& y>= GraphicsGame.nemico2.getY()-Enemy2.getSize() && y<= GraphicsGame.nemico2.getY()+Enemy.getSize()-10
 				){
 			
 			if (Hero.getLife() > 0)

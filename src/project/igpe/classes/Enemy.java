@@ -20,7 +20,7 @@ public class Enemy {
 	public static int dirEnemy = 3;
 	public final static int damage = 5;
 	public boolean isAlive = false;
-	private static int size = 60;	
+	private static int size = 50;	
 
 
 
@@ -35,6 +35,8 @@ public class Enemy {
 	public static void moveEnemy() {
 
 	    moving(nRandDir);
+	    if (GraphicsGame.nemico.getLife()<=0)
+	    	GraphicsGame.nemico.isAlive = false;
 	}
 
 	public static int contadir = 0;	
@@ -88,9 +90,6 @@ public class Enemy {
 					
 					
 				}
-		} else {
-			x = 0;
-			y = 0;
 		}
 		
 		/*
