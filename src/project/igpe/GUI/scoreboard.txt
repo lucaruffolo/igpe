@@ -31,3 +31,14 @@ sd;false;5;150;1
 Ciuski;true;7;240;1
 sd;false;0;0;0
 sd;false;0;0;0
+sd;false;0;0;0
+sd;false;0;0;0
+sd;false;0;0;0
+vinco;false;0;0;0
+sd;false;0;0;0
+(VINCITORE) asd;false;0;0;0
+(VINCITORE) as;false;0;0;0
+asd;false;0;0;0
+(VINCITORE) asd;false;0;0;0
+(VINCITORE) sd the  best;false;0;0;0
+(VINCITORE) asd;false;0;0;0

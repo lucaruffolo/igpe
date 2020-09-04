@@ -2,6 +2,7 @@ package project.igpe.classes;
 
 import javafx.animation.AnimationTimer;
 import project.igpe.GUI.DeathScene;
+import project.igpe.GUI.WinScene;
 
 public class GameLoop extends AnimationTimer {
 
@@ -32,8 +33,10 @@ public class GameLoop extends AnimationTimer {
 			if (Enemy.colpoPartito && GraphicsGame.nemico.isAlive)
 				Enemy.bullet.moveBullet();
 
-		
-				
+			/*
+			//win scene*
+			if (boss.getlife<= 0)
+				WinScene.Win();*/
 			
 			//Fine BulletEnemy------
 			

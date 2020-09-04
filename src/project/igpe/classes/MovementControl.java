@@ -9,6 +9,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import project.igpe.GUI.MenuIniziale;
 import project.igpe.GUI.Pausa;
+import project.igpe.GUI.WinScene;
 import project.igpe.main.Main;
 
 
@@ -81,6 +82,14 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				break;
 			case SHIFT:
 				Hero.setSpeed(3);
+				break;
+			case I:
+				try {
+					WinScene.Win();
+				} catch (Exception e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
 				break;
 			case R:
 				Hero.ResetPosition();
