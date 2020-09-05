@@ -145,7 +145,6 @@ public class Movement {
 			Hero.clearAmmo();
 			resetEnemy();
 			Enemy.resetEnemy();
-			Boss.resetEnemy();
 		}
 	
 	
@@ -156,7 +155,7 @@ public class Movement {
 		if (GraphicsGame.EnemySpawn)
 			GraphicsGame.nemico.setLife(0);
 		if (GraphicsGame.BossSpawn)
-			GraphicsGame.boss.setLife(0);
+			GraphicsGame.boss.setLife(1000);
 	}
 	// INIZIO COLLISIONI
 	
@@ -305,10 +304,6 @@ public class Movement {
 			System.out.println(saveDoorOpened.get(mappaAttuale));
 		}
 		
-		if(Enemy.getKeyDrop()==true) {
-			//
-		}
-		
 		
 		if (saveDoorOpened.containsKey(mappaAttuale)) {
 			questaStanza = saveDoorOpened.get(mappaAttuale);
@@ -368,8 +363,11 @@ public class Movement {
 			newRoom(questaStanza);
 		}
 		if(Maps.isControllo()) {
-			if(Maps.getIndexYetChoosen().get(1)==Maps.getIndiceMappe())
+			if(Maps.getIndexYetChoosen().get(1)==Maps.getIndiceMappe()) {
 				Maps.mapKey=false;
+				Enemy.setKeyDrop(false);
+				System.out.println("disabilito drop");
+			}
 			if(Maps.getIndiceMappe()==23 || Maps.getIndiceMappe()==24 || Maps.getIndiceMappe()==25 || Maps.getIndiceMappe()==26) {
 				Maps.setMapKey(true);
 			}
@@ -449,9 +447,10 @@ public class Movement {
 			}
 			
 			Maps.setMapBoss(true);
-			//Enemy.setKeyDrop(true);
+			Enemy.setKeyDrop(true);
 			Maps.setMapKey(true);
 			Maps.setControllo(true);
+			System.out.println("abilito drop");
 		}
 		else if(Maps.isMapBoss()==true && Maps.isMapKey()==true) {
 			System.out.println("creo mappa boss");
