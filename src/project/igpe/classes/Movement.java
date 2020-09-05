@@ -1,7 +1,6 @@
 package project.igpe.classes;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import project.igpe.GUI.ChangeRoomScene;
 import project.igpe.main.Main;
@@ -146,6 +145,7 @@ public class Movement {
 			Hero.clearAmmo();
 			resetEnemy();
 			Enemy.resetEnemy();
+			Boss.resetEnemy();
 		}
 	
 	
@@ -153,8 +153,10 @@ public class Movement {
 	}
 	
 	public static void resetEnemy() {
-		GraphicsGame.nemico.setLife(0);
-		
+		if (GraphicsGame.EnemySpawn)
+			GraphicsGame.nemico.setLife(0);
+		if (GraphicsGame.BossSpawn)
+			GraphicsGame.boss.setLife(0);
 	}
 	// INIZIO COLLISIONI
 	
@@ -203,16 +205,24 @@ public class Movement {
 	}
 	
 	public static void collisionEnemy(int x, int y) {
-		
-		if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize()-10 
-				&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()-10	){
-			
-			if (Hero.getLife() > 0 && GraphicsGame.nemico.getLife()>0)
-				Hero.setLife(Hero.getLife()-0.1);					
+		if (GraphicsGame.EnemySpawn) {
+			if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize()-10 
+					&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()-10){
+				
+				if (Hero.getLife() > 0 && GraphicsGame.nemico.isAlive)
+					Hero.setLife(Hero.getLife()-0.1);					
+			}
 		}
-
+		if (GraphicsGame.BossSpawn) {
+			if (x>= GraphicsGame.boss.getX()-GraphicsGame.boss.getSize() && x<= GraphicsGame.boss.getX()+GraphicsGame.boss.getSize()-10 
+					&& y>= GraphicsGame.boss.getY()-GraphicsGame.boss.getSize() && y<= GraphicsGame.boss.getY()+GraphicsGame.boss.getSize()-10){
+				
+				if (Hero.getLife() > 0 && GraphicsGame.boss.isAlive)
+					Hero.setLife(Hero.getLife()-0.1);					
+			}
+		}
 	}
-
+	
 	public static boolean collisionHero(int x, int y) {
 		
 		if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize() 
