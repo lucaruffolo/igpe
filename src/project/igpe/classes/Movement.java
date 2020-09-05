@@ -296,7 +296,7 @@ public class Movement {
 		}
 		
 		if(Enemy.getKeyDrop()==true) {
-			System.out.println("drop mo");
+			//
 		}
 		
 		
@@ -357,9 +357,6 @@ public class Movement {
 		} else {
 			newRoom(questaStanza);
 		}
-		System.out.println("miagolo"+Maps.getIndiceMappe());
-		System.out.println(Maps.isMapKey());
-		System.out.println(Maps.isMapBoss());
 		if(Maps.isControllo()) {
 			if(Maps.getIndexYetChoosen().get(1)==Maps.getIndiceMappe())
 				Maps.mapKey=false;
@@ -442,7 +439,7 @@ public class Movement {
 			}
 			
 			Maps.setMapBoss(true);
-			Enemy.setKeyDrop(true);
+			//Enemy.setKeyDrop(true);
 			Maps.setMapKey(true);
 			Maps.setControllo(true);
 		}
