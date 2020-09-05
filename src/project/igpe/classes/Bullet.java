@@ -69,7 +69,7 @@ public class Bullet {
 			}
 			
 			//collisionW/Enemy
-			if (GraphicsGame.EnemySpawn && GraphicsGame.boss.isAlive) {
+			if (GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive) {
 				
 				if (getPosX()>= GraphicsGame.nemico.getX()-Enemy.getSize() && getPosX()<= GraphicsGame.nemico.getX()+Enemy.getSize() 
 					&& getPosY()>= GraphicsGame.nemico.getY()-Enemy.getSize() && getPosY()<= GraphicsGame.nemico.getY()+Enemy.getSize()) {		
