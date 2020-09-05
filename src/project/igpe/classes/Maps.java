@@ -340,6 +340,9 @@ public class Maps {
 							if (costruzioneRiga.equals("11")) {
 								cella[riga][colonne++] = new Cell(Cell.PISTOL);
 							}
+							if (costruzioneRiga.equals("12")) {
+								cella[riga][colonne++] = new Cell(Cell.ENEMYKEY);
+							}
 							if (costruzioneRiga.equals("13")) {
 								cella[riga][colonne++] = new Cell(Cell.FIRE);
 							}
@@ -395,6 +398,9 @@ public class Maps {
 						if (costruzioneRiga.equals("11")) {
 							cella[riga][colonne++] = new Cell(Cell.PISTOL);
 						}
+						if (costruzioneRiga.equals("12")) {
+							cella[riga][colonne++] = new Cell(Cell.ENEMYKEY);
+						}
 						if (costruzioneRiga.equals("13")) {
 							cella[riga][colonne++] = new Cell(Cell.FIRE);
 						}
@@ -448,6 +454,9 @@ public class Maps {
 						}
 						if (costruzioneRiga.equals("11")) {
 							cella[riga][colonne++] = new Cell(Cell.PISTOL);
+						}
+						if (costruzioneRiga.equals("12")) {
+							cella[riga][colonne++] = new Cell(Cell.ENEMYKEY);
 						}
 						if (costruzioneRiga.equals("13")) {
 							cella[riga][colonne++] = new Cell(Cell.FIRE);
@@ -503,6 +512,9 @@ public class Maps {
 						if (costruzioneRiga.equals("11")) {
 							cella[riga][colonne++] = new Cell(Cell.PISTOL);
 						}
+						if (costruzioneRiga.equals("12")) {
+							cella[riga][colonne++] = new Cell(Cell.ENEMYKEY);
+						}
 						if (costruzioneRiga.equals("13")) {
 							cella[riga][colonne++] = new Cell(Cell.FIRE);
 						}
@@ -556,6 +568,9 @@ public class Maps {
 						}
 						if (costruzioneRiga.equals("11")) {
 							cella[riga][colonne++] = new Cell(Cell.PISTOL);
+						}
+						if (costruzioneRiga.equals("12")) {
+							cella[riga][colonne++] = new Cell(Cell.ENEMYKEY);
 						}
 						if (costruzioneRiga.equals("13")) {
 							cella[riga][colonne++] = new Cell(Cell.FIRE);

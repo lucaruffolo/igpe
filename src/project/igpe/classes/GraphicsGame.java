@@ -29,6 +29,7 @@ public class GraphicsGame extends StackPane{
 	private static Image imagesFire;
 	private static Image heart;
 	private static Image weapon;
+	private static Image key;
 	public static Enemy nemico;
 	public static Boss boss;
 	public static int nRandObstacles = 0;
@@ -39,6 +40,7 @@ public class GraphicsGame extends StackPane{
 		
 		heart = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "heart.gif"));
 		weapon = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "pistol.gif"));
+		key= new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "chiave.png"));
 
 		imagesObstacleDamages  = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs1dmg.gif"));
 		imagesFire = new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "obs2dmg.gif"));
@@ -283,6 +285,35 @@ public class GraphicsGame extends StackPane{
 					//fine vita upper enemy
 					break;
 				case Cell.ENEMYKEY:
+					if (!EnemySpawn) {
+						nemico = new Enemy(Movement.matrixInPixelX(i),Movement.matrixInPixelY(j));
+						nemico.isAlive = true;
+						EnemySpawn = true;
+						System.out.println("Spawno nemico");
+					}
+					if (nemico.getLife()>0) {
+						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+20, Enemy.getSize()+20);
+						
+					}else {
+						nemico.isAlive = false;
+						canvas.getGraphicsContext2D().drawImage(key, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 90, 80);
+					}
+					
+					//Vita upper enemy
+					if (nemico.getLife()>0) {
+						canvas.getGraphicsContext2D().setFill(Color.BLACK);
+						canvas.getGraphicsContext2D().fillRect(nemico.getX()+5, nemico.getY()-10,  200/3, 5); //200 Life Max enemy
+								
+						if (nemico.getLife()>132)
+							canvas.getGraphicsContext2D().setFill(Color.LIME);
+						if (nemico.getLife()<132)
+							canvas.getGraphicsContext2D().setFill(Color.YELLOW);
+						if (nemico.getLife()<66)
+							canvas.getGraphicsContext2D().setFill(Color.RED);		
+						
+						canvas.getGraphicsContext2D().fillRect(nemico.getX()+5, nemico.getY()-10, nemico.getLife()/3, 5); //Hero.getLife()*2 perchè barra lunga 200
+					}
+					//fine vita upper enemy
 					break;
 				case Cell.BOSS:
 					if (!BossSpawn) {

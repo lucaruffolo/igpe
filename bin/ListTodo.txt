@@ -6,12 +6,15 @@
 
 Reparto codice manca:
 
-	! Sistema creazione mappe( mappa 0..5 nella 5 generare chiave per stanza boss 6 ) Controllare se funziona MOVEMENT
-	- Creazione mappe statiche 5 stanza chiave - 6 stanza boss 
-	- spawn chiave random in una stanza stabilita 
-	- settare lato map.txt heart(recupera vita) id 10 lato codice
+	- spawn chiave random in una stanza stabilita
+	-se muori le mappe non si resettano
+	-mappa chiave acqua
+	-bug mappa con la viuzza
+	-rimettere mappe a 5
+	 
 	- creazione boss + movement + spara
-	- scena vittoria game
+	-nemici acqua
+	-collisione con acqua nemici
 			
 Reparto musica:
 	
@@ -35,7 +38,7 @@ Reparto musica:
 
 Reparto grafico manca:
 
-	- BOSS con le sue animazioni
-	- chiave
 	- video credits	
+	
+
 	

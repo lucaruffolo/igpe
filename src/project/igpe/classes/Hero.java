@@ -34,6 +34,7 @@ public class Hero {
 	public static long TimeEndPlayed = 0;
 
 	public static boolean takePistol = false;
+	public static boolean takeKey = false;
 
 	public Hero() {
 		name = "nome";
@@ -243,11 +244,23 @@ public class Hero {
 		y = yy;
 	}
 
-
-
 	public static void clearAmmo() {
 		contenitoreBullets.clear();
 	}
+
+
+
+	public static boolean isTakeKey() {
+		return takeKey;
+	}
+
+
+
+	public static void setTakeKey(boolean takeKey) {
+		Hero.takeKey = takeKey;
+	}
+	
+	
 
 	
 }

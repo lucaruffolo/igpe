@@ -72,14 +72,23 @@ public class Movement {
 		collisionDamage(x, y);
 		collisionHeart(x, y);
 		collisionPistol(x, y);
-		collisionEnemy(x, y);		
+		collisionEnemy(x, y);
+		collisionKey (x, y);
 	}
 	
 	public static void collisionPistol(int newX, int newY) {
 		
 		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.PISTOL) {		
 			Hero.takePistol = true;
-			room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella heart
+			room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella pistol
+				
+		}
+	}
+	
+	public static void collisionKey(int newX, int newY) {
+		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.ENEMYKEY) {		
+			Hero.takeKey = true;
+			room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella key
 				
 		}
 	}
