@@ -87,14 +87,18 @@ public class Movement {
 	
 	public static void collisionHeart(int newX, int newY) {
 		
-		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.HEART) {											
+		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.HEART
+				|| room.getCellType(pixelInMatrixX(newX+Hero.getSize()), pixelInMatrixY(newY)) == Cell.HEART) {											
 				int i = 0;
 				if (Hero.getLife() < 100) {					
 					while (i<25 && Hero.getLife()<100) {
 						Hero.setLife(Hero.getLife()+1);
 						i++;
 					}
-					room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella heart
+					room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY);
+					room.setCellType(pixelInMatrixX(newX+Hero.getSize()), pixelInMatrixY(newY), Cell.EMPTY);
+
+					//elimino cella heart
 				}
 			}
 	}
@@ -203,7 +207,7 @@ public class Movement {
 		if (x>= GraphicsGame.nemico.getX()-Enemy.getSize() && x<= GraphicsGame.nemico.getX()+Enemy.getSize()-10 
 				&& y>= GraphicsGame.nemico.getY()-Enemy.getSize() && y<= GraphicsGame.nemico.getY()+Enemy.getSize()-10	){
 			
-			if (Hero.getLife() > 0)
+			if (Hero.getLife() > 0 && GraphicsGame.nemico.getLife()>0)
 				Hero.setLife(Hero.getLife()-0.1);					
 		}
 
@@ -308,8 +312,6 @@ public class Movement {
 				}
 			}
 			else if (doorUp && questaStanza.get("portaUp")==-1) {
-				System.out.println(Maps.isMapKey());
-				System.out.println(Maps.isMapBoss());
 				newRoom(questaStanza);
 			}
 			
@@ -323,8 +325,6 @@ public class Movement {
 				}
 			}
 			else if (doorDown && questaStanza.get("portaDown")==-1) {
-				System.out.println(Maps.isMapKey());
-				System.out.println(Maps.isMapBoss());
 				newRoom(questaStanza);
 			}
 			
@@ -338,8 +338,6 @@ public class Movement {
 				}
 			}
 			else if (doorLx && questaStanza.get("portaLeft")==-1) {
-				System.out.println(Maps.isMapKey());
-				System.out.println(Maps.isMapBoss());
 				newRoom(questaStanza);
 			}
 			
@@ -353,40 +351,38 @@ public class Movement {
 				}
 			}
 			else if(doorDx && questaStanza.get("portaRight")==-1) {
-				System.out.println(Maps.isMapKey());
-				System.out.println(Maps.isMapBoss());
 				newRoom(questaStanza);
 			}
 			
-			
-			if(Maps.getIndiceMappe()!=23 && Maps.isMapBoss()) {
-				Maps.setMapBoss(false);
-			}
-			else if(Maps.getIndiceMappe()!=24 && Maps.isMapBoss()) {
-				Maps.setMapBoss(false);
-			}
-			else if(Maps.getIndiceMappe()!=25 && Maps.isMapBoss()) {
-				Maps.setMapBoss(false);
-			}
-			else if(Maps.getIndiceMappe()!=26 && Maps.isMapBoss()) {
-				Maps.setMapBoss(false);
-			}
-			else if(Maps.getIndiceMappe()==23) {
-				Maps.setMapBoss(true);
-			}
-			else if(Maps.getIndiceMappe()==24) {
-				Maps.setMapBoss(true);
-			}
-			else if(Maps.getIndiceMappe()==25) {
-				Maps.setMapBoss(true);
-			}
-			else if(Maps.getIndiceMappe()==26) {
-				Maps.setMapBoss(true);
-			}
 		} else {
-			System.out.println(Maps.isMapKey());
-			System.out.println(Maps.isMapBoss());
 			newRoom(questaStanza);
+		}
+		System.out.println("miagolo"+Maps.getIndiceMappe());
+		System.out.println(Maps.isMapKey());
+		System.out.println(Maps.isMapBoss());
+		if(Maps.isControllo()) {
+			if(Maps.getIndexYetChoosen().get(1)==Maps.getIndiceMappe())
+				Maps.mapKey=false;
+			if(Maps.getIndiceMappe()==23 || Maps.getIndiceMappe()==24 || Maps.getIndiceMappe()==25 || Maps.getIndiceMappe()==26) {
+				Maps.setMapKey(true);
+			}
+		}
+		
+		if(Maps.getIndiceMappe()==23) {
+			Maps.setMapBoss(true);
+			Maps.setMapKey(true);
+		}
+		else if(Maps.getIndiceMappe()==24) {
+			Maps.setMapBoss(true);
+			Maps.setMapKey(true);
+		}
+		else if(Maps.getIndiceMappe()==25) {
+			Maps.setMapBoss(true);
+			Maps.setMapKey(true);
+		}
+		else if(Maps.getIndiceMappe()==26) {
+			Maps.setMapBoss(true);
+			Maps.setMapKey(true);
 		}
 
 	}
@@ -406,7 +402,7 @@ public class Movement {
 	
 	public static void newRoom(HashMap<String, Integer> questaStanza) {
 		
-		if(Maps.getIndexYetChoosen().size()==4 && Maps.isMapBoss()==false) {
+		if(Maps.getIndexYetChoosen().size()==2 && Maps.isMapBoss()==false) {
 			if (doorDown) {
 				Maps.setIndiceMappe(24);
 				nRand=24;
@@ -448,9 +444,10 @@ public class Movement {
 			Maps.setMapBoss(true);
 			Enemy.setKeyDrop(true);
 			Maps.setMapKey(true);
-			System.out.println("drop ok");
+			Maps.setControllo(true);
 		}
-		else if(Maps.isMapBoss() && Maps.isMapKey()) {
+		else if(Maps.isMapBoss()==true && Maps.isMapKey()==true) {
+			System.out.println("creo mappa boss");
 			if (doorDown) {
 				Maps.setIndiceMappe(29);
 				nRand=29;
@@ -731,5 +728,5 @@ public class Movement {
 		Movement.doorLx = doorLx;
 	}
 
-
+	
 }
