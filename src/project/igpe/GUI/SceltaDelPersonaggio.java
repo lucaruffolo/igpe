@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import project.igpe.classes.Boss;
 import project.igpe.classes.Enemy;
 import project.igpe.classes.GraphicHero;
 import project.igpe.classes.Hero;
@@ -119,7 +120,7 @@ public class SceltaDelPersonaggio {
 			
 			Hero.resetHero();
 			Enemy.resetEnemy();
-			
+			Boss.resetEnemy();
 			notChooseSex=false;
 			notChooseNickname=false;
 			

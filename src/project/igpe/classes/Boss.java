@@ -17,7 +17,7 @@ public class Boss {
 	private int life = 1000;
 	public static int velX = 0;
 	public static int velY = 0;
-	public static int dirBoss = 3;
+	public static int dirBoss = 2;
 	public final static int damage = 10;
 	public boolean isAlive = false;
 	private static int size = 150;
@@ -37,7 +37,8 @@ public class Boss {
 		    GraphicEnemy.setImgBossDir(dirBoss);
 		    if (GraphicsGame.boss.getLife()<=0)
 		    	GraphicsGame.boss.isAlive = false;
-			}
+		}
+		
 	}
 	
 	public static int contadir=0;

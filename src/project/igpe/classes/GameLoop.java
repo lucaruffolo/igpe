@@ -2,7 +2,6 @@ package project.igpe.classes;
 
 import javafx.animation.AnimationTimer;
 import project.igpe.GUI.DeathScene;
-import project.igpe.GUI.WinScene;
 
 public class GameLoop extends AnimationTimer {
 

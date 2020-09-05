@@ -42,12 +42,12 @@
             <Image url="@../images/femmina.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblNotChooseSex" layoutX="406.0" layoutY="546.0" opacity="0.0" prefHeight="30.0" prefWidth="212.0" text="Scegli un personaggio !" textAlignment="CENTER" textFill="#510101">
+      <Label fx:id="lblNotChooseSex" layoutX="406.0" layoutY="546.0" opacity="0.0" prefHeight="30.0" prefWidth="212.0" text="Scegli un personaggio !" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblNotChooseNickname" layoutX="425.0" layoutY="505.0" opacity="0.0" prefHeight="30.0" prefWidth="176.0" text="Inserisci un nome !" textAlignment="CENTER" textFill="#510101">
+      <Label fx:id="lblNotChooseNickname" layoutX="425.0" layoutY="505.0" opacity="0.0" prefHeight="30.0" prefWidth="176.0" text="Inserisci un nome !" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

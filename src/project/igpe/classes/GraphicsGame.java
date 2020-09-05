@@ -292,7 +292,7 @@ public class GraphicsGame extends StackPane{
 						System.out.println("Spawno nemico");
 					}
 					if (boss.getLife()>0) {
-						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), boss.getX(), boss.getY(), boss.getSize()+20, boss.getSize()+20);
+						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImgBoss(), boss.getX(), boss.getY(), boss.getSize()+20, boss.getSize()+20);
 						
 					}else {
 
