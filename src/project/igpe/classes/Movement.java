@@ -461,7 +461,7 @@ public class Movement {
 			Maps.setControllo(true);
 			System.out.println("abilito drop");
 		}
-		else if(Maps.isMapBoss()==true && Maps.isMapKey()==true) {
+		else if(Maps.isMapBoss()==true && Maps.isMapKey()==true && Hero.isTakeKey()==true) {
 			System.out.println("creo mappa boss");
 			if (doorDown) {
 				Maps.setIndiceMappe(29);
