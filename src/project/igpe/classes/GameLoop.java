@@ -33,16 +33,17 @@ public class GameLoop extends AnimationTimer {
 			if (Enemy.colpoPartito && GraphicsGame.nemico.isAlive)
 				Enemy.bullet.moveBullet();
 
-			/*
-			//win scene*
-			if (boss.getlife<= 0)
-				WinScene.Win();*/
+		
 			
 			//Fine BulletEnemy------
 			
 			gg.draw();
 			Hero.moveHero();
-			Enemy.moveEnemy();
+			if (GraphicsGame.EnemySpawn)
+				Enemy.moveEnemy();
+			if (GraphicsGame.BossSpawn)
+				Boss.moveBoss();
+			
 			//------Death Scene
 			if (Hero.getLife()<1 ) {	//&& Singleplayer = true
 				try {

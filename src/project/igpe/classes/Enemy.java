@@ -34,11 +34,12 @@ public class Enemy {
 	public static int nRandDir = (int) (4.0 * Math.random());
 	
 	public static void moveEnemy() {
-
+		if (GraphicsGame.EnemySpawn) {
 	    moving(nRandDir);
 	    GraphicEnemy.setImgDir(dirEnemy);
 	    if (GraphicsGame.nemico.getLife()<=0)
 	    	GraphicsGame.nemico.isAlive = false;
+		}
 	}
 
 	public static int contadir = 0;	

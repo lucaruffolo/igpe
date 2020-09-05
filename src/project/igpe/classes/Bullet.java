@@ -3,6 +3,7 @@ package project.igpe.classes;
 import java.io.File;
 
 import javafx.scene.image.Image;
+import project.igpe.GUI.WinScene;
 
 public class Bullet {
 	
@@ -68,7 +69,7 @@ public class Bullet {
 			}
 			
 			//collisionW/Enemy
-			if (GraphicsGame.nemico.isAlive) {
+			if (GraphicsGame.EnemySpawn && GraphicsGame.boss.isAlive) {
 				
 				if (getPosX()>= GraphicsGame.nemico.getX()-Enemy.getSize() && getPosX()<= GraphicsGame.nemico.getX()+Enemy.getSize() 
 					&& getPosY()>= GraphicsGame.nemico.getY()-Enemy.getSize() && getPosY()<= GraphicsGame.nemico.getY()+Enemy.getSize()) {		
@@ -78,8 +79,25 @@ public class Bullet {
 					if (GraphicsGame.nemico.getLife()<= 0) {
 						Hero.counterKill++;					
 					}
-				}
+				}				
+			}
+			if (GraphicsGame.BossSpawn && GraphicsGame.boss.isAlive) {
 				
+				if (getPosX()>= GraphicsGame.boss.getX() && getPosX()<= GraphicsGame.boss.getX()+GraphicsGame.boss.getSize() 
+					&& getPosY()>= GraphicsGame.boss.getY() && getPosY()<= GraphicsGame.boss.getY()+GraphicsGame.boss.getSize()) {		
+					
+					GraphicsGame.boss.setLife(GraphicsGame.boss.getLife()-Bullet.damage);
+					alive = false;
+					if (GraphicsGame.boss.getLife()<= 0) {
+						Hero.counterKill++;		
+						GraphicsGame.boss.setAlive(false);
+					}
+				}	
+				if (GraphicsGame.boss.getLife() <= 0 && !GraphicsGame.boss.isAlive){
+					try {
+						WinScene.Win();	
+						}catch (Exception e) {	e.printStackTrace();}
+				}
 			}
 	}
 
@@ -89,7 +107,8 @@ public class Bullet {
 				|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.FALLINGDOWN
 						|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.PISTOL
 							|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.HEART
-								|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.ENEMY)
+								|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.ENEMY
+									|| Movement.room.getCellType(Movement.pixelInMatrixX(x), Movement.pixelInMatrixY(y)) == Cell.BOSS)
 			return true;		
 		return false;		
 	}	

@@ -16,6 +16,23 @@ public class GraphicEnemy {
 		};
 	private static Image img = images[4];
 	
+	private static Image[] imagesBoss = new Image[] {		
+			
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "enemy" + File.separator + "enemyDx.gif")), //dx
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "enemy" + File.separator + "enemySx.gif")), //sx
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "enemy" + File.separator + "enemyUp.png")), //up
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "enemy" + File.separator + "enemyDown.png")), //down
+			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "enemy" + File.separator + "enemyDown.png")) //ferma down
+		};
+	private static Image imgBoss = images[4];
+	
+	public static Image getImgBoss() {
+		return imgBoss;
+	}
+	
+	public static void setImgBossDir(int dir) {
+		imgBoss=imagesBoss[dir];			
+	}
 	
 	public static Image getImg() {
 		return img;
