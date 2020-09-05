@@ -225,7 +225,7 @@ public class Movement {
 			if (x>= GraphicsGame.boss.getX()-GraphicsGame.boss.getSize() && x<= GraphicsGame.boss.getX()+GraphicsGame.boss.getSize()-10 
 					&& y>= GraphicsGame.boss.getY()-GraphicsGame.boss.getSize() && y<= GraphicsGame.boss.getY()+GraphicsGame.boss.getSize()-10){
 				
-				if (Hero.getLife() > 0 && GraphicsGame.boss.isAlive)
+				if (Hero.getLife() > 0 && GraphicsGame.boss.isAlive && Maps.getIndiceMappe() == 30)
 					Hero.setLife(Hero.getLife()-0.1);					
 			}
 		}

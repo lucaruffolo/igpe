@@ -13,14 +13,14 @@ public class Boss {
 	
 	private static int x;
 	private static int y;
-	private static int speed = 1;
+	private static int speed = 2;
 	private int life = 1000;
 	public static int velX = 0;
 	public static int velY = 0;
-	public static int dirBoss = 2;
+	public static int dirBoss = 3;
 	public final static int damage = 10;
 	public boolean isAlive = false;
-	private static int size = 150;
+	private static int size = 100;
 	
 	
 	public Boss(int xx, int yy) {
@@ -88,7 +88,7 @@ public class Boss {
 		}
 	public static void resetEnemy() {
 		GraphicsGame.BossSpawn=false;
-		//BulletEnemy.setAlive(false);
+		BulletBoss.setAlive(false);
 		
 	}
 	static Service<Void> serviceBoss = new Service<Void>() { //like timer
@@ -122,10 +122,9 @@ public class Boss {
 	
 	public static boolean colpoPartito = false;
 
-	public static BulletEnemy bullet;
+	public static BulletBoss bullet;
 	
 	public static void shoot() {	
-		
 		int xf = 0;
 		int yf = 0;
 		if (dirBoss == Enemy.MOVE_LEFT) {
@@ -146,7 +145,7 @@ public class Boss {
 		}
 		if (!colpoPartito && GraphicsGame.boss.isAlive) {
 			
-			bullet =  new BulletEnemy(xf, yf, dirBoss);
+			bullet =  new BulletBoss(xf, yf, dirBoss);
 			colpoPartito = true;
 		}
 		

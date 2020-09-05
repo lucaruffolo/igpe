@@ -31,7 +31,9 @@ public class GameLoop extends AnimationTimer {
 			//------BulletEnemy
 			if (Enemy.colpoPartito && GraphicsGame.nemico.isAlive)
 				Enemy.bullet.moveBullet();
-
+			//------bulletBoss
+			if (Boss.colpoPartito && GraphicsGame.boss.isAlive)
+				Boss.bullet.moveBullet();
 		
 			
 			//Fine BulletEnemy------

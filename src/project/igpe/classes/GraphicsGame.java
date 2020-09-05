@@ -229,10 +229,10 @@ public class GraphicsGame extends StackPane{
 			if (BulletEnemy.isAlive() && nemico.isAlive)
 				canvas.getGraphicsContext2D().drawImage(Enemy.bullet.getImgBullet(), Enemy.bullet.getPosX(), Enemy.bullet.getPosY(), Settings.block,Settings.block);
 		}
-		/*boss
-		if (BulletEnemy.isAlive() && nemico.isAlive && EnemySpawn)
-			canvas.getGraphicsContext2D().drawImage(Enemy.bullet.getImgBullet(), Enemy.bullet.getPosX(), Enemy.bullet.getPosY(), Settings.block,Settings.block);
-		*/
+		if (BossSpawn) {
+		if (BulletBoss.isAlive() && boss.isAlive)
+			canvas.getGraphicsContext2D().drawImage(Boss.bullet.getImgBullet(), Boss.bullet.getPosX(), Boss.bullet.getPosY(), Settings.block+10,Settings.block+10);
+		}
 		for (int i = 0; i < Settings.xMatrix; i++) {
 			for (int j = 0; j < Settings.yMatrix; j++) {				
 				switch (movimento.getRoom().getCella()[i][j].getType()) {						
@@ -334,7 +334,7 @@ public class GraphicsGame extends StackPane{
 					//Vita upper enemy
 					if (boss.getLife()>0) {
 						canvas.getGraphicsContext2D().setFill(Color.BLACK);
-						canvas.getGraphicsContext2D().fillRect(boss.getX()+5, boss.getY()-10,  1000/6, 5); //200 Life Max enemy
+						canvas.getGraphicsContext2D().fillRect(boss.getX()+5, boss.getY()-10,  1000/8, 5); //200 Life Max enemy
 								
 						if (boss.getLife()>132)
 							canvas.getGraphicsContext2D().setFill(Color.LIME);
@@ -343,7 +343,7 @@ public class GraphicsGame extends StackPane{
 						if (boss.getLife()<66)
 							canvas.getGraphicsContext2D().setFill(Color.RED);		
 						
-						canvas.getGraphicsContext2D().fillRect(boss.getX()+5, boss.getY()-10, boss.getLife()/6, 5); //Hero.getLife()*2 perchè barra lunga 200
+						canvas.getGraphicsContext2D().fillRect(boss.getX()+5, boss.getY()-10, boss.getLife()/8, 5); //Hero.getLife()*2 perchè barra lunga 200
 					}
 					//fine vita upper enemy
 					

@@ -4,7 +4,7 @@ import java.io.File;
 
 import javafx.scene.image.Image;
 
-public class BulletEnemy {
+public class BulletBoss {
 	
 	private static Image[] imagesBullet = new Image[] {		
 			new Image(GraphicHero.class.getResourceAsStream(".."+File.separator+"images" + File.separator + "hero" + File.separator + "bulletdx.gif")), //dx
@@ -19,31 +19,31 @@ public class BulletEnemy {
 	private int posY;
 	
 	private int dir;
-	private int speed=5;
+	private int speed=8;
 	
 	public static boolean alive = false;;
 	public static int size = 20;
 	public static int damage = 10;
 	
-	public BulletEnemy(int posX, int posY, int dir) {
+	public BulletBoss(int posX, int posY, int dir) {
 		super();
 		this.setPosX(posX);
 		this.setPosY(posY);
-		this.dir = Enemy.dirEnemy;
+		this.dir = Boss.dirBoss;
 		setAlive(true);	
 	}
 
 	public void moveBullet() {
 		
 		setDirBullet(dir);
-		Enemy.dirEnemy(dir);
+		Boss.dirBoss = dir;
 		if(Movement.MOVE_RIGHT==dir) {
 			if (collisionBullet(getPosX(), getPosY())
 					&& collisionBullet(getPosX(), getPosY()+size))					
 				setPosX(getPosX() + speed);
 			else {
 				alive = false;
-				Enemy.colpoPartito = false;
+				Boss.colpoPartito = false;
 			}
 		}
 		if(Movement.MOVE_DOWN==dir) {
@@ -52,7 +52,7 @@ public class BulletEnemy {
 				setPosY(getPosY() + speed);
 			else {
 				alive = false;
-				Enemy.colpoPartito = false;
+				Boss.colpoPartito = false;
 			}
 		}
 		if(Movement.MOVE_LEFT==dir) {
@@ -61,7 +61,7 @@ public class BulletEnemy {
 				setPosX(getPosX() - speed);
 			else {
 				alive = false;
-				Enemy.colpoPartito = false;
+				Boss.colpoPartito = false;
 			}
 		}
 		if(Movement.MOVE_UP==dir) {
@@ -70,25 +70,24 @@ public class BulletEnemy {
 				setPosY(getPosY() - speed);
 			else {
 				alive = false;
-				Enemy.colpoPartito = false;
+				Boss.colpoPartito = false;
 			}
 		}
 		
-		//collisionW/Enemy
-		if (GraphicsGame.EnemySpawn) {
-			if (Hero.getLife()>0 && GraphicsGame.nemico.getLife()>0) {
+		//collisionW/Boss
+		if (GraphicsGame.BossSpawn) {
+			if (Hero.getLife()>0 && GraphicsGame.boss.getLife()>0) {
 				
 				if (getPosX() >= Hero.getX()-Hero.getSize() && getPosX() <= Hero.getX()+Hero.getSize() 
 					&& getPosY() >= Hero.getY()-Hero.getSize() && getPosY() <= Hero.getY()+Hero.getSize()) {		
 					
 					alive = false;
-					Enemy.colpoPartito = false;
+					Boss.colpoPartito = false;
 					Hero.setLife(Hero.getLife()-5);
 					
 				}
 			}
 		}
-		
 	}
 	
 	public static boolean collisionBullet(int x, int y) {
@@ -110,7 +109,7 @@ public class BulletEnemy {
 	}
 
 	public static void setImagesBullet(Image[] imagesBullet) {
-		BulletEnemy.imagesBullet = imagesBullet;
+		BulletBoss.imagesBullet = imagesBullet;
 	}
 
 	public Image getImgBullet() {
@@ -118,7 +117,7 @@ public class BulletEnemy {
 	}
 
 	public static void setImgBullet(Image imgBullet) {
-		BulletEnemy.imgBullet = imgBullet;
+		BulletBoss.imgBullet = imgBullet;
 	}
 
 	public int getPosX() {
@@ -158,7 +157,7 @@ public class BulletEnemy {
 	}
 
 	public static void setAlive(boolean alive) {
-		BulletEnemy.alive = alive;
+		BulletBoss.alive = alive;
 	}
 
 	public static int getSize() {
@@ -166,7 +165,7 @@ public class BulletEnemy {
 	}
 
 	public static void setSize(int size) {
-		BulletEnemy.size = size;
+		BulletBoss.size = size;
 	}
 
 	public static int getDamage() {
@@ -174,7 +173,7 @@ public class BulletEnemy {
 	}
 
 	public static void setDamage(int damage) {
-		BulletEnemy.damage = damage;
+		BulletBoss.damage = damage;
 	}
 	
 }
