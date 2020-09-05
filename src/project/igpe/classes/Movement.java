@@ -1,6 +1,7 @@
 package project.igpe.classes;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import project.igpe.GUI.ChangeRoomScene;
 import project.igpe.main.Main;
@@ -275,8 +276,8 @@ public class Movement {
 	public static HashMap<String, Integer> questaStanza = null;
 	public static void checkMap () {
 		
-		System.out.println("cusenzappp");
 		
+		System.out.println("cusenzappp");
 		GraphicsGame.nRandObstacles = (int) (2.0 * Math.random());
 		mappaAttuale=Maps.getIndiceMappe();
 		
@@ -291,8 +292,9 @@ public class Movement {
 		}
 		
 		if(Enemy.getKeyDrop()==true) {
-			System.out.println("drop no");
+			System.out.println("drop mo");
 		}
+		
 		
 		if (saveDoorOpened.containsKey(mappaAttuale)) {
 			questaStanza = saveDoorOpened.get(mappaAttuale);
@@ -306,6 +308,8 @@ public class Movement {
 				}
 			}
 			else if (doorUp && questaStanza.get("portaUp")==-1) {
+				System.out.println(Maps.isMapKey());
+				System.out.println(Maps.isMapBoss());
 				newRoom(questaStanza);
 			}
 			
@@ -319,6 +323,8 @@ public class Movement {
 				}
 			}
 			else if (doorDown && questaStanza.get("portaDown")==-1) {
+				System.out.println(Maps.isMapKey());
+				System.out.println(Maps.isMapBoss());
 				newRoom(questaStanza);
 			}
 			
@@ -332,6 +338,8 @@ public class Movement {
 				}
 			}
 			else if (doorLx && questaStanza.get("portaLeft")==-1) {
+				System.out.println(Maps.isMapKey());
+				System.out.println(Maps.isMapBoss());
 				newRoom(questaStanza);
 			}
 			
@@ -345,10 +353,39 @@ public class Movement {
 				}
 			}
 			else if(doorDx && questaStanza.get("portaRight")==-1) {
+				System.out.println(Maps.isMapKey());
+				System.out.println(Maps.isMapBoss());
 				newRoom(questaStanza);
 			}
 			
+			
+			if(Maps.getIndiceMappe()!=23 && Maps.isMapBoss()) {
+				Maps.setMapBoss(false);
+			}
+			else if(Maps.getIndiceMappe()!=24 && Maps.isMapBoss()) {
+				Maps.setMapBoss(false);
+			}
+			else if(Maps.getIndiceMappe()!=25 && Maps.isMapBoss()) {
+				Maps.setMapBoss(false);
+			}
+			else if(Maps.getIndiceMappe()!=26 && Maps.isMapBoss()) {
+				Maps.setMapBoss(false);
+			}
+			else if(Maps.getIndiceMappe()==23) {
+				Maps.setMapBoss(true);
+			}
+			else if(Maps.getIndiceMappe()==24) {
+				Maps.setMapBoss(true);
+			}
+			else if(Maps.getIndiceMappe()==25) {
+				Maps.setMapBoss(true);
+			}
+			else if(Maps.getIndiceMappe()==26) {
+				Maps.setMapBoss(true);
+			}
 		} else {
+			System.out.println(Maps.isMapKey());
+			System.out.println(Maps.isMapBoss());
 			newRoom(questaStanza);
 		}
 
@@ -372,9 +409,7 @@ public class Movement {
 		if(Maps.getIndexYetChoosen().size()==4 && Maps.isMapBoss()==false) {
 			if (doorDown) {
 				Maps.setIndiceMappe(24);
-				Enemy.setKeyDrop(true);
 				nRand=24;
-				System.out.println("drop ok");
 				try {
 					graphicGame.setBg(24);
 				} catch (Exception e) {
@@ -384,7 +419,6 @@ public class Movement {
 				
 			else if (doorDx) {
 				Maps.setIndiceMappe(23);
-				Enemy.setKeyDrop(true);
 				nRand=23;
 				try {
 					graphicGame.setBg(23);
@@ -394,7 +428,6 @@ public class Movement {
 			}
 			else if (doorLx) {
 				Maps.setIndiceMappe(26);
-				Enemy.setKeyDrop(true);
 				nRand=26;
 				try {
 					graphicGame.setBg(26);
@@ -404,7 +437,6 @@ public class Movement {
 			}
 			else if (doorUp) {
 				Maps.setIndiceMappe(25);
-				Enemy.setKeyDrop(true);
 				nRand=25;
 				try {
 					graphicGame.setBg(25);
@@ -414,8 +446,11 @@ public class Movement {
 			}
 			
 			Maps.setMapBoss(true);
+			Enemy.setKeyDrop(true);
+			Maps.setMapKey(true);
+			System.out.println("drop ok");
 		}
-		else if(Maps.isMapBoss()==true) {
+		else if(Maps.isMapBoss() && Maps.isMapKey()) {
 			if (doorDown) {
 				Maps.setIndiceMappe(29);
 				nRand=29;
@@ -453,6 +488,7 @@ public class Movement {
 					e.printStackTrace();
 				}
 			}
+			Maps.setMapBoss(false);
 		}
 		else {
 			newRandRoom();
@@ -553,7 +589,8 @@ public class Movement {
 			} catch (Exception e) {
 	
 				e.printStackTrace();
-			}	
+			}
+			
 	}
 	
 	

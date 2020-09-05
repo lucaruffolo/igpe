@@ -29,6 +29,7 @@ public class Maps {
 	
 	public static boolean closedMap = false;
 	public static boolean mapBoss = false;
+	public static boolean mapKey = false;
 	
 	public Maps() {
 		
@@ -675,6 +676,16 @@ public class Maps {
 	public static void setMapBoss(boolean mapBoss) {
 		Maps.mapBoss = mapBoss;
 	}
+
+	public static boolean isMapKey() {
+		return mapKey;
+	}
+
+	public static void setMapKey(boolean mapKey) {
+		Maps.mapKey = mapKey;
+	}
+	
+	
 	
 	
 }
