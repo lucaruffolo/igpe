@@ -88,7 +88,7 @@ public class Bullet {
 					
 					GraphicsGame.boss.setLife(GraphicsGame.boss.getLife()-Bullet.damage);
 					alive = false;
-					if (GraphicsGame.boss.getLife()<= 0) {
+					if (GraphicsGame.boss.getLife()<= 0) { 
 						Hero.counterKill++;		
 						GraphicsGame.boss.setAlive(false);
 					}
