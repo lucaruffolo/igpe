@@ -81,7 +81,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 				movimento.move(Movement.MOVE_DOWN);
 				break;
 			case SHIFT:
-				Hero.setSpeed(3);
+				Hero.setSpeed(4);
 				break;
 			case I:
 				try {

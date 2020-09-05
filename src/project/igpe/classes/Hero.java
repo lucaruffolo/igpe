@@ -14,7 +14,7 @@ public class Hero {
 	private static String name;
 	private static Boolean sex; //0 maschio | 1 femmina
 	private static double life=100;
-	public static int speed=2;
+	public static int speed=3;
 	private static int size=60;
 	private Image img;
 	private static int x;

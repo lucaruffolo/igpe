@@ -19,7 +19,7 @@ public class BulletBoss {
 	private int posY;
 	
 	private int dir;
-	private int speed=10;
+	private int speed=8;
 	
 	public static boolean alive = false;;
 	public static int size = 20;
@@ -75,19 +75,19 @@ public class BulletBoss {
 		}
 		
 		//collisionW/Boss
-
-		if (Hero.getLife()>0 && GraphicsGame.boss.getLife()>0) {
-			
-			if (getPosX() >= Hero.getX()-Hero.getSize() && getPosX() <= Hero.getX()+Hero.getSize() 
-				&& getPosY() >= Hero.getY()-Hero.getSize() && getPosY() <= Hero.getY()+Hero.getSize()) {		
+		if (GraphicsGame.BossSpawn) {
+			if (Hero.getLife()>0 && GraphicsGame.boss.getLife()>0) {
 				
-				alive = false;
-				Boss.colpoPartito = false;
-				Hero.setLife(Hero.getLife()-5);
-				
+				if (getPosX() >= Hero.getX()-Hero.getSize() && getPosX() <= Hero.getX()+Hero.getSize() 
+					&& getPosY() >= Hero.getY()-Hero.getSize() && getPosY() <= Hero.getY()+Hero.getSize()) {		
+					
+					alive = false;
+					Boss.colpoPartito = false;
+					Hero.setLife(Hero.getLife()-5);
+					
+				}
 			}
 		}
-		
 	}
 	
 	public static boolean collisionBullet(int x, int y) {
