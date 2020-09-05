@@ -88,7 +88,7 @@ public class Boss {
 		}
 	public static void resetEnemy() {
 		GraphicsGame.BossSpawn=false;
-		//BulletEnemy.setAlive(false);
+		BulletBoss.setAlive(false);
 		
 	}
 	static Service<Void> serviceBoss = new Service<Void>() { //like timer
@@ -122,7 +122,7 @@ public class Boss {
 	
 	public static boolean colpoPartito = false;
 
-	public static BulletEnemy bullet;
+	public static BulletBoss bullet;
 	
 	public static void shoot() {	
 		
@@ -146,7 +146,7 @@ public class Boss {
 		}
 		if (!colpoPartito && GraphicsGame.boss.isAlive) {
 			
-			bullet =  new BulletEnemy(xf, yf, dirBoss);
+			bullet =  new BulletBoss(xf, yf, dirBoss);
 			colpoPartito = true;
 		}
 		
