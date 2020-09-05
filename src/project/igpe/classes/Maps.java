@@ -30,6 +30,7 @@ public class Maps {
 	public static boolean closedMap = false;
 	public static boolean mapBoss = false;
 	public static boolean mapKey = false;
+	public static boolean controllo = false;
 	
 	public Maps() {
 		
@@ -185,6 +186,8 @@ public class Maps {
 		upTxt.put(24, txt24);
 		upImg.put(29, img29);
 		upTxt.put(29, txt29);
+		upImg.put(25, img25);
+		upTxt.put(25, txt25);
 		
 		downImg.put(0, img0);
 		downTxt.put(0, txt0);
@@ -220,6 +223,8 @@ public class Maps {
 		downTxt.put(25, txt25);
 		downImg.put(28, img28);
 		downTxt.put(28, txt28);
+		downImg.put(24, img24);
+		downTxt.put(24, txt24);
 		
 		leftImg.put(0, img0);
 		leftTxt.put(0, txt0);
@@ -255,6 +260,8 @@ public class Maps {
 		leftTxt.put(23, txt23);
 		leftImg.put(30, img30);
 		leftTxt.put(30, txt30);
+		leftImg.put(26, img26);
+		leftTxt.put(26, txt26);
 		
 		rightImg.put(0, img0);
 		rightTxt.put(0, txt0);
@@ -290,6 +297,8 @@ public class Maps {
 		rightTxt.put(26, txt26);
 		rightImg.put(27, img27);
 		rightTxt.put(27, txt27);
+		rightImg.put(23, img23);
+		rightTxt.put(23, txt23);
 		
 	}
 	
@@ -683,6 +692,14 @@ public class Maps {
 
 	public static void setMapKey(boolean mapKey) {
 		Maps.mapKey = mapKey;
+	}
+
+	public static boolean isControllo() {
+		return controllo;
+	}
+
+	public static void setControllo(boolean controllo) {
+		Maps.controllo = controllo;
 	}
 	
 	

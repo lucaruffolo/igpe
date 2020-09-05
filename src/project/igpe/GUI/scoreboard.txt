@@ -42,6 +42,9 @@ asd;false;0;0;0
 (VINCITORE) asd;false;0;0;0
 (VINCITORE) sd the  best;false;0;0;0
 (VINCITORE) asd;false;0;0;0
-(VINCITORE) 1;false;0;0;0
-s;false;0;0;0
-(VINCITORE) xs;false;1;170;0
+dwa;false;0;0;0
+dwa;false;0;0;3
+dwa;false;0;0;1
+dwa;false;0;0;0
+dwa;false;0;0;1
+dwa;false;0;0;0
