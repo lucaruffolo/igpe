@@ -6,7 +6,7 @@
 
 Reparto codice manca:
 
-	- spawn chiave random in una stanza stabilita
+	-blocca porta senza chiave
 	-se muori le mappe non si resettano
 	-mappa chiave acqua
 	-bug mappa con la viuzza
