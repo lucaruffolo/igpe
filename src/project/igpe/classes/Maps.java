@@ -34,22 +34,14 @@ public class Maps {
 	
 	public Maps() {
 		
-		int nRand = (int) (2.0 * Math.random());
-		if(nRand == 0) {
-			setClosedMap(true);
-			setIndiceMappe(0);
-		}
-		else {
-			setIndiceMappe(22);
-		}
-		//
-		System.out.println(indiceMappe);
-		//
+		randomMapFirst();
 		
 		loadcontenitoreMappe();
+		System.out.println(GraphicsGame.getFirstRoom());
 		if(!GraphicsGame.getFirstRoom())
 		{
 			try {
+				System.out.println("carico mappa"+indiceMappe);
 				loadMap(indiceMappe); //int random come paramentro
 			} catch (Exception e) {
 				System.out.println("non carica metodo LoadMap");
@@ -58,6 +50,7 @@ public class Maps {
 		}
 		else {
 			try {
+				System.out.println("carico primo mappa"+indiceMappe);
 				loadFirstRoom();
 			} catch (Exception e) {
 				System.out.println("non carica metodo LoadFirstMap");
@@ -65,6 +58,21 @@ public class Maps {
 			}
 		}
 	}	
+	
+	public static void randomMapFirst() {
+		int nRand = (int) (2.0 * Math.random());
+		if(nRand == 0) {
+			setClosedMap(true);
+			setIndiceMappe(0);
+		}
+		else {
+			setClosedMap(false);
+			setIndiceMappe(22);
+		}
+		//
+		System.out.println("primo"+indiceMappe+closedMap);
+		//
+	}
 
 	public static void loadcontenitoreMappe() {
 		

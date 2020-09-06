@@ -26,6 +26,7 @@ public class SceltaDelPersonaggio {
 	private static Boolean notChooseNickname=false;
 
 	public static Hero eroe = new Hero();
+	public static Maps mappa = new Maps();
 	
     @FXML
     private Label lblsdPersonaggio;
@@ -119,23 +120,16 @@ public class SceltaDelPersonaggio {
 			eroe.setName(textName.getText());
 			eroe.setSex(sesso);
 			GraphicHero.selectSex(Hero.getSex());
+			GraphicsGame.setFirstRoom(true);
+			mappa = new Maps();
+			Maps.indexYetChoosen.clear();
+			Movement.saveDoorOpened.clear();
 			
 			Hero.resetHero();
 			Enemy.resetEnemy();
 			Boss.resetEnemy();
 			notChooseSex=false;
 			notChooseNickname=false;
-			//Maps.indexYetChoosen.clear();
-			//Movement.saveDoorOpened.clear();
-			//GraphicsGame.setFirstRoom(true);
-			//Movement.setMappaAttuale(mappaAttuale);
-			if(GraphicsGame.getFirstRoom()==true) {
-				Maps.getIndexYetChoosen().add(0);
-			}
-			
-			
-			
-			Maps.loadFirstRoom();
 
 			FXMLLoader loader = new FXMLLoader(LoadScene.class.getResource("LoadScene.fxml"));
 			AnchorPane root = (AnchorPane) loader.load();

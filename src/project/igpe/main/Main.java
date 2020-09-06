@@ -9,14 +9,13 @@ import project.igpe.GUI.SceltaDelPersonaggio;
 import project.igpe.classes.GameLoop;
 import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Hero;
-import project.igpe.classes.Maps;
 import project.igpe.classes.Movement;
 import project.igpe.classes.Sound;
 
 public class Main extends Application{
 
 	public static Stage window; //Schermate
-	public static GraphicsGame game = new GraphicsGame(new Movement(SceltaDelPersonaggio.eroe, new Maps()));
+	public static GraphicsGame game = new GraphicsGame(new Movement(SceltaDelPersonaggio.eroe, SceltaDelPersonaggio.mappa));
 	public static GameLoop gl=new GameLoop(game);
 	public static Boolean GameInPause = false;
 	private static Scene scenegame;	

@@ -202,6 +202,17 @@ public class Movement {
 		return false;		
 	}
 	
+	public static boolean collisionFall(int newX, int newY) {
+		
+		if (room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY)) == Cell.FALLINGDOWN
+			|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.FALLINGDOWN
+				|| room.getCellType(pixelInMatrixX(newX+Settings.obstacleSize), pixelInMatrixY(newY+Settings.obstacleSize)) == Cell.FALLINGDOWN
+					|| room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.FALLINGDOWN)
+							return true;
+					
+		return false;		
+	}
+	
 	
 	public static boolean collisionDoor(int newX, int newY) {
 		
@@ -305,12 +316,11 @@ public class Movement {
 	public static void checkMap () {
 		
 		
-		System.out.println("cusenzappp");
 		GraphicsGame.nRandObstacles = (int) (2.0 * Math.random());
+		System.out.println("mappa pre"+mappaAttuale);
 		mappaAttuale=Maps.getIndiceMappe();
 		
 		if(GraphicsGame.getFirstRoom()==true) {
-			System.out.println("noooooooooooooo");
 			questaStanza = new HashMap<String, Integer>();
 			questaStanza.put("portaDown", -1);
 			questaStanza.put("portaLeft", -1);
@@ -322,8 +332,6 @@ public class Movement {
 		
 		
 		if (saveDoorOpened.containsKey(mappaAttuale)) {
-			System.out.println("contengo");
-			System.out.println(mappaAttuale);
 			questaStanza = saveDoorOpened.get(mappaAttuale);
 			if (doorUp && questaStanza.get("portaUp")!=-1) {
 				Maps.setIndiceMappe(questaStanza.get("portaUp"));
