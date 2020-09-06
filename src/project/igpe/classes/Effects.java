@@ -8,6 +8,7 @@ public class Effects {
 	
 	public static AudioClip audioclip;
 	private static double valoreEffetti;
+	public static AudioClip shootgun = new AudioClip(new File("src/project/igpe/sounds/pistolas.wav").toURI().toString());
 	
 	public static void setEffects(String effectsFile) {
 		audioclip = new AudioClip(new File(effectsFile).toURI().toString());
