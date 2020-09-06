@@ -34,59 +34,67 @@ public class BulletBoss {
 	}
 
 	public void moveBullet() {
-		
-		setDirBullet(dir);
-		Boss.dirBoss = dir;
-		if(Movement.MOVE_RIGHT==dir) {
-			if (collisionBullet(getPosX(), getPosY())
-					&& collisionBullet(getPosX(), getPosY()+size))					
-				setPosX(getPosX() + speed);
-			else {
-				alive = false;
-				Boss.colpoPartito = false;
-			}
-		}
-		if(Movement.MOVE_DOWN==dir) {
-			if (collisionBullet(getPosX(), getPosY())
-					&& collisionBullet(getPosX()+size, getPosY()))
-				setPosY(getPosY() + speed);
-			else {
-				alive = false;
-				Boss.colpoPartito = false;
-			}
-		}
-		if(Movement.MOVE_LEFT==dir) {
-			if (collisionBullet(getPosX(), getPosY())
-					&& collisionBullet(getPosX(), getPosY()+size))
-				setPosX(getPosX() - speed);
-			else {
-				alive = false;
-				Boss.colpoPartito = false;
-			}
-		}
-		if(Movement.MOVE_UP==dir) {
-			if (collisionBullet(getPosX(), getPosY())
-					&& collisionBullet(getPosX()+size, getPosY()))
-				setPosY(getPosY() - speed);
-			else {
-				alive = false;
-				Boss.colpoPartito = false;
-			}
-		}
-		
-		//collisionW/Boss
-		if (GraphicsGame.BossSpawn) {
-			if (Hero.getLife()>0 && GraphicsGame.boss.getLife()>0) {
-				
-				if (getPosX() >= Hero.getX()-Hero.getSize() && getPosX() <= Hero.getX()+Hero.getSize() 
-					&& getPosY() >= Hero.getY()-Hero.getSize() && getPosY() <= Hero.getY()+Hero.getSize()) {		
-					
+		if (Maps.getIndiceMappe() == 27
+				|| Maps.getIndiceMappe() == 28
+						|| Maps.getIndiceMappe() == 29
+								|| Maps.getIndiceMappe() == 30) {		//mappe boss
+			setDirBullet(dir);
+			Boss.dirBoss = dir;
+			if(Movement.MOVE_RIGHT==dir) {
+				if (collisionBullet(getPosX(), getPosY())
+						&& collisionBullet(getPosX(), getPosY()+size))					
+					setPosX(getPosX() + speed);
+				else {
 					alive = false;
 					Boss.colpoPartito = false;
-					Hero.setLife(Hero.getLife()-5);
-					
 				}
 			}
+			if(Movement.MOVE_DOWN==dir) {
+				if (collisionBullet(getPosX(), getPosY())
+						&& collisionBullet(getPosX()+size, getPosY()))
+					setPosY(getPosY() + speed);
+				else {
+					alive = false;
+					Boss.colpoPartito = false;
+				}
+			}
+			if(Movement.MOVE_LEFT==dir) {
+				if (collisionBullet(getPosX(), getPosY())
+						&& collisionBullet(getPosX(), getPosY()+size))
+					setPosX(getPosX() - speed);
+				else {
+					alive = false;
+					Boss.colpoPartito = false;
+				}
+			}
+			if(Movement.MOVE_UP==dir) {
+				if (collisionBullet(getPosX(), getPosY())
+						&& collisionBullet(getPosX()+size, getPosY()))
+					setPosY(getPosY() - speed);
+				else {
+					alive = false;
+					Boss.colpoPartito = false;
+				}
+			}
+			
+			//collisionW/Boss
+			if (GraphicsGame.BossSpawn) {
+				if (Hero.getLife()>0 && GraphicsGame.boss.getLife()>0) {
+					
+					if (getPosX() >= Hero.getX()-Hero.getSize() && getPosX() <= Hero.getX()+Hero.getSize() 
+						&& getPosY() >= Hero.getY()-Hero.getSize() && getPosY() <= Hero.getY()+Hero.getSize()) {		
+						
+						alive = false;
+						Boss.colpoPartito = false;
+						Hero.setLife(Hero.getLife()-5);
+						
+					}
+				}				
+			}
+		}else {
+			alive = false;
+			Boss.colpoPartito = false;
+
 		}
 	}
 	

@@ -99,24 +99,29 @@ public class Hero {
 	}
 	
 	public static void checkTakeKey() {
-		int x = 10;
-		int y = 10;
-		if (Maps.getIndiceMappe() == 23 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false) {
+		
+		if (Maps.getIndiceMappe() == 23 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false && Hero.takeKey) {
 			if (Movement.room.getCellType(18, 7) == Cell.WALL)
 				Movement.room.setCellType(18, 7,Cell.EMPTY);
 		}
-		if (Maps.getIndiceMappe() == 24 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false) {
-			if (Movement.room.getCellType(x, y) == Cell.WALL)
-				Movement.room.setCellType(x, y,Cell.EMPTY);
+		if (Maps.getIndiceMappe() == 24 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false  && Hero.takeKey) {
+			if (Movement.room.getCellType(10, 12) == Cell.WALL)
+				Movement.room.setCellType(10, 12,Cell.EMPTY);
 		}
-		if (Maps.getIndiceMappe() == 25 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false) {
-			if (Movement.room.getCellType(x, y) == Cell.WALL)
-				Movement.room.setCellType(x, y,Cell.EMPTY);
+		if (Maps.getIndiceMappe() == 25 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false  && Hero.takeKey) {
+			if (Movement.room.getCellType(10, 2) == Cell.WALL)
+				Movement.room.setCellType(10, 2,Cell.EMPTY);
 		}
-		if (Maps.getIndiceMappe() == 26 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false) {
-			if (Movement.room.getCellType(x, y) == Cell.WALL)
-				Movement.room.setCellType(x, y,Cell.EMPTY);
+		if (Maps.getIndiceMappe() == 26 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false  && Hero.takeKey) {
+			if (Movement.room.getCellType(2, 7) == Cell.WALL)
+				Movement.room.setCellType(2, 7,Cell.EMPTY);
 		}
+		
+		if (Maps.getIndiceMappe() == 27
+				|| Maps.getIndiceMappe() == 28
+						|| Maps.getIndiceMappe() == 29
+								|| Maps.getIndiceMappe() == 30)		//mappe boss
+				takeKey = false;
 	}
 	
 	public static void resetHeroLockMove() {
