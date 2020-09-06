@@ -65,12 +65,12 @@ public class MovementControl implements EventHandler<KeyEvent> {
 
 		if(e.getEventType().equals(KeyEvent.KEY_PRESSED)) {
 			switch (e.getCode()) {
-			case N:
+	/*		case N:
 				for (int i = 0; i < Maps.getIndexYetChoosen().size(); i++) {
 					System.out.println(Maps.getIndexYetChoosen());
 				}
 				break;
-			case LEFT:
+	*/		case LEFT:
 				movimento.move(Movement.MOVE_LEFT); 
 				break;
 			case RIGHT:
@@ -100,7 +100,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case M:
 				System.out.println(Movement.pixelInMatrixX(Hero.getX())+" . "+ Movement.pixelInMatrixY(Hero.getY()));
 				break;
-		*/	
+	*/	
 			case SPACE:
 				if (Hero.takePistol) {
 					if (Bullet.heroAmmo < Bullet.maxAmmo) {
