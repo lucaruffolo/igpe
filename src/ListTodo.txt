@@ -6,12 +6,11 @@
 
 Reparto codice manca:
 
-	-se muori le mappe non si resettano (boh)
 	-mappa chiave acqua  
 	-rimettere mappe a 5
 	-mappa acqua? (problemi vari)
 	-nemici acqua
-	-collisione con acqua nemici
+	-mappa boss acqua
 			
 Reparto musica:
 	

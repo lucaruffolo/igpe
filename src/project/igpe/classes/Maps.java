@@ -37,7 +37,6 @@ public class Maps {
 		randomMapFirst();
 		
 		loadcontenitoreMappe();
-		System.out.println(GraphicsGame.getFirstRoom());
 		if(!GraphicsGame.getFirstRoom())
 		{
 			try {
@@ -128,6 +127,7 @@ public class Maps {
 		String txt20 = new String("src/project/igpe/maps/Template3doorACQUA(SU-SX-GIU).txt");
 		String txt21 = new String("src/project/igpe/maps/Template3doorACQUA(SX-GIU-DX).txt");
 		
+		//chiave
 		File img23 = new File("src/project/igpe/images/mappaChiusaChiaveDx-Sx.png");
 		File img24 = new File("src/project/igpe/images/mappaChiusaChiaveGiu-Su.png");
 		File img25 = new File("src/project/igpe/images/mappaChiusaChiaveSu-Giu.png");
@@ -137,7 +137,8 @@ public class Maps {
 		String txt24 = new String("src/project/igpe/maps/Template2door(GIU-SU)chiave.txt");
 		String txt25 = new String("src/project/igpe/maps/Template2door(SU-GIU)chiave.txt");
 		String txt26 = new String("src/project/igpe/maps/Template2door(SX-DX)chiave.txt");
-		
+		//fine chiave
+		//boss
 		File img27 = new File("src/project/igpe/images/portaBossDx.png");
 		File img28 = new File("src/project/igpe/images/portaBossGiu.png");
 		File img29 = new File("src/project/igpe/images/portaBossSu.png");
@@ -147,7 +148,7 @@ public class Maps {
 		String txt28 = new String("src/project/igpe/maps/TemplateBossGIU.txt");
 		String txt29 = new String("src/project/igpe/maps/TemplateBossSU.txt");
 		String txt30 = new String("src/project/igpe/maps/TemplateBossLx.txt");
-		
+		//fine boss
 		if(closedMap) {
 			firstRoomImg = img0;
 			firstRoomTxt = txt0;
