@@ -143,7 +143,7 @@ public class Movement {
 					newPosX = 202;
 					newPosY = 420;
 				}
-			}else {/*
+			}else {
 				if (doorDown) {				
 					newPosX = 601;
 					newPosY = 159;
@@ -160,7 +160,7 @@ public class Movement {
 					newPosX = 175;
 					newPosY = 423;
 				}
-				*/
+				/*
 				if (doorDown) {				
 					newPosX = Settings.x/2;
 					newPosY = Settings.y/2;
@@ -176,7 +176,7 @@ public class Movement {
 				if (doorDx) {	
 					newPosX = Settings.x/2;
 					newPosY = Settings.y/2;
-				}
+				}*/
 			}
 			
 			Hero.setX(newPosX);
