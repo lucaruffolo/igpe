@@ -25,10 +25,9 @@ public class Movement {
 	
 	private static int nRand = -20;
 	
-	private static HashMap<Integer, HashMap<String, Integer>> saveDoorOpened = new HashMap<Integer, HashMap<String,Integer>>();
+	public static HashMap<Integer, HashMap<String, Integer>> saveDoorOpened = new HashMap<Integer, HashMap<String,Integer>>();
 	private static int mappaAttuale = 0;
 	private static int prossimaMappa;
-	private boolean firstTime = true;
 	
 	public int dacancellare = 0;
 	
@@ -86,10 +85,11 @@ public class Movement {
 	}
 	
 	public static void collisionKey(int newX, int newY) {
-		if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.ENEMYKEY) {		
-			Hero.takeKey = true;
-			room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella key
-				
+		if(Enemy.isAlive==false) {
+			if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.ENEMYKEY) {		
+				Hero.takeKey = true;
+				room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella key	
+			}
 		}
 	}
 	
@@ -225,8 +225,12 @@ public class Movement {
 			if (x>= GraphicsGame.boss.getX()-GraphicsGame.boss.getSize() && x<= GraphicsGame.boss.getX()+GraphicsGame.boss.getSize()-10 
 					&& y>= GraphicsGame.boss.getY()-GraphicsGame.boss.getSize() && y<= GraphicsGame.boss.getY()+GraphicsGame.boss.getSize()-10){
 				
-				if (Hero.getLife() > 0 && GraphicsGame.boss.isAlive && Maps.getIndiceMappe() == 30)
-					Hero.setLife(Hero.getLife()-0.1);					
+				if (Hero.getLife() > 0 && GraphicsGame.boss.isAlive 
+						&& Maps.getIndiceMappe() == 27
+							&& Maps.getIndiceMappe() == 28 
+								&& Maps.getIndiceMappe() == 29 
+									&& Maps.getIndiceMappe() == 30)
+					Hero.setLife(Hero.getLife()-0.1);						
 			}
 		}
 	}
@@ -304,6 +308,7 @@ public class Movement {
 		mappaAttuale=Maps.getIndiceMappe();
 		
 		if(GraphicsGame.getFirstRoom()==true) {
+			System.out.println("noooooooooooooo");
 			questaStanza = new HashMap<String, Integer>();
 			questaStanza.put("portaDown", -1);
 			questaStanza.put("portaLeft", -1);
@@ -315,6 +320,8 @@ public class Movement {
 		
 		
 		if (saveDoorOpened.containsKey(mappaAttuale)) {
+			System.out.println("contengo");
+			System.out.println(mappaAttuale);
 			questaStanza = saveDoorOpened.get(mappaAttuale);
 			if (doorUp && questaStanza.get("portaUp")!=-1) {
 				Maps.setIndiceMappe(questaStanza.get("portaUp"));
@@ -650,14 +657,6 @@ public class Movement {
 
 	public static void setMappaAttuale(int mappaAttuale) {
 		Movement.mappaAttuale = mappaAttuale;
-	}
-
-	public boolean isFirstTime() {
-		return firstTime;
-	}
-
-	public void setFirstTime(boolean firstTime) {
-		this.firstTime = firstTime;
 	}
 
 	public HashMap<Integer, HashMap<String, Integer>> getSaveDoorOpened() {

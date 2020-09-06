@@ -6,11 +6,13 @@
 
 Reparto codice manca:
 
-	-blocca porta senza chiave
-	-se muori le mappe non si resettano
-	-mappa chiave acqua
-	-bug mappa con la viuzza
+	-blocca porta senza chiave  (cibbo)
+	-cella che si traforma  OK
+	-se muori le mappe non si resettano (boh)
+	-mappa chiave acqua  
+	-bug mappa con la viuzza  OK
 	-rimettere mappe a 5
+	-mappa acqua? (problemi vari)
 	 
 	- creazione boss + movement + spara
 	-nemici acqua

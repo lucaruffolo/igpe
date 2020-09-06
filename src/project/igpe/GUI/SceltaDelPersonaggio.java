@@ -12,8 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import project.igpe.classes.Boss;
 import project.igpe.classes.Enemy;
 import project.igpe.classes.GraphicHero;
+import project.igpe.classes.GraphicsGame;
 import project.igpe.classes.Hero;
 import project.igpe.classes.Maps;
+import project.igpe.classes.Movement;
 import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
@@ -123,6 +125,15 @@ public class SceltaDelPersonaggio {
 			Boss.resetEnemy();
 			notChooseSex=false;
 			notChooseNickname=false;
+			//Maps.indexYetChoosen.clear();
+			//Movement.saveDoorOpened.clear();
+			//GraphicsGame.setFirstRoom(true);
+			//Movement.setMappaAttuale(mappaAttuale);
+			if(GraphicsGame.getFirstRoom()==true) {
+				Maps.getIndexYetChoosen().add(0);
+			}
+			
+			
 			
 			Maps.loadFirstRoom();
 

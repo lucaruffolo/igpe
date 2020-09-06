@@ -35,6 +35,7 @@ public class Hero {
 
 	public static boolean takePistol = false;
 	public static boolean takeKey = false;
+	public static boolean morto = false;
 
 	public Hero() {
 		name = "nome";
@@ -258,6 +259,18 @@ public class Hero {
 
 	public static void setTakeKey(boolean takeKey) {
 		Hero.takeKey = takeKey;
+	}
+
+
+
+	public static boolean isMorto() {
+		return morto;
+	}
+
+
+
+	public static void setMorto(boolean morto) {
+		Hero.morto = morto;
 	}
 	
 	

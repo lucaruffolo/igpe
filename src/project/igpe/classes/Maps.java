@@ -12,7 +12,7 @@ public class Maps {
 	
 	private static Cell[][] cella = new Cell[Settings.x][Settings.y];
 	
-	private static ArrayList<Integer> indexYetChoosen = new ArrayList<Integer>();
+	public static ArrayList<Integer> indexYetChoosen = new ArrayList<Integer>();
 	private static int indiceMappe;
 
 	private static File firstRoomImg;
@@ -35,7 +35,6 @@ public class Maps {
 	public Maps() {
 		
 		int nRand = (int) (2.0 * Math.random());
-		nRand=0; // da togliere
 		if(nRand == 0) {
 			setClosedMap(true);
 			setIndiceMappe(0);

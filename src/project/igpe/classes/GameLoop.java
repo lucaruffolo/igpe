@@ -49,6 +49,7 @@ public class GameLoop extends AnimationTimer {
 			if (Hero.getLife()<1 ) {	//&& Singleplayer = true
 				try {
 					DeathScene.Rip();
+					Hero.setMorto(true);
 					} catch (Exception e) {	e.printStackTrace();}				
 			}
 			//Fine Death------
