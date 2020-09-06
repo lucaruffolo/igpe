@@ -296,8 +296,10 @@ public class GraphicsGame extends StackPane{
 						
 					}else {
 						nemico.isAlive = false;
-						if(Hero.isTakeKey()==false)
-							canvas.getGraphicsContext2D().drawImage(key, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 90, 80);
+						if(Hero.isTakeKey()==false) {
+							canvas.getGraphicsContext2D().drawImage(key, Movement.matrixInPixelX(i), Movement.matrixInPixelY(j), 90, 80);								
+						}
+						
 					}
 					
 					//Vita upper enemy

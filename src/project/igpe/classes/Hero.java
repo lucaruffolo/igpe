@@ -94,8 +94,29 @@ public class Hero {
 		}
 		
 		Movement.checkHero(x, y); //checkDoor(x, y);collisionDamage(x, y);
-		
+		checkTakeKey();
 			
+	}
+	
+	public static void checkTakeKey() {
+		int x = 10;
+		int y = 10;
+		if (Maps.getIndiceMappe() == 23 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false) {
+			if (Movement.room.getCellType(18, 7) == Cell.WALL)
+				Movement.room.setCellType(18, 7,Cell.EMPTY);
+		}
+		if (Maps.getIndiceMappe() == 24 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false) {
+			if (Movement.room.getCellType(x, y) == Cell.WALL)
+				Movement.room.setCellType(x, y,Cell.EMPTY);
+		}
+		if (Maps.getIndiceMappe() == 25 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false) {
+			if (Movement.room.getCellType(x, y) == Cell.WALL)
+				Movement.room.setCellType(x, y,Cell.EMPTY);
+		}
+		if (Maps.getIndiceMappe() == 26 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false) {
+			if (Movement.room.getCellType(x, y) == Cell.WALL)
+				Movement.room.setCellType(x, y,Cell.EMPTY);
+		}
 	}
 	
 	public static void resetHeroLockMove() {

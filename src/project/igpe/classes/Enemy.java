@@ -19,7 +19,7 @@ public class Enemy {
 	public static int velY = 0;
 	public static int dirEnemy = 3;
 	public final static int damage = 5;
-	public static boolean isAlive = false;
+	public boolean isAlive = false;
 	private static int size = 50;
 	public static Boolean keyDrop = false;
 
@@ -205,13 +205,6 @@ public class Enemy {
 		Enemy.keyDrop = keyDrop;
 	}
 
-	public boolean isAlive() {
-		return isAlive;
-	}
-
-	public void setAlive(boolean isAlive) {
-		this.isAlive = isAlive;
-	}
 
 	
 

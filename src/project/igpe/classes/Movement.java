@@ -72,7 +72,7 @@ public class Movement {
 		collisionHeart(x, y);
 		collisionPistol(x, y);
 		collisionEnemy(x, y);
-		collisionKey (x, y);
+		collisionKey(x, y);
 	}
 	
 	public static void collisionPistol(int newX, int newY) {
@@ -85,7 +85,9 @@ public class Movement {
 	}
 	
 	public static void collisionKey(int newX, int newY) {
-		if(Enemy.isAlive==false) {
+		if(GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false &&
+				(Maps.getIndiceMappe() == 23 || Maps.getIndiceMappe() == 24 ||
+				Maps.getIndiceMappe() == 25 || Maps.getIndiceMappe() == 26)) {
 			if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.ENEMYKEY) {		
 				Hero.takeKey = true;
 				room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella key	
@@ -226,10 +228,10 @@ public class Movement {
 					&& y>= GraphicsGame.boss.getY()-GraphicsGame.boss.getSize() && y<= GraphicsGame.boss.getY()+GraphicsGame.boss.getSize()-10){
 				
 				if (Hero.getLife() > 0 && GraphicsGame.boss.isAlive 
-						&& Maps.getIndiceMappe() == 27
-							&& Maps.getIndiceMappe() == 28 
-								&& Maps.getIndiceMappe() == 29 
-									&& Maps.getIndiceMappe() == 30)
+						&& (Maps.getIndiceMappe() == 27
+							|| Maps.getIndiceMappe() == 28 
+								|| Maps.getIndiceMappe() == 29 
+									|| Maps.getIndiceMappe() == 30))
 					Hero.setLife(Hero.getLife()-0.1);						
 			}
 		}

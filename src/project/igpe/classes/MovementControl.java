@@ -86,22 +86,19 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case I:
 				try {
 					WinScene.Win();
-				} catch (Exception e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
+				} catch (Exception e2) {	e2.printStackTrace();}
 				break;
 			case R:
 				Hero.ResetPosition();
 				break;
-			/*
+			
 			case C:
 				System.out.println(" x= "+Hero.getX()+" . "+ " y= "+Hero.getY()+" CELL "+ Movement.room.getCellType(Movement.pixelInMatrixX(Hero.getX()),Movement.pixelInMatrixX(Hero.getY())));
 				break;
 			case M:
-				System.out.println(Movement.pixelInMatrixX(+Hero.getX())+" . "+ Movement.pixelInMatrixY(Hero.getY()));
+				System.out.println(Movement.pixelInMatrixX(Hero.getX())+" . "+ Movement.pixelInMatrixY(Hero.getY()));
 				break;
-			*/
+			
 			case SPACE:
 				if (Hero.takePistol) {
 					if (Bullet.heroAmmo < Bullet.maxAmmo) {
