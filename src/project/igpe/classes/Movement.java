@@ -358,7 +358,7 @@ public class Movement {
 		
 		
 		GraphicsGame.nRandObstacles = (int) (2.0 * Math.random());
-		System.out.println("mappa pre"+mappaAttuale);
+	//	System.out.println("mappa pre"+mappaAttuale);
 		mappaAttuale=Maps.getIndiceMappe();
 		
 		if(GraphicsGame.getFirstRoom()==true) {
@@ -368,7 +368,7 @@ public class Movement {
 			questaStanza.put("portaUp", -1);
 			questaStanza.put("portaRight", -1);
 			saveDoorOpened.put(mappaAttuale, questaStanza);
-			System.out.println(saveDoorOpened.get(mappaAttuale));
+	//		System.out.println(saveDoorOpened.get(mappaAttuale));
 		}
 		
 		
@@ -376,7 +376,7 @@ public class Movement {
 			questaStanza = saveDoorOpened.get(mappaAttuale);
 			if (doorUp && questaStanza.get("portaUp")!=-1) {
 				Maps.setIndiceMappe(questaStanza.get("portaUp"));
-				System.out.println("questa stanza:"+ questaStanza.get("portaUp"));
+		//		System.out.println("questa stanza:"+ questaStanza.get("portaUp"));
 				try {
 					graphicGame.setBg(Maps.getIndiceMappe());
 				} catch (Exception e) {
@@ -389,7 +389,7 @@ public class Movement {
 			
 			if (doorDown && questaStanza.get("portaDown")!=-1) {
 				Maps.setIndiceMappe(questaStanza.get("portaDown"));
-				System.out.println("questa stanza:"+ questaStanza.get("portaDown"));
+	//			System.out.println("questa stanza:"+ questaStanza.get("portaDown"));
 				try {
 					graphicGame.setBg(Maps.getIndiceMappe());
 				} catch (Exception e) {
@@ -402,7 +402,7 @@ public class Movement {
 			
 			if (doorLx && questaStanza.get("portaLeft")!=-1) {
 				Maps.setIndiceMappe(questaStanza.get("portaLeft"));
-				System.out.println("questa stanza:"+ questaStanza.get("portaLeft"));
+	//			System.out.println("questa stanza:"+ questaStanza.get("portaLeft"));
 				try {
 					graphicGame.setBg(Maps.getIndiceMappe());
 				} catch (Exception e) {
@@ -434,7 +434,7 @@ public class Movement {
 				if (Maps.getIndexYetChoosen().get(1) == Maps.getIndiceMappe()) {
 					Maps.mapKey = false;
 					Enemy.setKeyDrop(false);
-					System.out.println("disabilito drop");
+		//			System.out.println("disabilito drop");
 				} 
 			}
 			if(Maps.getIndiceMappe()==23 || Maps.getIndiceMappe()==24 || Maps.getIndiceMappe()==25 || Maps.getIndiceMappe()==26 || Maps.getIndiceMappe()==31 || Maps.getIndiceMappe()==32 || Maps.getIndiceMappe()==33 || Maps.getIndiceMappe()==34) {
@@ -487,7 +487,7 @@ public class Movement {
 		for (int i = 0; i < Maps.getIndexYetChoosen().size(); i++) {
 			while (nRand == Maps.getIndexYetChoosen().get(i)) {
 				nRand = (int) (22.0 * Math.random());
-				System.out.println(nRand);
+		//		System.out.println(nRand);
 				i=0;
 			}
 		}
@@ -581,10 +581,10 @@ public class Movement {
 			Enemy.setKeyDrop(true);
 			Maps.setMapKey(true);
 			Maps.setControllo(true);
-			System.out.println("abilito drop");
+	//		System.out.println("abilito drop");
 		}
 		else if(Maps.isMapBoss()==true && Maps.isMapKey()==true && Hero.isTakeKey()==true) {
-			System.out.println("creo mappa boss");
+		//	System.out.println("creo mappa boss");
 			if (doorDown) {
 				Maps.setIndiceMappe(29);
 				nRand=29;
@@ -681,7 +681,7 @@ public class Movement {
 				}
 				
 			}
-			System.out.println("prossima mappa:"+nRand);
+	//		System.out.println("prossima mappa:"+nRand);
 			prossimaMappa=nRand;
 			
 			HashMap<String, Integer> prossimaStanza;
@@ -695,26 +695,26 @@ public class Movement {
 			if (doorDown) {
 				questaStanza.put("portaDown", prossimaMappa);
 				prossimaStanza.put("portaUp", mappaAttuale);
-				System.out.println(saveDoorOpened.get(mappaAttuale)+"giu");
-				System.out.println(saveDoorOpened.get(prossimaMappa)+"giu");
+		//		System.out.println(saveDoorOpened.get(mappaAttuale)+"giu");
+		//		System.out.println(saveDoorOpened.get(prossimaMappa)+"giu");
 			}
 			if (doorLx) {
 				questaStanza.put("portaLeft", prossimaMappa);
 				prossimaStanza.put("portaRight", mappaAttuale);
-				System.out.println(saveDoorOpened.get(mappaAttuale)+"lx");
-				System.out.println(saveDoorOpened.get(prossimaMappa)+"lx");
+		//		System.out.println(saveDoorOpened.get(mappaAttuale)+"lx");
+		//		System.out.println(saveDoorOpened.get(prossimaMappa)+"lx");
 			}
 			if (doorUp) {
 				questaStanza.put("portaUp", prossimaMappa);
 				prossimaStanza.put("portaDown", mappaAttuale);
-				System.out.println(saveDoorOpened.get(mappaAttuale)+"sopra");
-				System.out.println(saveDoorOpened.get(prossimaMappa)+"sopra");
+		//		System.out.println(saveDoorOpened.get(mappaAttuale)+"sopra");
+		//		System.out.println(saveDoorOpened.get(prossimaMappa)+"sopra");
 			}
 			if (doorDx) {
 				questaStanza.put("portaRight", prossimaMappa);
 				prossimaStanza.put("portaLeft", mappaAttuale);
-				System.out.println(saveDoorOpened.get(mappaAttuale)+"DESTRO");
-				System.out.println(saveDoorOpened.get(prossimaMappa)+"DESTRO");
+		//		System.out.println(saveDoorOpened.get(mappaAttuale)+"DESTRO");
+		//		System.out.println(saveDoorOpened.get(prossimaMappa)+"DESTRO");
 			}
 	
 			Maps.getIndexYetChoosen().add(prossimaMappa);

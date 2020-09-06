@@ -258,7 +258,7 @@ public class GraphicsGame extends StackPane{
 						nemico = new Enemy(Movement.matrixInPixelX(i),Movement.matrixInPixelY(j));
 						nemico.isAlive = true;
 						EnemySpawn = true;
-						System.out.println("Spawno nemico");
+		//				System.out.println("Spawno nemico");
 					}
 					if (nemico.getLife()>0) {
 						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+20, Enemy.getSize()+20);
@@ -289,7 +289,7 @@ public class GraphicsGame extends StackPane{
 						nemico = new Enemy(Movement.matrixInPixelX(i),Movement.matrixInPixelY(j));
 						nemico.isAlive = true;
 						EnemySpawn = true;
-						System.out.println("Spawno nemico");
+	//					System.out.println("Spawno nemico");
 					}
 					if (nemico.getLife()>0) {
 						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImg(), nemico.getX(), nemico.getY(), Enemy.getSize()+20, Enemy.getSize()+20);
@@ -323,7 +323,7 @@ public class GraphicsGame extends StackPane{
 						boss = new Boss(Movement.matrixInPixelX(i),Movement.matrixInPixelY(j));
 						boss.isAlive = true;
 						BossSpawn = true;
-						System.out.println("Spawno nemico");
+		//				System.out.println("Spawno nemico");
 					}
 					if (boss.getLife()>0) {
 						canvas.getGraphicsContext2D().drawImage(GraphicEnemy.getImgBoss(), boss.getX(), boss.getY(), boss.getSize()+20, boss.getSize()+20);

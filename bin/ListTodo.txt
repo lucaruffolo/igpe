@@ -6,29 +6,15 @@
 
 Reparto codice manca:
  
-	-nemici acqua
-	-cuori acqua
-	-credits
+	- Multiplayer
 			
 Reparto musica:
 	
-	musica = mp3
-	effetti/suoni = waw
-	- musica boss
-	- effetti danno m
-	- effetti sparo
-	- suono raccogli chiave
-	- suono morte nemico
-	
-	- musica menu---ok
-	- musica nel gioco----ok
-	- suono camminata---ok
-	- musica sconfitta---ok
-	- suono morte---ok	
+	ok
 
 Reparto grafico manca:
 
-	- video credits	
+	ok	
 	
 
 	
