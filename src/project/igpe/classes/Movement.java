@@ -126,22 +126,57 @@ public class Movement {
 				} catch (Exception e) {	e.printStackTrace();}
 			
 			checkMap(); // funzione controllo hasmap
-
-			if (doorDown) {				
-				newPosX = 612;
-				newPosY = 180;
-			}
-			if (doorLx) {
-				newPosX = 998;
-				newPosY = 420;
-			}
-			if (doorUp) {
-				newPosX = 606;
-				newPosY = 638;
-			}
-			if (doorDx) {
-				newPosX = 202;
-				newPosY = 420;
+			if (Maps.closedMap) {
+				if (doorDown) {				
+					newPosX = 612;
+					newPosY = 180;
+				}
+				if (doorLx) {
+					newPosX = 998;
+					newPosY = 420;
+				}
+				if (doorUp) {
+					newPosX = 606;
+					newPosY = 638;
+				}
+				if (doorDx) {
+					newPosX = 202;
+					newPosY = 420;
+				}
+			}else {/*
+				if (doorDown) {				
+					newPosX = 601;
+					newPosY = 159;
+				}
+				if (doorLx) {
+					newPosX = 1009;
+					newPosY = 420;
+				}
+				if (doorUp) {
+					newPosX = 601;
+					newPosY = 630;
+				}
+				if (doorDx) {
+					newPosX = 175;
+					newPosY = 423;
+				}
+				*/
+				if (doorDown) {				
+					newPosX = Settings.x/2;
+					newPosY = Settings.y/2;
+				}
+				if (doorLx) {	
+					newPosX = Settings.x/2;
+					newPosY = Settings.y/2;
+				}
+				if (doorUp) {	
+					newPosX = Settings.x/2;
+					newPosY = Settings.y/2;
+				}
+				if (doorDx) {	
+					newPosX = Settings.x/2;
+					newPosY = Settings.y/2;
+				}
 			}
 			
 			Hero.setX(newPosX);
