@@ -33,6 +33,7 @@ public class Credits implements Initializable{
 
     @FXML
     void clickBack(ActionEvent event) throws Exception {
+    	player.stop();
     	FXMLLoader loader = new FXMLLoader(MenuIniziale.class.getResource("MenuIniziale.fxml"));
     	AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
     	Scene menuIniziale = new Scene(root, 1024,720); 
@@ -43,12 +44,12 @@ public class Credits implements Initializable{
 		Sound.musicLoop();
 		Sound.musicStart();
     }
- 
+    public static MediaPlayer player; 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		File f=new File("src/project/igpe/videos/Editor.mp4");
 		Media video=new Media(f.toURI().toString());
-		MediaPlayer player =new MediaPlayer(video);
+		player =new MediaPlayer(video);
 		media.setMediaPlayer(player);
 		player.play();
 	}
