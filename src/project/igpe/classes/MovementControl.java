@@ -108,6 +108,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 					if (Bullet.heroAmmo < Bullet.maxAmmo) {
 						Hero.shoot();
 						Bullet.heroAmmo++;
+						shootgun.setVolume(0.1);
 						shootgun.play();
 					}
 				}
