@@ -57,7 +57,7 @@ public class Enemy {
 			
 			dirEnemy = dir;
 			
-			if (!Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionObstacleDmg(x, y)){
+			if (!Movement.collisionFall(x, y) && !Movement.collisionWall(x, y) && !Movement.collisionDoor(x, y) && !Movement.collisionObstacle(x, y) && !Movement.collisionObstacleDmg(x, y)){
 
 				if (dir == MOVE_RIGHT && !stopMoving)
 					x += speed;		
