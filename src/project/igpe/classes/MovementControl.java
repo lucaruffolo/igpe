@@ -1,7 +1,5 @@
 package project.igpe.classes;
 
-import javafx.scene.media.AudioClip;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -10,9 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import project.igpe.GUI.MenuIniziale;
 import project.igpe.GUI.Pausa;
-import project.igpe.GUI.WinScene;
 import project.igpe.main.Main;
 
 
@@ -87,22 +85,22 @@ public class MovementControl implements EventHandler<KeyEvent> {
 			case SHIFT:
 				Hero.setSpeed(4);
 				break;
-			case I:
+	/*		case I:
 				try {
 					WinScene.Win();
 				} catch (Exception e2) {	e2.printStackTrace();}
 				break;
-			case R:
+	*/		case R:
 				Hero.ResetPosition();
 				break;
 			
-			case C:
+	/*		case C:
 				System.out.println(" x= "+Hero.getX()+" . "+ " y= "+Hero.getY()+" CELL "+ Movement.room.getCellType(Movement.pixelInMatrixX(Hero.getX()),Movement.pixelInMatrixX(Hero.getY())));
 				break;
 			case M:
 				System.out.println(Movement.pixelInMatrixX(Hero.getX())+" . "+ Movement.pixelInMatrixY(Hero.getY()));
 				break;
-			
+		*/	
 			case SPACE:
 				if (Hero.takePistol) {
 					if (Bullet.heroAmmo < Bullet.maxAmmo) {

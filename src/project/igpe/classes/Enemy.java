@@ -1,10 +1,7 @@
 package project.igpe.classes;
 
-import java.io.File;
-
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.scene.media.AudioClip;
 
 public class Enemy {
 	
@@ -24,7 +21,7 @@ public class Enemy {
 	public final static int damage = 5;
 	public boolean isAlive = false;
 	private static int size = 50;
-	public static Boolean keyDrop = false;
+	public static Boolean keyDrop = false; 
 
 
 	public Enemy(int xx, int yy) {
