@@ -1,7 +1,9 @@
 package project.igpe.classes;
 
+import java.io.File;
 import java.util.HashMap;
 
+import javafx.scene.media.AudioClip;
 import project.igpe.GUI.ChangeRoomScene;
 import project.igpe.main.Main;
 
@@ -30,6 +32,8 @@ public class Movement {
 	private static int prossimaMappa;
 	
 	public int dacancellare = 0;
+	
+	private static AudioClip key= new AudioClip(new File("src/project/igpe/sounds/key.wav").toURI().toString());
 	
 	
 	public void move(int direction) {
@@ -87,9 +91,11 @@ public class Movement {
 	public static void collisionKey(int newX, int newY) {
 		if(GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false &&
 				(Maps.getIndiceMappe() == 23 || Maps.getIndiceMappe() == 24 ||
-				Maps.getIndiceMappe() == 25 || Maps.getIndiceMappe() == 26)) {
+				Maps.getIndiceMappe() == 25 || Maps.getIndiceMappe() == 26 || Maps.getIndiceMappe() == 31 
+				|| Maps.getIndiceMappe() == 32 || Maps.getIndiceMappe() == 33 || Maps.getIndiceMappe() == 34)) {
 			if (room.getCellType(pixelInMatrixX(newX), pixelInMatrixY(newY)) == Cell.ENEMYKEY) {		
 				Hero.takeKey = true;
+				key.play();
 				room.setCellType(pixelInMatrixX(newX), pixelInMatrixY(newY), Cell.EMPTY); //elimino cella key	
 			}
 		}
@@ -145,20 +151,20 @@ public class Movement {
 				}
 			}else {
 				if (doorDown) {				
-					newPosX = 601;
-					newPosY = 159;
+					newPosX = 599;
+					newPosY = 220;
 				}
 				if (doorLx) {
-					newPosX = 1009;
-					newPosY = 420;
+					newPosX = 977;
+					newPosY = 416;
 				}
 				if (doorUp) {
-					newPosX = 601;
-					newPosY = 630;
+					newPosX = 603;
+					newPosY = 600;
 				}
 				if (doorDx) {
-					newPosX = 175;
-					newPosY = 423;
+					newPosX = 225;
+					newPosY = 420;
 				}
 				/*
 				if (doorDown) {				
@@ -424,32 +430,55 @@ public class Movement {
 			newRoom(questaStanza);
 		}
 		if(Maps.isControllo()) {
-			if(Maps.getIndexYetChoosen().get(1)==Maps.getIndiceMappe()) {
-				Maps.mapKey=false;
-				Enemy.setKeyDrop(false);
-				System.out.println("disabilito drop");
+			if (1 < Maps.getIndexYetChoosen().size()) {
+				if (Maps.getIndexYetChoosen().get(1) == Maps.getIndiceMappe()) {
+					Maps.mapKey = false;
+					Enemy.setKeyDrop(false);
+					System.out.println("disabilito drop");
+				} 
 			}
-			if(Maps.getIndiceMappe()==23 || Maps.getIndiceMappe()==24 || Maps.getIndiceMappe()==25 || Maps.getIndiceMappe()==26) {
+			if(Maps.getIndiceMappe()==23 || Maps.getIndiceMappe()==24 || Maps.getIndiceMappe()==25 || Maps.getIndiceMappe()==26 || Maps.getIndiceMappe()==31 || Maps.getIndiceMappe()==32 || Maps.getIndiceMappe()==33 || Maps.getIndiceMappe()==34) {
 				Maps.setMapKey(true);
 			}
 		}
 		
-		if(Maps.getIndiceMappe()==23) {
-			Maps.setMapBoss(true);
-			Maps.setMapKey(true);
+		if(Maps.isClosedMap()) {
+			if(Maps.getIndiceMappe()==23) {
+				Maps.setMapBoss(true);
+				Maps.setMapKey(true);
+			}
+			else if(Maps.getIndiceMappe()==24) {
+				Maps.setMapBoss(true);
+				Maps.setMapKey(true);
+			}
+			else if(Maps.getIndiceMappe()==25) {
+				Maps.setMapBoss(true);
+				Maps.setMapKey(true);
+			}
+			else if(Maps.getIndiceMappe()==26) {
+				Maps.setMapBoss(true);
+				Maps.setMapKey(true);
+			}
 		}
-		else if(Maps.getIndiceMappe()==24) {
-			Maps.setMapBoss(true);
-			Maps.setMapKey(true);
+		else {
+			if(Maps.getIndiceMappe()==31){
+				Maps.setMapBoss(true);
+				Maps.setMapKey(true);
+			}
+			else if(Maps.getIndiceMappe()==32) {
+				Maps.setMapBoss(true);
+				Maps.setMapKey(true);
+			}
+			else if(Maps.getIndiceMappe()==33) {
+				Maps.setMapBoss(true);
+				Maps.setMapKey(true);
+			}
+			else if(Maps.getIndiceMappe()==34) {
+				Maps.setMapBoss(true);
+				Maps.setMapKey(true);
+			}
 		}
-		else if(Maps.getIndiceMappe()==25) {
-			Maps.setMapBoss(true);
-			Maps.setMapKey(true);
-		}
-		else if(Maps.getIndiceMappe()==26) {
-			Maps.setMapBoss(true);
-			Maps.setMapKey(true);
-		}
+		
 
 	}
 	
@@ -469,44 +498,85 @@ public class Movement {
 	public static void newRoom(HashMap<String, Integer> questaStanza) {
 		
 		if(Maps.getIndexYetChoosen().size()==2 && Maps.isMapBoss()==false) {
-			if (doorDown) {
-				Maps.setIndiceMappe(24);
-				nRand=24;
-				try {
-					graphicGame.setBg(24);
-				} catch (Exception e) {
-					e.printStackTrace();
+			if(Maps.isClosedMap()) {
+				if (doorDown) {
+					Maps.setIndiceMappe(24);
+					nRand=24;
+					try {
+						graphicGame.setBg(24);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+					
+				else if (doorDx) {
+					Maps.setIndiceMappe(23);
+					nRand=23;
+					try {
+						graphicGame.setBg(23);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				else if (doorLx) {
+					Maps.setIndiceMappe(26);
+					nRand=26;
+					try {
+						graphicGame.setBg(26);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				else if (doorUp) {
+					Maps.setIndiceMappe(25);
+					nRand=25;
+					try {
+						graphicGame.setBg(25);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			else {
+				if (doorDown) {
+					Maps.setIndiceMappe(32);
+					nRand=32;
+					try {
+						graphicGame.setBg(32);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+					
+				else if (doorDx) {
+					Maps.setIndiceMappe(31);
+					nRand=31;
+					try {
+						graphicGame.setBg(31);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				else if (doorLx) {
+					Maps.setIndiceMappe(34);
+					nRand=34;
+					try {
+						graphicGame.setBg(34);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				else if (doorUp) {
+					Maps.setIndiceMappe(33);
+					nRand=33;
+					try {
+						graphicGame.setBg(33);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 				
-			else if (doorDx) {
-				Maps.setIndiceMappe(23);
-				nRand=23;
-				try {
-					graphicGame.setBg(23);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			else if (doorLx) {
-				Maps.setIndiceMappe(26);
-				nRand=26;
-				try {
-					graphicGame.setBg(26);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			else if (doorUp) {
-				Maps.setIndiceMappe(25);
-				nRand=25;
-				try {
-					graphicGame.setBg(25);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			
 			Maps.setMapBoss(true);
 			Enemy.setKeyDrop(true);
 			Maps.setMapKey(true);
@@ -552,6 +622,7 @@ public class Movement {
 					e.printStackTrace();
 				}
 			}
+			
 			Maps.setMapBoss(false);
 		}
 		else {

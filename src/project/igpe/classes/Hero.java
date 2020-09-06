@@ -116,6 +116,22 @@ public class Hero {
 			if (Movement.room.getCellType(2, 7) == Cell.WALL)
 				Movement.room.setCellType(2, 7,Cell.EMPTY);
 		}
+		if (Maps.getIndiceMappe() == 31 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false && Hero.takeKey) {
+			if (Movement.room.getCellType(18, 7) == Cell.WALL)
+				Movement.room.setCellType(18, 7,Cell.EMPTY);
+		}
+		if (Maps.getIndiceMappe() == 32 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false  && Hero.takeKey) {
+			if (Movement.room.getCellType(10, 12) == Cell.WALL)
+				Movement.room.setCellType(10, 12,Cell.EMPTY);
+		}
+		if (Maps.getIndiceMappe() == 33 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false  && Hero.takeKey) {
+			if (Movement.room.getCellType(10, 2) == Cell.WALL)
+				Movement.room.setCellType(10, 2,Cell.EMPTY);
+		}
+		if (Maps.getIndiceMappe() == 34 && GraphicsGame.EnemySpawn && GraphicsGame.nemico.isAlive == false  && Hero.takeKey) {
+			if (Movement.room.getCellType(2, 7) == Cell.WALL)
+				Movement.room.setCellType(2, 7,Cell.EMPTY);
+		}
 		
 		if (Maps.getIndiceMappe() == 27
 				|| Maps.getIndiceMappe() == 28

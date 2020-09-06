@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import project.igpe.classes.Sound;
 import project.igpe.main.Main;
 
 public class Credits implements Initializable{
@@ -36,6 +37,11 @@ public class Credits implements Initializable{
     	AnchorPane root = (AnchorPane) loader.load(); //carica l'AnchorPane principale
     	Scene menuIniziale = new Scene(root, 1024,720); 
     	Main.window.setScene(menuIniziale);
+    	String musicFile = "src/project/igpe/sounds/menu.mp3";
+		Sound.setMusic(musicFile);
+		Sound.modifyVolume(0.05);
+		Sound.musicLoop();
+		Sound.musicStart();
     }
  
 	@Override

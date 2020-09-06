@@ -1,5 +1,8 @@
 package project.igpe.classes;
 
+import javafx.scene.media.AudioClip;
+
+import java.io.File;
 import java.io.IOException;
 
 import javafx.event.EventHandler;
@@ -18,6 +21,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 	private Movement movimento;
 	private static Scene sceneGame;
 	private static Scene ripristinoGame;
+	private static AudioClip shootgun = new AudioClip(new File("src/project/igpe/sounds/pistolas.wav").toURI().toString());
 	
 	public MovementControl(Movement movimento) {
 		this.movimento = movimento;		
@@ -104,6 +108,7 @@ public class MovementControl implements EventHandler<KeyEvent> {
 					if (Bullet.heroAmmo < Bullet.maxAmmo) {
 						Hero.shoot();
 						Bullet.heroAmmo++;
+						shootgun.play();
 					}
 				}
 				break;

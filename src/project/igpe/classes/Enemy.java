@@ -1,7 +1,10 @@
 package project.igpe.classes;
 
+import java.io.File;
+
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import javafx.scene.media.AudioClip;
 
 public class Enemy {
 	
@@ -24,7 +27,6 @@ public class Enemy {
 	public static Boolean keyDrop = false;
 
 
-
 	public Enemy(int xx, int yy) {
 		x = xx;
 		y = yy;
@@ -37,8 +39,9 @@ public class Enemy {
 		if (GraphicsGame.EnemySpawn) {
 	    moving(nRandDir);
 	    GraphicEnemy.setImgDir(dirEnemy);
-	    if (GraphicsGame.nemico.getLife()<=0)
+	    if (GraphicsGame.nemico.getLife()<=0) {
 	    	GraphicsGame.nemico.isAlive = false;
+	    	}
 		}
 	}
 

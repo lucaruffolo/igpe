@@ -137,6 +137,18 @@ public class Maps {
 		String txt24 = new String("src/project/igpe/maps/Template2door(GIU-SU)chiave.txt");
 		String txt25 = new String("src/project/igpe/maps/Template2door(SU-GIU)chiave.txt");
 		String txt26 = new String("src/project/igpe/maps/Template2door(SX-DX)chiave.txt");
+		
+		File img31 = new File("src/project/igpe/images/mappaChiaveAcqua2(DX-SX).png");
+		File img32 = new File("src/project/igpe/images/mappaChiaveAcqua2(GIU-SU).png");
+		File img33 = new File("src/project/igpe/images/mappaChiaveAcqua2(SU-GIU).png");
+		File img34 = new File("src/project/igpe/images/mappaChiaveAcqua2(SX-DX).png");
+		
+		String txt31 = new String("src/project/igpe/maps/Template2doorACQUA(DX-SX)chiave.txt");
+		String txt32 = new String("src/project/igpe/maps/Template2doorACQUA(GIU-SU)chiave.txt");
+		String txt33 = new String("src/project/igpe/maps/Template2doorACQUA(SU-GIU)chiave.txt");
+		String txt34 = new String("src/project/igpe/maps/Template2doorACQUA(SX-DX)chiave.txt");
+		
+		
 		//fine chiave
 		//boss
 		File img27 = new File("src/project/igpe/images/portaBossDx.png");
@@ -196,6 +208,10 @@ public class Maps {
 		upTxt.put(29, txt29);
 		upImg.put(25, img25);
 		upTxt.put(25, txt25);
+		upImg.put(32, img32);
+		upTxt.put(32, txt32);
+		upImg.put(33, img33);
+		upTxt.put(33, txt33);
 		
 		downImg.put(0, img0);
 		downTxt.put(0, txt0);
@@ -233,6 +249,10 @@ public class Maps {
 		downTxt.put(28, txt28);
 		downImg.put(24, img24);
 		downTxt.put(24, txt24);
+		downImg.put(32, img32);
+		downTxt.put(32, txt32);
+		downImg.put(33, img33);
+		downTxt.put(33, txt33);
 		
 		leftImg.put(0, img0);
 		leftTxt.put(0, txt0);
@@ -270,6 +290,10 @@ public class Maps {
 		leftTxt.put(30, txt30);
 		leftImg.put(26, img26);
 		leftTxt.put(26, txt26);
+		leftImg.put(31, img31);
+		leftTxt.put(31, txt31);
+		leftImg.put(34, img34);
+		leftTxt.put(34, txt34);
 		
 		rightImg.put(0, img0);
 		rightTxt.put(0, txt0);
@@ -307,6 +331,10 @@ public class Maps {
 		rightTxt.put(27, txt27);
 		rightImg.put(23, img23);
 		rightTxt.put(23, txt23);
+		rightImg.put(31, img31);
+		rightTxt.put(31, txt31);
+		rightImg.put(34, img34);
+		rightTxt.put(34, txt34);
 		
 	}
 	
